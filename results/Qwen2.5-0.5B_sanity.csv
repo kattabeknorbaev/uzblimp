@@ -1,0 +1,4 @@
+pair_id,phenomenon,good,bad,good_logprob,bad_logprob,diff,correct,good_ntok,bad_ntok,first_tok_differs,model
+0,postposition_case,Darsdan keyin uchrashamiz.,Darsga keyin uchrashamiz.,-67.56407165527344,-70.83876037597656,3.274688720703125,True,10,10,False,Qwen/Qwen2.5-0.5B
+1,hech_negation,Hech kim kelmadi.,Hech kim keldi.,-64.36717987060547,-57.692474365234375,-6.674705505371094,False,6,6,False,Qwen/Qwen2.5-0.5B
+2,numeral_plural,Uchta kitob oldim.,Uchta kitoblar oldim.,-54.31258773803711,-56.657073974609375,2.3444862365722656,True,7,8,False,Qwen/Qwen2.5-0.5B

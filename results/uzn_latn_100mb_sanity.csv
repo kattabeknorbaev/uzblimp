@@ -1,0 +1,4 @@
+pair_id,phenomenon,good,bad,good_logprob,bad_logprob,diff,correct,good_ntok,bad_ntok,first_tok_differs,model
+0,postposition_case,Darsdan keyin uchrashamiz.,Darsga keyin uchrashamiz.,-22.54708480834961,-28.278162002563477,5.731077194213867,True,6,6,False,goldfish-models/uzn_latn_100mb
+1,hech_negation,Hech kim kelmadi.,Hech kim keldi.,-18.64249038696289,-23.296310424804688,4.653820037841797,True,5,5,False,goldfish-models/uzn_latn_100mb
+2,numeral_plural,Uchta kitob oldim.,Uchta kitoblar oldim.,-21.105518341064453,-28.407161712646484,7.301643371582031,True,5,5,False,goldfish-models/uzn_latn_100mb

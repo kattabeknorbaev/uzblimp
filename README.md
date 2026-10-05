@@ -16,6 +16,22 @@ Related work: TurBLiMP (Turkish, EMNLP 2025), TatBLiMP (Tatar, 2026), MultiBLiMP
 | `results/` | Per-pair model scores, one CSV per model × dataset |
 | `log.md` | Research log: date – task – result – next step |
 
+## Scoring a dataset
+
+```bash
+python -m venv .venv && .venv/Scripts/activate   # Colab: skip, just pip install
+pip install -r requirements.txt
+python scripts/score_pairs.py --data data/multiblimp_uzb.tsv --good-col sen --bad-col wrong_sen \
+    --model goldfish-models/uzn_latn_100mb --group-col phenomenon
+```
+
+Writes `results/<model>_<dataset>.csv` (one row per pair) and appends to `results/summary.csv`. Weights load in float32 by default; bfloat16 is too coarse for close pairs. `--bos` prepends a start token for models whose tokenizer doesn't add one (e.g. Qwen), so a difference in the first word is also scored.
+
+## Data sources
+
+- `data/multiblimp_uzb.tsv`: MultiBLiMP 1.0, Uzbek split, downloaded 2026-10-05 from `huggingface.co/datasets/jumelet/multiblimp` (`uzb/data.tsv`). Grammatical column `sen`, ungrammatical `wrong_sen`.
+- `data/sanity.tsv`: 3 hand-written pairs for testing the pipeline.
+
 ## People
 
 Kattabek Norbaev (author), supervised by Yana Veitsman (University of Göttingen).

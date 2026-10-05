@@ -1,0 +1,5 @@
+timestamp,model,dataset,n_pairs,accuracy,bos,device,dtype,n_params_M
+2026-10-05T11:42:51,goldfish-models/uzn_latn_100mb,sanity,3,1.0,True,cpu,float32,164
+2026-10-05T11:44:04,Qwen/Qwen2.5-0.5B,sanity,3,0.6667,False,cpu,float32,494
+2026-10-05T11:46:11,goldfish-models/uzn_latn_100mb,multiblimp_uzb,50,1.0,True,cpu,float32,164
+2026-10-05T11:49:09,Qwen/Qwen2.5-0.5B,multiblimp_uzb,50,0.82,False,cpu,float32,494
