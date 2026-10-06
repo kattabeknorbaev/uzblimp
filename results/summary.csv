@@ -3,3 +3,9 @@ timestamp,model,dataset,n_pairs,accuracy,bos,device,dtype,n_params_M
 2026-10-05T11:44:04,Qwen/Qwen2.5-0.5B,sanity,3,0.6667,False,cpu,float32,494
 2026-10-05T11:46:11,goldfish-models/uzn_latn_100mb,multiblimp_uzb,50,1.0,True,cpu,float32,164
 2026-10-05T11:49:09,Qwen/Qwen2.5-0.5B,multiblimp_uzb,50,0.82,False,cpu,float32,494
+2026-10-06T18:09:08,goldfish-models/uzn_latn_100mb,pilot_latn,13,1.0,True,cpu,float32,164
+2026-10-06T18:09:24,goldfish-models/uzn_latn_100mb,pilot_reformed,13,0.6923,True,cpu,float32,164
+2026-10-06T18:14:44,goldfish-models/uzn_cyrl_100mb,pilot_cyrl,13,1.0,True,cpu,float32,164
+2026-10-06T18:16:46,Qwen/Qwen2.5-0.5B,pilot_latn,13,0.4615,False,cpu,float32,494
+2026-10-06T18:17:01,Qwen/Qwen2.5-0.5B,pilot_reformed,13,0.5385,False,cpu,float32,494
+2026-10-06T18:17:16,Qwen/Qwen2.5-0.5B,pilot_cyrl,13,0.5385,False,cpu,float32,494

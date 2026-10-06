@@ -1,0 +1,14 @@
+pair_id,id,good,bad,good_logprob,bad_logprob,diff,correct,good_ntok,bad_ntok,first_tok_differs,model
+0,s1,Darsdan keyin uchrashamiz.,Darsga keyin uchrashamiz.,-22.54708480834961,-28.27816390991211,5.7310791015625,True,6,6,False,goldfish-models/uzn_latn_100mb
+1,s2,Hech kim kelmadi.,Hech kim keldi.,-18.64249038696289,-23.296308517456055,4.653818130493164,True,5,5,False,goldfish-models/uzn_latn_100mb
+2,s3,Uchta kitob oldim.,Uchta kitoblar oldim.,-21.105518341064453,-28.407161712646484,7.301643371582031,True,5,5,False,goldfish-models/uzn_latn_100mb
+3,t01,Ikkita bola oʻynayapti.,Ikkita bolalar oʻynayapti.,-29.62234878540039,-32.28193283081055,2.6595840454101562,True,7,7,False,goldfish-models/uzn_latn_100mb
+4,t02,Men ertaga kelaman.,Men ertaga kelasan.,-18.010910034179688,-23.220096588134766,5.209186553955078,True,5,5,False,goldfish-models/uzn_latn_100mb
+5,t03,Mening akam shifokor.,Mening akang shifokor.,-19.880233764648438,-30.16712188720703,10.286888122558594,True,5,6,False,goldfish-models/uzn_latn_100mb
+6,t04,Koʻpchilik oldida qoʻshiq aytdim.,Koʻpchilik oldida hech qachon qoʻshiq aytdim.,-33.72734069824219,-43.43334197998047,9.706001281738281,True,10,12,False,goldfish-models/uzn_latn_100mb
+7,t05,Ukam itdan qoʻrqadi.,Ukam itni qoʻrqadi.,-30.137718200683594,-36.42625427246094,6.288536071777344,True,8,7,False,goldfish-models/uzn_latn_100mb
+8,t06,Biz uyni oʻzimiz tozaladik.,Biz uyni oʻzingiz tozaladik.,-31.9764347076416,-37.882301330566406,5.905866622924805,True,9,9,False,goldfish-models/uzn_latn_100mb
+9,t07,Men oʻzimni oynada koʻrdim.,Men meni oynada koʻrdim.,-25.06585121154785,-32.30739974975586,7.241548538208008,True,10,8,False,goldfish-models/uzn_latn_100mb
+10,t08,Ertalabdan beri yomgʻir yogʻyapti.,Ertalabga beri yomgʻir yogʻyapti.,-25.86294937133789,-41.247222900390625,15.384273529052734,True,10,11,False,goldfish-models/uzn_latn_100mb
+11,t09,Oʻqituvchi oʻquvchilarga yangi mavzuni tushuntirdi.,Oʻqituvchi oʻquvchilarni yangi mavzuni tushuntirdi.,-38.578529357910156,-43.63041687011719,5.051887512207031,True,11,11,False,goldfish-models/uzn_latn_100mb
+12,t10,Bu mening oʻrtogʻim.,Bu mening oʻrtoqim.,-25.029216766357422,-28.7082462310791,3.6790294647216797,True,9,8,False,goldfish-models/uzn_latn_100mb

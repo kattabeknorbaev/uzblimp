@@ -1,0 +1,14 @@
+pair_id,id,good,bad,good_logprob,bad_logprob,diff,correct,good_ntok,bad_ntok,first_tok_differs,model
+0,s1,Darsdan keyin uçraşamiz.,Darsga keyin uçraşamiz.,-76.92819213867188,-81.36920166015625,4.441009521484375,True,10,10,False,Qwen/Qwen2.5-0.5B
+1,s2,Heç kim kelmadi.,Heç kim keldi.,-52.87653732299805,-47.464683532714844,-5.411853790283203,False,6,6,False,Qwen/Qwen2.5-0.5B
+2,s3,Uçta kitob oldim.,Uçta kitoblar oldim.,-61.949249267578125,-60.01629638671875,-1.932952880859375,False,7,8,False,Qwen/Qwen2.5-0.5B
+3,t01,Ikkita bola öynayapti.,Ikkita bolalar öynayapti.,-77.54664611816406,-83.05719757080078,5.510551452636719,True,9,10,False,Qwen/Qwen2.5-0.5B
+4,t02,Men ertaga kelaman.,Men ertaga kelasan.,-45.06008529663086,-47.502559661865234,2.442474365234375,True,6,7,False,Qwen/Qwen2.5-0.5B
+5,t03,Mening akam şifokor.,Mening akang şifokor.,-72.416259765625,-75.0431900024414,2.6269302368164062,True,8,8,False,Qwen/Qwen2.5-0.5B
+6,t04,Köpçilik oldida qöşiq aytdim.,Köpçilik oldida heç qaçon qöşiq aytdim.,-114.10848236083984,-150.56161499023438,36.45313262939453,True,14,18,False,Qwen/Qwen2.5-0.5B
+7,t05,Ukam itdan qörqadi.,Ukam itni qörqadi.,-65.1145248413086,-62.25087356567383,-2.8636512756347656,False,9,9,False,Qwen/Qwen2.5-0.5B
+8,t06,Biz uyni özimiz tozaladik.,Biz uyni özingiz tozaladik.,-76.111328125,-71.52841186523438,-4.582916259765625,False,12,12,False,Qwen/Qwen2.5-0.5B
+9,t07,Men özimni oynada kördim.,Men meni oynada kördim.,-70.7230453491211,-64.67473602294922,-6.048309326171875,False,10,9,False,Qwen/Qwen2.5-0.5B
+10,t08,Ertalabdan beri yomğir yoğyapti.,Ertalabga beri yomğir yoğyapti.,-123.5956802368164,-117.5914077758789,-6.0042724609375,False,16,16,False,Qwen/Qwen2.5-0.5B
+11,t09,Öqituvçi öquvçilarga yangi mavzuni tuşuntirdi.,Öqituvçi öquvçilarni yangi mavzuni tuşuntirdi.,-142.57501220703125,-143.04920959472656,0.4741973876953125,True,21,22,False,Qwen/Qwen2.5-0.5B
+12,t10,Bu mening örtoğim.,Bu mening örtoqim.,-55.668216705322266,-58.730934143066406,3.0627174377441406,True,6,6,False,Qwen/Qwen2.5-0.5B

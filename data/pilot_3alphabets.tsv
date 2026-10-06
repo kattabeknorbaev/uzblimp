@@ -1,0 +1,14 @@
+id	phenomenon	source	good_latn	bad_latn	good_cyrl	bad_cyrl	good_reformed	bad_reformed
+s1	postposition_case_keyin	sanity	Darsdan keyin uchrashamiz.	Darsga keyin uchrashamiz.	Дарсдан кейин учрашамиз.	Дарсга кейин учрашамиз.	Darsdan keyin uçraşamiz.	Darsga keyin uçraşamiz.
+s2	hech_negation_polarity	sanity	Hech kim kelmadi.	Hech kim keldi.	Ҳеч ким келмади.	Ҳеч ким келди.	Heç kim kelmadi.	Heç kim keldi.
+s3	numeral_no_plural	sanity	Uchta kitob oldim.	Uchta kitoblar oldim.	Учта китоб олдим.	Учта китоблар олдим.	Uçta kitob oldim.	Uçta kitoblar oldim.
+t01	numeral_no_plural	rank 1 (row 17)	Ikkita bola oʻynayapti.	Ikkita bolalar oʻynayapti.	Иккита бола ўйнаяпти.	Иккита болалар ўйнаяпти.	Ikkita bola öynayapti.	Ikkita bolalar öynayapti.
+t02	person_agreement	rank 2 (row 21)	Men ertaga kelaman.	Men ertaga kelasan.	Мен эртага келаман.	Мен эртага келасан.	Men ertaga kelaman.	Men ertaga kelasan.
+t03	possessive_agreement	rank 3 (row 22)	Mening akam shifokor.	Mening akang shifokor.	Менинг акам шифокор.	Менинг аканг шифокор.	Mening akam şifokor.	Mening akang şifokor.
+t04	hech_npi_insertion	rank 4 (row 10)	Koʻpchilik oldida qoʻshiq aytdim.	Koʻpchilik oldida hech qachon qoʻshiq aytdim.	Кўпчилик олдида қўшиқ айтдим.	Кўпчилик олдида ҳеч қачон қўшиқ айтдим.	Köpçilik oldida qöşiq aytdim.	Köpçilik oldida heç qaçon qöşiq aytdim.
+t05	lexical_case	rank 5 (row 2)	Ukam itdan qoʻrqadi.	Ukam itni qoʻrqadi.	Укам итдан қўрқади.	Укам итни қўрқади.	Ukam itdan qörqadi.	Ukam itni qörqadi.
+t06	anaphor_agreement	rank 6 (row 1)	Biz uyni oʻzimiz tozaladik.	Biz uyni oʻzingiz tozaladik.	Биз уйни ўзимиз тозаладик.	Биз уйни ўзингиз тозаладик.	Biz uyni özimiz tozaladik.	Biz uyni özingiz tozaladik.
+t07	binding	rank 7 (row 4)	Men oʻzimni oynada koʻrdim.	Men meni oynada koʻrdim.	Мен ўзимни ойнада кўрдим.	Мен мени ойнада кўрдим.	Men özimni oynada kördim.	Men meni oynada kördim.
+t08	postposition_case_beri	rank 8 (row 18)	Ertalabdan beri yomgʻir yogʻyapti.	Ertalabga beri yomgʻir yogʻyapti.	Эрталабдан бери ёмғир ёғяпти.	Эрталабга бери ёмғир ёғяпти.	Ertalabdan beri yomğir yoğyapti.	Ertalabga beri yomğir yoğyapti.
+t09	ditransitive_dative	rank 9 (row 3)	Oʻqituvchi oʻquvchilarga yangi mavzuni tushuntirdi.	Oʻqituvchi oʻquvchilarni yangi mavzuni tushuntirdi.	Ўқитувчи ўқувчиларга янги мавзуни тушунтирди.	Ўқитувчи ўқувчиларни янги мавзуни тушунтирди.	Öqituvçi öquvçilarga yangi mavzuni tuşuntirdi.	Öqituvçi öquvçilarni yangi mavzuni tuşuntirdi.
+t10	stem_q_to_gh	rank 10 (row 7)	Bu mening oʻrtogʻim.	Bu mening oʻrtoqim.	Бу менинг ўртоғим.	Бу менинг ўртоқим.	Bu mening örtoğim.	Bu mening örtoqim.

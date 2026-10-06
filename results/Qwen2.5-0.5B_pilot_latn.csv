@@ -1,0 +1,14 @@
+pair_id,id,good,bad,good_logprob,bad_logprob,diff,correct,good_ntok,bad_ntok,first_tok_differs,model
+0,s1,Darsdan keyin uchrashamiz.,Darsga keyin uchrashamiz.,-67.5640640258789,-70.8387451171875,3.2746810913085938,True,10,10,False,Qwen/Qwen2.5-0.5B
+1,s2,Hech kim kelmadi.,Hech kim keldi.,-64.3671646118164,-57.69245147705078,-6.674713134765625,False,6,6,False,Qwen/Qwen2.5-0.5B
+2,s3,Uchta kitob oldim.,Uchta kitoblar oldim.,-54.31261444091797,-56.657081604003906,2.3444671630859375,True,7,8,False,Qwen/Qwen2.5-0.5B
+3,t01,Ikkita bola oʻynayapti.,Ikkita bolalar oʻynayapti.,-74.31452941894531,-75.32978820800781,1.0152587890625,True,10,11,False,Qwen/Qwen2.5-0.5B
+4,t02,Men ertaga kelaman.,Men ertaga kelasan.,-45.06008529663086,-47.502559661865234,2.442474365234375,True,6,7,False,Qwen/Qwen2.5-0.5B
+5,t03,Mening akam shifokor.,Mening akang shifokor.,-64.50650787353516,-62.572540283203125,-1.9339675903320312,False,8,8,False,Qwen/Qwen2.5-0.5B
+6,t04,Koʻpchilik oldida qoʻshiq aytdim.,Koʻpchilik oldida hech qachon qoʻshiq aytdim.,-99.97113800048828,-130.05812072753906,30.08698272705078,True,15,20,False,Qwen/Qwen2.5-0.5B
+7,t05,Ukam itdan qoʻrqadi.,Ukam itni qoʻrqadi.,-73.7462158203125,-70.3626708984375,-3.383544921875,False,10,10,False,Qwen/Qwen2.5-0.5B
+8,t06,Biz uyni oʻzimiz tozaladik.,Biz uyni oʻzingiz tozaladik.,-77.5748062133789,-82.38603973388672,4.8112335205078125,True,14,13,False,Qwen/Qwen2.5-0.5B
+9,t07,Men oʻzimni oynada koʻrdim.,Men meni oynada koʻrdim.,-85.12905883789062,-77.93742370605469,-7.1916351318359375,False,13,10,False,Qwen/Qwen2.5-0.5B
+10,t08,Ertalabdan beri yomgʻir yogʻyapti.,Ertalabga beri yomgʻir yogʻyapti.,-139.30130004882812,-134.70547485351562,-4.5958251953125,False,17,17,False,Qwen/Qwen2.5-0.5B
+11,t09,Oʻqituvchi oʻquvchilarga yangi mavzuni tushuntirdi.,Oʻqituvchi oʻquvchilarni yangi mavzuni tushuntirdi.,-142.51815795898438,-136.49465942382812,-6.02349853515625,False,23,24,False,Qwen/Qwen2.5-0.5B
+12,t10,Bu mening oʻrtogʻim.,Bu mening oʻrtoqim.,-67.68814086914062,-63.89241027832031,-3.7957305908203125,False,8,8,False,Qwen/Qwen2.5-0.5B
