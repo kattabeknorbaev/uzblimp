@@ -1,0 +1,142 @@
+{
+  "corpus": "D:\\drive-download-20260601T072834Z-3-001.zip",
+  "corpus_bytes": 201309643,
+  "corpus_sha256": "792e60766bdfe990d812594782789079cdf592844bfea3acd102e8867dfab7c8",
+  "run_seconds": 1143,
+  "limit_docs": null,
+  "seed": 0,
+  "example_sentence_words": [
+    4,
+    30
+  ],
+  "parts": {
+    "books": {
+      "paragraphs": 2913461,
+      "words": 22987226,
+      "reformed_letters": 0,
+      "sentences": 4431049,
+      "documents": 2971,
+      "latin_letters": 143735222,
+      "cyrillic_letters": 5,
+      "docs_mostly_latin": 2971
+    },
+    "legal": {
+      "paragraphs": 28853,
+      "words": 605690,
+      "reformed_letters": 0,
+      "sentences": 36374,
+      "documents": 17,
+      "latin_letters": 4536645,
+      "cyrillic_letters": 0,
+      "docs_mostly_latin": 17
+    },
+    "wiki": {
+      "paragraphs": 128011,
+      "words": 40332108,
+      "reformed_letters": 45373,
+      "sentences": 2756049,
+      "documents": 128011,
+      "latin_letters": 271649782,
+      "cyrillic_letters": 0,
+      "docs_mostly_latin": 128011
+    }
+  },
+  "totals": {
+    "paragraphs": 3070325,
+    "words": 63925024,
+    "reformed_letters": 45373,
+    "sentences": 7223472,
+    "documents": 130999,
+    "latin_letters": 419921649,
+    "cyrillic_letters": 5,
+    "docs_mostly_latin": 130999
+  },
+  "apostrophe_after_o_g": {
+    "books": {
+      "U+02BB ʻ (standard)": 3604915,
+      "U+2018 ‘": 671,
+      "U+02BC ʼ": 367,
+      "U+0027 ' (ASCII)": 22
+    },
+    "legal": {
+      "U+02BB ʻ (standard)": 73893,
+      "U+2018 ‘": 1397
+    },
+    "wiki": {
+      "U+02BB ʻ (standard)": 4038302,
+      "U+02BC ʼ": 4305
+    }
+  },
+  "apostrophe_anywhere": {
+    "U+02BB ʻ (standard)": 7721344,
+    "U+02BC ʼ": 706389,
+    "U+0027 ' (ASCII)": 21774,
+    "U+2018 ‘": 5109,
+    "U+2019 ’": 4042,
+    "U+0060 `": 0,
+    "U+00B4 ´": 0
+  },
+  "candidates": {
+    "hech:idiom:latn": 993,
+    "hech:idiom:usable": 906,
+    "hech:neg_copula:latn": 6570,
+    "hech:neg_copula:usable": 5967,
+    "hech:neg_verb:latn": 31152,
+    "hech:neg_verb:usable": 26976,
+    "hech:none:latn": 13131,
+    "hech:none:usable": 11230,
+    "keyin:sentences:latn": 58768,
+    "keyin:usable": 47289,
+    "num_ta:other:latn": 146182,
+    "num_ta:other:usable": 101212,
+    "num_ta:plural:latn": 2553,
+    "num_ta:plural:usable": 1791
+  },
+  "hech_word_by_negation": {
+    "bir:neg_copula": 386,
+    "bir:neg_verb": 2119,
+    "bir:none": 1148,
+    "ham:neg_copula": 30,
+    "ham:neg_verb": 99,
+    "ham:none": 47,
+    "idiom:idiom": 993,
+    "kim:neg_copula": 1714,
+    "kim:neg_verb": 8067,
+    "kim:none": 3667,
+    "narsa:neg_copula": 878,
+    "narsa:neg_verb": 4899,
+    "narsa:none": 1674,
+    "nima:neg_copula": 156,
+    "nima:neg_verb": 954,
+    "nima:none": 350,
+    "other:neg_copula": 1683,
+    "other:neg_verb": 5657,
+    "other:none": 2661,
+    "qachon:neg_copula": 135,
+    "qachon:neg_verb": 4799,
+    "qachon:none": 1445,
+    "qanday:neg_copula": 1442,
+    "qanday:neg_verb": 3555,
+    "qanday:none": 1678,
+    "qay:neg_copula": 58,
+    "qay:neg_verb": 515,
+    "qay:none": 235,
+    "qayer:neg_copula": 78,
+    "qayer:neg_verb": 364,
+    "qayer:none": 103,
+    "vaqt:neg_copula": 10,
+    "vaqt:neg_verb": 124,
+    "vaqt:none": 123
+  },
+  "candidate_pool_sizes": {
+    "keyin_ablative": 47289,
+    "hech_negated_verb": 26976,
+    "hech_no_negation": 11230,
+    "numeral_ta_noun": 101212,
+    "numeral_ta_plural": 1791
+  },
+  "skipped_and_metadata": {
+    "skipped_file:.pdf": 2,
+    "jsonl_source:wikipedia": 128011
+  }
+}

@@ -4,3 +4,5 @@ __pycache__/
 venv/
 .ipynb_checkpoints/
 .env
+# Corpus excerpts stay on this machine (never pushed)
+data/candidates/
