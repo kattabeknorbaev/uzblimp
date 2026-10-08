@@ -19,6 +19,7 @@ Each decision gives its source and date: **Kattabek** = his decision; **feedback
 | 11 | **Local professors who help publish and verify get credit.** | Kattabek, 2026-10-06 | Authorship vs acknowledgment is agreed with each person before they start. |
 | 12 | **Targets:** ≥600 checked pairs by the checkpoint, ~1,000 by 1 November; preprint mid-December. Kattabek expects corpus extraction to make this faster. | Kattabek (day-3/4 briefs, 2026-10-08) | Re-plan from the measured acceptance rate after the first review round (Task 4). |
 | 13 | **Team: Javokhir Matniyazov** (Tomaris.ai co-founder) helps build the dataset. | Kattabek, 2026-10-08 | Proposed roles: second native annotator on a 15–20% sample (inter-annotator agreement), hand-written pairs for the harder phenomena, model runs on Tomaris GPUs. Authorship and the Tomaris disclosure still to agree. |
+| 14 | **Corpus text policy updated:** corpus sentences may pass through the Claude chat (to debug the generator), and `pairs_v1_*.tsv` files with corpus sentences are committed to the private GitHub repo. Raw candidates (`data/candidates/`) and caches stay git-ignored. | Kattabek, 2026-10-08 | Javokhir can access the pair files through GitHub. |
 
 ## The 16 phenomena (Kattabek, 2026-10-08)
 

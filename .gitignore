@@ -6,3 +6,5 @@ venv/
 .env
 # Corpus excerpts stay on this machine (never pushed)
 data/candidates/
+# Generator caches (corpus lexicon, candidate pools, skip logs)
+data/cache/
