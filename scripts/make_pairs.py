@@ -50,6 +50,17 @@ CAPS_INSIDE = re.compile(r"\s[^\W\d_a-zʻʼ]")  # a capitalised word after the f
 BAD_CHARS = re.compile(r"[\d@«»\"“”„()\[\]{}:;/\\|<>…—–']|http|www|\s-\s|^-|-[\s.!?,]")
 
 
+# Rules added 2026-10-08 after the first review round (results/review_round1.md):
+NON_UZBEK = re.compile(r"[^\sA-Za-zʻʼ,.!?-]|[wW]|[cC](?!h)")  # R1: foreign letters (Candida, Kawamata)
+CAP_IN_WORD = re.compile(r"(?<=[^\W\d_]|-)[A-Z]")  # R2: OCR/case errors (tiQ, MOgʻidan, al-Mustaʼin)
+SPACES = re.compile(r"\s+")
+
+
+def normalize(s):
+    """R4: collapse runs of whitespace (they change model tokenization)."""
+    return SPACES.sub(" ", s).strip()
+
+
 def eligible(s):
     """Short, single, plain sentence without names, digits, quotes or dialogue dashes."""
     if not s or not s[0].isupper() or s[-1] not in ".!?":
@@ -57,6 +68,8 @@ def eligible(s):
     if sum(s.count(c) for c in ".!?") > 1:
         return False
     if CAPS_INSIDE.search(s) or BAD_CHARS.search(s) or OG_BAD_APOS_RE.search(s) or CYR_RE.search(s):
+        return False
+    if NON_UZBEK.search(s) or CAP_IN_WORD.search(s):
         return False
     return 4 <= n_words(s) <= 15
 
@@ -152,6 +165,8 @@ def postposition_case(s, ctx):
     if len(ms) != 1:
         return skip("not exactly one -dan keyin/beri")
     m = ms[0]
+    if re.match(rf"\s+bo{A}l", s[m.end():], re.I):  # R3: "beri boʻlmoq" = be on the verge of
+        return skip("idiom beri boʻl- (not the postposition)")
     base = m.group(1)
     if base.lower().endswith(("g", "gʻ")):
         return skip("g/gʻ-final stem: dative form unclear (toqqa?)")
@@ -189,6 +204,7 @@ def scan(corpus, phenomena, pool_size, seed, limit_docs):
             if not any(k in low for k in KEYWORDS):
                 continue
             for si, s in enumerate(split_sentences(line)):
+                s = normalize(s)
                 key = s.lower()
                 if key in seen or not eligible(s):
                     continue
@@ -241,6 +257,10 @@ def generate(ph, pool, ctx, n, seed):
     for s, src in items:
         if len(rows) >= n:
             break
+        s = normalize(s)
+        if not eligible(s):  # re-check cached pools against rules added since the scan
+            reasons["not eligible under current rules"] += 1
+            continue
         e = GENERATORS[ph][1](s, ctx)
         if e.bad:
             first = ctx.an.upos(s)[:1]
