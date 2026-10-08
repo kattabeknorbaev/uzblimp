@@ -1,0 +1,21 @@
+id	phenomenon	grammatical	ungrammatical	method	source_id	status	notes	reviewer	reviewed_at	reason
+anaphor_agreement-0001	anaphor_agreement	Biz uyni oʻzimiz tozaladik.	Biz uyni oʻzingiz tozaladik.	hand-written	phenomena.md row 1	accepted	reflexive 1PL → 2PL	KN	2026-10-06	
+lexical_case-0001	lexical_case	Ukam itdan qoʻrqadi.	Ukam itni qoʻrqadi.	hand-written	phenomena.md row 2	accepted	qoʻrqmoq: ABL → ACC	KN	2026-10-06	
+ditransitive_dative-0001	ditransitive_dative	Oʻqituvchi oʻquvchilarga yangi mavzuni tushuntirdi.	Oʻqituvchi oʻquvchilarni yangi mavzuni tushuntirdi.	hand-written	phenomena.md row 3	accepted	indirect object DAT → ACC (double accusative)	KN	2026-10-06	
+binding-0001	binding	Men oʻzimni oynada koʻrdim.	Men meni oynada koʻrdim.	hand-written	phenomena.md row 4	accepted	reflexive → pronoun	KN	2026-10-06	
+stem_alternation-0001	stem_alternation	Bu mening oʻrtogʻim.	Bu mening oʻrtoqim.	hand-written	phenomena.md row 7	accepted	gʻ → q before -im	KN	2026-10-06	
+npi_hech-0001	npi_hech	Hech kim kelmadi.	Hech kim keldi.	hand-written	phenomena.md row 20	accepted	polarity design: -ma- removed	KN	2026-10-06	
+npi_hech-0002	npi_hech	Koʻpchilik oldida qoʻshiq aytdim.	Koʻpchilik oldida hech qachon qoʻshiq aytdim.	hand-written	phenomena.md row 10	accepted	insertion design: hech qachon added	KN	2026-10-06	
+suspended_affixation-0001	suspended_affixation	Kechqurun qizlar bilan ziyofatga bordik va juda xursand boʻldik.	Kechqurun qizlar bilan ziyofatga borgan va juda xursand boʻldik.	hand-written	phenomena.md row 16	accepted	first conjunct -dik → bare participle -gan (Kattabek's form)	KN	2026-10-06	
+nominalization-0001	nominalization	Masalani qayta muhokama qilishni taklif qilaman.	Masalani qayta muhokama qilganini taklif qilaman.	hand-written	phenomena.md row 9	accepted	-ish → -gan complement	KN	2026-10-06	
+person_agreement-0001	person_agreement	Men ertaga kelaman.	Men ertaga kelasan.	hand-written	phenomena.md row 21	unchecked	1SG → 2SG verb; row not yet checked			
+ellipsis-0001	ellipsis	Doʻkonda Lola kurtkani va Jasur shimni tanladi.	Doʻkonda Lola kurtkani va shimni Jasur tanladi.	hand-written	phenomena.md row 6	accepted	second conjunct S-O → O-S (Kattabek's pair; scope to clarify)	KN	2026-10-06	
+scrambling-0001	scrambling	Hasanning maqolani yozganini bilaman.	Hasanning yozganini maqolani bilaman.	hand-written	phenomena.md row 14	accepted	object moved after the embedded verb	KN	2026-10-06	
+impersonal_passive-0001	impersonal_passive	Ertalab oʻquvchilar tomonidan maktab hovlisida yugurildi.	Ertalab maktab hovlisida yugurildi.	hand-written	phenomena.md row 11	accepted	agent phrase removed (reversed vs Turkish, Kattabek)	KN	2026-10-06	
+numeral_no_plural-0001	numeral_no_plural	Uchta kitob oldim.	Uchta kitoblar oldim.	hand-written	phenomena.md row 17	accepted	-lar added after numeral+ta	KN	2026-10-06	
+numeral_no_plural-0002	numeral_no_plural	Ikkita bola oʻynayapti.	Ikkita bolalar oʻynayapti.	hand-written	pilot t01	unchecked	-lar added after numeral+ta; not in the checked table			
+postposition_case-0001	postposition_case	Darsdan keyin uchrashamiz.	Darsga keyin uchrashamiz.	hand-written	phenomena.md row 18	accepted	keyin: ABL → DAT	KN	2026-10-06	
+postposition_case-0002	postposition_case	Ertalabdan beri yomgʻir yogʻyapti.	Ertalabga beri yomgʻir yogʻyapti.	hand-written	phenomena.md row 18	accepted	beri: ABL → DAT	KN	2026-10-06	
+possessive_agreement-0001	possessive_agreement	Mening akam shifokor.	Mening akang shifokor.	hand-written	phenomena.md row 22	unchecked	POSS.1SG → POSS.2SG; row not yet checked			
+dative_allomorphy-0001	dative_allomorphy	Biz qishloqqa bordik.	Biz qishloqga bordik.	hand-written	phenomena.md row 19	accepted	-qa → -ga after q	KN	2026-10-06	
+dative_allomorphy-0002	dative_allomorphy	U eshikka qaradi.	U eshikga qaradi.	hand-written	phenomena.md row 19	accepted	-ka → -ga after k	KN	2026-10-06	

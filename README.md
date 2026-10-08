@@ -34,7 +34,7 @@ Writes `results/<model>_<dataset>.csv` (one row per pair) and appends to `result
 
 ## People
 
-Kattabek Norbaev (author), supervised by Yana Veitsman (University of Göttingen).
+Kattabek Norbaev (author). Independent project.
 
 ## Conventions
 

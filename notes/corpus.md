@@ -26,7 +26,8 @@ Status: DRAFT, 2026-10-06. **Verified** = checked from the files themselves. **K
 - **Wiki articles have no line breaks.** Each article is one line, so paragraph structure is lost.
 - **Wiki has 45,373 ö/ğ/ş/ç.** These are probably foreign names (Turkish, German…), but I haven't checked. Either way, there's no evidence of reformed-alphabet Uzbek.
 
-## How we may use it (to agree with Yana)
+## How we may use it
 
-- **Search and statistics** (finding candidate sentences, counting phenomena): **Kattabek**
-- **Quoting or releasing corpus sentences in the benchmark:** **Kattabek / Yana**
+- **Kattabek, 2026-10-08:** all parts (books, legal, wiki) may be used, both for searching and for building benchmark pairs. Tomaris.ai data on Hugging Face may also be used if needed.
+- **Still to settle before the public release:** Wikipedia text is CC BY-SA (attribution, share-alike), and the books' terms are not documented above. Pairs built from corpus sentences record their `source_id`, so they can be traced or swapped if a source turns out not to be releasable.
+- **Personal data:** skip sentences with private people's names, phone numbers, addresses or similar.
