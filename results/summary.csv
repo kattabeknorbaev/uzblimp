@@ -13,3 +13,8 @@ timestamp,model,dataset,n_pairs,accuracy,bos,device,dtype,n_params_M,acc_norm,sc
 2026-10-15T11:57:01,Qwen/Qwen2.5-0.5B,uzblimp_v0.1,900,0.4189,False,cpu,float32,494,0.4622,causal
 2026-10-15T12:27:28,tahrirchi/tahrirchi-bert-base,uzblimp_v0.1,900,0.9767,True,cpu,float32,110,0.9767,mlm-pll
 2026-10-15T13:54:21,Qwen/Qwen2.5-0.5B,uzblimp_v0.1_bos,900,0.4233,True,cpu,float32,494,0.4744,causal
+2026-10-15T15:03:51,goldfish-models/uzn_cyrl_100mb,uzblimp_v0.1_cyrl,900,0.9367,True,cpu,float32,164,0.8922,causal
+2026-10-15T15:05:07,goldfish-models/uzn_latn_100mb,uzblimp_v0.1_cyrl,900,0.8767,True,cpu,float32,164,0.8022,causal
+2026-10-15T15:07:19,goldfish-models/uzn_cyrl_100mb,uzblimp_v0.1,900,0.42,True,cpu,float32,164,0.4344,causal
+2026-10-15T15:15:32,Qwen/Qwen2.5-0.5B,uzblimp_v0.1_cyrl_bos,900,0.5144,True,cpu,float32,494,0.5622,causal
+2026-10-15T15:56:57,tahrirchi/tahrirchi-bert-base,uzblimp_v0.1_cyrl,900,0.7022,True,cpu,float32,110,0.6822,mlm-pll

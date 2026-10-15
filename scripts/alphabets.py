@@ -30,8 +30,40 @@ _REFORMED = [
 ]
 
 
+# Fixes for TurkicNLP 0.4.0's Latin → Cyrillic (notes/turkicnlp.md):
+_ZW = "⁠"  # word joiner: splits a digraph for TurkicNLP, removed afterwards
+_C = "bcdfghjklmnpqrstvxzBCDFGHJKLMNPQRSTVXZ"
+# 1. "ts" is ц only in loans (politsiya, revolyutsiya, litsey, word-initial tsex);
+#    elsewhere it is t + s across a morpheme boundary (ketsa → кетса, ketsin → кетсин).
+_TS_LOAN = re.compile(r"(?:(?<![^\W\d_])[Tt]s(?=[^\W\d_]))|(?:[Tt]s(?=i[aeiouy]|e))")
+_TS_ANY = re.compile(r"([Tt])(?=s)")
+# 2. A tutuq between s and h only keeps them apart (Isʼhoq → Исҳоқ, not Исъҳоқ).
+_S_TUTUQ_H = re.compile(r"([sS])[ʼ'](?=[hH])")
+# 3. ye after a consonant is a Russian loan: ъе after a prefix (obyekt → объект, inyeksiya →
+#    инъекция), ье elsewhere (premyera → премьера, barelyef → барельеф).
+_CONS_YE = re.compile(rf"(?<=[{_C}])(?=[yY][eE])")
+_HARD_PREFIX = re.compile(r"(?<![^\W\d_])(?:ob|sub|ad|in|kon|dez|pod|raz)$", re.I)
+_SOFT = ""  # placeholder for ь (TurkicNLP passes it through)
+# 4. Month names: Russian loans with я / ь that no rule recovers.
+_MONTHS = {"сентабр": "сентябрь", "октабр": "октябрь", "ноябр": "ноябрь", "декабр": "декабрь",
+           "январ": "январь", "феврал": "февраль", "апрел": "апрель", "июн": "июнь", "июл": "июль"}
+_MONTH_RE = re.compile(r"\b(" + "|".join(_MONTHS) + r")\b", re.I)
+
+
 def to_cyrillic(latin: str) -> str:
-    return _LAT2CYR.transliterate(latin)
+    """Latin → Cyrillic via TurkicNLP, with the fixes above. Still not fully rule-based
+    (sirk → цирк, kompyuter → компьютер), so converted sentences need a human check."""
+    t = _S_TUTUQ_H.sub(rf"\1{_ZW}", latin)
+    loans = {m.start() for m in _TS_LOAN.finditer(t)}
+    t = "".join(ch + _ZW if ch in "tT" and i + 1 < len(t) and t[i + 1] == "s" and i not in loans else ch
+                for i, ch in enumerate(t))
+    t = _CONS_YE.sub(lambda m: TUTUQ if _HARD_PREFIX.search(t[:m.start()]) else _SOFT, t)
+    out = _LAT2CYR.transliterate(t).replace(_ZW, "").replace(_SOFT, "ь")
+
+    def month(m):
+        w = _MONTHS[m.group(1).lower()]
+        return w[0].upper() + w[1:] if m.group(1)[0].isupper() else w
+    return _MONTH_RE.sub(month, out)
 
 
 def to_latin(cyrillic: str) -> str:
