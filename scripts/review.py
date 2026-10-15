@@ -14,7 +14,7 @@ import os
 import sys
 from datetime import datetime
 
-from schema import COLUMNS, OPTIONAL_COLUMNS, PHENOMENA, TOKEN_RE
+from schema import ALL_PHENOMENA, COLUMNS, OPTIONAL_COLUMNS, TOKEN_RE
 from validate_pairs import check_pair
 
 GREEN, RED, BOLD, DIM, RESET = "\033[32;1m", "\033[31;1m", "\033[1m", "\033[2m", "\033[0m"
@@ -79,7 +79,7 @@ def show(row, done, total, counts):
     g, u = highlight(row["grammatical"], row["ungrammatical"])
     print(f"{BOLD}[{done + 1}/{total}]{RESET}  {row['phenomenon']}  ·  {row['id']}   "
           f"{DIM}(accepted {counts['accepted']} · edited {counts['edited']} · rejected {counts['rejected']}){RESET}")
-    print(f"{DIM}rule: {PHENOMENA.get(row['phenomenon'], '?')}{RESET}\n")
+    print(f"{DIM}rule: {ALL_PHENOMENA.get(row['phenomenon'], '?')}{RESET}\n")
     print(f"  ✓ {g}")
     print(f"  ✗ {u}\n")
     print(f"{DIM}  change: {row.get('notes', '')}   source: {row.get('source_id', '')}{RESET}\n")

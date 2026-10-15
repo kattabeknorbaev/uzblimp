@@ -78,14 +78,30 @@ def check_repo(repo, sentences, tokenizer):
     for f in files:
         t0 = time.time()
         local = hf_hub_download(repo, f, repo_type="dataset")
-        big = "\n".join(norm(t) for t in texts_from_file(local, tokenizer))
-        n_chars += len(big)
-        for key in sentences:
-            if key in big:
-                hits.setdefault(key, []).append(f)
-        print(f"  {repo}/{f}: {len(big) / 1e6:.0f}M chars, cumulative hits {len(hits)} ({time.time() - t0:.0f}s)",
+        # Search in chunks of ~50M characters: one 300M-character string per file pushed
+        # Windows into the page file (and filled C:) on 2026-10-09.
+        chunk, size, chars_f = [], 0, 0
+
+        def search():
+            big = "\n".join(chunk)
+            for key in sentences:
+                if key in big:
+                    hits.setdefault(key, []).append(f)
+
+        for t in texts_from_file(local, tokenizer):
+            t = norm(t)
+            chunk.append(t)
+            size += len(t)
+            if size > 50_000_000:
+                search()
+                chars_f += size
+                chunk, size = [], 0
+        if chunk:
+            search()
+            chars_f += size
+        n_chars += chars_f
+        print(f"  {repo}/{f}: {chars_f / 1e6:.0f}M chars, cumulative hits {len(hits)} ({time.time() - t0:.0f}s)",
               flush=True)
-        del big
     return hits, n_chars
 
 

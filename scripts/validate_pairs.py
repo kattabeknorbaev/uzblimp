@@ -17,7 +17,8 @@ import re
 import sys
 from collections import Counter, defaultdict
 
-from schema import (APOS_BAD, COLUMNS, CYR_RE, LAT_RE, METHODS, OG_BAD_APOS_RE, PHENOMENA,
+from schema import (ALL_PHENOMENA, APOS_BAD, COLUMNS, CYR_RE, DROPPED_PHENOMENA, EXTRA_PHENOMENA, LAT_RE,
+                    METHODS, OG_BAD_APOS_RE, PHENOMENA,
                     STATUSES, WORD_ORDER, n_words, tokens)
 
 ID_RE = re.compile(r"^[a-z_]+-\d{4}$")
@@ -46,8 +47,10 @@ def check_pair(row, min_words=4, max_words=15):
         errs.append(f"id {pid!r} is not <phenomenon>-<4 digits>")
     elif not pid.startswith(ph + "-"):
         warns.append(f"id prefix doesn't match phenomenon {ph!r}")
-    if ph not in PHENOMENA:
+    if ph not in ALL_PHENOMENA:
         errs.append(f"unknown phenomenon {ph!r}")
+    elif ph in DROPPED_PHENOMENA:
+        warns.append(f"phenomenon {ph!r} was dropped (not counted)")
     if row.get("method") not in METHODS:
         errs.append(f"method {row.get('method')!r} not in {sorted(METHODS)}")
     if row.get("status") not in STATUSES:
@@ -142,7 +145,7 @@ def report(errors, warnings, counts):
                 print(f"  {f}: {i}: {m}")
     print(f"\n{'phenomenon':22} {'total':>6} {'unchecked':>10} {'accepted':>9} {'edited':>7} {'rejected':>9}")
     total = Counter()
-    for ph in list(PHENOMENA) + sorted(k for k in counts if k not in PHENOMENA):
+    for ph in list(PHENOMENA) + list(EXTRA_PHENOMENA) + sorted(k for k in counts if k not in PHENOMENA and k not in EXTRA_PHENOMENA):
         c = counts.get(ph, Counter())
         n = sum(c.values())
         total.update(c)

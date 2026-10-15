@@ -6,7 +6,7 @@ OPTIONAL_COLUMNS = ["reviewer", "reviewed_at", "reason"]
 METHODS = {"corpus-edit", "template", "hand-written"}
 STATUSES = {"unchecked", "accepted", "rejected", "edited"}
 
-# The 16 phenomena (notes/decisions.md). Value: short description.
+# The 16 core phenomena (notes/decisions.md, revised 2026-10-15). Value: short description.
 PHENOMENA = {
     "anaphor_agreement": "reflexive oʻz- agrees with the subject in person/number",
     "lexical_case": "verb assigns a lexical case to its object (qoʻrqmoq + ABL)",
@@ -17,16 +17,28 @@ PHENOMENA = {
     "suspended_affixation": "first conjunct keeps its finite person/tense suffix",
     "nominalization": "verb selects -ish/-moq or -gan complement",
     "person_agreement": "verb agrees in person with an overt pronoun subject",
-    "ellipsis": "backward gapping keeps parallel order in both conjuncts",
-    "scrambling": "no postverbal scrambling out of an embedded clause",
-    "impersonal_passive": "impersonal passive of an intransitive takes an agent phrase",
+    "passives": "an agent phrase (tomonidan) needs a passive verb",
+    "relative_clauses": "a relative clause verb is a participle (-gan), not a finite verb",
+    "quantifiers": "noun after har bir stays singular",
     "numeral_no_plural": "noun after a numeral (+ta) stays singular",
     "postposition_case": "postposition governs a fixed case (-dan keyin, -dan beri)",
     "possessive_agreement": "possessive suffix agrees with the genitive possessor",
     "dative_allomorphy": "dative is -qa after q, -ka after k, -ga elsewhere",
 }
+# Optional extras, reported separately from the 16.
+EXTRA_PHENOMENA = {
+    "vowel_glide": "vowel-final verb stems take -y- before -a- (ishlayman, not ishlaaman)",
+    "postposition_order": "a postposition follows its noun (jamiyat haqida)",
+}
+# Dropped on 2026-10-15; their seed pairs stay in pairs_v0.tsv but aren't counted.
+DROPPED_PHENOMENA = {
+    "ellipsis": "backward gapping keeps parallel order in both conjuncts",
+    "scrambling": "no postverbal scrambling out of an embedded clause",
+    "impersonal_passive": "impersonal passive of an intransitive takes an agent phrase",
+}
+ALL_PHENOMENA = {**PHENOMENA, **EXTRA_PHENOMENA, **DROPPED_PHENOMENA}
 # Phenomena whose pairs differ by word order: same words, different order.
-WORD_ORDER = {"ellipsis", "scrambling"}
+WORD_ORDER = {"ellipsis", "scrambling", "postposition_order"}
 
 APOS_BAD = "'’‘`ʼ´"  # anything but U+02BB after o/g
 OG_BAD_APOS_RE = re.compile(f"[oOgG][{APOS_BAD}]")

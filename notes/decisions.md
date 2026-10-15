@@ -21,29 +21,34 @@ Each decision gives its source and date: **Kattabek** = his decision; **feedback
 | 13 | **Team: Javokhir Matniyazov** (Tomaris.ai co-founder) helps build the dataset. | Kattabek, 2026-10-08 | Proposed roles: second native annotator on a 15–20% sample (inter-annotator agreement), hand-written pairs for the harder phenomena, model runs on Tomaris GPUs. Authorship and the Tomaris disclosure still to agree. |
 | 14 | **Corpus text policy updated:** corpus sentences may pass through the Claude chat (to debug the generator), and `pairs_v1_*.tsv` files with corpus sentences are committed to the private GitHub repo. Raw candidates (`data/candidates/`) and caches stay git-ignored. | Kattabek, 2026-10-08 | Javokhir can access the pair files through GitHub. |
 | 15 | **Exactly 150 pairs per phenomenon in the benchmark** (seeded random choice among accepted pairs, as balanced as TatBLiMP); accepted pairs beyond 150 form a **reserve** that replaces pairs failing the second annotator's check. | Kattabek, 2026-10-08 | `scripts/progress.py` counts toward 150 and reserve; the final freeze happens when the benchmark is built. |
+| 16 | **Phenomenon list revised:** ellipsis, scrambling and impersonal passive dropped (word order / hand-written / unclear); **passives** (agent phrase needs a passive verb), **relative clauses** (participle, not a finite verb) and **quantifiers** (*har bir* + singular) added from Javokhir's pairs. Optional extras: **vowel glide** (*ishlayman*, not *ishlaaman*) and **postposition order**. | Kattabek, 2026-10-15 | Still 16 core phenomena; extras are reported separately. |
+| 17 | **Javokhir's pairs (`uzblimp_v11.json`, 4,500 pairs, rule-based, from `tahrirchi/uz-books-v2`, MIT)** are used for 8 phenomena after our filters (≤15 words, no names/quotes/dialogue, one place) and native review. | Kattabek, 2026-10-15 | `data/pairs_v2_*.tsv`; method credited to JM in the paper. His generator code is still to be added to the repo. |
+| 18 | **Models:** add *tahrirchi-bert-base* (Uzbek-only masked LM, Apache-2.0), scored with pseudo-log-likelihood as TurBLiMP did for BERTurk. | Kattabek, 2026-10-15 | One more monolingual model, the masked-LM counterpart of Goldfish. |
 
-## The 16 phenomena (Kattabek, 2026-10-08)
+## The 16 phenomena (revised 2026-10-15)
 
-| # | Phenomenon (slug) | Row in phenomena.md | Layer | Pairs mostly from | Checked |
-|---|---|---|---|---|---|
-| 1 | Anaphor agreement (`anaphor_agreement`) | 1 | TurBLiMP | corpus | ✓ |
-| 2 | Lexical case, transitive (`lexical_case`) | 2 | TurBLiMP | corpus | ✓ |
-| 3 | Ditransitive dative (`ditransitive_dative`) | 3 | TurBLiMP | corpus | ✓ |
-| 4 | Binding (`binding`) | 4 | TurBLiMP | corpus / hand | ✓ |
-| 5 | q→gʻ / k→g stem change, replacing irregular forms (`stem_alternation`) | 7 | TurBLiMP slot, Uzbek content | corpus | ✓ |
-| 6 | *hech* + negation, NPI licensing (`npi_hech`) | 10 + 20 | TurBLiMP | corpus | ✓ |
-| 7 | Suspended affixation (`suspended_affixation`) | 16 | TurBLiMP | corpus | ✓ |
-| 8 | Nominalization (`nominalization`) | 9 | TurBLiMP | hand (verb list) | ✓ |
-| 9 | Person agreement, overt pronoun (`person_agreement`) | 21 | TurBLiMP (subject agreement) | corpus | **not yet** |
-| 10 | Ellipsis (`ellipsis`) ⚠ word order | 6 | TurBLiMP | hand | ✓ (clarify) |
-| 11 | Scrambling (`scrambling`) ⚠ word order | 14 | TurBLiMP | hand | ✓ |
-| 12 | Impersonal passive, reversed in Uzbek (`impersonal_passive`) | 11 | TurBLiMP | hand | ✓ |
-| 13 | No plural after numerals (`numeral_no_plural`) | 17 | Uzbek | corpus | ✓ |
-| 14 | Case after postpositions (`postposition_case`) | 18 | Uzbek | corpus | ✓ |
-| 15 | Possessive agreement (`possessive_agreement`) | 22 | Uzbek | corpus | **not yet** |
-| 16 | Dative -ga/-qa/-ka (`dative_allomorphy`) | 19 | Uzbek (morphophonology) | corpus | ✓ |
+| # | Phenomenon (slug) | Layer | Pairs from | Status |
+|---|---|---|---|---|
+| 1 | Anaphor agreement (`anaphor_agreement`) | TurBLiMP | Javokhir v11 | to review |
+| 2 | Lexical case, transitive (`lexical_case`) | TurBLiMP | our generator | ✅ 216 |
+| 3 | Ditransitive dative (`ditransitive_dative`) | TurBLiMP | Javokhir v11 | to review |
+| 4 | Binding (`binding`) | TurBLiMP | Javokhir v11 | to review |
+| 5 | q→gʻ / k→g stem change, replacing irregular forms (`stem_alternation`) | TurBLiMP slot, Uzbek content | our generator | ✅ 226 |
+| 6 | *hech* + negation, NPI licensing (`npi_hech`) | TurBLiMP | our generator | ✅ 233 |
+| 7 | Suspended affixation, verbal *-gan* (`suspended_affixation`) | TurBLiMP | generator to write | – |
+| 8 | Nominalization (`nominalization`) | TurBLiMP | Javokhir v11 | to review |
+| 9 | Person agreement (`person_agreement`) | TurBLiMP (subject agreement) | Javokhir v11 | to review |
+| 10 | Passives: *tomonidan* needs a passive verb (`passives`) | TurBLiMP | Javokhir v11 | to review |
+| 11 | Relative clauses: participle, not finite verb (`relative_clauses`) | TurBLiMP | Javokhir v11 | to review |
+| 12 | Quantifiers: *har bir* + singular (`quantifiers`) | TurBLiMP | Javokhir v11 | to review |
+| 13 | No plural after numerals (`numeral_no_plural`) | Uzbek | our generator | ✅ 234 |
+| 14 | Case after postpositions (`postposition_case`) | Uzbek | our generator | ✅ 230 |
+| 15 | Possessive agreement (`possessive_agreement`) | Uzbek | generator to write | row 22 not yet checked |
+| 16 | Dative -ga/-qa/-ka (`dative_allomorphy`) | Uzbek (morphophonology) | our generator | ✅ 230 |
 
-**Dropped:** determiners (TatBLiMP dropped it too), islands, quantifiers, relative clauses. All four were unclear after the native check.
+**Extras** (reported separately): vowel glide `vowel_glide` (*ishlayman / \*ishlaaman*), postposition order `postposition_order` (*jamiyat haqida / \*haqida jamiyat*), both from Javokhir v11.
+
+**Dropped:** determiners, islands, ellipsis, scrambling, impersonal passive (seed pairs for the last three stay in `pairs_v0.tsv` but aren't counted).
 
 ## Still open
 

@@ -31,3 +31,7 @@ Status: DRAFT, 2026-10-06. **Verified** = checked from the files themselves. **K
 - **Kattabek, 2026-10-08:** all parts (books, legal, wiki) may be used, both for searching and for building benchmark pairs. Tomaris.ai data on Hugging Face may also be used if needed.
 - **Still to settle before the public release:** Wikipedia text is CC BY-SA (attribution, share-alike), and the books' terms are not documented above. Pairs built from corpus sentences record their `source_id`, so they can be traced or swapped if a source turns out not to be releasable.
 - **Personal data:** skip sentences with private people's names, phone numbers, addresses or similar.
+
+## Other sources
+
+- **`tahrirchi/uz-books-v2`** (Hugging Face, MIT license, verified 2026-10-15): Uzbek books. Javokhir Matniyazov's 4,500 rule-generated pairs (`data/external/uzblimp_v11.json`) take their sentences from it; we use them for 8 phenomena (decision 17).

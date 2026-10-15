@@ -46,7 +46,7 @@ def skip(reason):
 
 
 # ---------------------------------------------------------------- eligibility
-CAPS_INSIDE = re.compile(r"\s[^\W\d_a-zʻʼ]")  # a capitalised word after the first: names, places
+CAPS_INSIDE = re.compile(r"\s(?!Siz)[^\W\d_a-zʻʼ]")  # a capitalised word after the first: names, places (polite Siz is fine)
 BAD_CHARS = re.compile(r"[\d@«»\"“”„()\[\]{}:;/\\|<>…—–']|http|www|\s-\s|^-|-[\s.!?,]")
 
 

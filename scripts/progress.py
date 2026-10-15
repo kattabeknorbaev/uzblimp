@@ -12,7 +12,7 @@ from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
 
-from schema import PHENOMENA
+from schema import EXTRA_PHENOMENA, PHENOMENA
 
 ROOT = Path(__file__).resolve().parent.parent
 TARGET = 150
@@ -28,7 +28,7 @@ def main():
             for r in csv.DictReader(fh, delimiter="\t", quoting=csv.QUOTE_NONE):
                 counts[r["phenomenon"]][r["status"]] += 1
     rows, tot = [], Counter()
-    for ph in PHENOMENA:
+    for ph in list(PHENOMENA) + list(EXTRA_PHENOMENA):
         c = counts.get(ph, Counter())
         usable = c["accepted"] + c["edited"]
         generated = sum(c.values())
@@ -36,8 +36,10 @@ def main():
         bench, reserve = min(usable, TARGET), max(usable - TARGET, 0)
         rate = f"{100 * usable / reviewed:.0f}%" if reviewed else "–"
         done = "✅" if usable >= TARGET else ("🟡" if usable else "⬜")
-        rows.append(f"| {done} {ph} | {TARGET} | {generated} | {reviewed} | {usable} | {rate} | {bench} | {reserve} |")
-        tot.update(generated=generated, reviewed=reviewed, usable=usable, bench=bench, reserve=reserve)
+        label = ph if ph in PHENOMENA else f"{ph} (extra)"
+        rows.append(f"| {done} {label} | {TARGET} | {generated} | {reviewed} | {usable} | {rate} | {bench} | {reserve} |")
+        if ph in PHENOMENA:  # extras don't count toward the 16 × 150 target
+            tot.update(generated=generated, reviewed=reviewed, usable=usable, bench=bench, reserve=reserve)
 
     days_left = (CHECKPOINT_DATE - date.today()).days
     complete = sum(1 for ph in PHENOMENA if counts[ph]["accepted"] + counts[ph]["edited"] >= TARGET)
