@@ -280,6 +280,68 @@ def stem_alternation(s, ctx):
     return Edit(s[:m.start()] + bad + s[m.end():], f"{m.group(0)} → {bad} (non-word: morphophonology)")
 
 
+# ---------------------------------------------------- suspended_affixation
+# Coordinated finite past verbs keep their person suffix on the first conjunct:
+# bordik va … boʻldik → *borgan va … boʻldik (KN, phenomena.md row 16). Only 1st/2nd
+# person: for the 3rd person, -gan is itself a finite perfect (U kelgan = he has come).
+SUSP_RE = re.compile(rf"\b({L}{{2,}}?)(dim|ding|dik|dingiz)(\s+(?:va|hamda)\s+)", re.I)
+SUSP_SECOND = re.compile(rf"{L}+(?:dim|ding|dik|dingiz)\b", re.I)
+
+
+def suspended_affixation(s, ctx):
+    ms = list(SUSP_RE.finditer(s))
+    if len(ms) != 1:
+        return skip("not exactly one 1st/2nd-person past verb + va")
+    m = ms[0]
+    stem, pers = m.group(1), m.group(2).lower()
+    later = [w.group().lower() for w in SUSP_SECOND.finditer(s, m.end())]
+    if not any(w.endswith(pers) for w in later):  # the second conjunct must carry the same person
+        return skip("no parallel second verb with the same person")
+    # -gan assimilates after q/k (chiq → chiqqan, ek → ekkan), like the dative.
+    low_stem = stem.lower()
+    new = stem + ("qan" if low_stem.endswith("q") else "kan" if low_stem.endswith("k") else "gan")
+    if ctx.lex[(stem + pers).lower()] < ctx.min_count or ctx.lex[new.lower()] < ctx.min_count:
+        return skip("verb or -gan form not attested in corpus")
+    return Edit(s[:m.start(1)] + new + s[m.start(3):], f"{stem + pers} → {new} (first conjunct)")
+
+
+# ---------------------------------------------------- possessive_agreement
+# The possessive suffix agrees with an overt genitive pronoun: mening akam → *mening akang.
+# Persons are swapped 1SG↔2SG, 1PL↔2PL, 3→1SG; allomorphs after vowel / consonant.
+POSS = {"1sg": ("m", "im"), "2sg": ("ng", "ing"), "3": ("si", "i"), "1pl": ("miz", "imiz"), "2pl": ("ngiz", "ingiz")}
+GEN_PRON = {"mening": "1sg", "sening": "2sg", "uning": "3", "bizning": "1pl", "sizning": "2pl", "ularning": "3"}
+SWAP = {"1sg": "2sg", "2sg": "1sg", "1pl": "2pl", "2pl": "1pl", "3": "1sg"}
+CASES = ("", "ni", "ga", "da", "dan", "ning", "dek")
+GEN_RE = re.compile(rf"\b(mening|sening|uning|bizning|sizning|ularning)\s+({L}+)", re.I)
+VOWEL_END = re.compile(rf"(?:[aeiou]|o{A})$", re.I)
+
+
+def possessive_agreement(s, ctx):
+    ms = list(GEN_RE.finditer(s))
+    if len(ms) != 1:
+        return skip("not exactly one genitive pronoun + word")
+    m = ms[0]
+    pers, word = GEN_PRON[m.group(1).lower()], m.group(2)
+    low = word.lower()
+    for case in CASES:
+        for after_vowel, suf in enumerate(POSS[pers][::-1]):  # try consonant (im) before vowel (m) forms
+            ending = suf + case
+            if not low.endswith(ending) or len(low) - len(ending) < 2:
+                continue
+            stem = low[:-len(ending)]
+            if bool(VOWEL_END.search(stem)) != (suf == POSS[pers][0]):  # allomorph must fit the stem
+                continue
+            if ctx.lex[stem] < 5:
+                continue
+            new_suf = POSS[SWAP[pers]][0 if VOWEL_END.search(stem) else 1]
+            new = stem + new_suf + case
+            if ctx.lex[new] < ctx.min_count:
+                return skip("swapped possessive form not attested in corpus")
+            new = new[0].upper() + new[1:] if word[0].isupper() else new
+            return Edit(s[:m.start(2)] + new + s[m.end(2):], f"{m.group(1)} {word} → {new}")
+    return skip("word after the pronoun has no matching possessive suffix")
+
+
 GENERATORS = {  # phenomenon: (prefilter on the lowercased sentence, edit function)
     "numeral_no_plural": (re.compile(rf"\b(?:{NUM_LAT})ta\s"), numeral_no_plural),
     "npi_hech": (re.compile(r"\bhech\b"), npi_hech),
@@ -287,9 +349,16 @@ GENERATORS = {  # phenomenon: (prefilter on the lowercased sentence, edit functi
     "lexical_case": (re.compile(rf"(?:dan\s+qo{A}rq|(?:ga|ka|qa)\s+ishon)"), lexical_case),
     "dative_allomorphy": (re.compile(r"\w(?:qqa|kka)\b"), dative_allomorphy),
     "stem_alternation": (re.compile(rf"[aeiou]{A}?g{A}?(?:i|im|ing|imiz|ingiz)\b"), stem_alternation),
+    "suspended_affixation": (re.compile(r"(?:dim|ding|dik|dingiz)\s+(?:va|hamda)\s"), suspended_affixation),
+    "possessive_agreement": (re.compile(r"\b(?:mening|sening|uning|bizning|sizning|ularning)\s"), possessive_agreement),
 }
+# Balance: (key from the edit note, max share of --n per key). Without it 65% of
+# possessive pairs used "uning" and 5% "bizning".
+STRATA = {"possessive_agreement": (lambda note: note.split()[0].lower(), 0.25)}
+
 # Cheap substring test before sentence splitting: a line without any of these can't match.
-KEYWORDS = ("ta ", "hech", "keyin", "beri", "qoʻrq", "ishon", "qqa", "kka", "gi", "gʻi")
+KEYWORDS = ("ta ", "hech", "keyin", "beri", "qoʻrq", "ishon", "qqa", "kka", "gi", "gʻi",
+            " va ", " hamda ", "ning ")
 
 
 # ------------------------------------------------------------------- scan
@@ -354,7 +423,7 @@ class Ctx:
 
 
 def generate(ph, pool, ctx, n, seed):
-    rows, reasons, skipped = [], Counter(), []
+    rows, reasons, skipped, strata = [], Counter(), [], Counter()
     items = list(pool)
     random.Random(f"{seed}-{ph}-order").shuffle(items)
     for s, src in items:
@@ -375,6 +444,13 @@ def generate(ph, pool, ctx, n, seed):
             errs, _ = check_pair(row)
             if errs:
                 e = skip("validator: " + errs[0])
+        if e.bad and ph in STRATA:
+            key_fn, share = STRATA[ph]
+            key = key_fn(e.why)
+            if strata[key] >= share * n:
+                e = skip(f"balance: enough pairs with '{key}'")
+            else:
+                strata[key] += 1
         if e.bad:
             reasons["ok"] += 1
             rows.append(row)

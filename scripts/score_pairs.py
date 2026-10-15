@@ -47,6 +47,12 @@ def parse_args():
         help="prepend BOS (or EOS if the model has no BOS) so the first word is scored too; "
         "has no effect if the tokenizer already adds one",
     )
+    p.add_argument(
+        "--mlm",
+        action="store_true",
+        help="masked LM (e.g. tahrirchi/tahrirchi-bert-base): pseudo-log-likelihood with "
+        "PLL_metric='within_word_l2r', as TurBLiMP scored BERTurk",
+    )
     p.add_argument("--limit", type=int, help="score only the first N pairs (quick tests)")
     p.add_argument("--out-dir", default="results")
     return p.parse_args()
@@ -72,23 +78,30 @@ def main():
 
     print(f"Loading {args.model} on {device} ({args.dtype}) ...", flush=True)
     # transformers 5 otherwise loads the stored dtype, e.g. bfloat16 for Qwen2.5.
-    lm = scorer.IncrementalLMScorer(args.model, device=device, dtype=getattr(torch, args.dtype))
+    Scorer = scorer.MaskedLMScorer if args.mlm else scorer.IncrementalLMScorer
+    lm = Scorer(args.model, device=device, dtype=getattr(torch, args.dtype))
     tok = lm.tokenizer
+    if args.mlm and not hasattr(tok, "batch_encode_plus"):
+        # minicons 0.3.39's MaskedLMScorer calls batch_encode_plus, removed in transformers 5;
+        # calling the tokenizer on a list of sentences does the same thing.
+        tok.batch_encode_plus = lambda texts, **kw: tok(texts, **kw)
     n_params = sum(p.numel() for p in lm.model.parameters())
 
-    # minicons never scores the first token of the encoded sequence: there is no
-    # context to predict it from. If the tokenizer adds a BOS-like token itself,
+    # minicons never scores the first token of the encoded sequence of a causal LM: there
+    # is no context to predict it from. If the tokenizer adds a BOS-like token itself,
     # that is what gets dropped; otherwise the first word-piece is dropped.
-    adds_bos = tok("a").input_ids[0] in tok.all_special_ids
+    # (Masked LMs score every token, so this doesn't apply to them.)
+    adds_bos = args.mlm or tok("a").input_ids[0] in tok.all_special_ids
     prefix = (tok.bos_token or tok.eos_token) if args.bos and not adds_bos else ""
 
     good = [prefix + s for s in df[args.good_col]]
     bad = [prefix + s for s in df[args.bad_col]]
     sentences = good + bad
+    extra = {"PLL_metric": "within_word_l2r"} if args.mlm else {}
     scores = []
     for i in tqdm(range(0, len(sentences), args.batch_size), desc="scoring"):
         batch = sentences[i : i + args.batch_size]
-        scores += lm.sequence_score(batch, reduction=lambda x: x.sum(0).item())
+        scores += lm.sequence_score(batch, reduction=lambda x: x.sum(0).item(), **extra)
     good_lp, bad_lp = scores[: len(good)], scores[len(good) :]
 
     ids_good = [tok(s).input_ids for s in good]
@@ -102,11 +115,18 @@ def main():
     out["bad_logprob"] = bad_lp
     out["diff"] = out.good_logprob - out.bad_logprob
     out["correct"] = out["diff"] > 0
-    # Tokens that entered the sum (all but the dropped first one).
-    out["good_ntok"] = [len(ids) - 1 for ids in ids_good]
-    out["bad_ntok"] = [len(ids) - 1 for ids in ids_bad]
+    # Byte-normalized comparison (TatBLiMP's acc_norm): log P / UTF-8 bytes, which removes
+    # the advantage a sentence gets from being shorter. Within a pair both sentences use the
+    # same alphabet, but per-byte values can't be compared across alphabets (Cyrillic = 2 bytes).
+    out["good_bytes"] = [len(s.encode("utf-8")) for s in df[args.good_col]]
+    out["bad_bytes"] = [len(s.encode("utf-8")) for s in df[args.bad_col]]
+    out["correct_norm"] = out.good_logprob / out.good_bytes > out.bad_logprob / out.bad_bytes
+    # Tokens that entered the sum (causal LM: all but the dropped first one; MLM: all but [CLS]/[SEP]).
+    drop = 2 if args.mlm else 1
+    out["good_ntok"] = [len(ids) - drop for ids in ids_good]
+    out["bad_ntok"] = [len(ids) - drop for ids in ids_bad]
     # True where the unscored first token differs, i.e. the pair is not compared fairly.
-    out["first_tok_differs"] = [g[0] != b[0] for g, b in zip(ids_good, ids_bad)]
+    out["first_tok_differs"] = [False] * len(out) if args.mlm else [g[0] != b[0] for g, b in zip(ids_good, ids_bad)]
     out["model"] = args.model
 
     dataset = args.dataset_name or Path(args.data).stem
@@ -115,13 +135,14 @@ def main():
     out_path = out_dir / f"{args.model.split('/')[-1]}_{dataset}.csv"
     out.to_csv(out_path, index=False, encoding="utf-8")
 
-    acc = out.correct.mean()
-    print(f"\nModel:    {args.model} ({n_params / 1e6:.0f}M params)")
+    acc, acc_norm = out.correct.mean(), out.correct_norm.mean()
+    print(f"\nModel:    {args.model} ({n_params / 1e6:.0f}M params, {'masked LM, PLL' if args.mlm else 'causal LM'})")
     print(f"Dataset:  {dataset} ({len(out)} pairs)")
-    print(f"BOS:      {'added by tokenizer' if adds_bos else ('prepended ' + repr(prefix)) if prefix else 'none (first word-piece unscored)'}")
-    print(f"Accuracy: {acc:.3f} ({out.correct.sum()}/{len(out)})")
+    print(f"BOS:      {'n/a (masked LM)' if args.mlm else 'added by tokenizer' if adds_bos else ('prepended ' + repr(prefix)) if prefix else 'none (first word-piece unscored)'}")
+    print(f"Accuracy: {acc:.3f} ({out.correct.sum()}/{len(out)})   acc_norm (per byte): {acc_norm:.3f}")
     if args.group_col:
-        by_group = out.groupby(args.group_col).correct.agg(["mean", "sum", "count"])
+        by_group = out.groupby(args.group_col).agg(acc=("correct", "mean"), acc_norm=("correct_norm", "mean"),
+                                                   n=("correct", "size"))
         print(f"\nBy {args.group_col}:\n{by_group.round(3).to_string()}")
     n_unfair = out.first_tok_differs.sum()
     if n_unfair:
@@ -135,12 +156,16 @@ def main():
         "dataset": dataset,
         "n_pairs": len(out),
         "accuracy": round(acc, 4),
+        "acc_norm": round(acc_norm, 4),
+        "scorer": "mlm-pll" if args.mlm else "causal",
         "bos": bool(adds_bos or prefix),
         "device": device,
         "dtype": str(next(lm.model.parameters()).dtype).removeprefix("torch."),
         "n_params_M": round(n_params / 1e6),
     }
-    pd.DataFrame([row]).to_csv(summary, mode="a", header=not summary.exists(), index=False)
+    # Rewrite with the union of columns, so rows written before new columns existed stay aligned.
+    rows = pd.concat([pd.read_csv(summary), pd.DataFrame([row])]) if summary.exists() else pd.DataFrame([row])
+    rows.to_csv(summary, index=False)
 
 
 if __name__ == "__main__":

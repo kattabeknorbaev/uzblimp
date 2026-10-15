@@ -5,50 +5,44 @@
     "pool_size": 5000,
     "seed": 0,
     "eligible": {
-      "dative_allomorphy": 17402,
-      "stem_alternation": 70745,
-      "npi_hech": 10128,
+      "dative_allomorphy": 17405,
+      "stem_alternation": 70759,
+      "possessive_agreement": 36816,
+      "npi_hech": 10137,
       "postposition_case": 8073,
       "numeral_no_plural": 10470,
-      "lexical_case": 2376
+      "lexical_case": 2377,
+      "suspended_affixation": 324
     },
-    "scan_seconds": 438
+    "scan_seconds": 964
   },
   "min_count": 2,
   "phenomena": {
-    "lexical_case": {
-      "pool": 2376,
-      "tried": 545,
-      "generated": 250,
+    "suspended_affixation": {
+      "pool": 324,
+      "tried": 324,
+      "generated": 202,
       "reasons": {
-        "ok": 250,
-        "not exactly one object + qoʻrq-/ishon-": 165,
-        "TurkicNLP doesn't label ABL": 57,
-        "starts with a proper noun (TurkicNLP)": 43,
-        "accusative form not attested in corpus": 30
+        "ok": 202,
+        "no parallel second verb with the same person": 87,
+        "not exactly one 1st/2nd-person past verb + va": 17,
+        "verb or -gan form not attested in corpus": 17,
+        "starts with a proper noun (TurkicNLP)": 1
       }
     },
-    "dative_allomorphy": {
+    "possessive_agreement": {
       "pool": 5000,
-      "tried": 371,
+      "tried": 2224,
       "generated": 250,
       "reasons": {
+        "word after the pronoun has no matching possessive suffix": 926,
+        "balance: enough pairs with 'uning'": 469,
+        "swapped possessive form not attested in corpus": 386,
         "ok": 250,
-        "looks like a lexical word, not a dative (chekka, yakka)": 87,
-        "starts with a proper noun (TurkicNLP)": 24,
-        "stem not a frequent word (chekka, yakka are not datives)": 5,
-        "not exactly one -qqa/-kka dative": 5
-      }
-    },
-    "stem_alternation": {
-      "pool": 5000,
-      "tried": 2039,
-      "generated": 250,
-      "reasons": {
-        "not exactly one alternating q/k stem + possessive": 1257,
-        "TurkicNLP doesn't label a possessive": 510,
-        "ok": 250,
-        "starts with a proper noun (TurkicNLP)": 22
+        "starts with a proper noun (TurkicNLP)": 79,
+        "balance: enough pairs with 'ularning'": 42,
+        "not exactly one genitive pronoun + word": 41,
+        "balance: enough pairs with 'mening'": 31
       }
     }
   }
