@@ -2,60 +2,53 @@
   "meta": {
     "corpus": "D:/drive-download-20260601T072834Z-3-001.zip",
     "limit_docs": null,
-    "pool_size": 1500,
+    "pool_size": 5000,
     "seed": 0,
     "eligible": {
-      "npi_hech": 10205,
-      "postposition_case": 8198,
-      "numeral_no_plural": 10726
+      "dative_allomorphy": 17402,
+      "stem_alternation": 70745,
+      "npi_hech": 10128,
+      "postposition_case": 8073,
+      "numeral_no_plural": 10470,
+      "lexical_case": 2376
     },
-    "scan_seconds": 104
+    "scan_seconds": 438
   },
   "min_count": 2,
   "phenomena": {
-    "numeral_no_plural": {
-      "pool": 1500,
-      "tried": 600,
+    "lexical_case": {
+      "pool": 2376,
+      "tried": 545,
       "generated": 250,
       "reasons": {
         "ok": 250,
-        "plural form not attested in corpus": 139,
-        "word after numeral is not NOUN (TurkicNLP)": 83,
-        "not exactly one numeral+ta": 58,
-        "hyphenated numeral (bitta-bitta, bir-ikkita)": 35,
-        "starts with a proper noun (TurkicNLP)": 26,
-        "noun already contains -lar": 8,
-        "quantifier har + numeral": 1
+        "not exactly one object + qoʻrq-/ishon-": 165,
+        "TurkicNLP doesn't label ABL": 57,
+        "starts with a proper noun (TurkicNLP)": 43,
+        "accusative form not attested in corpus": 30
       }
     },
-    "npi_hech": {
-      "pool": 1500,
-      "tried": 631,
+    "dative_allomorphy": {
+      "pool": 5000,
+      "tried": 371,
       "generated": 250,
       "reasons": {
         "ok": 250,
-        "no supported negated verb after hech": 158,
-        "copula negation (emas/yoʻq)": 119,
-        "more than one negated word": 29,
-        "affirmative form not attested in corpus": 21,
-        "starts with a proper noun (TurkicNLP)": 17,
-        "question (questions license hech)": 17,
-        "idiom hech boʻlmasa": 11,
-        "TurkicNLP doesn't label NEG": 9
-      }
-    },
-    "postposition_case": {
-      "pool": 1500,
-      "tried": 448,
-      "generated": 250,
-      "reasons": {
-        "ok": 250,
-        "pronoun: dative reading likely grammatical (unga keyin …)": 67,
-        "TurkicNLP doesn't label ABL": 63,
-        "dative form not attested in corpus": 37,
+        "looks like a lexical word, not a dative (chekka, yakka)": 87,
         "starts with a proper noun (TurkicNLP)": 24,
-        "g/gʻ-final stem: dative form unclear (toqqa?)": 4,
-        "not exactly one -dan keyin/beri": 3
+        "stem not a frequent word (chekka, yakka are not datives)": 5,
+        "not exactly one -qqa/-kka dative": 5
+      }
+    },
+    "stem_alternation": {
+      "pool": 5000,
+      "tried": 2039,
+      "generated": 250,
+      "reasons": {
+        "not exactly one alternating q/k stem + possessive": 1257,
+        "TurkicNLP doesn't label a possessive": 510,
+        "ok": 250,
+        "starts with a proper noun (TurkicNLP)": 22
       }
     }
   }

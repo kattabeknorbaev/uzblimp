@@ -91,3 +91,4 @@ Tested 2026-10-06: `turkicnlp` 0.4.0 (PyPI, Apache-2.0, "Pre-Alpha"; by Sherzod 
 4. Glot500 backbone downloaded twice (local_dir vs cache_dir).
 5. MorphemeTokenizer `uzb`: add `q→gʻ`; label genitive *-(n)ing*, converb *-(i)b* and possessive + case clusters.
 6. Tokenizer: dialogue dashes (`-Word`, `word,-dedi`).
+7. MorphemeTokenizer `uzb` (found 2026-10-09): dative after q/k (*qishloqqa*, *eshikka*) and pronoun datives *senga/menga* get `?`, and *uyga* gets no case label. Only -ga after other consonants is labelled `DAT`.

@@ -181,12 +181,115 @@ def postposition_case(s, ctx):
     return Edit(s[:m.start(1)] + new + s[m.start(2):], f"{old} → {new} ({m.group(3).lower()})")
 
 
-GENERATORS = {  # phenomenon: (keyword prefilter on lowercased sentence, edit function)
+# ------------------------------------------------------------ lexical_case
+# Verbs with a lexical case on their object: qoʻrqmoq + ABL, ishonmoq + DAT. The object
+# directly before the verb is put in the accusative (itdan qoʻrqadi → *itni qoʻrqadi).
+LEXICAL_VERBS = {
+    "ABL": re.compile(rf"^qo{A}rq(?:a|d|ib|m|q|y|s)", re.I),  # not qoʻrqit-, qoʻrquv, qoʻrqoq, qoʻrqinch
+    "DAT": re.compile(r"^ishon(?:a|d|ib|m|g|y|s)", re.I),  # not ishonch
+}
+# Pronoun accusatives are irregular (undan/unga → uni, not *unni).
+PRONOUN_ACC = {"men": "meni", "sen": "seni", "un": "uni", "bun": "buni", "shun": "shuni",
+               "biz": "bizni", "siz": "sizni", "ular": "ularni", "bular": "bularni", "shular": "shularni"}
+
+
+def lexical_case(s, ctx):
+    toks = list(TOKEN_RE.finditer(s))
+    hits = []
+    for k in range(1, len(toks)):
+        verb, obj = toks[k].group(), toks[k - 1].group()
+        if s[toks[k - 1].end():toks[k].start()].strip():  # punctuation between them
+            continue
+        for case, vre in LEXICAL_VERBS.items():
+            low = obj.lower()
+            if not vre.match(verb):
+                continue
+            if case == "ABL" and low.endswith("dan"):
+                base = low[:-3]
+            elif case == "DAT" and low.endswith(("ga", "ka", "qa")):
+                base = low[:-2] if low.endswith("ga") else low[:-1]  # qishloqqa → qishloq
+            else:
+                continue
+            hits.append((toks[k - 1], base, case, verb))
+    if len(hits) != 1:
+        return skip("not exactly one object + qoʻrq-/ishon-")
+    tok, base, case, verb = hits[0]
+    if len(base) < 2:
+        return skip("stem too short")
+    acc = PRONOUN_ACC.get(base, base + "ni")
+    if ctx.lex[acc] < ctx.min_count:
+        return skip("accusative form not attested in corpus")
+    # TurkicNLP labels ABL reliably but not DAT after q/k or on pronouns (senga → '?'),
+    # so the dative object is checked through the lexicon only.
+    if case == "ABL" and "ABL" not in " ".join(ctx.an.labels(tok.group().lower())):
+        return skip("TurkicNLP doesn't label ABL")
+    new = acc[0].upper() + acc[1:] if tok.group()[0].isupper() else acc
+    return Edit(s[:tok.start()] + new + s[tok.end():], f"{tok.group()} → {new} ({verb}: {case} → ACC)")
+
+
+# ------------------------------------------------------- dative_allomorphy
+# Dative is -qa after q and -ka after k (qishloqqa, eshikka); the bad form uses -ga.
+# The bad form is a spelling error, not a real word: this is the morphophonology layer
+# TatBLiMP leaves out (its §8), so only the good form has to be attested.
+DATIVE_QK = re.compile(rf"\b({L}{{2,}}?(?:q|k))(qa|ka)\b", re.I)
+
+
+def dative_allomorphy(s, ctx):
+    ms = [m for m in DATIVE_QK.finditer(s) if m.group(1)[-1].lower() == m.group(2)[0].lower()]
+    if len(ms) != 1:
+        return skip("not exactly one -qqa/-kka dative")
+    m = ms[0]
+    word, stem = m.group(0), m.group(1)
+    if ctx.lex[stem.lower()] < 5:
+        return skip("stem not a frequent word (chekka, yakka are not datives)")
+    # No TurkicNLP check: its segmenter leaves -qa/-ka unlabelled (qishloqqa → '?').
+    # A real dative has common sister case forms (eshikka 2083 vs eshikda 3972); a word that
+    # only looks like one doesn't (chekka 1101 vs chekda/chekni ≤ 17; yakka, tikka the same).
+    sisters = max(ctx.lex[stem.lower() + c] for c in ("da", "ni", "dan", "ning"))
+    if ctx.lex[word.lower()] > 3 * sisters:
+        return skip("looks like a lexical word, not a dative (chekka, yakka)")
+    bad = stem + "ga"
+    return Edit(s[:m.start()] + bad + s[m.end():], f"{word} → {bad} (non-word: morphophonology)")
+
+
+# -------------------------------------------------------- stem_alternation
+# Stem-final q/k becomes gʻ/g before a vowel-initial possessive (oʻrtoq → oʻrtogʻim,
+# yurak → yuragi). The bad form keeps q/k. Only stems that really alternate: the q/k form
+# is a frequent word and at least 20× more frequent than the gʻ/g form (rules out togʻ, barg).
+POSS_V = r"(?:i|im|ing|imiz|ingiz)(?:ni|ga|da|dan|ning)?"
+STEM_ALT = re.compile(rf"\b({L}+?[aeiou]{A}?)(g{A}|g)({POSS_V})\b", re.I)
+
+
+def stem_alternation(s, ctx):
+    hits = []
+    for m in STEM_ALT.finditer(s):
+        pre, g, suf = m.group(1), m.group(2), m.group(3)
+        if g == "g" and pre.lower().endswith(("da", "ta")):  # -dagi/-tagi (uydagi), not a stem
+            continue
+        alt = "q" if len(g) > 1 else "k"
+        stem_g, stem_q = (pre + g).lower(), (pre + alt).lower()
+        # alternating stem: the q/k form dominates (oʻrtoq 4407 vs oʻrtogʻ 9; but togʻ 11392 vs toq 786)
+        if ctx.lex[stem_q] >= 5 and ctx.lex[stem_q] >= 20 * ctx.lex[stem_g]:
+            hits.append((m, pre, alt, suf))
+    if len(hits) != 1:
+        return skip("not exactly one alternating q/k stem + possessive")
+    m, pre, alt, suf = hits[0]
+    if not any(lab.startswith("POSS") for lab in ctx.an.labels(m.group(0).lower())):
+        return skip("TurkicNLP doesn't label a possessive")
+    bad = pre + alt + suf
+    return Edit(s[:m.start()] + bad + s[m.end():], f"{m.group(0)} → {bad} (non-word: morphophonology)")
+
+
+GENERATORS = {  # phenomenon: (prefilter on the lowercased sentence, edit function)
     "numeral_no_plural": (re.compile(rf"\b(?:{NUM_LAT})ta\s"), numeral_no_plural),
     "npi_hech": (re.compile(r"\bhech\b"), npi_hech),
     "postposition_case": (re.compile(r"dan\s+(?:keyin|beri)\b"), postposition_case),
+    "lexical_case": (re.compile(rf"(?:dan\s+qo{A}rq|(?:ga|ka|qa)\s+ishon)"), lexical_case),
+    "dative_allomorphy": (re.compile(r"\w(?:qqa|kka)\b"), dative_allomorphy),
+    "stem_alternation": (re.compile(rf"[aeiou]{A}?g{A}?(?:i|im|ing|imiz|ingiz)\b"), stem_alternation),
 }
-KEYWORDS = ("ta ", "hech", "keyin", "beri")
+# Cheap substring test before sentence splitting: a line without any of these can't match.
+KEYWORDS = ("ta ", "hech", "keyin", "beri", "qoʻrq", "ishon", "qqa", "kka", "gi", "gʻi")
 
 
 # ------------------------------------------------------------------- scan
@@ -235,7 +338,7 @@ def load_or_scan(args):
             with open(lex_path, "rb") as f:
                 return pickle.load(f), pools, meta
     print("Scanning corpus (lexicon + candidate pools) ...", flush=True)
-    lex, pools, meta = scan(args.corpus, args.phenomena, args.pool, args.seed, args.limit_docs)
+    lex, pools, meta = scan(args.corpus, list(GENERATORS), args.pool, args.seed, args.limit_docs)
     with open(lex_path, "wb") as f:
         pickle.dump(lex, f)
     pools_path.write_text(json.dumps(pools, ensure_ascii=False), encoding="utf-8")
@@ -286,12 +389,13 @@ def main():
     p.add_argument("--corpus", default="D:/drive-download-20260601T072834Z-3-001.zip")
     p.add_argument("--phenomena", nargs="+", default=list(GENERATORS), choices=list(GENERATORS))
     p.add_argument("--n", type=int, default=250, help="pairs to write per phenomenon")
-    p.add_argument("--pool", type=int, default=1500, help="sampled sentences per phenomenon")
+    p.add_argument("--pool", type=int, default=5000, help="sampled sentences per phenomenon")
     p.add_argument("--min-count", type=int, default=2, help="corpus count needed for a new word form")
     p.add_argument("--id-start", type=int, default=1001)
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--limit-docs", type=int, help="scan only the first N documents (tests)")
     p.add_argument("--rescan", action="store_true")
+    p.add_argument("--force", action="store_true", help="overwrite pair files that already have reviews")
     p.add_argument("--out-dir", default=str(ROOT / "data"))
     args = p.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
@@ -301,10 +405,17 @@ def main():
     ctx = Ctx(lex, args.min_count)
     summary = {"meta": meta, "min_count": args.min_count, "phenomena": {}}
     for ph in args.phenomena:
+        out = Path(args.out_dir) / f"pairs_v1_{ph}.tsv"
+        if out.exists() and not args.force:
+            with open(out, encoding="utf-8", newline="") as f:
+                reviewed = sum(r["status"] != "unchecked"
+                               for r in csv.DictReader(f, delimiter="\t", quoting=csv.QUOTE_NONE))
+            if reviewed:
+                print(f"\n{ph}: {out.name} already has {reviewed} reviewed pairs; not overwritten (--force to override).")
+                continue
         rows, reasons, skipped = generate(ph, pools[ph], ctx, args.n, args.seed)
         for k, row in enumerate(rows):
             row["id"] = f"{ph}-{args.id_start + k:04d}"
-        out = Path(args.out_dir) / f"pairs_v1_{ph}.tsv"
         with open(out, "w", encoding="utf-8", newline="") as f:
             w = csv.DictWriter(f, fieldnames=COLUMNS + OPTIONAL_COLUMNS, delimiter="\t",
                                lineterminator="\n", quoting=csv.QUOTE_NONE, extrasaction="ignore", restval="")

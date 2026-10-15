@@ -1,0 +1,47 @@
+{
+  "sentences": 1517,
+  "repos": {
+    "tomaris/tomaris-sft": {
+      "chars_searched": 73186556,
+      "sentences_found": 3,
+      "pair_ids_found": [
+        "npi_hech-0001",
+        "npi_hech-1143",
+        "npi_hech-1179"
+      ],
+      "usable_pair_ids_found": [
+        "npi_hech-0001",
+        "npi_hech-1143",
+        "npi_hech-1179"
+      ]
+    },
+    "tomaris/phase-d": {
+      "chars_searched": 82186597,
+      "sentences_found": 3,
+      "pair_ids_found": [
+        "npi_hech-0001",
+        "npi_hech-1143",
+        "npi_hech-1179"
+      ],
+      "usable_pair_ids_found": [
+        "npi_hech-0001",
+        "npi_hech-1143",
+        "npi_hech-1179"
+      ]
+    },
+    "tomaris/tomaris-v1": {
+      "chars_searched": 76687065,
+      "sentences_found": 3,
+      "pair_ids_found": [
+        "npi_hech-0001",
+        "npi_hech-1143",
+        "npi_hech-1179"
+      ],
+      "usable_pair_ids_found": [
+        "npi_hech-0001",
+        "npi_hech-1143",
+        "npi_hech-1179"
+      ]
+    }
+  }
+}
