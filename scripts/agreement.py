@@ -1,11 +1,13 @@
-"""Inter-annotator agreement between KN (review.py) and the second annotator (hand-check sheet).
+"""Inter-annotator agreement between KN (review.py) and a second annotator.
 
-Pairs are matched on the grammatical sentence. Both judgments are reduced to
-"usable" (accepted/edited; good_ok=Y and bad_is_wrong=Y, or a fixed_bad was given)
-vs "not usable". Reports raw agreement and Cohen's kappa overall and per
-phenomenon, and writes the disagreements for joint adjudication.
+Second-annotator input can be:
+- the hand-check CSV sheet (handcheck/handcheck_iaa_562.csv), matched on the grammatical sentence;
+- blind review.py copies (handcheck/blind/*_JM.tsv), matched on pair id.
+Both judgments are reduced to "usable" (accepted/edited; good_ok=Y and bad_is_wrong=Y,
+or a fixed_bad was given) vs "not usable". Reports raw agreement and Cohen's kappa
+overall and per phenomenon, and writes the disagreements for joint adjudication.
 
-    python scripts/agreement.py handcheck/handcheck_iaa_562.csv --annotator JM
+    python scripts/agreement.py handcheck/handcheck_iaa_562.csv handcheck/blind/*_JM.tsv --annotator JM
 """
 import argparse
 import csv
@@ -21,7 +23,7 @@ YES, NO = {"y", "yes", "ha", "1"}, {"n", "no", "yoʻq", "0"}
 
 
 def sheet_label(r):
-    """'usable' / 'not usable' / None (not filled in)."""
+    """Hand-check sheet row → 'usable' / 'not usable' / None (not filled in)."""
     g, b = r.get("good_ok", "").strip().lower(), r.get("bad_is_wrong", "").strip().lower()
     if g in NO:
         return "not usable"
@@ -30,6 +32,12 @@ def sheet_label(r):
     if g in YES and b in NO:
         return "usable" if r.get("fixed_bad", "").strip() else "not usable"
     return None
+
+
+def status_label(status):
+    if status == "unchecked":
+        return None
+    return "usable" if status in ("accepted", "edited") else "not usable"
 
 
 def kappa(pairs):
@@ -42,57 +50,83 @@ def kappa(pairs):
     return agree, (agree - chance) / (1 - chance) if chance < 1 else 1.0
 
 
+def load_kn():
+    by_sent, by_id = {}, {}
+    for f in glob.glob(str(ROOT / "data" / "pairs_v*.tsv")):
+        with open(f, encoding="utf-8", newline="") as fh:
+            for r in csv.DictReader(fh, delimiter="\t", quoting=csv.QUOTE_NONE):
+                lab = status_label(r["status"])
+                if lab:
+                    by_sent[normalize(r["grammatical"]).lower()] = (r, lab)
+                    by_id[r["id"]] = (r, lab)
+    return by_sent, by_id
+
+
+def load_second(paths, kn_sent, kn_id):
+    """[{good, bad, label, kn, detail}] from CSV sheets and blind TSV copies."""
+    items = []
+    for path in paths:
+        if path.endswith(".tsv"):
+            with open(path, encoding="utf-8", newline="") as fh:
+                for r in csv.DictReader(fh, delimiter="\t", quoting=csv.QUOTE_NONE):
+                    items.append({"good": r["grammatical"], "bad": r["ungrammatical"],
+                                  "label": status_label(r["status"]), "kn": kn_id.get(r["id"]),
+                                  "detail": f"{r['status']} {r.get('reason', '')}".strip()})
+        else:
+            with open(path, encoding="utf-8-sig", newline="") as fh:
+                for r in csv.DictReader(fh):
+                    items.append({"good": r["good"], "bad": r["bad"], "label": sheet_label(r),
+                                  "kn": kn_sent.get(normalize(r["good"]).lower()),
+                                  "detail": f"good_ok={r['good_ok']} bad_is_wrong={r['bad_is_wrong']} "
+                                            f"fixed_bad={r['fixed_bad']} {r['comment']}".strip()})
+    return items
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("sheet")
+    p.add_argument("inputs", nargs="+", help="hand-check CSV and/or blind review.py TSV files")
     p.add_argument("--annotator", default="JM")
     args = p.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
 
-    kn = {}
-    for f in glob.glob(str(ROOT / "data" / "pairs_v*.tsv")):
-        with open(f, encoding="utf-8", newline="") as fh:
-            for r in csv.DictReader(fh, delimiter="\t", quoting=csv.QUOTE_NONE):
-                if r["status"] != "unchecked":
-                    kn[normalize(r["grammatical"]).lower()] = (r, "usable" if r["status"] in ("accepted", "edited")
-                                                               else "not usable")
-    with open(args.sheet, encoding="utf-8-sig", newline="") as fh:
-        sheet = list(csv.DictReader(fh))
-
-    both, per, disagree, filled = [], defaultdict(list), [], 0
-    for r in sheet:
-        lab = sheet_label(r)
-        filled += lab is not None
-        key = normalize(r["good"]).lower()
-        if lab is None or key not in kn:
+    kn_sent, kn_id = load_kn()
+    items = load_second(args.inputs, kn_sent, kn_id)
+    both, per, disagree = [], defaultdict(list), []
+    judged = sum(it["label"] is not None for it in items)
+    for it in items:
+        if it["label"] is None or it["kn"] is None:
             continue
-        krow, klab = kn[key]
-        both.append((klab, lab))
-        per[krow["phenomenon"]].append((klab, lab))
-        if klab != lab:
-            disagree.append({"pair_id": krow["id"], "phenomenon": krow["phenomenon"], "good": r["good"],
-                             "bad": r["bad"], "KN": f"{krow['status']} {krow.get('reason', '')}".strip(),
-                             args.annotator: f"good_ok={r['good_ok']} bad_is_wrong={r['bad_is_wrong']} "
-                                             f"fixed_bad={r['fixed_bad']} {r['comment']}".strip()})
+        krow, klab = it["kn"]
+        both.append((klab, it["label"]))
+        per[krow["phenomenon"]].append((klab, it["label"]))
+        if klab != it["label"]:
+            disagree.append({"pair_id": krow["id"], "phenomenon": krow["phenomenon"], "good": it["good"],
+                             "bad": it["bad"], "KN": f"{krow['status']} {krow.get('reason', '')}".strip(),
+                             args.annotator: it["detail"]})
 
-    print(f"Sheet rows filled in: {filled}/{len(sheet)}. Judged by both KN and {args.annotator}: {len(both)}.")
+    print(f"{args.annotator} judged {judged}/{len(items)} rows; judged by both KN and {args.annotator}: {len(both)}.")
     lines = [f"# Inter-annotator agreement: KN vs {args.annotator}", "",
-             f"Sheet `{args.sheet}`: {filled}/{len(sheet)} rows filled in; {len(both)} pairs judged by both.", "",
+             f"Inputs: {', '.join(f'`{s}`' for s in args.inputs)}. {judged}/{len(items)} rows judged by "
+             f"{args.annotator}; {len(both)} pairs judged by both.", "",
+             "Labels: usable (accepted/edited) vs not usable. Because most pairs are usable, κ is low "
+             "even at high agreement (the kappa paradox), so read both columns.", "",
              "| Phenomenon | Pairs | Agreement | Cohen's κ |", "|---|---|---|---|"]
-    for ph, items in sorted(per.items()) + [("**All**", both)]:
-        a, k = kappa(items)
+    for ph, pairs in sorted(per.items()) + [("**All**", both)]:
+        a, k = kappa(pairs)
         if a is not None:
-            lines.append(f"| {ph} | {len(items)} | {100 * a:.1f}% | {k:.2f} |")
-            print(f"  {ph:24} n={len(items):4}  agreement {100 * a:5.1f}%  kappa {k:.2f}")
+            lines.append(f"| {ph} | {len(pairs)} | {100 * a:.1f}% | {k:.2f} |")
+            print(f"  {ph:24} n={len(pairs):4}  agreement {100 * a:5.1f}%  kappa {k:.2f}")
     out = ROOT / "results" / f"agreement_KN_{args.annotator}.md"
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    dis = ROOT / "handcheck" / f"disagreements_KN_{args.annotator}.csv"
+    msg = f"Wrote {out}"
     if disagree:
+        dis = ROOT / "handcheck" / f"disagreements_KN_{args.annotator}.csv"
         with open(dis, "w", encoding="utf-8-sig", newline="") as f:
             w = csv.DictWriter(f, fieldnames=list(disagree[0]))
             w.writeheader()
             w.writerows(disagree)
-    print(f"Wrote {out}" + (f" and {dis} ({len(disagree)} disagreements)" if disagree else ""))
+        msg += f" and {dis} ({len(disagree)} disagreements)"
+    print(msg)
 
 
 if __name__ == "__main__":
