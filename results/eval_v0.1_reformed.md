@@ -44,8 +44,8 @@
 | Model (trained on) | Current Latin | Reformed Latin | Cyrillic |
 |---|---|---|---|
 | Goldfish uzn_latn_100mb (Latin) | **94.9** | excluded (89% `<unk>`) | 87.7 (33% `<unk>`) |
-| Goldfish uzn_cyrl_100mb (Cyrillic) | 42.0 (78% `<unk>`) | – | **93.7** |
-| tahrirchi-bert-base (Latin) | **97.7** | 86.6 | 70.2 |
+| Goldfish uzn_cyrl_100mb (Cyrillic) | 42.0 (78% `<unk>`) | – | **93.8** |
+| tahrirchi-bert-base (Latin) | **97.7** | 86.6 | 70.3 |
 | Qwen2.5-0.5B (multilingual) | 42.3 | 49.1 | 51.4 |
 
 ## What this suggests (provisional)

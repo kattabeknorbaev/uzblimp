@@ -28,6 +28,8 @@ Tested 2026-10-06: `turkicnlp` 0.4.0 (PyPI, Apache-2.0, "Pre-Alpha"; by Sherzod 
 | Lat→Cyr | Isʼhoq → Исъҳоқ (Исҳоқ) | tutuq is always ъ; the tutuq that separates s and h should disappear | low (names) |
 | Lat→Cyr | obyekt → обйект (объект) | ye after a consonant isn't handled | low–medium (loans) |
 | Lat→Cyr | sirk → сирк (цирк), sentabr → сентабр (сентябрь), kompyuter → компютер (компьютер) | Russian loans aren't rule-based | medium: needs an exception list |
+| Lat→Cyr | qoʻngʻiroq → **қўнгъироқ** (қўнғироқ), boshlangʻich → бошлангъич (бошланғич) | `ng` is read as нг before `gʻ`, then ʻ → ъ (found 2026-10-16) | medium: 10/900 benchmark pairs; fixed in our wrapper |
+| Lat→Cyr | XV asr → **ХВ аср** (XV аср) | Roman numerals are transliterated (found 2026-10-16) | low: 1/900 pairs; fixed in our wrapper |
 | Cyr→Lat | Ўзбекистон → `O'zbekiston` | outputs ASCII ' for oʻ/gʻ and tutuq | fixed in our wrapper (`scripts/alphabets.py`) |
 | Cyr→Lat | Исҳоқ → **Ishoq** (Isʼhoq) | the s|h tutuq isn't inserted, so the result reads as "sh" | low (names), but loses information |
 | Cyr→Lat | цирк → tsirk (sirk), сентябрь → sentyabr (sentabr), объект → obʼyekt (obyekt) | 1995 rules for ц/loans not implemented | medium |
@@ -92,3 +94,5 @@ Tested 2026-10-06: `turkicnlp` 0.4.0 (PyPI, Apache-2.0, "Pre-Alpha"; by Sherzod 
 5. MorphemeTokenizer `uzb`: add `q→gʻ`; label genitive *-(n)ing*, converb *-(i)b* and possessive + case clusters.
 6. Tokenizer: dialogue dashes (`-Word`, `word,-dedi`).
 7. MorphemeTokenizer `uzb` (found 2026-10-09): dative after q/k (*qishloqqa*, *eshikka*) and pronoun datives *senga/menga* get `?`, and *uyga* gets no case label. Only -ga after other consonants is labelled `DAT`.
+8. Lat→Cyr (found 2026-10-16): *n + gʻ* should be н + ғ, not нг + ъ (*qoʻngʻiroq*, *yongʻoq*, *Qorongʻu*).
+9. Lat→Cyr (found 2026-10-16): keep Roman numerals Latin (*XV asr* → XV аср).

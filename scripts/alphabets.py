@@ -48,6 +48,12 @@ _SOFT = ""  # placeholder for ь (TurkicNLP passes it through)
 _MONTHS = {"сентабр": "сентябрь", "октабр": "октябрь", "ноябр": "ноябрь", "декабр": "декабрь",
            "январ": "январь", "феврал": "февраль", "апрел": "апрель", "июн": "июнь", "июл": "июль"}
 _MONTH_RE = re.compile(r"\b(" + "|".join(_MONTHS) + r")\b", re.I)
+# 5. n + gʻ is н + ғ (qoʻngʻiroq → қўнғироқ); TurkicNLP reads "ng" as нг and ʻ as ъ.
+_N_GH = re.compile(f"([nN])(?=[gG][{_APOS}])")
+# 6. Roman numerals stay Latin (XV asr → XV аср, not ХВ). Two letters or more, or one
+#    letter before asr/jahon, so that initials (V. Lenin) are still converted.
+_ROMAN = re.compile(r"(?<![^\W\d_])(?:(?=[IVXLC]{2})C{0,3}(?:XC|XL|L?X{0,3})(?:IX|IV|V?I{0,3})"
+                    r"|[IVX](?=[\s-]+(?:asr|jahon)))(?![^\W\d_])")
 
 
 def to_cyrillic(latin: str) -> str:
@@ -58,7 +64,12 @@ def to_cyrillic(latin: str) -> str:
     t = "".join(ch + _ZW if ch in "tT" and i + 1 < len(t) and t[i + 1] == "s" and i not in loans else ch
                 for i, ch in enumerate(t))
     t = _CONS_YE.sub(lambda m: TUTUQ if _HARD_PREFIX.search(t[:m.start()]) else _SOFT, t)
-    out = _LAT2CYR.transliterate(t).replace(_ZW, "").replace(_SOFT, "ь")
+    t = _N_GH.sub(rf"\1{_ZW}", t)
+    parts = _ROMAN.split(t)
+    romans = _ROMAN.findall(t)
+    out = "".join(_LAT2CYR.transliterate(p) + (romans[i] if i < len(romans) else "")
+                  for i, p in enumerate(parts))
+    out = out.replace(_ZW, "").replace(_SOFT, "ь")
 
     def month(m):
         w = _MONTHS[m.group(1).lower()]

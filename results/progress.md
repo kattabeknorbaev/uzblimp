@@ -1,6 +1,6 @@
 # UzBLiMP progress
 
-**Checkpoint 01 November 2026: at least 600 accepted pairs (goal ~1,000)** in the benchmark, 17 days from 15 October 2026. Full set: 16 × 150 = 2,400.
+**Checkpoint 01 November 2026: at least 600 accepted pairs (goal ~1,000)** in the benchmark, 16 days from 16 October 2026. Full set: 16 × 150 = 2,400.
 
 - Benchmark pairs so far: **905 / 2,400** (38%); checkpoint minimum: 905 / 600.
 - Phenomena complete: 6 / 16. Reserve pairs: 473.
