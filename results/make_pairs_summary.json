@@ -35,14 +35,16 @@
       "tried": 2224,
       "generated": 250,
       "reasons": {
-        "word after the pronoun has no matching possessive suffix": 926,
-        "balance: enough pairs with 'uning'": 469,
+        "word after the pronoun has no matching possessive suffix": 906,
+        "balance: enough pairs with 'uning'": 462,
         "swapped possessive form not attested in corpus": 386,
         "ok": 250,
         "starts with a proper noun (TurkicNLP)": 79,
-        "balance: enough pairs with 'ularning'": 42,
+        "word after the pronoun is a function word": 44,
         "not exactly one genitive pronoun + word": 41,
-        "balance: enough pairs with 'mening'": 31
+        "balance: enough pairs with 'ularning'": 38,
+        "balance: enough pairs with 'mening'": 16,
+        "word after the pronoun is not a noun (TurkicNLP UPOS)": 2
       }
     }
   }

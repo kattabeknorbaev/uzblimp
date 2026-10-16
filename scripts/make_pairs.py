@@ -314,6 +314,11 @@ SWAP = {"1sg": "2sg", "2sg": "1sg", "1pl": "2pl", "2pl": "1pl", "3": "1sg"}
 CASES = ("", "ni", "ga", "da", "dan", "ning", "dek")
 GEN_RE = re.compile(rf"\b(mening|sening|uning|bizning|sizning|ularning)\s+({L}+)", re.I)
 VOWEL_END = re.compile(rf"(?:[aeiou]|o{A})$", re.I)
+# Words that only look possessed (2026-10-16: mening ham → *hang ×9, ularning ikki koʻzini →
+# *ikkim, ularning buni bajarmasliklari → *bunim): particles, bare numerals, pronoun case forms.
+NOT_POSSESSED = {"ham", "kim", "hali", "ikki", "olti", "yetti", "ming", "keng", "teng",
+                 "buni", "shuni", "uni", "meni", "seni", "bizni", "sizni", "ularni", "bularni", "shularni"}
+NOT_POSSESSED_UPOS = {"ADV", "PART", "CCONJ", "SCONJ", "DET", "AUX", "INTJ"}
 
 
 def possessive_agreement(s, ctx):
@@ -323,6 +328,8 @@ def possessive_agreement(s, ctx):
     m = ms[0]
     pers, word = GEN_PRON[m.group(1).lower()], m.group(2)
     low = word.lower()
+    if low in NOT_POSSESSED:
+        return skip("word after the pronoun is a function word")
     for case in CASES:
         for after_vowel, suf in enumerate(POSS[pers][::-1]):  # try consonant (im) before vowel (m) forms
             ending = suf + case
@@ -337,6 +344,8 @@ def possessive_agreement(s, ctx):
             new = stem + new_suf + case
             if ctx.lex[new] < ctx.min_count:
                 return skip("swapped possessive form not attested in corpus")
+            if ctx.an.upos_of(s, word) in NOT_POSSESSED_UPOS:
+                return skip("word after the pronoun is not a noun (TurkicNLP UPOS)")
             new = new[0].upper() + new[1:] if word[0].isupper() else new
             return Edit(s[:m.start(2)] + new + s[m.end(2):], f"{m.group(1)} {word} → {new}")
     return skip("word after the pronoun has no matching possessive suffix")
@@ -479,7 +488,9 @@ def main():
     lex, pools, meta = load_or_scan(args)
     print(f"Lexicon: {len(lex):,} word forms (count ≥ 2). Eligible sentences: {meta['eligible']}")
     ctx = Ctx(lex, args.min_count)
-    summary = {"meta": meta, "min_count": args.min_count, "phenomena": {}}
+    summary_path = ROOT / "results" / "make_pairs_summary.json"
+    old = json.loads(summary_path.read_text(encoding="utf-8")) if summary_path.exists() else {}
+    summary = {"meta": meta, "min_count": args.min_count, "phenomena": old.get("phenomena", {})}  # keep other runs
     for ph in args.phenomena:
         out = Path(args.out_dir) / f"pairs_v1_{ph}.tsv"
         if out.exists() and not args.force:
@@ -505,9 +516,8 @@ def main():
         print(f"\n{ph}: {len(rows)} pairs → {out.name} (tried {tried} of {len(pools[ph])} sampled)")
         for r, c in reasons.most_common():
             print(f"   {c:5}  {r}")
-    (ROOT / "results").mkdir(exist_ok=True)
-    (ROOT / "results" / "make_pairs_summary.json").write_text(
-        json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    summary_path.parent.mkdir(exist_ok=True)
+    summary_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 if __name__ == "__main__":
