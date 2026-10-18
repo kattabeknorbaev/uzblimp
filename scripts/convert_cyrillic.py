@@ -7,7 +7,7 @@ fixed seeds, so the same ids are drawn as long as the benchmark doesn't change).
 Checks: Latin letters left (Roman numerals allowed), pairs that no longer differ
 in one place, and Cyrillic → Latin round trips that don't give back the original.
 
-    python scripts/convert_cyrillic.py              # keeps an existing check sheet
+    python scripts/convert_cyrillic.py              # keeps checked rows, samples new phenomena
     python scripts/convert_cyrillic.py --resample   # redraws the sheet (erases the check)
 """
 import collections
@@ -54,20 +54,25 @@ def main():
     for a, c in bad_rt:
         print("   ", [(x, y) for x, y in zip(a.split(), c.split()) if x != y])
 
-    if SHEET.exists() and "--resample" not in sys.argv:
-        print(f"{SHEET.relative_to(ROOT)} exists (holds the native check); --resample to overwrite")
-        return
+    kept = []
+    if SHEET.exists() and "--resample" not in sys.argv:  # keep the checked rows, add new phenomena only
+        kept = list(csv.DictReader(open(SHEET, encoding="utf-8-sig")))
+    have = {r["phenomenon"] for r in kept}
     by = collections.defaultdict(list)
     for o in out:
         by[o["phenomenon"]].append(o)
-    sample = [x for ph in sorted(by) for x in random.Random(f"cyr-{ph}").sample(by[ph], 10)]
+    added = [x for ph in sorted(by) if ph not in have for x in random.Random(f"cyr-{ph}").sample(by[ph], 10)]
+    if not added:
+        print(f"{SHEET.relative_to(ROOT)}: every phenomenon already sampled; unchanged (--resample to redraw)")
+        return
+    sample = kept + added
     with open(SHEET, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["id", "phenomenon", "latin_grammatical", "grammatical",
                                           "latin_ungrammatical", "ungrammatical", "cyrillic_ok", "comment"],
                            extrasaction="ignore")
         w.writeheader()
         w.writerows(sample)
-    print(f"{len(sample)} pairs → {SHEET.relative_to(ROOT)}")
+    print(f"{len(sample)} pairs → {SHEET.relative_to(ROOT)} ({len(added)} new to check)")
 
 
 if __name__ == "__main__":
