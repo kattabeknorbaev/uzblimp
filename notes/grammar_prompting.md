@@ -23,10 +23,16 @@ evidence either way.
 Key comparison: **explanation − control** (the content effect), with McNemar on the same pairs;
 **control − baseline** shows the effect of just having text in front.
 
-## Explanations (Kattabek writes them)
-`data/explanations.tsv`, column `explanation`. The `tests` column is only a reminder of what
-the pairs change; the explanations must be in Kattabek's own words (native-written is what makes
-this cleaner than model-written explanations).
+## Explanations
+`data/explanations.tsv`, column `explanation`; `source` says where each rule is documented.
+**Authorship (2026-10-19):** at Kattabek's request, Claude drafted the 8 explanations for the v0.2
+phenomena from published descriptions where they could be found (Wikipedia's Uzbek_language
+article citing Ahmedjanova, and the UD Uzbek Case page: dative -ka/-qa, k/q → g/gʻ, beri + ablative).
+The other rules had no accessible online source; they are standard Uzbek and match Kattabek's
+judgements in the pair reviews. Kattabek checks every explanation as a native speaker before use.
+In the paper: "written with reference to Uzbek grammars and checked by a native speaker", not
+"native-written". Still to do: a reference-grammar citation for each rule (e.g. Bodrogligeti 2003,
+Kononov 1960, Sjoberg 1963; pages not yet checked).
 - English, 2–4 sentences, roughly the same length for every phenomenon (the control is another
   phenomenon's explanation, so similar lengths keep the two conditions comparable).
 - State the rule. One correct and one incorrect Uzbek example are fine, but **not** sentences or

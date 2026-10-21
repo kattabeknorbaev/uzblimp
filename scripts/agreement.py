@@ -74,7 +74,11 @@ def load_second(paths, kn_sent, kn_id):
                                   "detail": f"{r['status']} {r.get('reason', '')}".strip()})
         else:
             with open(path, encoding="utf-8-sig", newline="") as fh:
-                for r in csv.DictReader(fh):
+                header = fh.readline()
+                fh.seek(0)
+                # Excel in some locales saves "CSV" with semicolons (e.g. handcheck_iaa_562_v12_JM.csv)
+                sep = ";" if header.count(";") > header.count(",") else ","
+                for r in csv.DictReader(fh, delimiter=sep):
                     items.append({"good": r["good"], "bad": r["bad"], "label": sheet_label(r),
                                   "kn": kn_sent.get(normalize(r["good"]).lower()),
                                   "detail": f"good_ok={r['good_ok']} bad_is_wrong={r['bad_is_wrong']} "

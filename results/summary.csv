@@ -34,3 +34,7 @@ timestamp,model,dataset,n_pairs,accuracy,bos,device,dtype,n_params_M,acc_norm,sc
 2026-10-18T13:36:05,tahrirchi/tahrirchi-bert-base,uzblimp_v0.2_cyrl,1200,0.7333,True,cpu,float32,110,0.7133,mlm-pll,baseline
 2026-10-18T18:34:14,Qwen/Qwen2.5-0.5B,uzblimp_v0.2_reformed_bos,1200,0.5308,True,cpu,float32,494,0.5425,causal,baseline
 2026-10-18T20:20:04,tahrirchi/tahrirchi-bert-base,uzblimp_v0.2_reformed,1200,0.8967,True,cpu,float32,110,0.9025,mlm-pll,baseline
+2026-10-19T11:42:23,goldfish-models/uzn_cyrl_100mb,uzblimp_v0.2_cyrl,1200,0.9417,True,cpu,float32,164,0.9075,causal,baseline
+2026-10-19T11:44:01,goldfish-models/uzn_latn_100mb,uzblimp_v0.2_cyrl,1200,0.8767,True,cpu,float32,164,0.8258,causal,baseline
+2026-10-19T11:54:44,Qwen/Qwen2.5-0.5B,uzblimp_v0.2_cyrl_bos,1200,0.5025,True,cpu,float32,494,0.505,causal,baseline
+2026-10-19T12:50:17,tahrirchi/tahrirchi-bert-base,uzblimp_v0.2_cyrl,1200,0.7333,True,cpu,float32,110,0.7133,mlm-pll,baseline

@@ -1,7 +1,7 @@
-# UzBLiMP v0.2: 1,200 pairs, three alphabets (provisional, 2026-10-18)
+# UzBLiMP v0.2: 1,200 pairs, three alphabets (provisional, 2026-10-18; Cyrillic updated 2026-10-19)
 
 **Benchmark v0.2:** 8 complete phenomena × 150 = 1,200 pairs (`data/benchmark/uzblimp.tsv`, built with `scripts/build_benchmark.py`). New since v0.1: `suspended_affixation` and `possessive_agreement`. The 900 v0.1 pairs are unchanged (per-phenomenon seeds).
-- **Cyrillic** (`uzblimp_cyrl.tsv`, `scripts/convert_cyrillic.py`): 0 Latin letters left, 0 broken pairs, 2/2,400 round-trip differences (*sentabr*, Cyrillic correct). Native check: 60/60 OK for the v0.1 phenomena; 20 pairs from the two new phenomena pending. Known unrecoverable loan: *film* → филм (3 pairs; *фильм* expected), to fix after KN's check.
+- **Cyrillic** (`uzblimp_cyrl.tsv`, `scripts/convert_cyrillic.py`): 0 Latin letters left, 0 broken pairs, 2/2,400 round-trip differences (*sentabr*, Cyrillic correct). Native check (KN): 80/80 sampled pairs OK (10 per phenomenon). Loan stems with ь fixed after the check (*film* → фильм, *kompyuter* → компьютер; 4 pairs changed, accuracies unchanged).
 - **Reformed Latin** (`uzblimp_reformed.tsv`, `scripts/convert_reformed.py`): 443 pairs with a new letter in the critical word, 698 only elsewhere, 59 unchanged; 0 broken. Models with 0% `<unk>` (decision 8): Qwen2.5-0.5B and tahrirchi-bert; Goldfish-latn excluded (87% `<unk>`).
 - **Metric:** accuracy, log P(grammatical) > log P(ungrammatical), chance = 50%; masked LM scored with PLL (`within_word_l2r`). Tables from `scripts/eval_report.py --version v0.2 --previous v0.1`.
 
@@ -57,16 +57,16 @@ Matched script per phenomenon (Bonferroni threshold 0.0063):
 
 ## Pairs shared with v0.1: same result?
 
-| Run | Shared pairs | Same correct/incorrect | Max abs. log-prob difference |
+| Run | Shared pairs (same text) | Same correct/incorrect | Max abs. log-prob difference |
 |---|---|---|---|
 | Goldfish-latn (Latin) | 900 | 900 | 1.5e-05 |
 | Goldfish-cyrl (Latin) | 900 | 900 | 3.1e-05 |
 | tahrirchi-bert (Latin) | 900 | 900 | 3.8e-05 |
 | Qwen2.5-0.5B (Latin) | 900 | 900 | 0.00012 |
-| Goldfish-latn (Cyrillic) | 900 | 900 | 1.5e-05 |
-| Goldfish-cyrl (Cyrillic) | 900 | 900 | 1.5e-05 |
-| tahrirchi-bert (Cyrillic) | 900 | 900 | 3.1e-05 |
-| Qwen2.5-0.5B (Cyrillic) | 900 | 900 | 6.1e-05 |
+| Goldfish-latn (Cyrillic) | 898 | 898 | 1.5e-05 |
+| Goldfish-cyrl (Cyrillic) | 898 | 898 | 1.5e-05 |
+| tahrirchi-bert (Cyrillic) | 898 | 898 | 3.1e-05 |
+| Qwen2.5-0.5B (Cyrillic) | 898 | 898 | 6.1e-05 |
 | tahrirchi-bert (Reformed) | 900 | 900 | 4.6e-05 |
 | Qwen2.5-0.5B (Reformed) | 900 | 900 | 0.00012 |
 
@@ -83,10 +83,10 @@ Matched script per phenomenon (Bonferroni threshold 0.0063):
 
 1. **Uzbek-only models know these phenomena; the small multilingual one doesn't.** tahrirchi-bert 98.0%, Goldfish-latn 94.8%; Qwen2.5-0.5B 45.8% (below chance, driven by length and suffix-frequency cues as in v0.1: *npi_hech* 6.0%, *dative_allomorphy* 14.7%).
 2. **Matched script: grammar knowledge holds across scripts.** Goldfish-latn on Latin 94.8% vs Goldfish-cyrl on Cyrillic 94.2% (+0.7, CI −0.8 to +2.2, p = 0.46). No phenomenon differs after Bonferroni correction; the two new phenomena are equal or nearly so (96.7 vs 96.7, 92.7 vs 94.0).
-3. **The other script costs single-script models a lot:** Goldfish-latn −7.2 on Cyrillic (with 30% `<unk>`), tahrirchi-bert −24.7 (98.0 → 73.3, no `<unk>` but nearly twice the tokens). Goldfish-cyrl on Latin collapses (41.7%, 79% `<unk>`).
+3. **The other script costs single-script models a lot:** Goldfish-latn −7.2 on Cyrillic (with 30% `<unk>`), tahrirchi-bert −24.7 (98.0 → 73.3, no `<unk>` but about twice the tokens). Goldfish-cyrl on Latin collapses (41.7%, 79% `<unk>`).
 4. **Reformed Latin costs less than a full script change:** tahrirchi-bert −8.3 (98.0 → 89.7); −14.4 when the critical word contains a new letter, −5.2 when only other words do, 0 for the 59 unchanged pairs. So current Latin > reformed Latin > Cyrillic for a Latin-trained model, as in v0.1.
 5. **The two new phenomena are robust to spelling for tahrirchi-bert:** *suspended_affixation* 98.0 → 98.0 and *possessive_agreement* 100.0 → 100.0 in reformed Latin, so the overall reformed drop is smaller than in v0.1 (−11.1). In Cyrillic they hold up better than the v0.1 phenomena too (90.0 and 74.7).
-6. **Reproducible:** every one of the 900 pairs shared with v0.1 gets the same result in all 10 runs (log-probabilities within 0.0002).
+6. **Reproducible:** every pair shared with v0.1 with identical text (900; 898 in Cyrillic after the loanword fix) gets the same result in all 10 runs (log-probabilities within 0.0002).
 
 ## Caveats
 - **8 of 16 phenomena**; the other 8 (Javokhir's v11 pairs) are still to review.

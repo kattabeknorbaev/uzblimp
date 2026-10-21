@@ -119,13 +119,14 @@ def main():
     # 4. Reproducibility on pairs shared with the previous version
     if args.previous:
         print(f"\n## Pairs shared with {args.previous}: same result?\n")
-        print("| Run | Shared pairs | Same correct/incorrect | Max abs. log-prob difference |\n|---|---|---|---|")
+        print("| Run | Shared pairs (same text) | Same correct/incorrect | Max abs. log-prob difference |\n|---|---|---|---|")
         for label, alpha, stem in RUNS:
             f_old = ROOT / "results" / f"{stem.format(v=args.previous)}.csv"
             if (label, alpha) not in runs or not f_old.exists():
                 continue
             old, new = pd.read_csv(f_old).set_index("id"), runs[(label, alpha)]
             ids = old.index.intersection(new.index)
+            ids = ids[(old.loc[ids].good == new.loc[ids].good) & (old.loc[ids].bad == new.loc[ids].bad)]  # same text
             same = int((old.loc[ids].correct == new.loc[ids].correct).sum())
             dmax = max((old.loc[ids].good_logprob - new.loc[ids].good_logprob).abs().max(),
                        (old.loc[ids].bad_logprob - new.loc[ids].bad_logprob).abs().max())

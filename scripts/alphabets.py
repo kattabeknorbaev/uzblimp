@@ -48,6 +48,9 @@ _SOFT = ""  # placeholder for ь (TurkicNLP passes it through)
 _MONTHS = {"сентабр": "сентябрь", "октабр": "октябрь", "ноябр": "ноябрь", "декабр": "декабрь",
            "январ": "январь", "феврал": "февраль", "апрел": "апрель", "июн": "июнь", "июл": "июль"}
 _MONTH_RE = re.compile(r"\b(" + "|".join(_MONTHS) + r")\b", re.I)
+#    Loan stems with ь, any suffix after them (KN 2026-10-19: filmlarda → фильмларда).
+_LOAN_STEMS = {"филм": "фильм", "компютер": "компьютер"}
+_LOAN_RE = re.compile(r"\b(" + "|".join(_LOAN_STEMS) + r")", re.I)
 # 5. n + gʻ is н + ғ (qoʻngʻiroq → қўнғироқ); TurkicNLP reads "ng" as нг and ʻ as ъ.
 _N_GH = re.compile(f"([nN])(?=[gG][{_APOS}])")
 # 6. Roman numerals stay Latin (XV asr → XV аср, not ХВ). Two letters or more, or one
@@ -58,7 +61,7 @@ _ROMAN = re.compile(r"(?<![^\W\d_])(?:(?=[IVXLC]{2})C{0,3}(?:XC|XL|L?X{0,3})(?:I
 
 def to_cyrillic(latin: str) -> str:
     """Latin → Cyrillic via TurkicNLP, with the fixes above. Still not fully rule-based
-    (sirk → цирк, kompyuter → компьютер), so converted sentences need a human check."""
+    (sirk → цирк, sirkoniy → цирконий), so converted sentences need a human check."""
     t = _S_TUTUQ_H.sub(rf"\1{_ZW}", latin)
     loans = {m.start() for m in _TS_LOAN.finditer(t)}
     t = "".join(ch + _ZW if ch in "tT" and i + 1 < len(t) and t[i + 1] == "s" and i not in loans else ch
@@ -71,10 +74,12 @@ def to_cyrillic(latin: str) -> str:
                   for i, p in enumerate(parts))
     out = out.replace(_ZW, "").replace(_SOFT, "ь")
 
-    def month(m):
-        w = _MONTHS[m.group(1).lower()]
-        return w[0].upper() + w[1:] if m.group(1)[0].isupper() else w
-    return _MONTH_RE.sub(month, out)
+    def fixed(table):
+        def sub(m):
+            w = table[m.group(1).lower()]
+            return w[0].upper() + w[1:] if m.group(1)[0].isupper() else w
+        return sub
+    return _LOAN_RE.sub(fixed(_LOAN_STEMS), _MONTH_RE.sub(fixed(_MONTHS), out))
 
 
 def to_latin(cyrillic: str) -> str:

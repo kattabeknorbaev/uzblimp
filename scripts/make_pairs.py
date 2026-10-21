@@ -351,6 +351,175 @@ def possessive_agreement(s, ctx):
     return skip("word after the pronoun has no matching possessive suffix")
 
 
+# Top-up generators (2026-10-22) for phenomena whose v11 pairs (JM) fall short of 150. They
+# re-implement JM's rules on our corpus, with extra guards. OK = the oʻ/gʻ apostrophe (U+02BB),
+# the only one eligible sentences contain.
+OK = "ʻ"
+TOKEN = re.compile(rf"{L}+(?:-{L}+)*|[^\w\s]")
+
+
+def _tokens(s):
+    return [(m.group(), m.start(), m.end()) for m in TOKEN.finditer(s)]
+
+
+# ---------------------------------------------------- ditransitive_dative
+# The recipient of a give/tell/show verb is dative; the bad sentence makes it accusative, so the
+# clause has two accusatives: unga kalitni berdi → *uni kalitni berdi (JM v11 rule 8).
+DAT_ACC = {"menga": "meni", "senga": "seni", "unga": "uni", "bizga": "bizni", "sizga": "sizni", "ularga": "ularni"}
+DAT_POSS = {"menga": "imni", "senga": "ingni", "unga": "ini", "bizga": "imizni", "sizga": "ingizni", "ularga": "ini"}
+DITRANSITIVE = ("ber", "ayt", f"ko{OK}rsat", "yubor", "uzat", "tushuntir", f"o{OK}rgat", "topshir", "sot",
+                f"bag{OK}ishla", "qaytar", "yetkaz", "uqtir")
+NOT_RECIPIENT_NEXT = {"qaramay", f"ko{OK}ra", "nisbatan", "qarab", "qadar", "tomon", "binoan", f"o{OK}xshab",
+                      "yarasha", "qarshi", f"bog{OK}liq", "yaqin", "tegishli", "aloqador", "loyiq", "xos", "teng"}
+
+
+def ditransitive_dative(s, ctx):
+    toks = _tokens(s)
+    hits = [i for i, (w, _, _) in enumerate(toks) if w.lower() in DAT_ACC]
+    if len(hits) != 1:
+        return skip("not exactly one dative pronoun")
+    i = hits[0]
+    pron = toks[i][0]
+    if i + 1 < len(toks) and toks[i + 1][0].lower() in NOT_RECIPIENT_NEXT:
+        return skip("dative pronoun is the complement of a postposition/adjective (unga qaramay)")
+    obj = verb = None
+    for j in range(i + 1, min(i + 6, len(toks))):  # accusative object, then the verb, same clause
+        w = toks[j][0].lower()
+        if not w[0].isalpha():
+            break
+        if obj is None and w.endswith("ni") and len(w) > 3:
+            obj = j
+        elif obj is not None and w.startswith(DITRANSITIVE) and not re.match(
+                rf"(?:{'|'.join(DITRANSITIVE)})(?:il|in)", w):  # not the passive (berildi)
+            verb = j
+            break
+    if obj is None or verb is None or verb - obj > 3:
+        return skip("no accusative object + give/tell/show verb after the pronoun")
+    # The accusative pronoun could become the object of a verb form in between or of a verbal
+    # noun object: sizga eshitganimni aytaman → sizni eshitganimni ("that I heard you") is fine.
+    if any(re.search(r"(?:gan|kan|qan|digan|yotgan)$", toks[k][0].lower()) for k in range(i + 1, obj)) or \
+            re.search(r"(?:gan|kan|qan|ish|sh|moq|maslik)\w*ni$", toks[obj][0].lower()):
+        return skip("pronoun could be the object of a participle or verbal noun (sizni eshitganimni)")
+    if obj == i + 1 and toks[obj][0].lower().endswith(DAT_POSS[pron.lower()]):
+        return skip("uni kitobini could read as colloquial 'his book' (-ni = -ning)")
+    acc = DAT_ACC[pron.lower()]
+    acc = acc[0].upper() + acc[1:] if pron[0].isupper() else acc
+    return Edit(s[:toks[i][1]] + acc + s[toks[i][2]:], f"{pron} → {acc}")
+
+
+# ---------------------------------------------------------------- passives
+# An agent phrase with tomonidan needs a passive verb: vazir tomonidan tayinlangan →
+# *tayinlagan. Passive allomorphs (stem → passive): l-final consonant stem -in (ol → olin),
+# other consonant -il (yoz → yozil), stem in -la -n (ishla → ishlan), other vowel -l (o'qi → o'qil).
+# Not -ib converbs: in oʻt qoʻyilib oʻldirilgan the main verb stays passive, so qoʻyib may be fine.
+PASSIVE_END = re.compile(rf"^(?:gan|di|adi|ayotgan|moqda|ish|ar|ajak){L}*$")
+
+
+def _passive_splits(w):
+    """Every (stem, passive morpheme, ending) split of w, shortest stem first (oʻldir+il+gan)."""
+    for k in range(2, len(w)):
+        for morph in ("il", "in", "l", "n"):
+            if w.startswith(morph, k) and PASSIVE_END.match(w[k + len(morph):]):
+                yield w[:k], morph, w[k + len(morph):]
+
+
+def _passive_fits(stem, morph):
+    last = stem[-1]
+    if last in "aeiou" or stem.endswith(f"o{OK}"):
+        return morph == ("n" if stem.endswith("la") else "l")
+    return morph == ("in" if last == "l" else "il")
+
+
+def passives(s, ctx):
+    toks = _tokens(s)
+    hits = [i for i, (w, _, _) in enumerate(toks) if w.lower() == "tomonidan"]
+    if len(hits) != 1:
+        return skip("not exactly one tomonidan")
+    for j in range(hits[0] + 1, min(hits[0] + 6, len(toks))):
+        w = toks[j][0]
+        if not w[0].isalpha():
+            break
+        active = None
+        for stem, morph, rest in _passive_splits(w.lower()):
+            if not _passive_fits(stem, morph):
+                continue
+            if rest.startswith("gan") and stem[-1] in "qk":  # chiq + gan → chiqqan, like the dative
+                rest = stem[-1] + "an" + rest[3:]
+            if ctx.lex[stem + rest] < 5:
+                continue
+            if ctx.lex[stem + "moq"] < 2 and ctx.lex[stem + ("sh" if stem[-1] in "aeiou" else "ish")] < 5:
+                continue  # the active stem must be a verb (boʻlgan is not boʻ + passive -l)
+            active = stem + rest
+            break
+        if active is None:
+            continue
+        if ctx.an.upos_of(s, w) not in ("VERB", "AUX", "ADJ"):
+            continue
+        active = active[0].upper() + active[1:] if w[0].isupper() else active
+        return Edit(s[:toks[j][1]] + active + s[toks[j][2]:], f"{w} → {active} (tomonidan + active)")
+    return skip("no passive verb in the clause after tomonidan")
+
+
+# -------------------------------------------------------- relative_clauses
+# A relative clause before its noun uses the participle -gan, not the finite past -di:
+# obod qilgan joy → *obod qildi joy (JM v11 rule 8). -kan/-qan after k/q (ekkan → ekdi).
+PART_RE = re.compile(rf"^({L}+?)(gan|kan|qan)$")
+
+
+def relative_clauses(s, ctx):
+    toks = _tokens(s)
+    cands = []
+    for j in range(1, len(toks) - 1):  # a word before (the clause) and a word after (the noun)
+        w, nxt = toks[j][0], toks[j + 1][0]
+        m = PART_RE.match(w.lower())
+        if not m or not nxt[0].isalpha():
+            continue
+        stem = m.group(1)
+        if m.group(2) != "gan" and not stem.endswith(m.group(2)[0]):
+            continue  # -kan/-qan only after k/q
+        root = stem[:-2] if stem.endswith("ma") else stem  # kelmagan → kel
+        infinitive = root + "moq"
+        if ctx.lex[infinitive] < 2 and ctx.lex[root + ("sh" if root[-1] in "aeiou" else "ish")] < 5:
+            continue  # not a verb (organ, vagon)
+        finite = stem + "di"
+        if ctx.lex[finite] < ctx.min_count:
+            continue
+        cands.append((j, w, finite))
+    if len(cands) != 1:
+        return skip("not exactly one -gan participle + word")
+    j, w, finite = cands[0]
+    if ctx.an.upos_of(s, toks[j + 1][0]) != "NOUN":
+        return skip("word after the participle is not NOUN (TurkicNLP)")
+    return Edit(s[:toks[j][1]] + finite + s[toks[j][2]:], f"{w} → {finite} (participle → finite before noun)")
+
+
+# -------------------------------------------------------------- quantifiers
+# har bir takes a singular noun: har bir sinf → *har bir sinflar (JM v11 rule 8).
+HAR_BIR_RE = re.compile(rf"\bhar\s+bir\s+({L}+)", re.I)
+
+
+def quantifiers(s, ctx):
+    ms = list(HAR_BIR_RE.finditer(s))
+    if len(ms) != 1:
+        return skip("not exactly one har bir + word")
+    m = ms[0]
+    noun = m.group(1)
+    low = noun.lower()
+    if "lar" in low or low.startswith("bir"):
+        return skip("word already plural, or har birimiz")
+    # -lar goes before a case suffix or -dagi (uyda → uylarda, guruhdagi → guruhlardagi, not
+    # uydalar / guruhdagilar), so try those splits first
+    forms = [low[:-len(sf)] + "lar" + ("ga" if sf in ("ka", "qa") else sf)
+             for sf in ["dagi"] + CASE_SUFFIXES if low.endswith(sf) and ctx.lex[low[:-len(sf)]] >= 5]
+    forms = forms or [low + "lar"]
+    form = next((f for f in forms if ctx.lex[f] >= ctx.min_count), None)
+    if form is None:
+        return skip("plural form not attested in corpus")
+    if ctx.an.upos_of(s, noun) != "NOUN":
+        return skip("word after har bir is not NOUN (TurkicNLP)")
+    return Edit(s[:m.start(1)] + form + s[m.end(1):], f"har bir {noun} → {form}")
+
+
 GENERATORS = {  # phenomenon: (prefilter on the lowercased sentence, edit function)
     "numeral_no_plural": (re.compile(rf"\b(?:{NUM_LAT})ta\s"), numeral_no_plural),
     "npi_hech": (re.compile(r"\bhech\b"), npi_hech),
@@ -360,6 +529,10 @@ GENERATORS = {  # phenomenon: (prefilter on the lowercased sentence, edit functi
     "stem_alternation": (re.compile(rf"[aeiou]{A}?g{A}?(?:i|im|ing|imiz|ingiz)\b"), stem_alternation),
     "suspended_affixation": (re.compile(r"(?:dim|ding|dik|dingiz)\s+(?:va|hamda)\s"), suspended_affixation),
     "possessive_agreement": (re.compile(r"\b(?:mening|sening|uning|bizning|sizning|ularning)\s"), possessive_agreement),
+    "ditransitive_dative": (re.compile(r"\b(?:menga|senga|unga|bizga|sizga|ularga)\s.*\wni\b"), ditransitive_dative),
+    "passives": (re.compile(r"\btomonidan\b"), passives),
+    "relative_clauses": (re.compile(rf"\w(?:gan|kan|qan)\s+{L}"), relative_clauses),
+    "quantifiers": (re.compile(r"\bhar\s+bir\s"), quantifiers),
 }
 # Balance: (key from the edit note, max share of --n per key). Without it 65% of
 # possessive pairs used "uning" and 5% "bizning".
@@ -367,7 +540,7 @@ STRATA = {"possessive_agreement": (lambda note: note.split()[0].lower(), 0.25)}
 
 # Cheap substring test before sentence splitting: a line without any of these can't match.
 KEYWORDS = ("ta ", "hech", "keyin", "beri", "qoʻrq", "ishon", "qqa", "kka", "gi", "gʻi",
-            " va ", " hamda ", "ning ")
+            " va ", " hamda ", "ning ", "nga ", "zga ", "larga ", "tomonidan", "gan ", "kan ", "qan ", "har bir")
 
 
 # ------------------------------------------------------------------- scan
@@ -431,7 +604,7 @@ class Ctx:
         self.lex, self.min_count, self.an = lex, min_count, Analyzer()
 
 
-def generate(ph, pool, ctx, n, seed):
+def generate(ph, pool, ctx, n, seed, used=frozenset()):
     rows, reasons, skipped, strata = [], Counter(), [], Counter()
     items = list(pool)
     random.Random(f"{seed}-{ph}-order").shuffle(items)
@@ -441,6 +614,9 @@ def generate(ph, pool, ctx, n, seed):
         s = normalize(s)
         if not eligible(s):  # re-check cached pools against rules added since the scan
             reasons["not eligible under current rules"] += 1
+            continue
+        if s.lower() in used:
+            reasons["sentence already in another pair file (e.g. JM's v2)"] += 1
             continue
         e = GENERATORS[ph][1](s, ctx)
         if e.bad:
@@ -500,7 +676,13 @@ def main():
             if reviewed:
                 print(f"\n{ph}: {out.name} already has {reviewed} reviewed pairs; not overwritten (--force to override).")
                 continue
-        rows, reasons, skipped = generate(ph, pools[ph], ctx, args.n, args.seed)
+        used = set()  # grammatical sentences of this phenomenon in the other pair files
+        for f in Path(args.out_dir).glob("pairs_v*.tsv"):
+            if f.resolve() != out.resolve():
+                with open(f, encoding="utf-8", newline="") as fh:
+                    used |= {normalize(r["grammatical"]).lower() for r in csv.DictReader(
+                        fh, delimiter="\t", quoting=csv.QUOTE_NONE) if r["phenomenon"] == ph}
+        rows, reasons, skipped = generate(ph, pools[ph], ctx, args.n, args.seed, frozenset(used))
         for k, row in enumerate(rows):
             row["id"] = f"{ph}-{args.id_start + k:04d}"
         with open(out, "w", encoding="utf-8", newline="") as f:
