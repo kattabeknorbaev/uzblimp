@@ -520,6 +520,38 @@ def quantifiers(s, ctx):
     return Edit(s[:m.start(1)] + form + s[m.end(1):], f"har bir {noun} → {form}")
 
 
+# ------------------------------------------------------------ nominalization
+# Modal predicates take the -ish verbal noun, not the -gan participle: murojaat etish kerak →
+# *murojaat etgan kerak (JM v11 rule 8). Only a bare -ish/-sh directly before the modal.
+MODALS = ("kerak", "lozim", "mumkin", "zarur", "shart")
+
+
+def nominalization(s, ctx):
+    toks = _tokens(s)
+    cands = []
+    for j in range(1, len(toks) - 1):
+        if toks[j + 1][0].lower() not in MODALS:
+            continue
+        w = toks[j][0].lower()
+        for suf in ("ish", "sh"):  # try both splits: oʻq+ish fails, oʻqi+sh (oʻqimoq) works
+            stem = w[:-len(suf)]
+            if not w.endswith(suf) or len(stem) < 2:
+                continue
+            vowel_end = stem[-1] in "aeiou" or stem.endswith(f"o{OK}")
+            if (suf == "sh") != vowel_end or ctx.lex[stem + "moq"] < 2:
+                continue  # -sh after vowels, -ish after consonants; the stem must be a verb
+            gan = stem + ("qan" if stem[-1] == "q" else "kan" if stem[-1] == "k" else "gan")
+            if ctx.lex[gan] >= ctx.min_count:
+                cands.append((j, gan))
+                break
+    if len(cands) != 1:
+        return skip("not exactly one -ish verbal noun + modal")
+    j, gan = cands[0]
+    w = toks[j][0]
+    gan = gan[0].upper() + gan[1:] if w[0].isupper() else gan
+    return Edit(s[:toks[j][1]] + gan + s[toks[j][2]:], f"{w} {toks[j + 1][0]} → {gan} (-ish → -gan before a modal)")
+
+
 GENERATORS = {  # phenomenon: (prefilter on the lowercased sentence, edit function)
     "numeral_no_plural": (re.compile(rf"\b(?:{NUM_LAT})ta\s"), numeral_no_plural),
     "npi_hech": (re.compile(r"\bhech\b"), npi_hech),
@@ -533,6 +565,7 @@ GENERATORS = {  # phenomenon: (prefilter on the lowercased sentence, edit functi
     "passives": (re.compile(r"\btomonidan\b"), passives),
     "relative_clauses": (re.compile(rf"\w(?:gan|kan|qan)\s+{L}"), relative_clauses),
     "quantifiers": (re.compile(r"\bhar\s+bir\s"), quantifiers),
+    "nominalization": (re.compile(r"\w(?:ish|sh)\s+(?:kerak|lozim|mumkin|zarur|shart)\b"), nominalization),
 }
 # Balance: (key from the edit note, max share of --n per key). Without it 65% of
 # possessive pairs used "uning" and 5% "bizning".
@@ -540,7 +573,8 @@ STRATA = {"possessive_agreement": (lambda note: note.split()[0].lower(), 0.25)}
 
 # Cheap substring test before sentence splitting: a line without any of these can't match.
 KEYWORDS = ("ta ", "hech", "keyin", "beri", "qoʻrq", "ishon", "qqa", "kka", "gi", "gʻi",
-            " va ", " hamda ", "ning ", "nga ", "zga ", "larga ", "tomonidan", "gan ", "kan ", "qan ", "har bir")
+            " va ", " hamda ", "ning ", "nga ", "zga ", "larga ", "tomonidan", "gan ", "kan ", "qan ", "har bir",
+            "kerak", "lozim", "mumkin", "zarur", "shart")
 
 
 # ------------------------------------------------------------------- scan

@@ -16,9 +16,10 @@
       "ditransitive_dative": 3585,
       "passives": 4957,
       "quantifiers": 2803,
+      "nominalization": 6861,
       "suspended_affixation": 324
     },
-    "scan_seconds": 454
+    "scan_seconds": 115
   },
   "min_count": 2,
   "phenomena": {
@@ -99,6 +100,15 @@
         "not exactly one har bir + word": 4,
         "word already plural, or har birimiz": 2,
         "starts with a proper noun (TurkicNLP)": 2
+      }
+    },
+    "nominalization": {
+      "pool": 5000,
+      "tried": 66,
+      "generated": 60,
+      "reasons": {
+        "ok": 60,
+        "not exactly one -ish verbal noun + modal": 6
       }
     }
   }
