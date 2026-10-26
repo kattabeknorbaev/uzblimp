@@ -1,0 +1,149 @@
+% UzBLiMP paper draft (2026-10-27). Use with the ACL template on Overleaf:
+% https://www.overleaf.com/latex/templates/association-for-computational-linguistics-acl-conference/jvxskxpnznfj
+% See paper/README.md. Compiler: pdfLaTeX (the template default).
+\documentclass[11pt]{article}
+
+% [review]: anonymous, line-numbered submission version.
+% For the arXiv preprint use \usepackage[preprint]{acl}; for camera-ready use \usepackage{acl}.
+\usepackage[review]{acl}
+
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T2A,T1]{fontenc}  % T2A for the Cyrillic examples
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+
+% Uzbek Latin apostrophes: oʻ/gʻ (U+02BB) and the tutuq belgisi (U+02BC)
+\DeclareUnicodeCharacter{02BB}{\textquoteleft}
+\DeclareUnicodeCharacter{02BC}{\textquoteright}
+\newcommand{\cyr}[1]{{\fontencoding{T2A}\selectfont #1}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\newcommand{\ungr}[1]{*\textit{#1}}
+
+\title{UzBLiMP: Uzbek Minimal Pairs in Latin, Cyrillic and the Reformed 2026 Alphabet}
+
+% Authors are hidden in [review] mode. TODO: agree authorship with Javokhir Matniyazov
+% and Russell Scheinberg before adding them (notes/decisions.md, decisions 11 and 13).
+\author{Kattabek Norbaev \\
+  Independent researcher, Uzbekistan \\
+  \texttt{channel0101k@gmail.com}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We introduce UzBLiMP, a benchmark of 2,400 linguistic minimal pairs for Uzbek covering 16 grammatical phenomena, 150 pairs each. Pairs are built from attested corpus sentences by one controlled edit and every pair was reviewed by a native speaker. Because Uzbek is written in two scripts and its Latin alphabet was reformed in 2026, we release the benchmark in current Latin, Cyrillic and the reformed Latin alphabet. Uzbek-only language models score 95.8--98.6\% in the script they were trained on, while a small multilingual model is at chance. Two Uzbek models trained separately on Latin and Cyrillic text score nearly the same (95.8\% vs.\ 94.7\%), but a model reading the script it was not trained on loses 7--22 points. On the reformed spelling, a Latin-trained model loses 11 points; we show that most of this loss comes from pairs in which only the grammatical sentence contains a new letter, where the model falls below chance by preferring the familiar spelling. Minimal pairs that differ in orthographic familiarity therefore conflate grammar with spelling. \todo{update with the larger models and the human baseline}
+\end{abstract}
+
+\section{Introduction}
+
+Benchmarks of linguistic minimal pairs test whether a language model assigns higher probability to a grammatical sentence than to a minimally different ungrammatical one \citep{warstadt-etal-2020-blimp}. Following BLiMP for English, such benchmarks now exist for several languages, including the Turkic languages Turkish \citep{basar2025turblimp} and Tatar \citep{saetov2026tatblimp}. Uzbek, a Turkic language with more than 30 million speakers \todo{cite a source for the speaker count}, has so far been covered only by 50 subject--verb agreement pairs in the massively multilingual MultiBLiMP \citep{jumelet2025multiblimp}.
+
+Uzbek also offers a natural experiment in writing systems. In the last century it has been written in Arabic script, in Latin from 1928, in Cyrillic from 1940, and again in Latin since the 1990s \citep{fierman1991}; Latin and Cyrillic text coexist today. In 2026 the Latin alphabet was reformed again, replacing the digraphs and apostrophe letters oʻ, gʻ, sh and ch with ö, ğ, ş and ç \todo{cite the official decision}. This raises a simple question with practical consequences: \emph{does what a language model knows about grammar survive a change of alphabet?}
+
+We make three contributions:
+\begin{itemize}
+\item \textbf{UzBLiMP}, 2,400 minimal pairs for 16 phenomena (12 adapted from TurBLiMP, 4 specific to Uzbek), built from attested corpus sentences with one controlled edit and reviewed by a native speaker (\S\ref{sec:benchmark}).
+\item \textbf{Three aligned alphabet versions}: current Latin, Cyrillic, and, to our knowledge, the first evaluation resource in the reformed 2026 Latin alphabet (\S\ref{sec:alphabets}).
+\item \textbf{An analysis of script dependence} showing that grammar knowledge is tied to the script a model was trained in, and that orthographic familiarity can masquerade as grammatical knowledge in minimal-pair evaluation (\S\ref{sec:results}).
+\end{itemize}
+
+\section{Related work}
+
+\paragraph{Minimal-pair benchmarks.} BLiMP \citep{warstadt-etal-2020-blimp} introduced 67 paradigms of template-generated English pairs. TurBLiMP \citep{basar2025turblimp} adapted the design to Turkish with 16 phenomena and hand-validated pairs, and TatBLiMP \citep{saetov2026tatblimp} did so for Tatar, emphasising that ungrammatical forms should be plausible word forms. MultiBLiMP \citep{jumelet2025multiblimp} covers agreement in many languages, including Uzbek. \todo{add SLING, RuBLiMP and other language-specific benchmarks after checking the references}
+
+\paragraph{Uzbek language models and resources.} Goldfish \citep{chang2024goldfish} provides small monolingual models for Uzbek in Latin and Cyrillic script, trained on comparable amounts of data, which makes them a natural testbed for script effects. tahrirchi-bert \citep{tahrirchi-bert} is an Uzbek masked language model; UzLiB \citep{tahrirchi-uzlib} tests Uzbek linguistic knowledge with multiple-choice questions. Our pipeline uses TurkicNLP \citep{turkicnlp} for transliteration and part-of-speech tags.
+
+\paragraph{Grammar knowledge and prompting.} \citet{scheinberg-etal-2025-explain} show that stating the relevant grammatical rule in the prompt improves acceptability judgments in English, Chinese and Russian. \todo{if the grammar-prompting experiment is included, expand here}
+
+\section{Uzbek and its alphabets}
+\label{sec:alphabets-bg}
+
+Uzbek is an agglutinative Turkic language with SOV order, rich case and possessive morphology, and person agreement on the verb \citep{sjoberg1963,bodrogligeti2003}. The current Latin alphabet (1995) writes the vowel /o/ as oʻ and the uvular fricative as gʻ, with the digraphs sh and ch. The Cyrillic alphabet, still widely used, has dedicated letters for these sounds (e.g.\ \cyr{ў} for oʻ, \cyr{ш} for sh, \cyr{ч} for ch). The 2026 reform keeps the Latin script but replaces oʻ, gʻ, sh and ch by single letters (ö, ğ, ş, ç). Converting between these systems is deterministic for most of the vocabulary but not for Russian loanwords, which matters for building aligned versions (\S\ref{sec:alphabets}).
+
+\section{Building UzBLiMP}
+\label{sec:benchmark}
+
+\subsection{Phenomena}
+Table~\ref{tab:phenomena} lists the 16 phenomena. Twelve follow the TurBLiMP inventory where the contrast exists in Uzbek (e.g.\ anaphor agreement, binding, NPI licensing with \textit{hech}, suspended affixation); some Turkish designs were changed where Uzbek differs, and phenomena whose Uzbek counterpart was unclear (ellipsis, scrambling, impersonal passives) were dropped. TurBLiMP's irregular-forms slot has no Uzbek counterpart and is filled by a morphophonological alternation: the voicing of stem-final \textit{q}/\textit{k} before vowel-initial possessive suffixes (\textit{oʻrtogʻim}, \ungr{oʻrtoqim}). Four phenomena are specific to Uzbek: no plural after numerals, case government of postpositions, possessive agreement, and the dative allomorphs \textit{-qa}/\textit{-ka} after stem-final \textit{q}/\textit{k} (\textit{qishloqqa}, \ungr{qishloqga}).
+
+\input{tables/phenomena}
+
+\subsection{Generating candidate pairs}
+Each pair consists of an attested sentence and a copy with exactly one word changed by a phenomenon-specific operation, such as replacing a dative pronoun by its accusative form or a passive verb by its active form. Following TatBLiMP, the changed word must itself be a plausible Uzbek word form: it must occur at least twice in a frequency lexicon of 988,950 word forms, except for the two morphophonology phenomena, whose ungrammatical forms are by definition non-words. Sentences come from two sources:
+\begin{itemize}
+\item an Uzbek Latin corpus of 64 million words (7.2 million sentences, 131,000 documents of books, Wikipedia and legal texts), processed by rule-based generators for 13 phenomena;
+\item 4,500 rule-generated pairs for 8 phenomena built by a team member from the \textit{uz-books} collection \citep{tahrirchi-uzbooks}, of which 1,388 passed our filters.
+\end{itemize}
+All sentences are single sentences of 3--16 words without digits, quotation marks, dialogue or proper names after the first word (mean 8.8 words in the final benchmark). Generators use TurkicNLP part-of-speech tags to check the edited word (e.g.\ that the word after a numeral is a noun) and skip known false positives, such as function words that only look possessive (\textit{ham} `also' parsed as \textit{ha}+1\textsc{sg}). \todo{12 benchmark pairs are hand-written seed examples; replace them from the reserve or describe them here}
+
+\subsection{Native-speaker review}
+\label{sec:review}
+Of 3,800 candidates, 3,729 were reviewed and 3,267 (87.6\%) accepted; acceptance per phenomenon ranges from 72\% to 95\% (Table~\ref{tab:phenomena}). Most rejections concern the source sentence (OCR errors, typos, fragments) rather than the edit; others are pairs whose ``ungrammatical'' member has a grammatical reading, e.g.\ a finite verb before a noun that can be read as the end of a clause in the relative-clause phenomenon. For each phenomenon, 150 accepted pairs were sampled with a fixed seed; the remaining 881 accepted pairs form a reserve. \todo{Describe the review procedure exactly (decision 20): first pass by the first author, discussed with a second native speaker, consistency check with an AI assistant for some phenomena.} \todo{Inter-annotator agreement: report only if the second annotator's judgments were independent; currently 86.4\% raw agreement, $\kappa=0.40$ \citep{cohen1960} on 419 pairs.}
+
+\subsection{Three alphabets}
+\label{sec:alphabets}
+\paragraph{Cyrillic.} We convert every pair with TurkicNLP's transliterator and a set of fixes for errors we found in it: \textit{t}+\textit{s} across morpheme boundaries is \cyr{тс}, not \cyr{ц} (\textit{ketsa} \textrightarrow{} \cyr{кетса}); \textit{n}+\textit{gʻ} is two letters, not the digraph \textit{ng} plus a hard sign; Roman numerals are kept; and a small list of Russian loans receives the soft sign (\textit{film} \textrightarrow{} \cyr{фильм}). After conversion no Latin letters remain and every pair still differs in one word. A native speaker checked a sample of 10 pairs per phenomenon \todo{80/80 correct for 8 phenomena; the other 80 pending}.
+
+\paragraph{Reformed Latin.} We apply the four replacements of the 2026 reform (oʻ\textrightarrow ö, gʻ\textrightarrow ğ, sh\textrightarrow ş, ch\textrightarrow ç). For each pair we record whether the changed word contains a new letter (1,070 pairs), only other words do (1,208), or nothing changes (122).
+
+\section{Experimental setup}
+
+\paragraph{Models.} We evaluate four models: the Goldfish Uzbek models trained on Latin (uzn\_latn\_100mb) and on Cyrillic text (uzn\_cyrl\_100mb) \citep{chang2024goldfish}; tahrirchi-bert-base, an Uzbek masked LM \citep{tahrirchi-bert}; and the multilingual Qwen2.5-0.5B \citep{qwen2025qwen25}. \todo{add instruction-tuned 7--9B models and a frontier model}
+
+\paragraph{Scoring.} Causal models are scored with the summed log-probability of the sentence using minicons \citep{misra2022minicons}, with a beginning-of-sequence token so that the first word is scored; the masked model is scored with pseudo-log-likelihood \citep{salazar-etal-2020-masked} using the within-word left-to-right variant \citep{kauf-ivanova-2023-better}. A pair is correct when the grammatical sentence scores strictly higher. All scores are computed in 32-bit precision, which we found necessary because lower precision made scores depend on batch size. We compare conditions on the same pairs with McNemar's test \citep{mcnemar1947} and report bootstrap 95\% confidence intervals.
+
+\section{Results}
+\label{sec:results}
+
+\input{tables/accuracy}
+
+\paragraph{Overall.} Table~\ref{tab:accuracy} shows that the Uzbek-only models know these phenomena well in the script they were trained on: tahrirchi-bert reaches 98.6\% and Goldfish-latn 95.8\% on Latin text. The hardest phenomena are dative allomorphy and, for Goldfish, binding and NPI licensing. Qwen2.5-0.5B is at chance (50.6\%) with extreme per-phenomenon biases (8.0\% on binding, 92.7\% on nominalization) that follow sentence length and suffix frequency rather than grammar.
+
+\input{tables/scripts}
+
+\paragraph{Same knowledge, different script.} The two Goldfish models, trained on comparable amounts of Latin and Cyrillic text, score nearly the same when each reads its own script: 95.8\% vs.\ 94.7\% (Table~\ref{tab:scripts}; difference +1.1 points, $p=0.052$). No single phenomenon differs significantly after Bonferroni correction; the largest gaps are binding (+9.3) and NPI licensing (+7.3). Grammar knowledge of this kind is thus learnable to the same degree from either script.
+
+\paragraph{Different script, lost knowledge.} When a model reads a script it was not trained on, accuracy drops sharply. Goldfish-latn loses 7.3 points on Cyrillic text (28\% of the sentences contain an unknown token), and tahrirchi-bert loses 21.6 points (98.6\% \textrightarrow{} 77.0\%) although its tokenizer covers every Cyrillic character. What these models know about Uzbek grammar is therefore tied to the script, not only to the language.
+
+\input{tables/reform}
+
+\paragraph{The 2026 reform.} On reformed Latin, tahrirchi-bert loses 11.3 points (98.6\% \textrightarrow{} 87.3\%). Table~\ref{tab:reform} decomposes this loss. When only the rest of the sentence contains new letters, the cost is small (\textminus3.2). When both members' changed words contain new letters, the model loses 11.2 points: a genuine degradation of its grammatical judgments under the new spelling. But when \emph{only the grammatical member} contains a new letter---all binding pairs (\textit{özimni} vs.\ \ungr{meni}) and most nominalization pairs (\textit{-iş} vs.\ \textit{-gan})---accuracy falls from 99.6\% to 44.2\%, below chance: the model prefers the familiarly spelled ungrammatical sentence. This is an effect of orthographic familiarity, not grammar.
+
+\paragraph{Reproducibility.} All 1,200 pairs shared with an earlier version of the benchmark received identical judgments from all models in all alphabets (log-probabilities within 0.0002).
+
+\section{Discussion}
+
+Our results separate two questions that are easy to conflate: whether a grammatical contrast is learnable from text in a given script, and whether a model trained in one script can use what it learned in another. For matched models the answer to the first is yes, to about the same degree for Latin and Cyrillic. The answer to the second is largely no, even for a model whose tokenizer covers the other script. For Uzbek NLP, this means that models and tools trained before the 2026 reform will make more grammatical errors on text in the new spelling until they are adapted.
+
+The reform results also carry a methodological lesson for minimal-pair evaluation in general. A pair compares two sentences, and anything that makes one of them more familiar to the model---here, spelling---can decide the comparison. When only the grammatical member contains unfamiliar characters, accuracy measures orthographic familiarity, not grammar. Benchmarks that are transliterated, normalised or affected by spelling variation should control for this, for example by reporting accuracy separately for pairs where the critical word changes on both sides.
+
+\todo{Grammar-prompting experiment (decision 19) and its discussion, if included.}
+
+\section{Conclusion}
+
+UzBLiMP provides 2,400 native-reviewed minimal pairs for Uzbek in three alphabets. Evaluating Uzbek and multilingual models shows that grammar knowledge is learnable from either script but does not transfer between them, and that the 2026 Latin reform costs a Latin-trained model 11 points, much of it through orthographic familiarity rather than grammar. We release the benchmark, the generators and all model outputs. \todo{repository and dataset links}
+
+\section*{Limitations}
+
+\begin{itemize}
+\item \textbf{Converted alphabets.} The Cyrillic and reformed versions are converted from Latin, not written natively. Russian loanwords cannot all be recovered by rule, and only the four main rules of the 2026 reform are applied.
+\item \textbf{Review.} \todo{one primary reviewer; describe the procedure and its limits honestly}
+\item \textbf{Models.} We evaluate four small models; the Goldfish models are matched in data size but not in content. \todo{larger models}
+\item \textbf{Contamination.} The benchmark is built from public text; 959 pairs come from a book collection that one of the evaluated models may have been trained on. \todo{seen/unseen analysis}
+\item \textbf{Register.} Sentences come from books, Wikipedia and legal texts and reflect written standard Uzbek; colloquial forms were rejected.
+\end{itemize}
+
+\section*{Ethics statement}
+
+The corpora are public text; pairs keep a source identifier so that sentences can be traced and removed if needed. \todo{licences of the book sources before release} Sentences with personal names after the first word or personal data were excluded. \todo{AI-assistance statement: code, conversion fixes, parts of this text and the review consistency check were prepared with an AI assistant; all judgments and final text are the authors' responsibility.}
+
+% \section*{Acknowledgments}  % add after review (camera-ready)
+
+\bibliography{custom}
+
+\end{document}
