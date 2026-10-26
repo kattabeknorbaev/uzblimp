@@ -8,6 +8,7 @@ prints Markdown; runs that don't exist yet are listed as pending.
 """
 import argparse
 import csv
+import difflib
 import math
 import random
 import sys
@@ -38,6 +39,18 @@ TESTS = [
     (("tahrirchi-bert", "Latin"), ("tahrirchi-bert", "Reformed"), "tahrirchi-bert: current vs reformed Latin"),
     (("Qwen2.5-0.5B", "Latin"), ("Qwen2.5-0.5B", "Reformed"), "Qwen2.5-0.5B: current vs reformed Latin"),
 ]
+
+
+REF_LETTERS = set("öÖğĞşŞçÇ")
+
+
+def _new_letter_side(good, bad):
+    """'both' / 'grammatical only' / 'ungrammatical only' / 'neither' for the words that differ."""
+    tg, tb = good.split(), bad.split()
+    ops = [o for o in difflib.SequenceMatcher(a=tg, b=tb, autojunk=False).get_opcodes() if o[0] != "equal"]
+    g = any(set(w) & REF_LETTERS for _, i1, i2, _, _ in ops for w in tg[i1:i2])
+    b = any(set(w) & REF_LETTERS for _, _, _, j1, j2 in ops for w in tb[j1:j2])
+    return {(True, True): "both", (True, False): "grammatical only", (False, True): "ungrammatical only"}.get((g, b), "neither")
 
 
 def paired(a, b):
@@ -114,6 +127,24 @@ def main():
                 ids = cat.index[cat == c]
                 d, lo, hi, pv, k = paired(cur.loc[ids], ref.loc[ids])
                 print(f"| {m} | {c} | {k} | {100 * cur.loc[ids].mean():.1f} | {100 * ref.loc[ids].mean():.1f} | "
+                      f"{d:+.1f} [{lo:+.1f}, {hi:+.1f}] | {pv:.2g} |")
+
+        # Which member's changed word carries the new letter: a model that prefers familiar spellings
+        # loses most where only the grammatical member does (binding: özimni vs meni).
+        ref = pd.read_csv(ref_file, sep="\t", dtype=str, quoting=csv.QUOTE_NONE).set_index("id")
+        side = ref.apply(lambda r: _new_letter_side(r.grammatical, r.ungrammatical), axis=1)
+        print("\nCritical word changed, split by which member has the new letter:\n")
+        print("| Model | New letter in | n | Current | Reformed | Difference [95% CI] | p |\n|---|---|---|---|---|---|---|")
+        for m in ("tahrirchi-bert", "Qwen2.5-0.5B"):
+            if (m, "Latin") not in runs or (m, "Reformed") not in runs:
+                continue
+            cur, rf = runs[(m, "Latin")].correct, runs[(m, "Reformed")].correct
+            for s in ("both", "grammatical only", "ungrammatical only"):
+                ids = side.index[side == s]
+                if len(ids) == 0:
+                    continue
+                d, lo, hi, pv, k = paired(cur.loc[ids], rf.loc[ids])
+                print(f"| {m} | {s} | {k} | {100 * cur.loc[ids].mean():.1f} | {100 * rf.loc[ids].mean():.1f} | "
                       f"{d:+.1f} [{lo:+.1f}, {hi:+.1f}] | {pv:.2g} |")
 
     # 4. Reproducibility on pairs shared with the previous version

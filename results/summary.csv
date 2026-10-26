@@ -38,3 +38,13 @@ timestamp,model,dataset,n_pairs,accuracy,bos,device,dtype,n_params_M,acc_norm,sc
 2026-10-19T11:44:01,goldfish-models/uzn_latn_100mb,uzblimp_v0.2_cyrl,1200,0.8767,True,cpu,float32,164,0.8258,causal,baseline
 2026-10-19T11:54:44,Qwen/Qwen2.5-0.5B,uzblimp_v0.2_cyrl_bos,1200,0.5025,True,cpu,float32,494,0.505,causal,baseline
 2026-10-19T12:50:17,tahrirchi/tahrirchi-bert-base,uzblimp_v0.2_cyrl,1200,0.7333,True,cpu,float32,110,0.7133,mlm-pll,baseline
+2026-10-26T10:33:48,goldfish-models/uzn_latn_100mb,uzblimp_v1.0,2400,0.9575,True,cpu,float32,164,0.9458,causal,baseline
+2026-10-26T10:39:12,goldfish-models/uzn_cyrl_100mb,uzblimp_v1.0,2400,0.4758,True,cpu,float32,164,0.5317,causal,baseline
+2026-10-26T10:42:54,goldfish-models/uzn_cyrl_100mb,uzblimp_v1.0_cyrl,2400,0.9467,True,cpu,float32,164,0.9346,causal,baseline
+2026-10-26T10:46:01,goldfish-models/uzn_latn_100mb,uzblimp_v1.0_cyrl,2400,0.8846,True,cpu,float32,164,0.855,causal,baseline
+2026-10-26T11:02:19,Qwen/Qwen2.5-0.5B,uzblimp_v1.0_bos,2400,0.5062,True,cpu,float32,494,0.5692,causal,baseline
+2026-10-26T11:33:25,tahrirchi/tahrirchi-bert-base,uzblimp_v1.0,2400,0.9858,True,cpu,float32,110,0.9846,mlm-pll,baseline
+2026-10-26T11:58:58,Qwen/Qwen2.5-0.5B,uzblimp_v1.0_cyrl_bos,2400,0.4642,True,cpu,float32,494,0.4896,causal,baseline
+2026-10-26T13:18:19,Qwen/Qwen2.5-0.5B,uzblimp_v1.0_reformed_bos,2400,0.4738,True,cpu,float32,494,0.5367,causal,baseline
+2026-10-26T14:18:03,tahrirchi/tahrirchi-bert-base,uzblimp_v1.0_reformed,2400,0.8733,True,cpu,float32,110,0.8971,mlm-pll,baseline
+2026-10-26T16:04:08,tahrirchi/tahrirchi-bert-base,uzblimp_v1.0_cyrl,2400,0.77,True,cpu,float32,110,0.7642,mlm-pll,baseline
