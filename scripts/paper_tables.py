@@ -133,7 +133,7 @@ def reform_table(runs):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--version", default="v1.0")
+    p.add_argument("--version", default="v1.1")
     args = p.parse_args()
     runs = {}
     for label, alpha, stem in RUNS:

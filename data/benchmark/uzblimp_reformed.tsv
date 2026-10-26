@@ -124,7 +124,6 @@ anaphor_agreement-2079	anaphor_agreement	Men bölsam özimni himoya qilolmayapma
 anaphor_agreement-2172	anaphor_agreement	Qizni uçraşuvga çaqirib, men özimni sotganman.	Qizni uçraşuvga çaqirib, men özini sotganman.	critical word changed
 anaphor_agreement-2049	anaphor_agreement	Men allaqaçon özimni şunday atayman.	Men allaqaçon özini şunday atayman.	critical word changed
 anaphor_agreement-2039	anaphor_agreement	Bularning hammasiga könikib qoliş mumkin, albatta, lekin hozir men özimni begonaroq his qilyapman.	Bularning hammasiga könikib qoliş mumkin, albatta, lekin hozir men özini begonaroq his qilyapman.	critical word changed
-anaphor_agreement-0001	anaphor_agreement	Biz uyni özimiz tozaladik.	Biz uyni özingiz tozaladik.	critical word changed
 anaphor_agreement-2006	anaphor_agreement	U özini asta panaga oladi.	U özimni asta panaga oladi.	critical word changed
 anaphor_agreement-2018	anaphor_agreement	Siz biznesda özingizni noqulay his etasiz.	Siz biznesda özimni noqulay his etasiz.	critical word changed
 anaphor_agreement-2130	anaphor_agreement	Biz özimizni yulğun ostiga urdik.	Biz özimni yulğun ostiga urdik.	critical word changed
@@ -149,6 +148,7 @@ anaphor_agreement-2145	anaphor_agreement	Biz bekorga özimizni özimiz aldab yur
 anaphor_agreement-2165	anaphor_agreement	Murakkab vazifani hal qilib yoki nizoni qanday bartaraf etişni tuşunib biz özimizni baxtiyor sezamiz.	Murakkab vazifani hal qilib yoki nizoni qanday bartaraf etişni tuşunib biz özimni baxtiyor sezamiz.	critical word changed
 anaphor_agreement-2222	anaphor_agreement	Tetik böl, yigit, deya men özimni ruhlantirişga urinaman.	Tetik böl, yigit, deya men özini ruhlantirişga urinaman.	critical word changed
 anaphor_agreement-2220	anaphor_agreement	U özini öldirişga qasd qiladi.	U özimni öldirişga qasd qiladi.	critical word changed
+anaphor_agreement-2161	anaphor_agreement	U özini arang tutib turardi.	U özimni arang tutib turardi.	critical word changed
 lexical_case-1135	lexical_case	Menga işonib qişloqqa kelgani uçun xafa edimi yo mening şaharga qaytib ketişim oğir botganmidi?	Meni işonib qişloqqa kelgani uçun xafa edimi yo mening şaharga qaytib ketişim oğir botganmidi?	only other words changed
 lexical_case-1029	lexical_case	Özimni oqlaşga qançalik urinmay, baribir heç kim menga işonmas edi.	Özimni oqlaşga qançalik urinmay, baribir heç kim meni işonmas edi.	only other words changed
 lexical_case-1028	lexical_case	Lekin, özining yoqimli ekanini bilar va hamişa yoqimli bölib qolişiga işonar edi.	Lekin, özining yoqimli ekanini bilar va hamişa yoqimli bölib qolişini işonar edi.	critical word changed
@@ -333,7 +333,6 @@ ditransitive_dative-1066	ditransitive_dative	Bu aql unga yagona najot yölini k�
 ditransitive_dative-1081	ditransitive_dative	Ularga allanarsalarni uqtirib onasi uydan çiqdi.	Ularni allanarsalarni uqtirib onasi uydan çiqdi.	only other words changed
 ditransitive_dative-1024	ditransitive_dative	Lekin sizga rostini aytsam, bu yoqqa majburan jönatişgan.	Lekin sizni rostini aytsam, bu yoqqa majburan jönatişgan.	only other words changed
 ditransitive_dative-1080	ditransitive_dative	Natijada, hukumat bu insonlarni uruş qurboni sifatida tan olgan, yaʼni ularga rasman uşbu maqomni bergan.	Natijada, hukumat bu insonlarni uruş qurboni sifatida tan olgan, yaʼni ularni rasman uşbu maqomni bergan.	only other words changed
-ditransitive_dative-0001	ditransitive_dative	Öqituvçi öquvçilarga yangi mavzuni tuşuntirdi.	Öqituvçi öquvçilarni yangi mavzuni tuşuntirdi.	critical word changed
 ditransitive_dative-1059	ditransitive_dative	Xudo mavjud emas, deb fikrlovçi faylasuflar olamni anglaşda unga hojat yöqligini uqtirişadi.	Xudo mavjud emas, deb fikrlovçi faylasuflar olamni anglaşda uni hojat yöqligini uqtirişadi.	only other words changed
 ditransitive_dative-1094	ditransitive_dative	Singlimga qölimni uzatsam, u ham menga qölini uzatdi.	Singlimga qölimni uzatsam, u ham meni qölini uzatdi.	only other words changed
 ditransitive_dative-2007	ditransitive_dative	Bizga manzilni berdilar, şunday radioning yonida ekan.	Bizni manzilni berdilar, şunday radioning yonida ekan.	only other words changed
@@ -449,6 +448,7 @@ ditransitive_dative-2037	ditransitive_dative	Menga tillalaringni berib turişing
 ditransitive_dative-1003	ditransitive_dative	Va bexos şu tuş menga nimani eslatib yubordi degin.	Va bexos şu tuş meni nimani eslatib yubordi degin.	only other words changed
 ditransitive_dative-2006	ditransitive_dative	Admiral xiyol kuldi-da, menga hamyonini uzatdi.	Admiral xiyol kuldi-da, meni hamyonini uzatdi.	unchanged
 ditransitive_dative-2117	ditransitive_dative	Bir daqiqa turgaç, unga ikki qölini uzatdi.	Bir daqiqa turgaç, uni ikki qölini uzatdi.	only other words changed
+ditransitive_dative-2024	ditransitive_dative	Sizga bu topşiriqni bergan rahbar bilan hisobot maqsadini aniqlaştirib oling.	Sizni bu topşiriqni bergan rahbar bilan hisobot maqsadini aniqlaştirib oling.	only other words changed
 binding-2173	binding	Siz kamçiliklaringiz sabab özingizni yomon körişdan töxtaysiz.	Siz kamçiliklaringiz sabab sizni yomon körişdan töxtaysiz.	critical word changed
 binding-2001	binding	Şu asnoda sukut saqlardik, ammo men har daqiqa özimni kelajakka tayyorlardim.	Şu asnoda sukut saqlardik, ammo men har daqiqa meni kelajakka tayyorlardim.	critical word changed
 binding-2096	binding	Yaʼni biz özimizni yomon his qilamiz.	Yaʼni biz bizni yomon his qilamiz.	critical word changed
@@ -456,7 +456,6 @@ binding-2090	binding	Biz oçközlik bilan özimizni ovqatga urdik.	Biz oçközli
 binding-2102	binding	Men ham özimni suvga otdim.	Men ham meni suvga otdim.	critical word changed
 binding-2178	binding	Vaholanki, u davrlarda biz bolalar özimizni samolyot ostiga urardik.	Vaholanki, u davrlarda biz bolalar bizni samolyot ostiga urardik.	critical word changed
 binding-2144	binding	Biroq siz hamişa özingizni takomillaştirib borasiz.	Biroq siz hamişa sizni takomillaştirib borasiz.	critical word changed
-binding-0001	binding	Men özimni oynada kördim.	Men meni oynada kördim.	critical word changed
 binding-2072	binding	Sezganimda esa men özimni kiyim-keçak rastasidan topdim.	Sezganimda esa men meni kiyim-keçak rastasidan topdim.	critical word changed
 binding-2212	binding	Nega sen iş deb özingni bunça qiynaysan?	Nega sen iş deb seni bunça qiynaysan?	critical word changed
 binding-2202	binding	Turmuş örtoğingiz maşina boşqarayotganda siz özingizni qanday tutasiz?	Turmuş örtoğingiz maşina boşqarayotganda siz sizni qanday tutasiz?	critical word changed
@@ -599,7 +598,7 @@ binding-2080	binding	Biz doimiy ravişda özimizni atrofimizdagilarga soliştira
 binding-2051	binding	Öylang, siz özingizni qanday körişni xohlaysiz?	Öylang, siz sizni qanday körişni xohlaysiz?	critical word changed
 binding-2154	binding	Men özimni u tomon otdim.	Men meni u tomon otdim.	critical word changed
 binding-2067	binding	Ammo men ham endi özimni bosolmas edim.	Ammo men ham endi meni bosolmas edim.	critical word changed
-stem_alternation-0001	stem_alternation	Bu mening örtoğim.	Bu mening örtoqim.	critical word changed
+binding-2019	binding	Lekin, siz özingizni bozorga solasiz.	Lekin, siz sizni bozorga solasiz.	critical word changed
 stem_alternation-1042	stem_alternation	Saodatning gapini uç yil oldin eşitganimda, işonmasam ham, yuragim hapriqar edi.	Saodatning gapini uç yil oldin eşitganimda, işonmasam ham, yurakim hapriqar edi.	only other words changed
 stem_alternation-1127	stem_alternation	Xotinining yuziga umidvor közlari-la boqarkan, yuragi ortiga tortib ketdi.	Xotinining yuziga umidvor közlari-la boqarkan, yuraki ortiga tortib ketdi.	only other words changed
 stem_alternation-1206	stem_alternation	Mamlakatning bugdoy va ingiçka tolali paxta yetiştiriladigan asosiy qişloq xöjaligi rayonlaridan.	Mamlakatning bugdoy va ingiçka tolali paxta yetiştiriladigan asosiy qişloq xöjaliki rayonlaridan.	critical word changed
@@ -749,6 +748,7 @@ stem_alternation-1065	stem_alternation	Boya menga bir taşlandi, yuragim çiqib 
 stem_alternation-1104	stem_alternation	Rosti, yuragim dov bermadi.	Rosti, yurakim dov bermadi.	unchanged
 stem_alternation-1235	stem_alternation	Ayolda astma kasalligi bölgani sabab hodisaga allergik reaksiya sabab bölgan, deya taxmin qilingan.	Ayolda astma kasalliki bölgani sabab hodisaga allergik reaksiya sabab bölgan, deya taxmin qilingan.	only other words changed
 stem_alternation-1123	stem_alternation	Öşa payt ot egasiningam, polvonningam, qöyingki, öşa yurtdan kelganlarningam yuragi hapqiradi.	Öşa payt ot egasiningam, polvonningam, qöyingki, öşa yurtdan kelganlarningam yuraki hapqiradi.	only other words changed
+stem_alternation-1241	stem_alternation	Yoruğlikning elektromagnetik nazariyasidan yoruğlik tölqinlari köndalang tölqinlar ekanligi bevosita kelib çiqadi.	Yoruğlikning elektromagnetik nazariyasidan yoruğlik tölqinlari köndalang tölqinlar ekanliki bevosita kelib çiqadi.	only other words changed
 npi_hech-1004	npi_hech	Ammo, uning tovonini heç kim körmagan bölsa ham, bu işda bir sinoat körganlar bor ekan.	Ammo, uning tovonini heç kim körgan bölsa ham, bu işda bir sinoat körganlar bor ekan.	critical word changed
 npi_hech-1012	npi_hech	Ammo aybni doim özimdan qidirganim uçun heç qaçon gap qaytarmaganman.	Ammo aybni doim özimdan qidirganim uçun heç qaçon gap qaytarganman.	only other words changed
 npi_hech-1075	npi_hech	Heç qaçon odamni aytgani bölmaydi.	Heç qaçon odamni aytgani böladi.	critical word changed
@@ -771,7 +771,6 @@ npi_hech-1180	npi_hech	Men ularning heç biriga javob bermadim, çunki men ularg
 npi_hech-1246	npi_hech	Sangindan bölak, heç kim meni qöllab-quvvatlamadi.	Sangindan bölak, heç kim meni qöllab-quvvatladi.	critical word changed
 npi_hech-1095	npi_hech	Ötmişga qaytiş albatta heç kimni befarq qoldirmaydi.	Ötmişga qaytiş albatta heç kimni befarq qoldiradi.	only other words changed
 npi_hech-1080	npi_hech	Ukam bölsa, e, hali kiçkina-da, heç narsaga aqli yetmadi.	Ukam bölsa, e, hali kiçkina-da, heç narsaga aqli yetdi.	only other words changed
-npi_hech-0002	npi_hech	Köpçilik oldida qöşiq aytdim.	Köpçilik oldida heç qaçon qöşiq aytdim.	critical word changed
 npi_hech-1235	npi_hech	Köl hamon sukutda, heç narsa körmagandek jimgina qalqib turardi.	Köl hamon sukutda, heç narsa körgandek jimgina qalqib turardi.	critical word changed
 npi_hech-1161	npi_hech	Boşqa heç kimsaga lom-mim deyilmagan.	Boşqa heç kimsaga lom-mim deyilgan.	only other words changed
 npi_hech-1139	npi_hech	Heç kim qabriga orqalab ketmaydi.	Heç kim qabriga orqalab ketadi.	only other words changed
@@ -797,7 +796,6 @@ npi_hech-1247	npi_hech	Şu kuni bu darada heç kim qorasini körsatmadi.	Şu kun
 npi_hech-1021	npi_hech	Biroq, bu asarning heç bir nusxasi hozirgaça topilmagan.	Biroq, bu asarning heç bir nusxasi hozirgaça topilgan.	only other words changed
 npi_hech-1167	npi_hech	Tumanda heç qanday fabrika joylaşmagan bölsa-da, yangi yirik gidroelektrostantsiya bunyod etilgan.	Tumanda heç qanday fabrika joylaşgan bölsa-da, yangi yirik gidroelektrostantsiya bunyod etilgan.	critical word changed
 npi_hech-1007	npi_hech	Heç kim bundayin jön xotimani kutmagan edi.	Heç kim bundayin jön xotimani kutgan edi.	only other words changed
-npi_hech-0001	npi_hech	Heç kim kelmadi.	Heç kim keldi.	only other words changed
 npi_hech-1018	npi_hech	Saqlanib qolingan suğdça matnlarning heç biri ibroniy yoki yunon tilidan tarjima qilinmagan.	Saqlanib qolingan suğdça matnlarning heç biri ibroniy yoki yunon tilidan tarjima qilingan.	only other words changed
 npi_hech-1073	npi_hech	Bunga heç birimiz hayron qolmadik.	Bunga heç birimiz hayron qoldik.	only other words changed
 npi_hech-1027	npi_hech	Çet elliklar bilan savdo qiluvçi xitoylik savdogarlarga esa bu qoidalarning heç biri taʼsir qilmadi.	Çet elliklar bilan savdo qiluvçi xitoylik savdogarlarga esa bu qoidalarning heç biri taʼsir qildi.	only other words changed
@@ -899,6 +897,8 @@ npi_hech-1100	npi_hech	Heç özimni keçirmayman, senlar öqişda edinglar.	Heç
 npi_hech-1155	npi_hech	Suyunlarga qöyilgan ayblov bilan heç kim qutulib qolmagan hali.	Suyunlarga qöyilgan ayblov bilan heç kim qutulib qolgan hali.	only other words changed
 npi_hech-1147	npi_hech	Heç qanday partiyaga qöşilmadi.	Heç qanday partiyaga qöşildi.	critical word changed
 npi_hech-1029	npi_hech	Şu damgaça unga heç kim itim kasal deb kelmagan.	Şu damgaça unga heç kim itim kasal deb kelgan.	only other words changed
+npi_hech-1112	npi_hech	Yozgan bilan ham, mana, heç iş çiqmadi.	Yozgan bilan ham, mana, heç iş çiqdi.	critical word changed
+npi_hech-1070	npi_hech	Qöy, tomoğimdan heç narsa ötmaydi.	Qöy, tomoğimdan heç narsa ötadi.	critical word changed
 suspended_affixation-1091	suspended_affixation	Programmaga binoan zaldan sakkiz kişini sahnaga taklif qildim va ulardan polvonning ustiga çiqişlarini iltimos qildim.	Programmaga binoan zaldan sakkiz kişini sahnaga taklif qilgan va ulardan polvonning ustiga çiqişlarini iltimos qildim.	only other words changed
 suspended_affixation-1191	suspended_affixation	Tuni bilan taşnalikdan yonib çiqdim hamda tong mahali şuni bitdim.	Tuni bilan taşnalikdan yonib çiqqan hamda tong mahali şuni bitdim.	critical word changed
 suspended_affixation-1017	suspended_affixation	Men özimni yöqotib dovdiradim va negadir şoşilib-uyalib qölimdagini qöynimga yaşirdim.	Men özimni yöqotib dovdiragan va negadir şoşilib-uyalib qölimdagini qöynimga yaşirdim.	only other words changed
@@ -1003,7 +1003,6 @@ suspended_affixation-1186	suspended_affixation	Ulamo bilan suhbatda böldim va p
 suspended_affixation-1145	suspended_affixation	Biz gurillab hovuz böyiga çopdik va tollarga suyanib özimizni göyo panaga oldik.	Biz gurillab hovuz böyiga çopgan va tollarga suyanib özimizni göyo panaga oldik.	critical word changed
 suspended_affixation-1155	suspended_affixation	Bir yil davomida men yana bir oz maşq qildim va maşq qildim.	Bir yil davomida men yana bir oz maşq qilgan va maşq qildim.	only other words changed
 suspended_affixation-1125	suspended_affixation	Uyga kirgaç, zalga ötdim va xotinimni çaqirdim.	Uyga kirgaç, zalga ötgan va xotinimni çaqirdim.	critical word changed
-suspended_affixation-0001	suspended_affixation	Keçqurun qizlar bilan ziyofatga bordik va juda xursand böldik.	Keçqurun qizlar bilan ziyofatga borgan va juda xursand böldik.	only other words changed
 suspended_affixation-1037	suspended_affixation	Oxir-oqibat bu gaplarga könikib qoldim va yozyapsanmi, deyişi bilan ha, yozyapman, deb qutulardim.	Oxir-oqibat bu gaplarga könikib qolgan va yozyapsanmi, deyişi bilan ha, yozyapman, deb qutulardim.	only other words changed
 suspended_affixation-1142	suspended_affixation	Xiyol ötmay qözğaldik va yölda davom etdik.	Xiyol ötmay qözğalgan va yölda davom etdik.	critical word changed
 suspended_affixation-1128	suspended_affixation	Atrofda heç kim yöqligidan foydalanib tavajjuh holatiga kirdim va boşim bilan daraxt gullari orasiga şönğidim.	Atrofda heç kim yöqligidan foydalanib tavajjuh holatiga kirgan va boşim bilan daraxt gullari orasiga şönğidim.	only other words changed
@@ -1049,6 +1048,7 @@ suspended_affixation-1190	suspended_affixation	Avval yangamni, söng toğavaçç
 suspended_affixation-1123	suspended_affixation	Oyoğim toyib ketib ortim bilan ötirib qoldim va özimni töxtatolmay pastga tomon sirpanib keta boşladim.	Oyoğim toyib ketib ortim bilan ötirib qolgan va özimni töxtatolmay pastga tomon sirpanib keta boşladim.	only other words changed
 suspended_affixation-1130	suspended_affixation	Kela solib engaşdim va hovuçimni suvga tölatib-tölatib tölqinlanib oqayotgan anhorga soça boşladim.	Kela solib engaşgan va hovuçimni suvga tölatib-tölatib tölqinlanib oqayotgan anhorga soça boşladim.	critical word changed
 suspended_affixation-1132	suspended_affixation	Lolani uzdim va pastga uloqtirdim.	Lolani uzgan va pastga uloqtirdim.	unchanged
+suspended_affixation-1065	suspended_affixation	Ögirilib qaradim va biz tomonga kelayotgan önlab qizlar orasida uni ikkinçi bor körişga muvaffaq böldim.	Ögirilib qaragan va biz tomonga kelayotgan önlab qizlar orasida uni ikkinçi bor körişga muvaffaq böldim.	only other words changed
 nominalization-2036	nominalization	Sovğa tariqasida kitoblar, gullar va esdaliklar topşiriş mumkin.	Sovğa tariqasida kitoblar, gullar va esdaliklar topşirgan mumkin.	critical word changed
 nominalization-2031	nominalization	Linoleumni nobud qilmay biçiş kerak.	Linoleumni nobud qilmay biçgan kerak.	critical word changed
 nominalization-1057	nominalization	Ularni ayvonlarda, old zinapoyalarda va şahar tomlarida topiş mumkin.	Ularni ayvonlarda, old zinapoyalarda va şahar tomlarida topgan mumkin.	critical word changed
@@ -1186,7 +1186,6 @@ nominalization-2090	nominalization	Dasturni işlab çiqiş uçun qöllaniluvçi 
 nominalization-2162	nominalization	Xolis hukmni öşa davrga oid boşqa manbalar bilan taqqoslaş asosidagina çiqariş mumkin, xolos.	Xolis hukmni öşa davrga oid boşqa manbalar bilan taqqoslaş asosidagina çiqargan mumkin, xolos.	critical word changed
 nominalization-1012	nominalization	Xöş, bu yoğini nima qiliş kerak?	Xöş, bu yoğini nima qilgan kerak?	critical word changed
 nominalization-1037	nominalization	Hatto qöşiq boşlanişini ham kutib turiş kerak.	Hatto qöşiq boşlanişini ham kutib turgan kerak.	critical word changed
-nominalization-0001	nominalization	Masalani qayta muhokama qilişni taklif qilaman.	Masalani qayta muhokama qilganini taklif qilaman.	critical word changed
 nominalization-2170	nominalization	Şuning uçun kompyuterlarni virusdan asraş kerak.	Şuning uçun kompyuterlarni virusdan asragan kerak.	critical word changed
 nominalization-2096	nominalization	Özi qurgan dunyo ham uni öldirişni boşlaydi.	Özi qurgan dunyo ham uni öldirganni boşlaydi.	critical word changed
 nominalization-2054	nominalization	Qizdirilgan jismlarning temperaturasini ularning nurlaniş spektridan foydalanib aniqlaş mumkin.	Qizdirilgan jismlarning temperaturasini ularning nurlaniş spektridan foydalanib aniqlagan mumkin.	critical word changed
@@ -1199,6 +1198,7 @@ nominalization-2033	nominalization	Uni yomon deydigan odamni böğib taşlaşga 
 nominalization-1042	nominalization	Suvçeçak juda yuqumli, şuning uçun bemor bolani alohidalab qöyiş lozim.	Suvçeçak juda yuqumli, şuning uçun bemor bolani alohidalab qöygan lozim.	critical word changed
 nominalization-2001	nominalization	Biroq, birinçi metod haqida darslikda keltirilgan tuşuntirişni bir oz töldiriş kerak.	Biroq, birinçi metod haqida darslikda keltirilgan tuşuntirişni bir oz töldirgan kerak.	critical word changed
 nominalization-2058	nominalization	Bu örinda mulkka egalik hissiyotining tiklanganligini taʼkidlab ötiş kerak.	Bu örinda mulkka egalik hissiyotining tiklanganligini taʼkidlab ötgan kerak.	critical word changed
+nominalization-1014	nominalization	Şundan söng uşbu yozilgan programmani gfortran kompilyatori yordamida kompilyatsiya qiliş lozim.	Şundan söng uşbu yozilgan programmani gfortran kompilyatori yordamida kompilyatsiya qilgan lozim.	critical word changed
 person_agreement-2157	person_agreement	Mening javobimdan köngillari töldi, ulardan men ham xursand böldim.	Mening javobimdan köngillari töldi, ulardan men ham xursand böldik.	critical word changed
 person_agreement-2058	person_agreement	U qirğoqqa yetay deganda men oldidan çiqdim.	U qirğoqqa yetay deganda men oldidan çiqdik.	critical word changed
 person_agreement-2085	person_agreement	Sen buni neça dinorga sotib olding?	Sen buni neça dinorga sotib oldim?	only other words changed
@@ -1904,7 +1904,6 @@ numeral_no_plural-1108	numeral_no_plural	Qabristonga ikkita joydan kiriş mumkin
 numeral_no_plural-1170	numeral_no_plural	Bu iplar ham bitta moddadan yoki aralaşma moddalardan olinişi mumkin.	Bu iplar ham bitta moddalardan yoki aralaşma moddalardan olinişi mumkin.	only other words changed
 numeral_no_plural-1064	numeral_no_plural	Ammo er bir gapni kam, ikkita gapni köp deydigan asabiy ahvolda edi.	Ammo er bir gapni kam, ikkita gaplarni köp deydigan asabiy ahvolda edi.	only other words changed
 numeral_no_plural-1008	numeral_no_plural	Teatrni bir çetga surib qöysak, u uçta rekord örnatgan turk teledasturlarida boş rol öynagan.	Teatrni bir çetga surib qöysak, u uçta rekordlar örnatgan turk teledasturlarida boş rol öynagan.	only other words changed
-numeral_no_plural-0001	numeral_no_plural	Uçta kitob oldim.	Uçta kitoblar oldim.	only other words changed
 numeral_no_plural-1106	numeral_no_plural	Bitta xörozni söyib, şörva qildim.	Bitta xörozlarni söyib, şörva qildim.	critical word changed
 numeral_no_plural-1080	numeral_no_plural	Uni bitta nuqtaga boğlab, zanjirband qilib bölmaydi.	Uni bitta nuqtalarga boğlab, zanjirband qilib bölmaydi.	only other words changed
 numeral_no_plural-1177	numeral_no_plural	Ikkita taqsimçada xamiri yoğliq uçburçak somsa turardi.	Ikkita taqsimçalarda xamiri yoğliq uçburçak somsa turardi.	critical word changed
@@ -1949,6 +1948,7 @@ numeral_no_plural-1068	numeral_no_plural	Uy xöjaligi anʼanaviy ravişda ikkita
 numeral_no_plural-1031	numeral_no_plural	Ikkita öyinda ham ğolib aniqlanmasa, qöşimça vaqtlar berilgan, undan söng, penaltilar seriyasi ötkazilgan.	Ikkita öyinlarda ham ğolib aniqlanmasa, qöşimça vaqtlar berilgan, undan söng, penaltilar seriyasi ötkazilgan.	critical word changed
 numeral_no_plural-1026	numeral_no_plural	Ayollarni erkaklardan kökrak qafasida joylaşgan ikkita sut bezlari bilan ajratiş mumkin.	Ayollarni erkaklardan kökrak qafasida joylaşgan ikkita sutlar bezlari bilan ajratiş mumkin.	only other words changed
 numeral_no_plural-1152	numeral_no_plural	Kamida uçta til oilasi mintaqaga xosdir.	Kamida uçta tillar oilasi mintaqaga xosdir.	only other words changed
+numeral_no_plural-1198	numeral_no_plural	Fakultetida uçta kafedra faoliyat olib boradi.	Fakultetida uçta kafedralar faoliyat olib boradi.	only other words changed
 postposition_case-1079	postposition_case	Duo-fotihadan keyin xotinlar örinlaridan turdi-.	Duo-fotihaga keyin xotinlar örinlaridan turdi-.	only other words changed
 postposition_case-1140	postposition_case	Maʼlum vaqtdan keyin ularga avvalgi iş joyidan yangi iş taklif qilişadi.	Maʼlum vaqtga keyin ularga avvalgi iş joyidan yangi iş taklif qilişadi.	only other words changed
 postposition_case-1231	postposition_case	Biz göştni ikki ming sömdan olib yeydigan bölganimizdan keyin çorvaning qadriga yetadigan bölib qoldik.	Biz göştni ikki ming sömdan olib yeydigan bölganimizga keyin çorvaning qadriga yetadigan bölib qoldik.	critical word changed
@@ -2070,7 +2070,6 @@ postposition_case-1184	postposition_case	Ikki kundan keyin yarim jinni, yarim so
 postposition_case-1064	postposition_case	Bir ozdan keyin simning naryoğidan javob keldi.	Bir ozga keyin simning naryoğidan javob keldi.	only other words changed
 postposition_case-1085	postposition_case	Axir, uzoq safarga çiqib, bir neça oydan keyin qaytib kelişganini yaxşi bilardim-da!	Axir, uzoq safarga çiqib, bir neça oyga keyin qaytib kelişganini yaxşi bilardim-da!	only other words changed
 postposition_case-1107	postposition_case	Men ketganimdan keyin bu yerga devor uriladi.	Men ketganimga keyin bu yerga devor uriladi.	unchanged
-postposition_case-0002	postposition_case	Ertalabdan beri yomğir yoğyapti.	Ertalabga beri yomğir yoğyapti.	only other words changed
 postposition_case-1230	postposition_case	Pulini olgandan keyin qilmay ham körsin-çi.	Pulini olganga keyin qilmay ham körsin-çi.	only other words changed
 postposition_case-1200	postposition_case	Tili çiqqandan beri biron işni javobsiz qoldirmagan.	Tili çiqqanga beri biron işni javobsiz qoldirmagan.	critical word changed
 postposition_case-1244	postposition_case	Men neça yildan beri zavodda injener bölsam unga bironta taklifimni ötkazolgan emasman.	Men neça yilga beri zavodda injener bölsam unga bironta taklifimni ötkazolgan emasman.	only other words changed
@@ -2099,6 +2098,7 @@ postposition_case-1139	postposition_case	Tuşdan keyin böş edi, uyiga borib bi
 postposition_case-1227	postposition_case	Haligi sözdan keyin javob kutiş heç qanday mantiqqa siğmasdi-da.	Haligi sözga keyin javob kutiş heç qanday mantiqqa siğmasdi-da.	critical word changed
 postposition_case-1137	postposition_case	Köktoy ayolningmi, işqilib uydan ovqatdan keyin kimningdir çiqişini kutdi.	Köktoy ayolningmi, işqilib uydan ovqatga keyin kimningdir çiqişini kutdi.	only other words changed
 postposition_case-1014	postposition_case	Lekin bu gapdan keyin biron narsa qilgisi keldi, hozirgina artgan joylariga yangitdan latta urib çiqdi.	Lekin bu gapga keyin biron narsa qilgisi keldi, hozirgina artgan joylariga yangitdan latta urib çiqdi.	only other words changed
+postposition_case-1180	postposition_case	Töğri-da, qalbda uçqun bölmagandan keyin söz ohangi hisli bölarmidi?	Töğri-da, qalbda uçqun bölmaganga keyin söz ohangi hisli bölarmidi?	critical word changed
 possessive_agreement-1005	possessive_agreement	Jannat mening poyimda bölarmiş!	Jannat mening poyingda bölarmiş!	only other words changed
 possessive_agreement-1002	possessive_agreement	Şu umid, şu işonç uning dardiga malham, köngliga quvonç bağişlardi.	Şu umid, şu işonç uning dardimga malham, köngliga quvonç bağişlardi.	only other words changed
 possessive_agreement-1242	possessive_agreement	Men çalasavod, sening savoding rosami?	Men çalasavod, sening savodim rosami?	only other words changed
@@ -2263,7 +2263,6 @@ dative_allomorphy-1100	dative_allomorphy	Ayoli uning örtanişlarini keksalikka 
 dative_allomorphy-1121	dative_allomorphy	Va oyoqqa turgan edi!	Va oyoqga turgan edi!	unchanged
 dative_allomorphy-1095	dative_allomorphy	Va şu yölda, tuğilgan elingdan minglarça kilometr yiroqda qullikka qarşi joningni tikding.	Va şu yölda, tuğilgan elingdan minglarça kilometr yiroqda qullikga qarşi joningni tikding.	only other words changed
 dative_allomorphy-1172	dative_allomorphy	Uy va maydonlar jamoatçilikka oçiq emas.	Uy va maydonlar jamoatçilikga oçiq emas.	critical word changed
-dative_allomorphy-0002	dative_allomorphy	U eşikka qaradi.	U eşikga qaradi.	critical word changed
 dative_allomorphy-1166	dative_allomorphy	Kuy uzoq davom etdi, keyin qöşiqqa ulandi.	Kuy uzoq davom etdi, keyin qöşiqga ulandi.	critical word changed
 dative_allomorphy-1079	dative_allomorphy	U öz jonini saqlab, bu yoqqa utdimi?	U öz jonini saqlab, bu yoqga utdimi?	only other words changed
 dative_allomorphy-1185	dative_allomorphy	Kremniy asosli anorganik polimer materiallar ham issiqqa çidamli böladi.	Kremniy asosli anorganik polimer materiallar ham issiqga çidamli böladi.	only other words changed
@@ -2275,7 +2274,6 @@ dative_allomorphy-1221	dative_allomorphy	Möynali kiyimlar haşamatli liboslar s
 dative_allomorphy-1068	dative_allomorphy	Odatda, soz tuproqqa suv urilib, loy qoriladi.	Odatda, soz tuproqga suv urilib, loy qoriladi.	unchanged
 dative_allomorphy-1247	dative_allomorphy	Biroq odam deb gapirganga gapirmaslik mensimaslikka, kibrga yöyilişini bilardi.	Biroq odam deb gapirganga gapirmaslik mensimaslikga, kibrga yöyilişini bilardi.	only other words changed
 dative_allomorphy-1078	dative_allomorphy	Iloji boriça qişloqqa keçroq kirib borişga ahd qildi.	Iloji boriça qişloqga keçroq kirib borişga ahd qildi.	critical word changed
-dative_allomorphy-0001	dative_allomorphy	Biz qişloqqa bordik.	Biz qişloqga bordik.	critical word changed
 dative_allomorphy-1014	dative_allomorphy	Yuqorida aytkanimdek, haqiqatan çakim şaltoqqa tuşkan edi.	Yuqorida aytkanimdek, haqiqatan çakim şaltoqga tuşkan edi.	critical word changed
 dative_allomorphy-1229	dative_allomorphy	Naq bir soat yer boşida u yoqdan-bu yoqqa borib-kelib yurdim.	Naq bir soat yer boşida u yoqdan-bu yoqga borib-kelib yurdim.	only other words changed
 dative_allomorphy-1226	dative_allomorphy	Qöqqis jarlikka közi tuşdi-yu, irğib turib, eşikni ziçladi.	Qöqqis jarlikga közi tuşdi-yu, irğib turib, eşikni ziçladi.	only other words changed
@@ -2399,3 +2397,5 @@ dative_allomorphy-1023	dative_allomorphy	Naqqoş ketgandan söng, şoir eşikka 
 dative_allomorphy-1033	dative_allomorphy	Çipor azaldan egasiga yuk bölmaslikka tirişadi.	Çipor azaldan egasiga yuk bölmaslikga tirişadi.	critical word changed
 dative_allomorphy-1183	dative_allomorphy	Ikki bola ikki yoqqa yugurib ketdi.	Ikki bola ikki yoqga yugurib ketdi.	unchanged
 dative_allomorphy-1144	dative_allomorphy	Yonboşdagi uydagi ayollarning kulgisi bu yoqqa bemalol keladi.	Yonboşdagi uydagi ayollarning kulgisi bu yoqga bemalol keladi.	only other words changed
+dative_allomorphy-1230	dative_allomorphy	Baʼzida u bir haftalar topişmoqqa eʼtibor bermay yurdi.	Baʼzida u bir haftalar topişmoqga eʼtibor bermay yurdi.	critical word changed
+dative_allomorphy-1206	dative_allomorphy	Reportaj köp jihatdan oçerkka yaqin turadi.	Reportaj köp jihatdan oçerkga yaqin turadi.	critical word changed

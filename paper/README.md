@@ -21,5 +21,5 @@
 
 ## Update the tables
 ```
-python scripts/paper_tables.py --version v1.0
+python scripts/paper_tables.py --version v1.1
 ```

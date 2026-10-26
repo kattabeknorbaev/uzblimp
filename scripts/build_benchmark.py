@@ -43,6 +43,9 @@ def main():
             incomplete.append(f"{ph} ({len(rows)})")
             continue
         random.Random(f"{args.seed}-{ph}").shuffle(rows)
+        # Corpus sentences only (2026-10-27): the hand-written seed pairs of pairs_v0.tsv are
+        # skipped after shuffling, so every other pair keeps its place and only their slots change.
+        rows = [r for r in rows if r.get("method") != "hand-written"]
         bench += rows[:args.per]
         reserve += rows[args.per:]
 
