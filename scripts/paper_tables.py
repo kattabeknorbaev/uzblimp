@@ -6,6 +6,7 @@ Writes paper/tables/{phenomena,accuracy,scripts,reform}.tex for benchmark versio
 """
 import argparse
 import csv
+import difflib
 import glob
 import sys
 from collections import defaultdict
@@ -131,6 +132,153 @@ def reform_table(runs):
     return "\n".join(lines)
 
 
+def _bench_df(bench):
+    b = pd.DataFrame(bench).set_index("id")
+    b["source"] = ["books" if i.split("-")[-1].startswith("2") else "corpus" for i in b.index]
+    b["dlen"] = [len(u.encode()) - len(g.encode()) for g, u in zip(b.grammatical, b.ungrammatical)]
+    return b
+
+
+def _changed(g, b):
+    tg, tb = g.split(), b.split()
+    return [w.lower().strip(".,!?") for o, i1, i2, _, _ in difflib.SequenceMatcher(a=tg, b=tb, autojunk=False).get_opcodes()
+            if o != "equal" for w in tg[i1:i2]]
+
+
+def stats_table(bench):
+    b = _bench_df(bench)
+    lines = [r"\begin{table}[t]", r"\centering\small", r"\setlength{\tabcolsep}{4pt}", r"\begin{tabular}{lrrrrr}", r"\toprule",
+             r"Phenomenon & Corpus & Books & Words & Forms & $\Delta$B \\", r"\midrule"]
+    for ph in PHEN:
+        d = b[b.phenomenon == ph]
+        forms = {w for g, u in zip(d.grammatical, d.ungrammatical) for w in _changed(g, u)}
+        lines.append(f"{PHEN[ph]} & {sum(d.source == 'corpus')} & {sum(d.source == 'books')} & {d.grammatical.str.split().str.len().mean():.1f} "
+                     f"& {len(forms)} & {d.dlen.mean():+.1f} \\\\")
+    lines += [r"\midrule", f"All & {sum(b.source == 'corpus')} & {sum(b.source == 'books')} & "
+              f"{b.grammatical.str.split().str.len().mean():.1f} & & {b.dlen.mean():+.1f} \\\\", r"\bottomrule", r"\end{tabular}",
+              r"\caption{Benchmark statistics. \emph{Corpus/Books}: pairs from our corpus and from uz-books; \emph{Words}: mean "
+              r"length of the grammatical sentence; \emph{Forms}: distinct grammatical word forms at the edited position; "
+              r"$\Delta$\emph{B}: mean length difference ungrammatical $-$ grammatical in UTF-8 bytes.}", r"\label{tab:stats}", r"\end{table}"]
+    return "\n".join(lines)
+
+
+def tokens_table(runs):
+    short = {"Goldfish-latn": "Goldfish-latn", "Goldfish-cyrl": "Goldfish-cyrl", "tahrirchi-bert": "tahrirchi-bert", "Qwen2.5-0.5B": "Qwen2.5-0.5B"}
+    lines = [r"\begin{table}[t]", r"\centering\small", r"\begin{tabular}{lrrr}", r"\toprule",
+             r"Model & Latin & Cyrillic & Reformed \\", r"\midrule"]
+    for m in short:
+        cells = []
+        for a in ("Latin", "Cyrillic", "Reformed"):
+            r = runs.get((m, a))
+            cells.append("--" if r is None else f"{pd.concat([r.good_ntok, r.bad_ntok]).mean():.1f}")
+        lines.append(f"{short[m]} & " + " & ".join(cells) + r" \\")
+    lines += [r"\bottomrule", r"\end{tabular}",
+              r"\caption{Mean number of scored tokens per sentence. Reading the other script roughly doubles the token count "
+              r"for tahrirchi-bert.}", r"\label{tab:tokens}", r"\end{table}"]
+    return "\n".join(lines)
+
+
+def length_table(runs, bench):
+    b = _bench_df(bench)
+    keys = [("tahrirchi-bert", "Latin"), ("tahrirchi-bert", "Cyrillic"), ("tahrirchi-bert", "Reformed"),
+            ("Goldfish-latn", "Latin"), ("Goldfish-latn", "Cyrillic"), ("Qwen2.5-0.5B", "Latin")]
+    lines = [r"\begin{table}[t]", r"\centering\small", r"\begin{tabular}{llrrr}", r"\toprule",
+             r"Model & Text & Longer & Equal & Shorter \\", r"\midrule"]
+    for k in keys:
+        if k not in runs:
+            continue
+        j = runs[k].join(b[["dlen"]])
+        cells = [f"{100 * j[m].correct.mean():.1f}" for m in (j.dlen > 0, j.dlen == 0, j.dlen < 0)]
+        lines.append(f"{k[0]} & {k[1]} & " + " & ".join(cells) + r" \\")
+    n = [int((b.dlen > 0).sum()), int((b.dlen == 0).sum()), int((b.dlen < 0).sum())]
+    lines += [r"\bottomrule", r"\end{tabular}",
+              rf"\caption{{Accuracy (\%) by whether the ungrammatical sentence is longer ($n={n[0]}$), equal ($n={n[1]}$) or "
+              r"shorter ($n=" + str(n[2]) + r"$) than the grammatical one in bytes. A preference for shorter sentences lowers "
+              r"accuracy in the last column.}", r"\label{tab:length}", r"\end{table}"]
+    return "\n".join(lines)
+
+
+def accnorm_table(runs, phen):
+    cols = [c for c in [("Goldfish-latn", "Latin"), ("Goldfish-cyrl", "Latin"), ("tahrirchi-bert", "Latin"), ("Qwen2.5-0.5B", "Latin"),
+                        ("Goldfish-latn", "Cyrillic"), ("Goldfish-cyrl", "Cyrillic"), ("tahrirchi-bert", "Cyrillic"),
+                        ("Qwen2.5-0.5B", "Cyrillic"), ("tahrirchi-bert", "Reformed"), ("Qwen2.5-0.5B", "Reformed")] if c in runs]
+    short = {"Goldfish-latn": "GF-L", "Goldfish-cyrl": "GF-C", "tahrirchi-bert": "BERT", "Qwen2.5-0.5B": "Qwen"}
+    alpha = {"Latin": "L", "Cyrillic": "C", "Reformed": "R"}
+    lines = [r"\begin{table*}[t]", r"\centering\small", r"\begin{tabular}{l" + "r" * len(cols) + "}", r"\toprule",
+             "Phenomenon & " + " & ".join(f"{short[m]}/{alpha[a]}" for m, a in cols) + r" \\", r"\midrule"]
+    for ph in PHEN:
+        if ph in phen:
+            lines.append(PHEN[ph] + " & " + " & ".join(
+                f"{100 * runs[c][runs[c].phenomenon == ph].correct_norm.mean():.1f}" for c in cols) + r" \\")
+    lines += [r"\midrule", "All & " + " & ".join(f"\\textbf{{{100 * runs[c].correct_norm.mean():.1f}}}" for c in cols) + r" \\",
+              r"\bottomrule", r"\end{tabular}",
+              r"\caption{Length-normalised accuracy (\%; log-probability per UTF-8 byte, as in TatBLiMP). L/C/R: Latin, "
+              r"Cyrillic and reformed Latin text.}", r"\label{tab:accnorm}", r"\end{table*}"]
+    return "\n".join(lines)
+
+
+def reform_phen_table(runs):
+    ref = pd.DataFrame(read(ROOT / "data/benchmark/uzblimp_reformed.tsv")).set_index("id")
+    side = ref.apply(lambda r: _new_letter_side(r.grammatical, r.ungrammatical), axis=1)
+    cur, rf = runs[("tahrirchi-bert", "Latin")], runs[("tahrirchi-bert", "Reformed")]
+    lines = [r"\begin{table}[t]", r"\centering\small", r"\setlength{\tabcolsep}{4pt}", r"\begin{tabular}{lrrrrr}", r"\toprule",
+             r"Phenomenon & Both & Gr.\ only & Other & Current & Reformed \\", r"\midrule"]
+    for ph in PHEN:
+        ids = cur.index[cur.phenomenon == ph]
+        s = side.loc[ids]
+        other = int((ref.loc[ids].reform_category == "only other words changed").sum())
+        lines.append(f"{PHEN[ph]} & {int((s == 'both').sum())} & {int((s == 'grammatical only').sum())} & {other} & "
+                     f"{100 * cur.loc[ids].correct.mean():.1f} & {100 * rf.loc[ids].correct.mean():.1f} \\\\")
+    lines += [r"\bottomrule", r"\end{tabular}",
+              r"\caption{tahrirchi-bert on current vs reformed Latin by phenomenon, with the number of pairs whose new letters "
+              r"fall in both members' changed words, only in the grammatical member's, or only in other words.}",
+              r"\label{tab:reformphen}", r"\end{table}"]
+    return "\n".join(lines)
+
+
+def reasons_table():
+    reasons = defaultdict(lambda: defaultdict(int))
+    for f in glob.glob(str(ROOT / "data" / "pairs_v[12]_*.tsv")):
+        for r in read(f):
+            if r["status"] == "rejected" and r["phenomenon"] in PHEN:
+                reasons[r["phenomenon"]][r["reason"]] += 1
+    cols = [("good sentence is unnatural or wrong", "Source"), ("bad sentence is actually grammatical", "Bad OK"),
+            ("dialect or colloquial form", "Dialect"), ("change alters meaning, not grammar", "Meaning"),
+            ("name or personal data", "Name")]
+    lines = [r"\begin{table}[t]", r"\centering\small", r"\setlength{\tabcolsep}{4pt}", r"\begin{tabular}{l" + "r" * len(cols) + "}",
+             r"\toprule", "Phenomenon & " + " & ".join(c for _, c in cols) + r" \\", r"\midrule"]
+    tot = defaultdict(int)
+    for ph in PHEN:
+        lines.append(PHEN[ph] + " & " + " & ".join(str(reasons[ph][k]) for k, _ in cols) + r" \\")
+        for k, _ in cols:
+            tot[k] += reasons[ph][k]
+    lines += [r"\midrule", "All & " + " & ".join(str(tot[k]) for k, _ in cols) + r" \\", r"\bottomrule", r"\end{tabular}",
+              r"\caption{Reasons for rejecting candidate pairs in the native-speaker review. \emph{Source}: the grammatical "
+              r"sentence is unnatural or wrong (mostly OCR errors and typos); \emph{Bad OK}: the ungrammatical member has a "
+              r"grammatical reading; \emph{Meaning}: the edit changes meaning rather than grammaticality.}",
+              r"\label{tab:reasons}", r"\end{table}"]
+    return "\n".join(lines)
+
+
+def examples_table(bench):
+    ref = {r["id"]: r for r in read(ROOT / "data/benchmark/uzblimp_reformed.tsv")}
+    by = defaultdict(list)
+    for r in bench:
+        by[r["phenomenon"]].append(r)
+    lines = [r"\begin{table*}[t]", r"\centering\small", r"\begin{tabular}{lp{6.6cm}p{6.6cm}}", r"\toprule",
+             r"Phenomenon & Current Latin & Reformed Latin (2026) \\", r"\midrule"]
+    for ph in PHEN:
+        pairs = sorted(by[ph], key=lambda r: (len(r["grammatical"].split()), r["id"]))
+        r = next((p for p in pairs if p["grammatical"] != ref[p["id"]]["grammatical"]), pairs[0])  # one that shows the reform
+        f = ref[r["id"]]
+        lines.append(f"{PHEN[ph]} & {tex(r['grammatical'])} / *{tex(r['ungrammatical'])} & "
+                     f"{tex(f['grammatical'])} / *{tex(f['ungrammatical'])} \\\\")
+    lines += [r"\bottomrule", r"\end{tabular}",
+              r"\caption{One pair per phenomenon in current and reformed Latin (the shortest pair whose reformed spelling "
+              r"differs). The Cyrillic versions are in the released data.}", r"\label{tab:examples}", r"\end{table*}"]
+    return "\n".join(lines)
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--version", default="v1.1")
@@ -144,7 +292,10 @@ def main():
     phen = {r["phenomenon"] for r in bench}
     OUT.mkdir(parents=True, exist_ok=True)
     for name, text in (("phenomena", phenomena_table(bench)), ("accuracy", accuracy_table(runs, phen)),
-                       ("scripts", scripts_table(runs)), ("reform", reform_table(runs))):
+                       ("scripts", scripts_table(runs)), ("reform", reform_table(runs)), ("stats", stats_table(bench)),
+                       ("tokens", tokens_table(runs)), ("length", length_table(runs, bench)),
+                       ("accnorm", accnorm_table(runs, phen)), ("reformphen", reform_phen_table(runs)),
+                       ("reasons", reasons_table()), ("examples", examples_table(bench))):
         (OUT / f"{name}.tex").write_text(text + "\n", encoding="utf-8")
         print(f"wrote paper/tables/{name}.tex")
 

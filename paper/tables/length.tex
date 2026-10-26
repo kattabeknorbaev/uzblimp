@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering\small
+\begin{tabular}{llrrr}
+\toprule
+Model & Text & Longer & Equal & Shorter \\
+\midrule
+tahrirchi-bert & Latin & 99.0 & 98.0 & 98.8 \\
+tahrirchi-bert & Cyrillic & 83.0 & 84.4 & 68.4 \\
+tahrirchi-bert & Reformed & 95.6 & 92.3 & 79.7 \\
+Goldfish-latn & Latin & 96.6 & 95.6 & 95.4 \\
+Goldfish-latn & Cyrillic & 90.2 & 89.5 & 87.0 \\
+Qwen2.5-0.5B & Latin & 81.4 & 49.2 & 37.3 \\
+\bottomrule
+\end{tabular}
+\caption{Accuracy (\%) by whether the ungrammatical sentence is longer ($n=500$), equal ($n=819$) or shorter ($n=1081$) than the grammatical one in bytes. A preference for shorter sentences lowers accuracy in the last column.}
+\label{tab:length}
+\end{table}
