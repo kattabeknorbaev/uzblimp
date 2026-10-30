@@ -82,7 +82,7 @@ Flags on bad-only words:
 Net result: apart from vowel_glide_y, only 3 of 4,200 pairs are surface-obvious (0079, 0148/0229), plus 1 scan-error sentence (0152).
 
 ## Kattabek's repo (read-only, NOT edited)
-`/workspace/kattabek_uzblimp_ro` imported the v11 vowel_glide pairs with the 'aa' rule:
+a local copy of the repo imported the v11 vowel_glide pairs with the 'aa' rule:
 - `data/pairs_v2_vowel_glide.tsv`: 149 rows, `vowel_glide-2001…`, method notes "rule9:V-stem+ydi -> *V-stem+adi";
 - `data/external/uzblimp_v11.json`;
 - the mapping `vowel_glide_y → vowel_glide` in `scripts/import_v11.py`;
