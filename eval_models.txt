@@ -1,0 +1,11 @@
+# Models for: python scripts/eval.py --models-file eval_models.txt --script <latn|cyrl|latn_reformed>
+# One per line: <method> <model id> [label for the results table]
+#   logprob        Hugging Face causal LM (torch + transformers; a GPU for anything over ~1B parameters)
+#   forced-choice  chat model through OpenRouter (key in OPENROUTER_API_KEY or .env; every call costs money)
+# Already in results/json/ (v1.1, scored with scripts/score_pairs.py): goldfish-models/uzn_latn_100mb,
+# goldfish-models/uzn_cyrl_100mb, Qwen/Qwen2.5-0.5B (logprob) and tahrirchi/tahrirchi-bert-base
+# (pseudo-log-likelihood, scripts/score_pairs.py --mlm).
+#
+# TODO (Kattabek): list the models to evaluate. Format examples:
+# logprob        Qwen/Qwen2.5-7B           Qwen2.5-7B
+# forced-choice  google/gemma-3-12b-it     Gemma-3-12B-it

@@ -51,3 +51,4 @@ Check every file with `python scripts/validate_pairs.py <file>`.
 | `multiblimp_uzb.tsv` | MultiBLiMP 1.0 Uzbek split (50 pairs), for comparison |
 | `pilot_3alphabets.tsv` | 13-pair three-alphabet pilot (day 2) |
 | `candidates/` | Corpus sentences found by `scripts/corpus_stats.py`. **Git-ignored; stays on this machine.** |
+| `jsonl/` | Release files, one per phenomenon and alphabet, written from `benchmark/` by `scripts/export_jsonl.py` and checked by `scripts/validate.py`; fields in the top-level README |

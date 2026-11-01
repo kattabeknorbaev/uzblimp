@@ -40,6 +40,33 @@ ALL_PHENOMENA = {**PHENOMENA, **EXTRA_PHENOMENA, **DROPPED_PHENOMENA}
 # Phenomena whose pairs differ by word order: same words, different order.
 WORD_ORDER = {"ellipsis", "scrambling", "postposition_order"}
 
+# Release files (data/jsonl/<script>/<phenomenon>.jsonl, from export_jsonl.py, checked by validate.py).
+# Readable name and BLiMP-style field of each core phenomenon. The field follows BLiMP where it has
+# the same contrast (agreement and irregular forms: morphology; argument structure: syntax; NPI
+# licensing: semantics); the other assignments are ours.
+RELEASE_PHENOMENA = {
+    "anaphor_agreement": ("Anaphor agreement", "morphology"),
+    "binding": ("Binding", "syntax"),
+    "dative_allomorphy": ("Dative allomorphy (-ga/-qa/-ka)", "morphology"),
+    "ditransitive_dative": ("Ditransitive dative", "syntax"),
+    "lexical_case": ("Lexical case", "syntax"),
+    "nominalization": ("Nominalization", "syntax"),
+    "npi_hech": ("NPI licensing (hech + negation)", "semantics"),
+    "numeral_no_plural": ("No plural after numerals", "morphology"),
+    "passives": ("Passives", "syntax"),
+    "person_agreement": ("Person agreement", "morphology"),
+    "possessive_agreement": ("Possessive agreement", "morphology"),
+    "postposition_case": ("Case after postpositions", "syntax"),
+    "quantifiers": ("Quantifiers (har bir + singular)", "morphology"),
+    "relative_clauses": ("Relative clauses", "syntax"),
+    "stem_alternation": ("Stem alternation (q/k → gʻ/g)", "morphology"),
+    "suspended_affixation": ("Suspended affixation", "morphology"),
+}
+FIELDS = {"morphology", "syntax", "semantics"}
+RELEASE_VERSION = "v1.1"
+# Release alphabet → benchmark TSV. Cyrillic and reformed Latin are converted from current Latin.
+SCRIPT_FILES = {"latn": "uzblimp.tsv", "cyrl": "uzblimp_cyrl.tsv", "latn_reformed": "uzblimp_reformed.tsv"}
+
 APOS_BAD = "'’‘`ʼ´"  # anything but U+02BB after o/g
 OG_BAD_APOS_RE = re.compile(f"[oOgG][{APOS_BAD}]")
 LAT_RE = re.compile(r"[A-Za-zÀ-ɏ]")
