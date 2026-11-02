@@ -58,3 +58,24 @@ timestamp,model,dataset,n_pairs,accuracy,bos,device,dtype,n_params_M,acc_norm,sc
 2026-10-26T19:18:18,Qwen/Qwen2.5-0.5B,uzblimp_v1.1_cyrl_bos,2400,0.4617,,,,,0.4888,,,carried over from v1.0; 12 pairs scored
 2026-10-26T19:20:06,tahrirchi/tahrirchi-bert-base,uzblimp_v1.1_reformed,2400,0.8733,,,,,0.8975,,,carried over from v1.0; 12 pairs scored
 2026-10-26T19:20:55,Qwen/Qwen2.5-0.5B,uzblimp_v1.1_reformed_bos,2400,0.4733,,,,,0.5362,,,carried over from v1.0; 12 pairs scored
+2026-10-27T23:06:50,meta-llama/llama-3.1-8b-instruct,uzblimp_v1.1_pilot3,48,0.5625,,,,,,api-forced-choice,baseline,consistent 0.1458; invalid 0; cost $0.0003
+2026-10-27T23:06:58,qwen/qwen-2.5-7b-instruct,uzblimp_v1.1_pilot3,48,0.6562,,,,,,api-forced-choice,baseline,consistent 0.3333; invalid 0; cost $0.0012
+2026-10-27T23:07:10,google/gemma-3-12b-it,uzblimp_v1.1_pilot3,48,0.8542,,,,,,api-forced-choice,baseline,consistent 0.7292; invalid 0; cost $0.0008
+2026-10-27T23:07:22,meta-llama/llama-3.3-70b-instruct,uzblimp_v1.1_pilot3,48,0.8854,,,,,,api-forced-choice,baseline,consistent 0.7708; invalid 3; cost $0.0018
+2026-10-27T23:08:27,google/gemini-4-argon,uzblimp_v1.1_pilot3,48,0.4583,,,,,,api-forced-choice,baseline,consistent 0.2500; invalid 52; cost $0.0341
+2026-10-27T23:08:54,openai/gpt-6.1-sol,uzblimp_v1.1_pilot3,48,0.3542,,,,,,api-forced-choice,baseline,consistent 0.2917; invalid 62; cost $0.0234
+2026-10-27T23:09:13,anthropic/claude-sonnet-5.5,uzblimp_v1.1_pilot3,48,0.3229,,,,,,api-forced-choice,baseline,consistent 0.1875; invalid 61; cost $0.0412
+2026-10-27T23:10:30,meta-llama/llama-3.1-8b-instruct,uzblimp_v1.1_pilot3,48,0.6042,,,,,,api-forced-choice,baseline,consistent 0.2292; invalid 0; cost $0.0006
+2026-10-27T23:10:38,qwen/qwen-2.5-7b-instruct,uzblimp_v1.1_pilot3,48,0.6562,,,,,,api-forced-choice,baseline,consistent 0.3958; invalid 0; cost $0.0025
+2026-10-27T23:10:51,google/gemma-3-12b-it,uzblimp_v1.1_pilot3,48,0.8646,,,,,,api-forced-choice,baseline,consistent 0.7500; invalid 0; cost $0.0017
+2026-10-27T23:11:04,meta-llama/llama-3.3-70b-instruct,uzblimp_v1.1_pilot3,48,0.8125,,,,,,api-forced-choice,baseline,consistent 0.6458; invalid 2; cost $0.0042
+2026-10-27T23:12:15,google/gemini-4-argon,uzblimp_v1.1_pilot3,48,1.0,,,,,,api-forced-choice,baseline,consistent 1.0000; invalid 0; cost $0.0683
+2026-10-27T23:12:40,openai/gpt-6.1-sol,uzblimp_v1.1_pilot3,48,1.0,,,,,,api-forced-choice,baseline,consistent 1.0000; invalid 0; cost $0.0516
+2026-10-27T23:13:04,anthropic/claude-sonnet-5.5,uzblimp_v1.1_pilot3,48,0.6458,,,,,,api-forced-choice,baseline,consistent 0.5208; invalid 34; cost $0.1348
+2026-10-27T23:14:36,meta-llama/llama-3.1-8b-instruct,uzblimp_v1.1_pilot3,48,0.6562,,,,,,api-forced-choice,baseline,consistent 0.3542; invalid 0; cost $0.0009
+2026-10-27T23:14:44,qwen/qwen-2.5-7b-instruct,uzblimp_v1.1_pilot3,48,0.6875,,,,,,api-forced-choice,baseline,consistent 0.4792; invalid 0; cost $0.0039
+2026-10-27T23:14:57,google/gemma-3-12b-it,uzblimp_v1.1_pilot3,48,0.875,,,,,,api-forced-choice,baseline,consistent 0.7917; invalid 0; cost $0.0026
+2026-10-27T23:15:11,meta-llama/llama-3.3-70b-instruct,uzblimp_v1.1_pilot3,48,0.875,,,,,,api-forced-choice,baseline,consistent 0.7500; invalid 0; cost $0.0065
+2026-10-27T23:16:22,google/gemini-4-argon,uzblimp_v1.1_pilot3,48,1.0,,,,,,api-forced-choice,baseline,consistent 1.0000; invalid 0; cost $0.1053
+2026-10-27T23:16:49,openai/gpt-6.1-sol,uzblimp_v1.1_pilot3,48,1.0,,,,,,api-forced-choice,baseline,consistent 1.0000; invalid 0; cost $0.0836
+2026-10-27T23:17:15,anthropic/claude-sonnet-5.5,uzblimp_v1.1_pilot3,48,1.0,,,,,,api-forced-choice,baseline,consistent 1.0000; invalid 0; cost $0.2742
