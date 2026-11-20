@@ -4,7 +4,9 @@ For every model: (1) tokenizer statistics for each alphabet (share of sentences 
 tokens per sentence and per word), merged into results/tokenizer_stats.json; (2) scoring with
 score_pairs.py (minicons, float32, a start token for causal LMs, pseudo-log-likelihood for masked LMs)
 on current Latin and Cyrillic, and on reformed Latin only if the tokenizer produces no unknown token
-there (notes/decisions.md, decision 8).
+there (notes/decisions.md, decision 8) and the model was not trained on Cyrillic-script Uzbek only.
+Masked LMs are scored with the batched scorer of scripts/pll.py, which gives the same scores as
+minicons (python scripts/pll.py --selftest).
 
 Runs whose result file already holds every pair are skipped, so the script can be stopped and restarted.
 With --carry-from, pairs whose two sentences are unchanged since an earlier benchmark version keep their
@@ -82,7 +84,7 @@ def score(model, data_path, dataset, out_dir, batch_size):
            "--good-col", "grammatical", "--bad-col", "ungrammatical", "--model", model["hf"],
            "--group-col", "phenomenon", "--keep-cols", "id", "--dataset-name", dataset,
            "--batch-size", str(batch_size), "--device", "cpu", "--dtype", "float32", "--out-dir", str(out_dir)]
-    cmd += ["--mlm"] if model["method"] == "pll" else ["--bos"]
+    cmd += ["--mlm", "--fast-pll"] if model["method"] == "pll" else ["--bos"]
     res = subprocess.run(cmd, capture_output=True, text=True)
     if res.returncode != 0:
         print(f"FAILED {model['key']} ({dataset}), exit {res.returncode}\n{res.stderr[-3000:]}", flush=True)
@@ -169,6 +171,9 @@ def main():
         for alphabet in args.alphabets:
             if alphabet == "Reformed" and stats["Reformed"]["unk_sentences"] and not args.force_reformed:
                 print(f"  skip Reformed: {stats['Reformed']['unk_pct']}% of sentences contain an unknown token", flush=True)
+                continue
+            if alphabet == "Reformed" and model["trained"] == "cyrl" and not args.force_reformed:
+                print("  skip Reformed: the model was trained on Cyrillic-script Uzbek only", flush=True)
                 continue
             run(model, alphabet, args.version, args.carry_from, args.batch_size)
 

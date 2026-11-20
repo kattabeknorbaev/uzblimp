@@ -32,13 +32,13 @@ configs:
 
 # UzBLiMP
 
-**Status, v1.1:** 2,400 of 2,400 pairs across 16 phenomena, in three alphabets; 0 verified by linguists (every pair was reviewed by a native speaker and checked with three other native speakers; review by linguists is planned); evaluation harness included.
+**Status, v1.2:** 2,400 pairs across 16 phenomena, in three alphabets; every pair was reviewed by a native speaker and checked with three other native speakers; 0 verified by linguists and no independent human judgments yet (the materials for both are in [`human_study/`](human_study/README.md)); evaluation harness and paper draft ([`paper/uzblimp.pdf`](paper/uzblimp.pdf)) included. v1.2 corrects the Cyrillic spelling of Russian loanwords in 41 pairs; the Latin and reformed versions are the same as in v1.1.
 
 UzBLiMP is a benchmark of linguistic minimal pairs for Uzbek. Each pair is two sentences that differ in one word: one grammatical, one not. The grammatical sentence is a sentence found in a corpus; the ungrammatical one changes it with one controlled edit. A language model passes a pair if it gives the grammatical sentence the higher probability, or picks it when asked.
 
-**Research question:** does a model's knowledge of Uzbek grammar hold up across Uzbek's three alphabets: Cyrillic, current Latin, and the reformed Latin approved on 10 September 2026 (oʻ→ö, gʻ→ğ, sh→ş, ch→ç)?
+**Research question:** does a model's knowledge of Uzbek grammar hold up across Uzbek's three alphabets: Cyrillic, current Latin, and the reformed Latin of Law OʻRQ-1184 (approved by the Senate on 10 September 2026, signed on 21 October 2026, in force from 22 April 2027; oʻ→ö, gʻ→ğ, sh→ş, ch→ç)?
 
-Related work: TurBLiMP (Turkish, EMNLP 2025), TatBLiMP (Tatar, 2026), MultiBLiMP 1.0 (101 languages, agreement only, includes Uzbek).
+Related work: TurBLiMP (Turkish, EMNLP 2025), TatBLiMP (Tatar, arXiv 2026), MultiBLiMP 1.0 (101 languages, agreement only, includes Uzbek; TACL 2026).
 
 ## Phenomena
 
@@ -70,7 +70,7 @@ The field follows BLiMP where BLiMP has the same contrast (agreement and irregul
 | Config | Alphabet | How it was made |
 |---|---|---|
 | `latn` | current Latin | the reviewed pairs |
-| `cyrl` | Cyrillic | converted from `latn` with TurkicNLP's transliterator and fixes for errors found in it |
+| `cyrl` | Cyrillic | converted from `latn` with TurkicNLP's transliterator, fixes for errors found in it, and a table of the Russian loanwords in the benchmark (функция, концерт, пальто …) |
 | `latn_reformed` | reformed Latin (2026) | converted from `latn` with the four main rules of the reform; `reform_category` says whether the edited word itself changed |
 
 The same `pair_id` names the same pair in all three.
@@ -109,19 +109,22 @@ The TSVs in `data/benchmark/` are the source: `python scripts/export_jsonl.py` r
 pip install -r requirements.txt
 python scripts/validate.py
 python scripts/eval.py --model goldfish-models/uzn_latn_100mb --script latn
+python scripts/run_models.py --only "GF-L 100MB"          # the paper's scorer, for a model listed in scripts/models.py
 python scripts/eval.py --method forced-choice --model google/gemma-3-12b-it --script cyrl --per-phenomenon 3
 python scripts/make_table.py
 ```
 
 - **logprob** (Hugging Face causal LMs): each sentence's total log-probability, summed over its tokens, scored the same way as `scripts/score_pairs.py`. Weights load in float32 by default; `--dtype auto` (bfloat16 or float16 on a GPU) is faster but too coarse for close pairs.
 - **forced-choice** (chat models without log-probabilities, through OpenRouter): each pair is shown in both orders and the model answers 1 or 2. Accuracy counts both orders, so always answering "1" scores 50%. The API key is read from `OPENROUTER_API_KEY` or `.env`, and requests ask for providers that don't collect data.
-- Masked LMs such as tahrirchi-bert are scored by pseudo-log-likelihood with `scripts/score_pairs.py --mlm`.
+- Masked LMs such as tahrirchi-bert are scored by pseudo-log-likelihood with `scripts/score_pairs.py --mlm`. With `--fast-pll` the same quantity is computed by the batched scorer in `scripts/pll.py` (equal to minicons' scores to within about 3e-4 nats, `python scripts/pll.py --selftest`); `run_models.py` uses it.
 
 `eval.py` writes `results/json/<model>__<config>__<method>.json` and the per-pair scores to `results/pairs/`; `make_table.py` rebuilds the table below and `results/per_phenomenon.md`. Models to run go in `eval_models.txt` (`--models-file eval_models.txt`).
 
-## Results (v1.1)
+## Results (v1.2)
 
-Accuracy (%) on all 2,400 pairs. **logprob**: causal LM log-probability; **pll**: masked-LM pseudo-log-likelihood; **forced-choice**: chat model picks the sentence. Only models with no unknown tokens on the new letters are run on reformed Latin (`notes/decisions.md`, decision 8). Per phenomenon: [`results/per_phenomenon.md`](results/per_phenomenon.md).
+Accuracy (%) on all 2,400 pairs. **logprob**: causal LM log-probability; **pll**: masked-LM pseudo-log-likelihood; **forced-choice**: chat model picks the sentence. GF-L / GF-C are the Goldfish models trained on Latin-script / Cyrillic-script Uzbek. Only models with no unknown tokens on the new letters are run on reformed Latin (`notes/decisions.md`, decision 8), and not models trained on Cyrillic only. Per phenomenon: [`results/per_phenomenon.md`](results/per_phenomenon.md); what changed since v1.1: [`results/eval_v1.2.md`](results/eval_v1.2.md).
+
+In short: models trained on about 100 MB or more of Uzbek text score 95–99% in the script they were trained on, Latin or Cyrillic alike, and lose 5 to 48 points when the same sentences are written in the other script; there, and on the reformed spelling, their choices follow token counts and familiar spellings instead of grammar.
 
 <!-- results:start -->
 | Model | Method | Current Latin | Cyrillic | Reformed Latin |
@@ -142,7 +145,8 @@ Accuracy (%) on all 2,400 pairs. **logprob**: causal LM log-probability; **pll**
 
 - **Sources.** 962 pairs come from Javohir Matniyozov's rule-based pairs over `tahrirchi/uz-books-v2` (`data/external/`, generator in `scripts/jm_generator/`) and 1,438 from Kattabek Norbaev's generator (`scripts/make_pairs.py`) over books (923), Uzbek Wikipedia (506) and legal codes (9).
 - **Review.** Of 3,800 candidate pairs, 3,729 were reviewed and 3,267 (87.6%) accepted. Every pair was judged first by Kattabek Norbaev, a native speaker, and then checked with three other native speakers; for some phenomena an AI assistant was used as a consistency check. Rejected pairs keep their reason in `data/pairs_v*.tsv`.
-- **Not done yet.** No linguist has verified the pairs (`verified` is false everywhere), and no inter-annotator agreement is reported: the comparison in `results/agreement_KN_JM.md` doesn't count as one, because the two sets of judgments weren't made independently (`notes/decisions.md`, decision 20).
+- **Cyrillic audit (v1.2).** All 10,021 word forms of the Cyrillic version were checked for Russian loanwords that Latin spells differently; 44 forms in 41 pairs were corrected (`scripts/alphabets.py`).
+- **Not done yet.** No linguist has verified the pairs (`verified` is false everywhere), and no inter-annotator agreement is reported: the comparison in `results/agreement_KN_JM.md` doesn't count as one, because the two sets of judgments weren't made independently (`notes/decisions.md`, decision 20). [`human_study/`](human_study/README.md) holds ready-to-send sheets for a blind forced-choice check (320 pairs) and for acceptability ratings (2 × 96 sentences), with instructions in Uzbek and a scoring script.
 - **Selection.** 150 accepted pairs per phenomenon, chosen at random with a fixed seed; 867 further accepted pairs (`data/benchmark/reserve.tsv`) can replace pairs that fail a later check.
 
 ## Repository layout
@@ -155,16 +159,18 @@ Accuracy (%) on all 2,400 pairs. **logprob**: causal LM log-probability; **pll**
 | `data/external/` | Javohir Matniyozov's generated pairs (v11, v12) |
 | `data/multiblimp_uzb.tsv` | MultiBLiMP 1.0, Uzbek split (50 pairs), for comparison |
 | `handcheck/` | review sheets |
-| `scripts/` | generators, validators, scoring and tables (`score_pairs.py` and `eval_report.py` produced the paper's runs) |
+| `human_study/` | sheets, instructions and keys for the human validation study (not yet run) |
+| `scripts/` | generators, validators, scoring and tables: `models.py` lists the evaluated models, `run_models.py` scores them, `paper_tables.py` and `paper_figures.py` build every table, number and figure of the paper |
 | `results/` | per-pair scores, `results/json/` summaries, `per_phenomenon.md` |
 | `notes/` | design decisions, phenomena table, reading notes |
-| `paper/` | paper draft (ACL format) |
+| `paper/` | paper (ACL format): `main.tex`, generated `tables/` and `figures/`, compiled `uzblimp.pdf` |
 | `log.md` | research log: date – task – result – next step |
 
 ## Limitations
 
-- **Converted alphabets.** The Cyrillic and reformed versions are converted from Latin, not written natively. Russian loanwords can't all be recovered by rule, and only the four main rules of the 2026 reform are applied.
-- **Review.** Judgments come from one native speaker, checked with three others; there is no linguist verification or independent agreement figure yet.
+- **Converted alphabets.** The Cyrillic and reformed versions are converted from Latin, not written natively. Russian loanwords can't all be recovered by rule: those found in the benchmark are corrected from a table, and suffixed forms of loans ending in ь (медални, моделлари) are left as converted. The 2026 law gives an alphabet and no spelling rules, so only its four letter replacements are applied.
+- **Review.** Judgments come from one native speaker, checked with three others; there is no linguist verification, independent agreement figure or human baseline yet.
+- **Models.** All evaluated models have at most 1.5 billion parameters (scored by likelihood on a CPU); larger open models and chat models are covered only by a 48-pair pilot.
 - **Size.** 150 pairs per phenomenon gives about ±6 points of precision per phenomenon.
 
 ## License
@@ -177,10 +183,10 @@ A paper is in preparation (`paper/`). Until then:
 
 ```bibtex
 @misc{uzblimp2026,
-  title  = {{UzBLiMP}: A Benchmark of Linguistic Minimal Pairs for {U}zbek},
+  title  = {{UzBLiMP}: A Benchmark of Linguistic Minimal Pairs for {U}zbek in Three Alphabets},
   author = {Norbaev, Kattabek and Matniyozov, Javohir},
   year   = {2026},
-  note   = {Version 1.1},
+  note   = {Version 1.2},
   url    = {https://github.com/kattabeknorbaev/uzblimp}
 }
 ```
@@ -193,4 +199,4 @@ A paper is in preparation (`paper/`). Until then:
 | Javohir Matniyozov | Rule-based pair generator and its 4,500 pairs (962 in the benchmark), second annotator sheet |
 | Three native speakers | Checked the reviewed pairs (not named) |
 
-AI assistants (Claude) helped write code, import review decisions and draft the grammar explanations used in one experiment; the authors checked the results. The paper's AI-assistance statement gives the details.
+AI assistants (Claude) helped write code, import review decisions, run the model evaluation, audit the Cyrillic conversion and draft the paper, its glosses and the grammar explanations prepared for a later experiment; the authors check the results. The paper's AI-assistance statement gives the details.

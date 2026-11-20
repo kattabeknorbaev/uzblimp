@@ -58,6 +58,12 @@ def parse_args():
         help="masked LM (e.g. tahrirchi/tahrirchi-bert-base): pseudo-log-likelihood with "
         "PLL_metric='within_word_l2r', as TurBLiMP scored BERTurk",
     )
+    p.add_argument(
+        "--fast-pll",
+        action="store_true",
+        help="with --mlm: compute the same pseudo-log-likelihood with the batched scorer in scripts/pll.py "
+        "(scores equal minicons' to within about 3e-4 nats; several times faster on a CPU)",
+    )
     p.add_argument("--explanations", help="TSV with phenomenon, control_phenomenon and explanation "
                    "columns (data/explanations.tsv); scores each sentence after the explanation")
     p.add_argument("--condition", choices=["explanation", "control"], default="explanation",
@@ -129,6 +135,16 @@ def main():
         for i in tqdm(range(0, len(raw), args.batch_size), desc=f"scoring ({args.condition})"):
             scores += lm.conditional_score(ctx[i : i + args.batch_size], raw[i : i + args.batch_size],
                                            separator=args.separator, reduction=lambda x: x.sum(0).item())
+    elif args.mlm and args.fast_pll:
+        sys.path.insert(0, str(Path(__file__).parent))
+        from pll import PLLScorer
+
+        fast = PLLScorer.__new__(PLLScorer)  # reuse the model and tokenizer that minicons loaded
+        fast.tok, fast.model, fast.device = tok, lm.model, device
+        fast.head = next((getattr(lm.model, n) for n in ("cls", "lm_head") if hasattr(lm.model, n)), None)
+        fast.encoder = lm.model.base_model if fast.head is not None else None
+        fast.special = {tok.pad_token_id, tok.cls_token_id, tok.sep_token_id}
+        scores = fast.score(sentences)
     else:
         for i in tqdm(range(0, len(sentences), args.batch_size), desc="scoring"):
             batch = sentences[i : i + args.batch_size]
