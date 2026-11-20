@@ -8,7 +8,8 @@
   capitalised digraphs in names, loanwords) are not verified.
 
 Latin → Cyrillic is not fully rule-based (Russian loans such as sentabr →
-сентябрь, sirk → цирк), so every converted sentence needs a human check.
+сентябрь, sirk → цирк), so every converted sentence needs a human check. The loan
+tables below cover the loans found in the benchmark, not Uzbek vocabulary in general.
 """
 import re
 
@@ -51,6 +52,24 @@ _MONTH_RE = re.compile(r"\b(" + "|".join(_MONTHS) + r")\b", re.I)
 #    Loan stems with ь, any suffix after them (KN 2026-10-19: filmlarda → фильмларда).
 _LOAN_STEMS = {"филм": "фильм", "компютер": "компьютер"}
 _LOAN_RE = re.compile(r"\b(" + "|".join(_LOAN_STEMS) + r")", re.I)
+#    Loans that Latin spells with s, ts or a plain consonant where Cyrillic keeps the Russian ц, ь
+#    (audit of all 10,021 word types of benchmark v1.1, 2026-11-20: функсия → функция, консерт → концерт,
+#    палто → пальто ...). Keys are the transliterator's output; they match at the start of a word, with
+#    any suffix after them.
+_LOAN_PREFIXES = {
+    "аксия": "акция", "функси": "функци", "инфекси": "инфекци", "консепси": "концепци",
+    "конструкси": "конструкци", "лексия": "лекция", "проекси": "проекци", "реакси": "реакци",
+    "санкси": "санкци", "консерт": "концерт", "принсип": "принцип", "сирконий": "цирконий",
+    "инсектитсид": "инсектицид", "ретсипиент": "реципиент", "нитсше": "ницше", "монатсит": "монацит",
+    "асбосемент": "асбоцемент", "асфалт": "асфальт", "гелминт": "гельминт", "палто": "пальто",
+    "релс": "рельс", "баталон": "батальон", "судя": "судья", "фючерс": "фьючерс",
+}
+_LOAN_PREFIX_RE = re.compile(r"\b(" + "|".join(sorted(_LOAN_PREFIXES, key=len, reverse=True)) + r")", re.I)
+#    Loans ending in ь: only the bare word is respelled. With a suffix, usage varies (медални, моделлари),
+#    so suffixed forms are left as converted.
+_LOAN_WORDS = {"спектакл": "спектакль", "медал": "медаль", "детал": "деталь", "модел": "модель", "рол": "роль",
+               "княз": "князь", "алфа": "альфа", "сех": "цех", "сехлар": "цехлар"}
+_LOAN_WORD_RE = re.compile(r"\b(" + "|".join(sorted(_LOAN_WORDS, key=len, reverse=True)) + r")\b", re.I)
 # 5. n + gʻ is н + ғ (qoʻngʻiroq → қўнғироқ); TurkicNLP reads "ng" as нг and ʻ as ъ.
 _N_GH = re.compile(f"([nN])(?=[gG][{_APOS}])")
 # 6. Roman numerals stay Latin (XV asr → XV аср, not ХВ). Two letters or more, or one
@@ -79,7 +98,8 @@ def to_cyrillic(latin: str) -> str:
             w = table[m.group(1).lower()]
             return w[0].upper() + w[1:] if m.group(1)[0].isupper() else w
         return sub
-    return _LOAN_RE.sub(fixed(_LOAN_STEMS), _MONTH_RE.sub(fixed(_MONTHS), out))
+    out = _LOAN_RE.sub(fixed(_LOAN_STEMS), _MONTH_RE.sub(fixed(_MONTHS), out))
+    return _LOAN_WORD_RE.sub(fixed(_LOAN_WORDS), _LOAN_PREFIX_RE.sub(fixed(_LOAN_PREFIXES), out))
 
 
 def to_latin(cyrillic: str) -> str:

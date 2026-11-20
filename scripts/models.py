@@ -6,13 +6,16 @@ suffix names the alphabet ("" current Latin, "_cyrl" Cyrillic, "_reformed" refor
 models scored before this registry existed keep their file names (see LEGACY_STEMS).
 
     from models import MODELS, load_runs
-    runs = load_runs("v1.1")        # {(key, alphabet): DataFrame indexed by pair id}
+    runs = load_runs()              # {(key, alphabet): DataFrame indexed by pair id}
 """
 from pathlib import Path
 
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
+# Benchmark version the result files refer to. v1.2 = v1.1 with corrected Cyrillic spelling of Russian
+# loanwords in 41 pairs; current Latin and reformed Latin are unchanged.
+VERSION = "v1.2"
 ALPHABETS = {"Latin": "", "Cyrillic": "_cyrl", "Reformed": "_reformed"}
 DATA = {"Latin": "uzblimp.tsv", "Cyrillic": "uzblimp_cyrl.tsv", "Reformed": "uzblimp_reformed.tsv"}
 RELEASE_SCRIPT = {"Latin": "latn", "Cyrillic": "cyrl", "Reformed": "latn_reformed"}
@@ -35,6 +38,22 @@ MODELS = [
     dict(key="GF-C 10MB", hf="goldfish-models/uzn_cyrl_10mb", method="logprob", group="Goldfish (Cyrillic)", trained="cyrl", size="10MB"),
     dict(key="GF-C 100MB", hf="goldfish-models/uzn_cyrl_100mb", method="logprob", group="Goldfish (Cyrillic)", trained="cyrl", size="100MB"),
     dict(key="GF-C full", hf="goldfish-models/uzn_cyrl_full", method="logprob", group="Goldfish (Cyrillic)", trained="cyrl", size="full"),
+    # Uzbek masked LMs
+    dict(key="tahrirchi-bert", hf="tahrirchi/tahrirchi-bert-base", method="pll", group="Uzbek encoders", trained="latn"),
+    dict(key="tahrirchi-bert-small", hf="tahrirchi/tahrirchi-bert-small", method="pll", group="Uzbek encoders", trained="latn"),
+    dict(key="BERTbek", hf="elmurod1202/bertbek-news-big-cased", method="pll", group="Uzbek encoders", trained="latn"),
+    dict(key="UzBERT", hf="coppercitylabs/uzbert-base-uncased", method="pll", group="Uzbek encoders", trained="cyrl"),
+    dict(key="UzRoBERTa", hf="rifkat/uztext-3Gb-BPE-Roberta", method="pll", group="Uzbek encoders", trained="both"),
+    # Multilingual masked LMs
+    dict(key="mBERT", hf="google-bert/bert-base-multilingual-cased", method="pll", group="Multilingual encoders", trained="multi"),
+    dict(key="XLM-R base", hf="FacebookAI/xlm-roberta-base", method="pll", group="Multilingual encoders", trained="multi"),
+    dict(key="Glot500", hf="cis-lmu/glot500-base", method="pll", group="Multilingual encoders", trained="multi"),
+    dict(key="XLM-R large", hf="FacebookAI/xlm-roberta-large", method="pll", group="Multilingual encoders", trained="multi"),
+    # Multilingual causal LMs
+    dict(key="Qwen2.5-0.5B", hf="Qwen/Qwen2.5-0.5B", method="logprob", group="Multilingual LMs", trained="multi"),
+    dict(key="Qwen2.5-1.5B", hf="Qwen/Qwen2.5-1.5B", method="logprob", group="Multilingual LMs", trained="multi"),
+    dict(key="mGPT", hf="ai-forever/mGPT", method="logprob", group="Multilingual LMs", trained="multi"),
+    dict(key="mGPT-Uzbek", hf="ai-forever/mGPT-1.3B-uzbek", method="logprob", group="Multilingual LMs", trained="multi"),
 ]
 
 # File stems of the four runs made with score_pairs.py before the registry ({v} = version).
@@ -61,7 +80,7 @@ def csv_path(model, alphabet, version):
     return ROOT / "results" / f"{stem(model, alphabet, version)}.csv"
 
 
-def load_runs(version="v1.1", keys=None):
+def load_runs(version=VERSION, keys=None):
     """{(key, alphabet): per-pair DataFrame indexed by pair id} for every run that has been scored."""
     runs = {}
     for m in MODELS:
