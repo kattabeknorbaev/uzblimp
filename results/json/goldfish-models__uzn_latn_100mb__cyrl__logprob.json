@@ -6,8 +6,8 @@
   "script": "cyrl",
   "method": "logprob",
   "n_pairs": 2400,
-  "accuracy": 88.5,
-  "accuracy_norm": 85.6,
+  "accuracy": 88.3,
+  "accuracy_norm": 85.3,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
@@ -21,8 +21,8 @@
     },
     "dative_allomorphy": {
       "n": 150,
-      "correct": 106,
-      "accuracy": 70.7
+      "correct": 105,
+      "accuracy": 70.0
     },
     "ditransitive_dative": {
       "n": 150,
@@ -41,13 +41,13 @@
     },
     "npi_hech": {
       "n": 150,
-      "correct": 119,
-      "accuracy": 79.3
+      "correct": 118,
+      "accuracy": 78.7
     },
     "numeral_no_plural": {
       "n": 150,
-      "correct": 121,
-      "accuracy": 80.7
+      "correct": 118,
+      "accuracy": 78.7
     },
     "passives": {
       "n": 150,
@@ -66,8 +66,8 @@
     },
     "postposition_case": {
       "n": 150,
-      "correct": 149,
-      "accuracy": 99.3
+      "correct": 150,
+      "accuracy": 100.0
     },
     "quantifiers": {
       "n": 150,

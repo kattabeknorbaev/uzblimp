@@ -6,7 +6,7 @@
   "script": "cyrl",
   "method": "logprob",
   "n_pairs": 2400,
-  "accuracy": 94.6,
+  "accuracy": 94.7,
   "accuracy_norm": 93.5,
   "per_phenomenon": {
     "anaphor_agreement": {
@@ -41,8 +41,8 @@
     },
     "npi_hech": {
       "n": 150,
-      "correct": 129,
-      "accuracy": 86.0
+      "correct": 128,
+      "accuracy": 85.3
     },
     "numeral_no_plural": {
       "n": 150,
@@ -76,8 +76,8 @@
     },
     "relative_clauses": {
       "n": 150,
-      "correct": 148,
-      "accuracy": 98.7
+      "correct": 150,
+      "accuracy": 100.0
     },
     "stem_alternation": {
       "n": 150,

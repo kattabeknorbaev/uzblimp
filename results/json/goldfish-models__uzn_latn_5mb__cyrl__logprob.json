@@ -6,7 +6,7 @@
   "script": "cyrl",
   "method": "logprob",
   "n_pairs": 2400,
-  "accuracy": 53.6,
+  "accuracy": 53.5,
   "accuracy_norm": 56.1,
   "per_phenomenon": {
     "anaphor_agreement": {
@@ -31,8 +31,8 @@
     },
     "lexical_case": {
       "n": 150,
-      "correct": 80,
-      "accuracy": 53.3
+      "correct": 79,
+      "accuracy": 52.7
     },
     "nominalization": {
       "n": 150,
@@ -41,13 +41,13 @@
     },
     "npi_hech": {
       "n": 150,
-      "correct": 20,
-      "accuracy": 13.3
+      "correct": 18,
+      "accuracy": 12.0
     },
     "numeral_no_plural": {
       "n": 150,
-      "correct": 136,
-      "accuracy": 90.7
+      "correct": 133,
+      "accuracy": 88.7
     },
     "passives": {
       "n": 150,
@@ -81,13 +81,13 @@
     },
     "stem_alternation": {
       "n": 150,
-      "correct": 91,
-      "accuracy": 60.7
+      "correct": 94,
+      "accuracy": 62.7
     },
     "suspended_affixation": {
       "n": 150,
-      "correct": 14,
-      "accuracy": 9.3
+      "correct": 13,
+      "accuracy": 8.7
     }
   },
   "settings": {

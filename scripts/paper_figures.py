@@ -17,6 +17,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 sys.path.insert(0, str(Path(__file__).parent))
 from analysis import benchmark  # noqa: E402
 from models import ALPHABETS, MODELS, VERSION, load_runs  # noqa: E402
+from models import label as model_label  # noqa: E402
 from paper_tables import REFORM_GROUPS, SIZES, acc, ok, own  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -42,7 +43,7 @@ def ladder(runs):
               ("GF-C", "Cyrillic", ORANGE, "-", "s", True, "Cyrillic model, Cyrillic text"),
               ("GF-L", "Cyrillic", BLUE, "--", "o", False, "Latin model, Cyrillic text"),
               ("GF-C", "Latin", ORANGE, "--", "s", False, "Cyrillic model, Latin text")]
-    fig, ax = plt.subplots(figsize=(COLUMN, 2.35))
+    fig, ax = plt.subplots(figsize=(COLUMN, 2.6))
     ax.axhline(50, color=AXIS, linewidth=0.6)
     ax.text(len(SIZES) - 0.55, 50.8, "chance", color=MUTED, fontsize=7, ha="right", va="bottom")
     for family, alphabet, color, style, marker, filled, label in series:
@@ -58,8 +59,10 @@ def ladder(runs):
     ax.set_xlabel("Training data of the Goldfish model")
     ax.set_ylabel("Accuracy (%)")
     ax.xaxis.grid(False)
-    ax.legend(loc="lower right", bbox_to_anchor=(1.0, 0.26), handlelength=2.6, labelspacing=0.25, borderaxespad=0.0)
-    fig.tight_layout(pad=0.3)
+    handles, labels = ax.get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", ncol=2, handlelength=2.6, columnspacing=1.2, labelspacing=0.3,
+               borderaxespad=0.0)
+    fig.tight_layout(pad=0.3, rect=(0, 0.14, 1, 1))
     fig.savefig(OUT / "ladder.pdf")
     plt.close(fig)
 
@@ -83,7 +86,7 @@ def length(runs):
             ys = [acc(df[mask]) for mask in (dtok < 0, dtok == 0, dtok > 0)]
             ax.plot(range(3), ys, style, color=color, linewidth=1.6, marker=marker, markersize=4.5,
                     markerfacecolor=color if filled else "white", markeredgecolor=color, markeredgewidth=1.1, label=label)
-        ax.set_title(m["key"], fontsize=7.5, color=INK, pad=2)
+        ax.set_title(model_label(m), fontsize=7.5, color=INK, pad=2)
         ax.set_xticks(range(3), ["fewer", "same", "more"])
         ax.set_xlim(-0.3, 2.3)
         ax.set_ylim(0, 104)
@@ -123,7 +126,7 @@ def reform(runs, bench):
         ax.set_xticks([0, 50, 100])
         ax.yaxis.grid(False)
         ax.set_ylim(-0.6, len(models) - 0.4)
-    axes[0].set_yticks(range(len(models)), [m["key"] for m in reversed(models)])
+    axes[0].set_yticks(range(len(models)), [model_label(m) for m in reversed(models)])
     axes[0].tick_params(axis="y", labelcolor=INK)
     handles, labels = axes[0].get_legend_handles_labels()
     fig.legend(handles, labels, loc="lower right", ncol=2, handletextpad=0.1, columnspacing=1.2, borderaxespad=0.1)

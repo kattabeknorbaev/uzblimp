@@ -13,8 +13,8 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
-# Benchmark version the result files refer to. v1.2 = v1.1 with corrected Cyrillic spelling of Russian
-# loanwords in 41 pairs; current Latin and reformed Latin are unchanged.
+# Benchmark version the result files refer to. v1.2 = v1.1 with the Cyrillic spelling of Russian loanwords
+# corrected and with 44 pairs replaced from the reserve after an audit (data/benchmark/excluded.tsv).
 VERSION = "v1.2"
 ALPHABETS = {"Latin": "", "Cyrillic": "_cyrl", "Reformed": "_reformed"}
 DATA = {"Latin": "uzblimp.tsv", "Cyrillic": "uzblimp_cyrl.tsv", "Reformed": "uzblimp_reformed.tsv"}
@@ -26,6 +26,7 @@ RELEASE_SCRIPT = {"Latin": "latn", "Cyrillic": "cyrl", "Reformed": "latn_reforme
 # group      table section
 # trained    script of the Uzbek text the model was trained on: latn, cyrl, both (multilingual models: what
 #            their Uzbek data is believed to contain), or none
+# name       name printed in the paper where it differs from the key
 # params     number of parameters, as given by the model's authors or card
 # size       Goldfish only: training-data size label
 MODELS = [
@@ -39,8 +40,8 @@ MODELS = [
     dict(key="GF-C 100MB", hf="goldfish-models/uzn_cyrl_100mb", params="125M", method="logprob", group="Goldfish (Cyrillic)", trained="cyrl", size="100MB"),
     dict(key="GF-C full", hf="goldfish-models/uzn_cyrl_full", params="125M", method="logprob", group="Goldfish (Cyrillic)", trained="cyrl", size="full"),
     # Uzbek masked LMs
-    dict(key="tahrirchi-bert", hf="tahrirchi/tahrirchi-bert-base", params="110M", method="pll", group="Uzbek encoders", trained="latn"),
-    dict(key="tahrirchi-bert-small", hf="tahrirchi/tahrirchi-bert-small", params="67M", method="pll", group="Uzbek encoders", trained="latn"),
+    dict(key="tahrirchi-bert", name="TahrirchiBERT", hf="tahrirchi/tahrirchi-bert-base", params="110M", method="pll", group="Uzbek encoders", trained="latn"),
+    dict(key="tahrirchi-bert-small", name="TahrirchiBERT-small", hf="tahrirchi/tahrirchi-bert-small", params="67M", method="pll", group="Uzbek encoders", trained="latn"),
     dict(key="BERTbek", hf="elmurod1202/bertbek-news-big-cased", params="110M", method="pll", group="Uzbek encoders", trained="latn"),
     dict(key="UzBERT", hf="coppercitylabs/uzbert-base-uncased", params="110M", method="pll", group="Uzbek encoders", trained="cyrl"),
     dict(key="UzRoBERTa", hf="rifkat/uztext-3Gb-BPE-Roberta", params="84M", method="pll", group="Uzbek encoders", trained="both"),
@@ -68,6 +69,12 @@ def by_key(key):
     return next(m for m in MODELS if m["key"] == key)
 
 
+def label(model):
+    """Name of a model (registry entry or key) as printed in the paper."""
+    model = by_key(model) if isinstance(model, str) else model
+    return model.get("name", model["key"])
+
+
 def stem(model, alphabet, version):
     """File stem (no folder, no .csv) of a run's per-pair results."""
     legacy = LEGACY_STEMS.get((model["hf"], alphabet))
@@ -80,14 +87,22 @@ def csv_path(model, alphabet, version):
     return ROOT / "results" / f"{stem(model, alphabet, version)}.csv"
 
 
-def load_runs(version=VERSION, keys=None):
-    """{(key, alphabet): per-pair DataFrame indexed by pair id} for every run that has been scored."""
+def load_runs(version=VERSION, keys=None, verbose=False):
+    """{(key, alphabet): per-pair DataFrame indexed by pair id} for every run that is complete: its result
+    file must hold exactly the pairs of the current benchmark (partial and outdated files are left out)."""
+    with open(ROOT / "data" / "benchmark" / DATA["Latin"], encoding="utf-8") as f:
+        ids = {line.split("\t", 1)[0] for line in f.read().splitlines()[1:]}
     runs = {}
     for m in MODELS:
         if keys and m["key"] not in keys:
             continue
         for alphabet in ALPHABETS:
             f = csv_path(m, alphabet, version)
-            if f.exists():
-                runs[(m["key"], alphabet)] = pd.read_csv(f).set_index("id")
+            if not f.exists():
+                continue
+            df = pd.read_csv(f).set_index("id")
+            if set(df.index) == ids:
+                runs[(m["key"], alphabet)] = df
+            elif verbose:
+                print(f"not complete, left out: {f.name} ({len(set(df.index) & ids)}/{len(ids)} pairs)")
     return runs

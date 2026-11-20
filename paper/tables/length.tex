@@ -3,17 +3,18 @@
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{@{}llrrrr@{}}
 \toprule
- & & \multicolumn{3}{c}{Ungrammatical member has} & \\
-\cmidrule(lr){3-5}
 Model & Text & fewer & same & more & $\Delta$ \\
 \midrule
-GF-L full & Latin & 89.4 & 97.5 & 98.0 & +8.6 \\
-GF-L full & Cyrillic & 78.8 & 92.3 & 95.2 & +16.4 \\
-GF-C full & Cyrillic & 90.2 & 97.5 & 99.1 & +8.9 \\
-GF-C full & Latin & 13.1 & 57.5 & 85.5 & +72.4 \\
-tahrirchi-bert & Latin & 99.1 & 98.5 & 98.4 & -0.7 \\
-tahrirchi-bert & Cyrillic & 50.2 & 83.2 & 89.4 & +39.2 \\
-tahrirchi-bert & Reformed & 58.8 & 93.3 & 95.9 & +37.0 \\
+GF-L full & Latin & 89.4 & 97.6 & 97.9 & +8.5 \\
+GF-L full & Cyrillic & 78.8 & 92.5 & 95.4 & +16.6 \\
+GF-C full & Cyrillic & 90.3 & 97.4 & 98.9 & +8.6 \\
+GF-C full & Latin & 13.2 & 57.3 & 85.0 & +71.8 \\
+TahrirchiBERT & Latin & 99.1 & 98.5 & 98.8 & $-$0.3 \\
+TahrirchiBERT & Cyrillic & 50.2 & 83.7 & 88.8 & +38.6 \\
+TahrirchiBERT & Reformed & 59.0 & 93.4 & 95.8 & +36.8 \\
+UzBERT & Cyrillic & 34.3 & 92.6 & 90.3 & +56.0 \\
+Qwen2.5-0.5B & Latin & 30.8 & 51.8 & 73.7 & +42.9 \\
+Qwen2.5-0.5B & Cyrillic & 17.0 & 50.0 & 92.5 & +75.5 \\
 \bottomrule
 \end{tabular}
 \caption{Accuracy (\%) by whether the ungrammatical member has fewer, the same number of, or more tokens than the grammatical one under the model's own tokenizer. $\Delta$: accuracy on pairs with more tokens minus accuracy on pairs with fewer; 0 means no length effect.}

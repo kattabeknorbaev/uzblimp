@@ -6,8 +6,8 @@
   "script": "cyrl",
   "method": "logprob",
   "n_pairs": 2400,
-  "accuracy": 97.4,
-  "accuracy_norm": 95.8,
+  "accuracy": 97.3,
+  "accuracy_norm": 95.6,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
@@ -46,8 +46,8 @@
     },
     "numeral_no_plural": {
       "n": 150,
-      "correct": 148,
-      "accuracy": 98.7
+      "correct": 147,
+      "accuracy": 98.0
     },
     "passives": {
       "n": 150,
@@ -86,8 +86,8 @@
     },
     "suspended_affixation": {
       "n": 150,
-      "correct": 146,
-      "accuracy": 97.3
+      "correct": 145,
+      "accuracy": 96.7
     }
   },
   "settings": {

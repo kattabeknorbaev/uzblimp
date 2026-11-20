@@ -19,12 +19,13 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).parent))
 from analysis import PHENOMENA, SLUGS, benchmark, changed_words, holm, paired, read_tsv, wilson  # noqa: E402
-from models import ALPHABETS, MODELS, VERSION, load_runs  # noqa: E402
+from models import ALPHABETS, MODELS, VERSION, label, load_runs  # noqa: E402
 from schema import n_words  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "paper" / "tables"
 NAME = {p[0]: p[1] for p in PHENOMENA}
+NARROW = {k: v.split(" (")[0] for k, v in NAME.items()}  # without the parenthesis, for one-column tables
 SHORT = {p[0]: p[2] for p in PHENOMENA}
 LAYER = {p[0]: p[3] for p in PHENOMENA}
 SIZES = ["5MB", "10MB", "100MB", "full"]
@@ -36,8 +37,18 @@ NUM = {}
 
 
 def num(key, value, digits=1):
-    """Register a number for the text; whole numbers get a thousands separator."""
-    NUM[key] = value if isinstance(value, str) else f"{value:,.0f}" if digits == 0 else f"{value:.{digits}f}"
+    """Register a number for the text; whole numbers get a thousands separator, negative ones a real minus sign."""
+    if not isinstance(value, str):
+        value = f"{value:,.0f}" if digits == 0 else f"{value:.{digits}f}"
+        if value.startswith("-"):
+            value = value[1:] if float(value.replace(",", "")) == 0 else "$-$" + value[1:]
+    NUM[key] = value
+
+
+def sg(value, digits=1):
+    """A number with its sign for a table cell: +1.2, a real minus sign for negative values, plain 0.0."""
+    text = f"{value:+.{digits}f}"
+    return text[1:] if float(text) == 0 else text.replace("-", "$-$")
 
 
 def pval(p):
@@ -107,7 +118,7 @@ def pair_cell(good_sentence, bad_sentence, wrap=lambda s: s):
 
 
 def phenomena_table(bench, ex):
-    lines = [r"\begin{table*}[t]", r"\centering\small", r"\begin{tabular}{@{}lp{7.7cm}p{5.5cm}@{}}", r"\toprule",
+    lines = [r"\begin{table*}[t]", r"\centering\small", r"\begin{tabular}{@{}lp{7.2cm}p{5.1cm}@{}}", r"\toprule",
              r"Phenomenon & Minimal pair & Translation of the grammatical sentence \\"]
     for layer, title in (("TurBLiMP", "Categories shared with TurBLiMP"), ("added", "Outside the TurBLiMP inventory")):
         lines += [r"\midrule", rf"\multicolumn{{3}}{{@{{}}l}}{{\textit{{{title}}}}} \\"]
@@ -142,7 +153,7 @@ def glosses(ex):
 def alphabets_table(ex):
     files = {a: {r["id"]: r for r in read_tsv(ROOT / "data/benchmark" / f)} for a, f in
              (("Latin", "uzblimp.tsv"), ("Cyrillic", "uzblimp_cyrl.tsv"), ("Reformed", "uzblimp_reformed.tsv"))}
-    lines = [r"\begin{table*}[t]", r"\centering\small", r"\begin{tabular}{@{}p{5.1cm}p{5.4cm}p{5.1cm}@{}}", r"\toprule",
+    lines = [r"\begin{table*}[t]", r"\centering\small", r"\begin{tabular}{@{}p{4.95cm}p{5.2cm}p{4.95cm}@{}}", r"\toprule",
              r"Current Latin & Cyrillic & Reformed Latin (2026) \\", r"\midrule"]
     for e in ex:
         cells = []
@@ -174,8 +185,8 @@ def review_counts():
 
 
 def stats_table(bench, reviewed, accepted):
-    lines = [r"\begin{table}[t]", r"\centering\small", r"\setlength{\tabcolsep}{3.5pt}", r"\begin{tabular}{@{}lrrrrrr@{}}", r"\toprule",
-             r"Phenomenon & Corp. & Books & Words & Forms & $\Delta$B & Acc. \\", r"\midrule"]
+    lines = [r"\begin{table}[t]", r"\centering\small", r"\setlength{\tabcolsep}{3.6pt}", r"\begin{tabular}{@{}lrrrrr@{}}", r"\toprule",
+             r"Phenomenon & Books & Words & Forms & $\Delta$B & Acc. \\", r"\midrule"]
     for ph in SLUGS:
         d = bench[bench.phenomenon == ph]
         forms = {w.lower().strip(".,!?") for g, u in zip(d.grammatical, d.ungrammatical) for w in changed_words(g, u)[0]}
@@ -183,12 +194,13 @@ def stats_table(bench, reviewed, accepted):
         num(f"forms@{ph}", len(forms), 0)
         num(f"dbytes@{ph}", d.dbytes.mean())
         num(f"accept@{ph}", rate, 0)
-        lines.append(f"{NAME[ph]} & {(d.source == 'corpus').sum()} & {(d.source == 'books').sum()} & {d.words.mean():.1f} & "
-                     f"{len(forms)} & {d.dbytes.mean():+.1f} & {rate:.0f} \\\\")
-    lines += [r"\midrule", f"All & {(bench.source == 'corpus').sum()} & {(bench.source == 'books').sum()} & "
-              f"{bench.words.mean():.1f} & & {bench.dbytes.mean():+.1f} & {100 * sum(accepted.values()) / sum(reviewed.values()):.0f} \\\\",
+        lines.append(f"{NARROW[ph]} & {(d.source == 'books').sum()} & {d.words.mean():.1f} & "
+                     f"{len(forms)} & {sg(d.dbytes.mean())} & {rate:.0f} \\\\")
+    lines += [r"\midrule", f"All & {(bench.source == 'books').sum()} & "
+              f"{bench.words.mean():.1f} & & {sg(bench.dbytes.mean())} & {100 * sum(accepted.values()) / sum(reviewed.values()):.0f} \\\\",
               r"\bottomrule", r"\end{tabular}",
-              r"\caption{Benchmark statistics. \emph{Corp./Books}: pairs whose sentence comes from our corpus or from UzBooks; "
+              r"\caption{Benchmark statistics per phenomenon (150 pairs each). \emph{Books}: pairs whose sentence comes from "
+              r"UzBooks, the others come from our corpus; "
               r"\emph{Words}: mean length of the grammatical sentence; \emph{Forms}: distinct grammatical word forms at the "
               r"edited position; $\Delta$\emph{B}: mean length of the ungrammatical minus the grammatical sentence in UTF-8 "
               r"bytes; \emph{Acc.}: share (\%) of reviewed candidates accepted in the native-speaker review.}",
@@ -200,30 +212,34 @@ def reasons_table(reasons):
     cols = [("good sentence is unnatural or wrong", "Source"), ("bad sentence is actually grammatical", "Bad OK"),
             ("dialect or colloquial form", "Dialect"), ("change alters meaning, not grammar", "Meaning"),
             ("name or personal data", "Name")]
-    lines = [r"\begin{table}[t]", r"\centering\small", r"\setlength{\tabcolsep}{4pt}", r"\begin{tabular}{@{}l" + "r" * len(cols) + "@{}}",
-             r"\toprule", "Phenomenon & " + " & ".join(c for _, c in cols) + r" \\", r"\midrule"]
+    shown = cols[:4]  # the fifth reason is rare and goes into the caption
+    lines = [r"\begin{table}[t]", r"\centering\small", r"\setlength{\tabcolsep}{3.4pt}", r"\begin{tabular}{@{}l" + "r" * len(shown) + "@{}}",
+             r"\toprule", "Phenomenon & " + " & ".join(c for _, c in shown) + r" \\", r"\midrule"]
     tot = Counter()
     for ph in SLUGS:
-        lines.append(NAME[ph] + " & " + " & ".join(str(reasons[ph][k]) for k, _ in cols) + r" \\")
+        lines.append(NARROW[ph] + " & " + " & ".join(str(reasons[ph][k]) for k, _ in shown) + r" \\")
         tot.update({k: reasons[ph][k] for k, _ in cols})
     n = sum(tot.values())
     for (k, short) in cols:
         num(f"reject@{short}", tot[k], 0)
         num(f"rejectpct@{short}", 100 * tot[k] / n, 0)
     num("reject@all", n, 0)
-    lines += [r"\midrule", "All & " + " & ".join(str(tot[k]) for k, _ in cols) + r" \\", r"\bottomrule", r"\end{tabular}",
+    names = tot[cols[4][0]]
+    lines += [r"\midrule", "All & " + " & ".join(str(tot[k]) for k, _ in shown) + r" \\", r"\bottomrule", r"\end{tabular}",
               r"\caption{Reasons for rejecting candidate pairs in the native-speaker review. \emph{Source}: the corpus "
               r"sentence is unnatural or wrong (mostly OCR errors and typos); \emph{Bad OK}: the ungrammatical member has a "
-              r"grammatical reading; \emph{Meaning}: the edit changes the meaning rather than the grammaticality.}",
+              r"grammatical reading; \emph{Dialect}: dialectal or colloquial form; \emph{Meaning}: the edit changes the "
+              r"meaning rather than the grammaticality. " + (f"{names} further pair{'s were' if names != 1 else ' was'} rejected "
+              r"because of a personal name." if names else "") + "}",
               r"\label{tab:reasons}", r"\end{table}"]
     return "\n".join(lines)
 
 
 # --- results ----------------------------------------------------------------------------------------------
 
-def per_phenomenon_table(runs, pick, caption, label, stars=False):
+def per_phenomenon_table(runs, pick, caption, ref):
     """Rows: models (alphabet given by pick(model)); columns: the 16 phenomena and their mean."""
-    lines = [r"\begin{table*}[t]", r"\centering\footnotesize", r"\setlength{\tabcolsep}{2.6pt}",
+    lines = [r"\begin{table*}[t]", r"\centering\footnotesize", r"\setlength{\tabcolsep}{2.1pt}",
              r"\begin{tabular}{@{}ll" + "r" * 17 + "@{}}", r"\toprule",
              "Model & & " + " & ".join(SHORT[ph] for ph in SLUGS) + r" & Avg. \\"]
     for group, models in groups(MODELS):
@@ -237,10 +253,10 @@ def per_phenomenon_table(runs, pick, caption, label, stars=False):
             for ph in SLUGS:
                 v = acc(df[df.phenomenon == ph])
                 cells.append(f"\\cellcolor{{black!12}}{v:.1f}" if v < 50 else f"{v:.1f}")
-            rows.append(f"{m['key']} & {a[0]} & " + " & ".join(cells) + f" & \\textbf{{{acc(df):.1f}}} \\\\")
+            rows.append(f"{label(m)} & {a[0]} & " + " & ".join(cells) + f" & \\textbf{{{acc(df):.1f}}} \\\\")
         if rows:
             lines += [r"\midrule", rf"\multicolumn{{19}}{{@{{}}l}}{{\textit{{{group}}}}} \\"] + rows
-    lines += [r"\bottomrule", r"\end{tabular}", rf"\caption{{{caption}}}", rf"\label{{{label}}}", r"\end{table*}"]
+    lines += [r"\bottomrule", r"\end{tabular}", rf"\caption{{{caption}}}", rf"\label{{{ref}}}", r"\end{table*}"]
     return "\n".join(lines)
 
 
@@ -269,7 +285,7 @@ def scripts_table(runs, stats):
                     num(f"accph@{m['key']}@{a}@{ph}", acc(df[df.phenomenon == ph]))
                     num(f"nerrph@{m['key']}@{a}@{ph}", int((~ok(df[df.phenomenon == ph])).sum()), 0)
                 cells.append(f"\\textbf{{{v:.1f}}}" if a == own(m) and m["trained"] in ("latn", "cyrl") else f"{v:.1f}")
-            rows.append(f"{m['key']} & {TRAINED[m['trained']]} & " + " & ".join(cells) + r" \\")
+            rows.append(f"{label(m)} & {TRAINED[m['trained']]} & " + " & ".join(cells) + r" \\")
             s = stats.get(m["key"], {})
             for a in ALPHABETS:
                 if a in s:
@@ -308,7 +324,7 @@ def matched_table(runs):
         for k, v in (("lat", la), ("cyr", cy), ("diff", d), ("lo", lo), ("hi", hi)):
             num(f"match@{size}@{k}", v)
         num(f"match@{size}@p", pval(pa))
-        lines.append(f"{size} & {la:.1f} & {cy:.1f} & {d:+.1f} & [{lo:+.1f}, {hi:+.1f}] & {pval(pa)} \\\\")
+        lines.append(f"{size} & {la:.1f} & {cy:.1f} & {sg(d)} & [{sg(lo)}, {sg(hi)}] & {pval(pa)} \\\\")
     lines += [r"\bottomrule", r"\end{tabular}",
               r"\caption{Script-matched Goldfish models of the same training-data size: the Latin model on Latin text against "
               r"the Cyrillic model on Cyrillic text, on the same 2,400 pairs. $\Delta$: difference in points with a bootstrap "
@@ -319,7 +335,6 @@ def matched_table(runs):
 
 def length_table(runs, conditions, name, caption):
     lines = [r"\begin{table}[t]", r"\centering\small", r"\setlength{\tabcolsep}{4pt}", r"\begin{tabular}{@{}llrrrr@{}}", r"\toprule",
-             r" & & \multicolumn{3}{c}{Ungrammatical member has} & \\", r"\cmidrule(lr){3-5}",
              r"Model & Text & fewer & same & more & $\Delta$ \\", r"\midrule"]
     for key, a in conditions:
         df = runs.get((key, a))
@@ -332,23 +347,62 @@ def length_table(runs, conditions, name, caption):
             num(f"len@{key}@{a}@n{k}", int(mask.sum()), 0)
         gap = cells[2] - cells[0]
         num(f"len@{key}@{a}@gap", gap)
-        lines.append(f"{key} & {a} & " + " & ".join("--" if np.isnan(c) else f"{c:.1f}" for c in cells) +
-                     ("" if np.isnan(gap) else f" & {gap:+.1f}") + r" \\")
+        lines.append(f"{label(key)} & {a} & " + " & ".join("--" if np.isnan(c) else f"{c:.1f}" for c in cells) +
+                     (" & --" if np.isnan(gap) else f" & {sg(gap)}") + r" \\")
     lines += [r"\bottomrule", r"\end{tabular}", rf"\caption{{{caption}}}", rf"\label{{tab:{name}}}", r"\end{table}"]
     return "\n".join(lines)
 
 
-def models_table(stats):
+def length_all_table(runs):
+    """Length effect for every run: one row per model, the three alphabets side by side."""
+    lines = [r"\begin{table*}[t]", r"\centering\footnotesize", r"\setlength{\tabcolsep}{3.4pt}",
+             r"\begin{tabular}{@{}l" + "rrrr" * len(ALPHABETS) + "@{}}", r"\toprule",
+             " & " + " & ".join(rf"\multicolumn{{4}}{{c}}{{{name}}}" for name in ("Current Latin", "Cyrillic", "Reformed Latin")) + r" \\",
+             r"\cmidrule(lr){2-5}\cmidrule(lr){6-9}\cmidrule(l){10-13}",
+             "Model" + r" & fewer & same & more & $\Delta$" * len(ALPHABETS) + r" \\"]
+    for group, models in groups(MODELS):
+        rows = []
+        for m in models:
+            if not any((m["key"], a) in runs for a in ALPHABETS):
+                continue
+            cells = []
+            for a in ALPHABETS:
+                df = runs.get((m["key"], a))
+                if df is None:
+                    cells += ["--"] * 4
+                    continue
+                dtok = df.bad_ntok - df.good_ntok
+                masks = (dtok < 0, dtok == 0, dtok > 0)
+                values = [acc(df[mask]) if mask.sum() else float("nan") for mask in masks]
+                for k, v, mask in zip(("fewer", "same", "more"), values, masks):
+                    num(f"len@{m['key']}@{a}@{k}", v)
+                    num(f"len@{m['key']}@{a}@n{k}", int(mask.sum()), 0)
+                gap = values[2] - values[0]
+                num(f"len@{m['key']}@{a}@gap", gap)
+                cells += ["--" if np.isnan(v) else f"{v:.1f}" for v in values] + ["--" if np.isnan(gap) else sg(gap)]
+            rows.append(f"{label(m)} & " + " & ".join(cells) + r" \\")
+        if rows:
+            lines += [r"\midrule", rf"\multicolumn{{13}}{{@{{}}l}}{{\textit{{{group}}}}} \\"] + rows
+    lines += [r"\bottomrule", r"\end{tabular}",
+              r"\caption{Length effect for every scored run: accuracy (\%) on the pairs whose ungrammatical member has fewer, "
+              r"the same number of, or more tokens than the grammatical one under the model's own tokenizer, and the difference "
+              r"$\Delta$ between \emph{more} and \emph{fewer} (0 means no length effect).}",
+              r"\label{tab:lengthall}", r"\end{table*}"]
+    return "\n".join(lines)
+
+
+def models_table(runs):
     kind = {"logprob": "autoregressive", "pll": "masked"}
+    scored = {k for k, _ in runs}
     lines = [r"\begin{table*}[t]", r"\centering\small", r"\begin{tabular}{@{}lllrl@{}}", r"\toprule",
              r"Model & Hugging Face identifier & Type & Parameters & Uzbek training text \\"]
     for group, models in groups(MODELS):
-        models = [m for m in models if m["key"] in stats and any((ROOT / "results").glob(f"{m['hf'].split('/')[-1]}_uzblimp_{VERSION}*.csv"))]
+        models = [m for m in models if m["key"] in scored]
         if not models:
             continue
         lines += [r"\midrule", rf"\multicolumn{{5}}{{@{{}}l}}{{\textit{{{group}}}}} \\"]
         for m in models:
-            lines.append(f"{m['key']} & \\texttt{{{tex(m['hf'])}}} & {kind[m['method']]} & {m['params']} & {TRAINED[m['trained']]} \\\\")
+            lines.append(f"{label(m)} & \\texttt{{{tex(m['hf'])}}} & {kind[m['method']]} & {m['params']} & {TRAINED[m['trained']]} \\\\")
     lines += [r"\bottomrule", r"\end{tabular}",
               r"\caption{The evaluated models. Parameter counts are those given by the models' authors or on the Hugging Face Hub. \emph{Uzbek training "
               r"text}: script of the Uzbek text a model was trained on; multilingual models are trained on many languages in "
@@ -357,8 +411,8 @@ def models_table(stats):
 
 
 def reform_table(runs, bench):
-    lines = [r"\begin{table}[t]", r"\centering\small", r"\setlength{\tabcolsep}{3.5pt}", r"\begin{tabular}{@{}lrrrrrr@{}}", r"\toprule",
-             r" & & & \multicolumn{4}{c}{Change by where new letters fall} \\", r"\cmidrule(l){4-7}",
+    lines = [r"\begin{table}[t]", r"\centering\small", r"\setlength{\tabcolsep}{3.2pt}", r"\begin{tabular}{@{}lrrrrrr@{}}", r"\toprule",
+             r" & & & \multicolumn{4}{c}{Change in points} \\", r"\cmidrule(l){4-7}",
              r"Model & Cur. & Ref. & both & gr. & other & none \\", r"\midrule"]
     for m in MODELS:
         cur, ref = runs.get((m["key"], "Latin")), runs.get((m["key"], "Reformed"))
@@ -371,13 +425,15 @@ def reform_table(runs, bench):
             num(f"ref@{m['key']}@{g}@cur", c)
             num(f"ref@{m['key']}@{g}@ref", r)
             num(f"ref@{m['key']}@{g}@delta", r - c)
-            cells.append(f"{r - c:+.1f}")
+            num(f"ref@{m['key']}@{g}@loss", c - r)
+            cells.append(sg(r - c))
         d, lo, hi, p, _, _, _ = paired(ok(cur), ok(ref))
         num(f"ref@{m['key']}@all@delta", -d)
+        num(f"ref@{m['key']}@all@loss", d)
         num(f"ref@{m['key']}@all@lo", -hi)
         num(f"ref@{m['key']}@all@hi", -lo)
         num(f"ref@{m['key']}@all@p", pval(p))
-        lines.append(f"{m['key']} & {acc(cur):.1f} & {acc(ref):.1f} & " + " & ".join(cells) + r" \\")
+        lines.append(f"{label(m)} & {acc(cur):.1f} & {acc(ref):.1f} & " + " & ".join(cells) + r" \\")
     for g, _ in REFORM_GROUPS:
         num(f"refn@{g}", int((bench.reform_group == g).sum()), 0)
     n = [int((bench.reform_group == g).sum()) for g, _ in REFORM_GROUPS]
@@ -390,14 +446,15 @@ def reform_table(runs, bench):
     return "\n".join(lines)
 
 
-def tokenizer_table(stats):
+def tokenizer_table(stats, runs):
+    scored = {k for k, _ in runs}
     lines = [r"\begin{table}[t]", r"\centering\small", r"\setlength{\tabcolsep}{3.5pt}", r"\begin{tabular}{@{}lrrrrrr@{}}", r"\toprule",
              r" & \multicolumn{3}{c}{Unknown (\%)} & \multicolumn{3}{c}{Tokens per word} \\", r"\cmidrule(lr){2-4}\cmidrule(l){5-7}",
              r"Model & Lat. & Cyr. & Ref. & Lat. & Cyr. & Ref. \\", r"\midrule"]
     for m in MODELS:
         s = stats.get(m["key"])
-        if s:
-            lines.append(f"{m['key']} & " + " & ".join(f"{s[a]['unk_pct']:.0f}" for a in ALPHABETS) + " & " +
+        if s and m["key"] in scored:
+            lines.append(f"{label(m)} & " + " & ".join(f"{s[a]['unk_pct']:.0f}" for a in ALPHABETS) + " & " +
                          " & ".join(f"{s[a]['tokens_per_word']:.2f}" for a in ALPHABETS) + r" \\")
     lines += [r"\bottomrule", r"\end{tabular}",
               r"\caption{Tokenizer statistics on the 4,800 sentences of each alphabet: share of sentences with at least one "
@@ -416,7 +473,7 @@ def accnorm_table(runs):
         for a in ALPHABETS:
             df = runs.get((m["key"], a))
             cells += ["--", "--"] if df is None else [f"{acc(df):.1f}", f"{acc(df, 'correct_norm'):.1f}"]
-        lines.append(f"{m['key']} & " + " & ".join(cells) + r" \\")
+        lines.append(f"{label(m)} & " + " & ".join(cells) + r" \\")
     lines += [r"\bottomrule", r"\end{tabular}",
               r"\caption{Raw accuracy (acc) and byte-normalised accuracy (norm; log-probability per UTF-8 byte, the main "
               r"metric of TatBLiMP), in \%.}", r"\label{tab:accnorm}", r"\end{table}"]
@@ -486,6 +543,16 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
             d = df[df.phenomenon.isin(mixed)].join(bench[["source"]])
             num(f"source@{key}@corpus", acc(d[d.source == "corpus"]))
             num(f"source@{key}@books", acc(d[d.source == "books"]))
+    # The single-script Uzbek models trained on about 100 MB of text or more: their accuracy on their own
+    # script and what they lose on the other one.
+    big = [m for m in MODELS if m["trained"] in ("latn", "cyrl") and m.get("size") not in ("5MB", "10MB")
+           and (m["key"], own(m)) in runs and (m["key"], other(m)) in runs]
+    own_acc = [acc(runs[(m["key"], own(m))]) for m in big]
+    drops = [own_acc[i] - acc(runs[(m["key"], other(m))]) for i, m in enumerate(big)]
+    num("n@bigmono", len(big), 0)
+    for name, values in (("own", own_acc), ("drop", drops)):
+        num(f"{name}@min", min(values))
+        num(f"{name}@max", max(values))
     ties = sum(int((df["diff"] == 0).sum()) for df in runs.values())
     num("n@ties", ties, 0)
     old = {r["id"]: r for r in read_tsv(ROOT / "data/benchmark/uzblimp_cyrl.tsv")}
@@ -504,8 +571,7 @@ def main():
     selected = [("GF-L full", "Latin"), ("GF-L full", "Cyrillic"), ("GF-C full", "Cyrillic"), ("GF-C full", "Latin"),
                 ("tahrirchi-bert", "Latin"), ("tahrirchi-bert", "Cyrillic"), ("tahrirchi-bert", "Reformed"),
                 ("UzBERT", "Cyrillic"), ("UzBERT", "Latin"), ("XLM-R base", "Latin"), ("XLM-R base", "Cyrillic"),
-                ("Qwen2.5-1.5B", "Latin"), ("Qwen2.5-1.5B", "Cyrillic")]
-    everything = [(m["key"], a) for m in MODELS for a in ALPHABETS]
+                ("Qwen2.5-0.5B", "Latin"), ("Qwen2.5-0.5B", "Cyrillic")]
     delta_note = r"$\Delta$: accuracy on pairs with more tokens minus accuracy on pairs with fewer; 0 means no length effect."
     tables = {
         "phenomena": phenomena_table(bench, ex),
@@ -530,11 +596,10 @@ def main():
         "length": length_table(runs, selected, "length",
                                r"Accuracy (\%) by whether the ungrammatical member has fewer, the same number of, or more "
                                r"tokens than the grammatical one under the model's own tokenizer. " + delta_note),
-        "lengthall": length_table(runs, everything, "lengthall",
-                                  r"Length effect for every scored run, as in Table~\ref{tab:length}. " + delta_note),
+        "lengthall": length_all_table(runs),
         "reform": reform_table(runs, bench),
-        "models": models_table(stats),
-        "tokenizers": tokenizer_table(stats),
+        "models": models_table(runs),
+        "tokenizers": tokenizer_table(stats, runs),
         "accnorm": accnorm_table(runs),
         "pilot": pilot_table(),
     }

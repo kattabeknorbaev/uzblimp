@@ -1,16 +1,16 @@
 \begin{table}[t]
 \centering\small
-\setlength{\tabcolsep}{3.5pt}
+\setlength{\tabcolsep}{3.2pt}
 \begin{tabular}{@{}lrrrrrr@{}}
 \toprule
- & & & \multicolumn{4}{c}{Change by where new letters fall} \\
+ & & & \multicolumn{4}{c}{Change in points} \\
 \cmidrule(l){4-7}
 Model & Cur. & Ref. & both & gr. & other & none \\
 \midrule
-tahrirchi-bert & 98.6 & 87.3 & -11.4 & -55.4 & -3.1 & +0.0 \\
-Qwen2.5-0.5B & 50.5 & 47.3 & -6.0 & -27.9 & +3.5 & +0.0 \\
+TahrirchiBERT & 98.7 & 87.3 & $-$11.3 & $-$55.2 & $-$3.4 & 0.0 \\
+Qwen2.5-0.5B & 50.5 & 47.3 & $-$6.0 & $-$27.4 & +3.3 & 0.0 \\
 \bottomrule
 \end{tabular}
-\caption{Current against reformed Latin for the models whose tokenizer covers the new letters: accuracy (\%) on all pairs, and the change in points for pairs whose new letters (\"o, \u{g}, \c{s}, \c{c}) fall in the edited word of \emph{both} members ($n=819$), in the edited word of the \emph{gr}ammatical member only ($n=251$), only in \emph{other} words ($n=1208$), or nowhere ($n=122$).}
+\caption{Current against reformed Latin for the models whose tokenizer covers the new letters: accuracy (\%) on all pairs, and the change in points for pairs whose new letters (\"o, \u{g}, \c{s}, \c{c}) fall in the edited word of \emph{both} members ($n=815$), in the edited word of the \emph{gr}ammatical member only ($n=252$), only in \emph{other} words ($n=1212$), or nowhere ($n=121$).}
 \label{tab:reform}
 \end{table}

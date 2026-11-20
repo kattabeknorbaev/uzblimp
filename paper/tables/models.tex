@@ -17,25 +17,15 @@ GF-C 100MB & \texttt{goldfish-models/uzn\_cyrl\_100mb} & autoregressive & 125M &
 GF-C full & \texttt{goldfish-models/uzn\_cyrl\_full} & autoregressive & 125M & Cyrillic \\
 \midrule
 \multicolumn{5}{@{}l}{\textit{Uzbek encoders}} \\
-tahrirchi-bert & \texttt{tahrirchi/tahrirchi-bert-base} & masked & 110M & Latin \\
-tahrirchi-bert-small & \texttt{tahrirchi/tahrirchi-bert-small} & masked & 67M & Latin \\
+TahrirchiBERT & \texttt{tahrirchi/tahrirchi-bert-base} & masked & 110M & Latin \\
 BERTbek & \texttt{elmurod1202/bertbek-news-big-cased} & masked & 110M & Latin \\
 UzBERT & \texttt{coppercitylabs/uzbert-base-uncased} & masked & 110M & Cyrillic \\
 UzRoBERTa & \texttt{rifkat/uztext-3Gb-BPE-Roberta} & masked & 84M & both \\
 \midrule
-\multicolumn{5}{@{}l}{\textit{Multilingual encoders}} \\
-mBERT & \texttt{google-bert/bert-base-multilingual-cased} & masked & 179M & multilingual \\
-XLM-R base & \texttt{FacebookAI/xlm-roberta-base} & masked & 279M & multilingual \\
-Glot500 & \texttt{cis-lmu/glot500-base} & masked & 395M & multilingual \\
-XLM-R large & \texttt{FacebookAI/xlm-roberta-large} & masked & 561M & multilingual \\
-\midrule
 \multicolumn{5}{@{}l}{\textit{Multilingual LMs}} \\
 Qwen2.5-0.5B & \texttt{Qwen/Qwen2.5-0.5B} & autoregressive & 0.5B & multilingual \\
-Qwen2.5-1.5B & \texttt{Qwen/Qwen2.5-1.5B} & autoregressive & 1.5B & multilingual \\
-mGPT & \texttt{ai-forever/mGPT} & autoregressive & 1.3B & multilingual \\
-mGPT-Uzbek & \texttt{ai-forever/mGPT-1.3B-uzbek} & autoregressive & 1.3B & multilingual \\
 \bottomrule
 \end{tabular}
-\caption{The evaluated models. Parameter counts are those given by the models' authors. \emph{Uzbek training text}: script of the Uzbek text a model was trained on; multilingual models are trained on many languages in several scripts.}
+\caption{The evaluated models. Parameter counts are those given by the models' authors or on the Hugging Face Hub. \emph{Uzbek training text}: script of the Uzbek text a model was trained on; multilingual models are trained on many languages in several scripts.}
 \label{tab:models}
 \end{table*}
