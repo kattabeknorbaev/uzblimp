@@ -101,21 +101,21 @@
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 15.97,
+      "tokens_per_sentence": 15.94,
       "tokens_per_word": 1.822
     },
     "Cyrillic": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 30.67,
-      "tokens_per_word": 3.499
+      "tokens_per_sentence": 30.58,
+      "tokens_per_word": 3.495
     },
     "Reformed": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 19.21,
+      "tokens_per_sentence": 19.18,
       "tokens_per_word": 2.192
     }
   },

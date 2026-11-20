@@ -135,3 +135,4 @@ timestamp,model,dataset,n_pairs,accuracy,bos,device,dtype,n_params_M,acc_norm,sc
 2026-11-20T18:52:30,rifkat/uztext-3Gb-BPE-Roberta,uzblimp_v1.2,2400,0.9329,True,cpu,float32,123.0,0.9312,mlm-pll,baseline,44 pairs scored; 2356 carried over from uztext-3Gb-BPE-Roberta_uzblimp_v1.2.csv
 2026-11-20T18:52:36,rifkat/uztext-3Gb-BPE-Roberta,uzblimp_v1.2_cyrl,2400,0.9638,True,cpu,float32,123.0,0.96,mlm-pll,baseline,63 pairs scored; 2337 carried over from uztext-3Gb-BPE-Roberta_uzblimp_v1.2_cyrl.csv
 2026-11-20T18:53:04,coppercitylabs/uzbert-base-uncased,uzblimp_v1.2_cyrl,2400,0.8404,True,cpu,float32,109.0,0.8504,mlm-pll,baseline,63 pairs scored; 2337 carried over from uzbert-base-uncased_uzblimp_v1.2_cyrl.csv
+2026-11-20T19:16:47,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2,2400,0.9862,True,cpu,float32,110.0,0.9846,mlm-pll,baseline,33 pairs scored; 2367 carried over from tahrirchi-bert-base_uzblimp_v1.2.csv and tahrirchi-bert-base_uzblimp_v1.1.csv

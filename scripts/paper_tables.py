@@ -520,12 +520,28 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
     num("words@mean", words.mean())
     num("words@min", int(words.min()), 0)
     num("words@max", int(words.max()), 0)
-    # Pairs replaced after the audit: excluded pairs that were in benchmark v1.1 (ids of a v1.1 result file).
-    excluded = {r["id"] for r in read_tsv(ROOT / "data/benchmark/excluded.tsv")}
+    # Pairs replaced since benchmark v1.1 (ids of a v1.1 result file), and the excluded pairs by the pass
+    # that found them: the audit of generator errors and the screen for spelling errors in source sentences.
+    excluded = read_tsv(ROOT / "data/benchmark/excluded.tsv")
     v11 = set(pd.read_csv(ROOT / "results" / "uzn_latn_100mb_uzblimp_v1.1.csv").id)
-    num("n@replaced", len(excluded & v11), 0)
-    num("pct@replaced", 100 * len(excluded & v11) / len(bench))
+    replaced = len(v11 - set(bench.index))
+    num("n@replaced", replaced, 0)
+    num("pct@replaced", 100 * replaced / len(bench))
     num("n@excluded", len(excluded), 0)
+    spelling = sum("spelling" in r["flagged_by"] for r in excluded)
+    num("n@excluded@spelling", spelling, 0)
+    num("n@excluded@audit", len(excluded) - spelling, 0)
+    # Pairs that at least three of the six strongest runs (each model on its own script) judge wrong.
+    strongest = [("tahrirchi-bert", "Latin"), ("GF-L full", "Latin"), ("GF-L 100MB", "Latin"),
+                 ("GF-C full", "Cyrillic"), ("GF-C 100MB", "Cyrillic"), ("UzRoBERTa", "Cyrillic")]
+    if all(k in runs for k in strongest):
+        wrong = sum((~ok(runs[k])).astype(int) for k in strongest)
+        hard = bench.loc[wrong.index[wrong >= 3]]
+        num("hard@n", len(hard), 0)
+        num("hard@none", int((wrong == 0).sum()), 0)
+        morph = int(hard.phenomenon.isin(["dative_allomorphy", "stem_alternation"]).sum())
+        num("hard@morph", morph, 0)
+        num("hard@binding", int((hard.phenomenon == "binding").sum()), 0)
     norm = bench.grammatical.str.lower().str.replace(r"[^\w]+", " ", regex=True).str.strip()
     dup = bench[norm.duplicated(keep=False)].assign(norm=norm)
     within = sum(g.phenomenon.nunique() == 1 for _, g in dup.groupby("norm"))
@@ -543,16 +559,14 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
             d = df[df.phenomenon.isin(mixed)].join(bench[["source"]])
             num(f"source@{key}@corpus", acc(d[d.source == "corpus"]))
             num(f"source@{key}@books", acc(d[d.source == "books"]))
-    # The single-script Uzbek models trained on about 100 MB of text or more: their accuracy on their own
-    # script and what they lose on the other one.
-    big = [m for m in MODELS if m["trained"] in ("latn", "cyrl") and m.get("size") not in ("5MB", "10MB")
-           and (m["key"], own(m)) in runs and (m["key"], other(m)) in runs]
-    own_acc = [acc(runs[(m["key"], own(m))]) for m in big]
-    drops = [own_acc[i] - acc(runs[(m["key"], other(m))]) for i, m in enumerate(big)]
-    num("n@bigmono", len(big), 0)
-    for name, values in (("own", own_acc), ("drop", drops)):
-        num(f"{name}@min", min(values))
-        num(f"{name}@max", max(values))
+    # Uzbek models trained on one script: what they lose on the other script, and the best score in each script.
+    single = [m for m in MODELS if m["trained"] in ("latn", "cyrl") and (m["key"], own(m)) in runs and (m["key"], other(m)) in runs]
+    drops = [acc(runs[(m["key"], own(m))]) - acc(runs[(m["key"], other(m))]) for m in single]
+    num("n@single", len(single), 0)
+    num("drop@min", min(drops))
+    num("drop@max", max(drops))
+    for a in ("Latin", "Cyrillic"):
+        num(f"best@{a}", max(acc(df) for (key, alphabet), df in runs.items() if alphabet == a))
     ties = sum(int((df["diff"] == 0).sum()) for df in runs.values())
     num("n@ties", ties, 0)
     old = {r["id"]: r for r in read_tsv(ROOT / "data/benchmark/uzblimp_cyrl.tsv")}

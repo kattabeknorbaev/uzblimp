@@ -54,3 +54,39 @@ suspended_affixation-1099	suspended_affixation	the ungrammatical form is not a w
 suspended_affixation-1101	suspended_affixation	the ungrammatical member is a licit suspended form (-gan edim / -gan boʻldim)	AI-assisted audit, 2026-11-20; to be confirmed by the authors
 suspended_affixation-1165	suspended_affixation	the ungrammatical form is not a word form (-gan added to an aorist stem)	AI-assisted audit, 2026-11-20; to be confirmed by the authors
 suspended_affixation-1174	suspended_affixation	the ungrammatical form is not a word form (-gan added to an aorist stem)	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+suspended_affixation-1084	suspended_affixation	source sentence has a spelling error (yoʻgonlashib for yoʻgʻonlashib)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+suspended_affixation-1015	suspended_affixation	source sentence has a malformed word (bogʻlanganib)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+suspended_affixation-1154	suspended_affixation	source sentence has a broken word (qayta-qay ta)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+suspended_affixation-1086	suspended_affixation	source sentence has OCR errors (bolsam, inomlar, konglidagi)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1229	numeral_no_plural	source sentence has a spelling error (yeyish-ichishii)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1105	numeral_no_plural	source sentence has a spelling error (podshoxlik for podshohlik)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1212	numeral_no_plural	source sentence has a spelling error (oʻkda for oʻqda)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1061	numeral_no_plural	source sentence has a spelling error (kuloqboshiga for quloqboshiga)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1140	numeral_no_plural	source sentence has a spelling error (umumman) and a stray space before the full stop	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1199	numeral_no_plural	source sentence has a spelling error (yorug for yorugʻ)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1190	numeral_no_plural	source sentence has a spelling error (xandaqka for xandaqqa)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+lexical_case-1043	lexical_case	the edited word is misspelled in both members (hashorot- for hasharot-)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+lexical_case-1203	lexical_case	source sentence has spelling errors (ogohlatirishni, ketirmadim)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+passives-1021	passives	source sentence has a malformed word (qobigʻlar)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+passives-2049	passives	source sentence has a spelling error (fidoiylik for fidoyilik)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+passives-1087	passives	source sentence has a spelling error (ishlabb)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+passives-1074	passives	source sentence has a spelling error (axli for ahli)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+npi_hech-1119	npi_hech	source sentence has a spelling error (harakatimining)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+stem_alternation-1032	stem_alternation	source sentence has a spelling error (oʻtirmasaligini)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+stem_alternation-1206	stem_alternation	source sentence is a fragment and has a spelling error (bugdoy for bugʻdoy)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+stem_alternation-1077	stem_alternation	source sentence has a spelling error (xidi for hidi)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+stem_alternation-1236	stem_alternation	source sentence has a spelling error (xapriqib for hapriqib)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+possessive_agreement-1024	possessive_agreement	source sentence has OCR errors (yaalgan, boplib)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+possessive_agreement-1174	possessive_agreement	source sentence has OCR errors (Bulaming for Bularning, boʻlaredi)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+possessive_agreement-1243	possessive_agreement	source sentence has a spelling error (muxtojmiz for muhtojmiz)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+possessive_agreement-1129	possessive_agreement	source sentence has a spelling error (Lekigin for Lekin)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+relative_clauses-2057	relative_clauses	source sentence has a spelling error (Fuqorolar for Fuqarolar)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+relative_clauses-2085	relative_clauses	source sentence has a spelling error (takazo for taqozo)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+relative_clauses-2088	relative_clauses	source sentence has spelling errors (karash for qarash, xolda for holda)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+dative_allomorphy-1115	dative_allomorphy	source sentence is a corrupted proverb (tokka for togʻga, kovushar for qovushar)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+dative_allomorphy-1079	dative_allomorphy	source sentence has a spelling error (utdimi for oʻtdimi)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+postposition_case-1079	postposition_case	source sentence has a stray hyphen before the full stop (turdi-.)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+postposition_case-1103	postposition_case	source sentence has a broken word (zararlanish- modda)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+stem_alternation-1205	stem_alternation	source sentence has a spelling error (Usha for Oʻsha)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+npi_hech-1140	npi_hech	source sentence writes the tutuq of taʼrif with the wrong apostrophe character	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+passives-1053	passives	source sentence has a spelling error (labaratoriya for laboratoriya)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors

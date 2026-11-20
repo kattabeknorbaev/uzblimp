@@ -42,7 +42,7 @@ Related work: TurBLiMP (Turkish, EMNLP 2025), TatBLiMP (Tatar, arXiv 2026), Mult
 
 ## Phenomena
 
-150 pairs each. Twelve phenomena follow the TurBLiMP inventory; the last four in the table are specific to Uzbek.
+150 pairs each. Twelve phenomena share their category with TurBLiMP; the last four in the table lie outside its inventory.
 
 | Paradigm | Phenomenon | Field | What the grammatical sentence gets right |
 |---|---|---|---|
@@ -146,11 +146,12 @@ In short: models trained on about 100 MB or more of Uzbek text score 95–99% in
 
 ## How the pairs were made and checked
 
-- **Sources.** 962 pairs come from Javohir Matniyozov's rule-based pairs over `tahrirchi/uz-books-v2` (`data/external/`, generator in `scripts/jm_generator/`) and 1,438 from Kattabek Norbaev's generator (`scripts/make_pairs.py`) over books (923), Uzbek Wikipedia (506) and legal codes (9).
+- **Sources.** 959 pairs come from Javohir Matniyozov's rule-based pairs over `tahrirchi/uz-books-v2` (`data/external/`, generator in `scripts/jm_generator/`) and 1,441 from Kattabek Norbaev's generator (`scripts/make_pairs.py`) over books (929), Uzbek Wikipedia (502) and legal codes (10).
 - **Review.** Of 3,800 candidate pairs, 3,729 were reviewed and 3,267 (87.6%) accepted. Every pair was judged first by Kattabek Norbaev, a native speaker, and then checked with three other native speakers; for some phenomena an AI assistant was used as a consistency check. Rejected pairs keep their reason in `data/pairs_v*.tsv`.
-- **Cyrillic audit (v1.2).** All 10,021 word forms of the Cyrillic version were checked for Russian loanwords that Latin spells differently; 44 forms in 41 pairs were corrected (`scripts/alphabets.py`).
+- **Audit of the selected pairs (v1.2).** The 2,400 selected pairs were screened in two passes with the help of an AI assistant: for generator errors (ungrammatical members that have a grammatical reading, edited words that are not an instance of the phenomenon, malformed forms) and for spelling or OCR errors in the source sentences (found by reading the most surprising words under the largest Latin Goldfish model). 76 pairs (3.2%) were replaced by the next accepted pairs of their phenomenon. Every excluded pair is listed with its reason in `data/benchmark/excluded.tsv` (91 pairs, including reserve pairs); **these exclusions still have to be confirmed by the authors.** Known weaknesses that were kept are described in the paper (Appendix A).
+- **Cyrillic audit (v1.2).** The 10,016 distinct word forms of the Cyrillic version were checked twice for Russian loanwords that Latin spells differently; 67 forms in 59 pairs were corrected (`scripts/alphabets.py`). Loanwords that were not recognised may remain.
 - **Not done yet.** No linguist has verified the pairs (`verified` is false everywhere), and no inter-annotator agreement is reported: the comparison in `results/agreement_KN_JM.md` doesn't count as one, because the two sets of judgments weren't made independently (`notes/decisions.md`, decision 20). [`human_study/`](human_study/README.md) holds ready-to-send sheets for a blind forced-choice check (320 pairs) and for acceptability ratings (2 × 96 sentences), with instructions in Uzbek and a scoring script.
-- **Selection.** 150 accepted pairs per phenomenon, chosen at random with a fixed seed; 867 further accepted pairs (`data/benchmark/reserve.tsv`) can replace pairs that fail a later check.
+- **Selection.** 150 accepted pairs per phenomenon, chosen at random with a fixed seed; 776 further accepted pairs (`data/benchmark/reserve.tsv`) can replace pairs that fail a later check.
 
 ## Repository layout
 
@@ -174,7 +175,7 @@ In short: models trained on about 100 MB or more of Uzbek text score 95–99% in
 - **Converted alphabets.** The Cyrillic and reformed versions are converted from Latin, not written natively. Russian loanwords can't all be recovered by rule: those found in the benchmark are corrected from a table, and suffixed forms of loans ending in ь (медални, моделлари) are left as converted. The 2026 law gives an alphabet and no spelling rules, so only its four letter replacements are applied.
 - **Review.** Judgments come from one native speaker, checked with three others; there is no linguist verification, independent agreement figure or human baseline yet.
 - **Models.** All evaluated models have at most 1.5 billion parameters (scored by likelihood on a CPU); larger open models and chat models are covered only by a 48-pair pilot.
-- **Size.** 150 pairs per phenomenon gives about ±6 points of precision per phenomenon.
+- **Size.** With 150 pairs, the 95% interval of a per-phenomenon accuracy is at most ±8 points.
 
 ## License
 
@@ -199,7 +200,7 @@ A paper is in preparation (`paper/`). Until then:
 | Person | Role |
 |---|---|
 | Kattabek Norbaev | Project lead: phenomena and design, corpus pair generator, native-speaker review of every pair, evaluation, paper draft |
-| Javohir Matniyozov | Rule-based pair generator and its 4,500 pairs (962 in the benchmark), second annotator sheet |
+| Javohir Matniyozov | Rule-based pair generator and its 4,500 pairs (959 in the benchmark), second annotator sheet |
 | Three native speakers | Checked the reviewed pairs (not named) |
 
 AI assistants (Claude) helped write code, import review decisions, run the model evaluation, audit the Cyrillic conversion and draft the paper, its glosses and the grammar explanations prepared for a later experiment; the authors check the results. The paper's AI-assistance statement gives the details.
