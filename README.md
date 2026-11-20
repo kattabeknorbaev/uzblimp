@@ -129,19 +129,19 @@ In short: models trained on about 100 MB or more of Uzbek text score 95–99% in
 <!-- results:start -->
 | Model | Method | Current Latin | Cyrillic | Reformed Latin |
 |---|---|---:|---:|---:|
-| GF-L 5MB (`goldfish-models/uzn_latn_5mb`) | logprob | 63.2 | 53.5 | — |
+| GF-L 5MB (`goldfish-models/uzn_latn_5mb`) | logprob | 63.3 | 53.4 | — |
 | GF-L 10MB (`goldfish-models/uzn_latn_10mb`) | logprob | 73.1 | 55.8 | — |
 | GF-L 100MB (`goldfish-models/uzn_latn_100mb`) | logprob | 95.8 | 88.3 | — |
-| GF-L full (`goldfish-models/uzn_latn_full`) | logprob | 96.7 | 91.7 | — |
+| GF-L full (`goldfish-models/uzn_latn_full`) | logprob | 96.7 | 91.6 | — |
 | GF-C 5MB (`goldfish-models/uzn_cyrl_5mb`) | logprob | 45.1 | 61.1 | — |
-| GF-C 10MB (`goldfish-models/uzn_cyrl_10mb`) | logprob | 40.3 | 65.0 | — |
-| GF-C 100MB (`goldfish-models/uzn_cyrl_100mb`) | logprob | 47.6 | 94.7 | — |
-| GF-C full (`goldfish-models/uzn_cyrl_full`) | logprob | 49.2 | 97.3 | — |
-| tahrirchi-bert (`tahrirchi/tahrirchi-bert-base`) | pll | 98.7 | 76.9 | 87.3 |
+| GF-C 10MB (`goldfish-models/uzn_cyrl_10mb`) | logprob | 40.2 | 65.1 | — |
+| GF-C 100MB (`goldfish-models/uzn_cyrl_100mb`) | logprob | 47.4 | 94.6 | — |
+| GF-C full (`goldfish-models/uzn_cyrl_full`) | logprob | 49.3 | 97.4 | — |
+| tahrirchi-bert (`tahrirchi/tahrirchi-bert-base`) | pll | 98.6 | 77.0 | 87.2 |
 | BERTbek (`elmurod1202/bertbek-news-big-cased`) | pll | 87.6 | — | — |
-| UzBERT (`coppercitylabs/uzbert-base-uncased`) | pll | — | 84.0 | — |
+| UzBERT (`coppercitylabs/uzbert-base-uncased`) | pll | — | 84.2 | — |
 | UzRoBERTa (`rifkat/uztext-3Gb-BPE-Roberta`) | pll | 93.3 | 96.4 | — |
-| Qwen2.5-0.5B (`Qwen/Qwen2.5-0.5B`) | logprob | 50.5 | 46.3 | 47.3 |
+| Qwen2.5-0.5B (`Qwen/Qwen2.5-0.5B`) | logprob | 50.5 | 46.2 | 47.0 |
 <!-- results:end -->
 
 ## How the pairs were made and checked
@@ -149,7 +149,7 @@ In short: models trained on about 100 MB or more of Uzbek text score 95–99% in
 - **Sources.** 959 pairs come from Javohir Matniyozov's rule-based pairs over `tahrirchi/uz-books-v2` (`data/external/`, generator in `scripts/jm_generator/`) and 1,441 from Kattabek Norbaev's generator (`scripts/make_pairs.py`) over books (929), Uzbek Wikipedia (502) and legal codes (10).
 - **Review.** Of 3,800 candidate pairs, 3,729 were reviewed and 3,267 (87.6%) accepted. Every pair was judged first by Kattabek Norbaev, a native speaker, and then checked with three other native speakers; for some phenomena an AI assistant was used as a consistency check. Rejected pairs keep their reason in `data/pairs_v*.tsv`.
 - **Audit of the selected pairs (v1.2).** The 2,400 selected pairs were screened in two passes with the help of an AI assistant: for generator errors (ungrammatical members that have a grammatical reading, edited words that are not an instance of the phenomenon, malformed forms) and for spelling or OCR errors in the source sentences (found by reading the most surprising words under the largest Latin Goldfish model). 76 pairs (3.2%) were replaced by the next accepted pairs of their phenomenon. Every excluded pair is listed with its reason in `data/benchmark/excluded.tsv` (91 pairs, including reserve pairs); **these exclusions still have to be confirmed by the authors.** Known weaknesses that were kept are described in the paper (Appendix A).
-- **Cyrillic audit (v1.2).** The 10,016 distinct word forms of the Cyrillic version were checked twice for Russian loanwords that Latin spells differently; 67 forms in 59 pairs were corrected (`scripts/alphabets.py`). Loanwords that were not recognised may remain.
+- **Cyrillic audit (v1.2).** The roughly 10,000 distinct word forms of the Cyrillic version were checked twice for Russian loanwords that Latin spells differently; 67 forms in 59 pairs were corrected (`scripts/alphabets.py`). Loanwords that were not recognised may remain.
 - **Not done yet.** No linguist has verified the pairs (`verified` is false everywhere), and no inter-annotator agreement is reported: the comparison in `results/agreement_KN_JM.md` doesn't count as one, because the two sets of judgments weren't made independently (`notes/decisions.md`, decision 20). [`human_study/`](human_study/README.md) holds ready-to-send sheets for a blind forced-choice check (320 pairs) and for acceptability ratings (2 × 96 sentences), with instructions in Uzbek and a scoring script.
 - **Selection.** 150 accepted pairs per phenomenon, chosen at random with a fixed seed; 776 further accepted pairs (`data/benchmark/reserve.tsv`) can replace pairs that fail a later check.
 

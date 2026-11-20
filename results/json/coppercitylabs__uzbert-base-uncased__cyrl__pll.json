@@ -6,8 +6,8 @@
   "script": "cyrl",
   "method": "pll",
   "n_pairs": 2400,
-  "accuracy": 84.0,
-  "accuracy_norm": 85.0,
+  "accuracy": 84.2,
+  "accuracy_norm": 85.1,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
@@ -31,8 +31,8 @@
     },
     "lexical_case": {
       "n": 150,
-      "correct": 121,
-      "accuracy": 80.7
+      "correct": 122,
+      "accuracy": 81.3
     },
     "nominalization": {
       "n": 150,
@@ -46,8 +46,8 @@
     },
     "numeral_no_plural": {
       "n": 150,
-      "correct": 130,
-      "accuracy": 86.7
+      "correct": 132,
+      "accuracy": 88.0
     },
     "passives": {
       "n": 150,
@@ -61,13 +61,13 @@
     },
     "possessive_agreement": {
       "n": 150,
-      "correct": 148,
-      "accuracy": 98.7
+      "correct": 149,
+      "accuracy": 99.3
     },
     "postposition_case": {
       "n": 150,
-      "correct": 123,
-      "accuracy": 82.0
+      "correct": 124,
+      "accuracy": 82.7
     },
     "quantifiers": {
       "n": 150,

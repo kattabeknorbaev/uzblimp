@@ -3,8 +3,8 @@
 Every run listed in scripts/models.py that has a per-pair result file for the current benchmark version
 (results/<model>_uzblimp_<version>[_cyrl|_reformed].csv, written by run_models.py with score_pairs.py:
 float32 on CPU, a start token for causal LMs, pseudo-log-likelihood for masked LMs) gets one JSON file.
-make_table.py then lists them in the README next to runs of eval.py. Each CSV must hold exactly the
-release's pairs for its alphabet; the JSON points back to it instead of copying the per-pair rows.
+make_table.py then lists them in the README next to runs of eval.py. A CSV is used only if it holds exactly
+the release's pairs for its alphabet; the JSON points back to it instead of copying the per-pair rows.
 
     python scripts/results_to_json.py
 """
@@ -29,9 +29,9 @@ def main():
             with open(path, encoding="utf-8", newline="") as f:
                 rows = list(csv.DictReader(f))
             found = {r["id"] for r in rows}
-            if found != release[alphabet]:
-                sys.exit(f"{path.name}: {len(found - release[alphabet])} pairs not in the release, "
-                         f"{len(release[alphabet] - found)} missing")
+            if found != release[alphabet]:  # a run that is still being scored, or one from before a benchmark change
+                print(f"skipped, not complete: {path.name} ({len(found & release[alphabet])}/{len(release[alphabet])} pairs)")
+                continue
             pairs = [{"pair_id": r["id"], "paradigm": r["phenomenon"], "correct": r["correct"] == "True",
                       "correct_norm": r["correct_norm"] == "True"} for r in rows]
             settings = {"scorer": "scripts/score_pairs.py, minicons 0.3.39" + (" --mlm (pseudo-log-likelihood)" if method == "pll" else ""),

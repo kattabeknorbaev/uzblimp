@@ -7,7 +7,7 @@
   "method": "pll",
   "n_pairs": 2400,
   "accuracy": 93.3,
-  "accuracy_norm": 93.1,
+  "accuracy_norm": 93.2,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
@@ -21,8 +21,8 @@
     },
     "dative_allomorphy": {
       "n": 150,
-      "correct": 133,
-      "accuracy": 88.7
+      "correct": 134,
+      "accuracy": 89.3
     },
     "ditransitive_dative": {
       "n": 150,
@@ -46,8 +46,8 @@
     },
     "numeral_no_plural": {
       "n": 150,
-      "correct": 139,
-      "accuracy": 92.7
+      "correct": 138,
+      "accuracy": 92.0
     },
     "passives": {
       "n": 150,

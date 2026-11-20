@@ -6,7 +6,7 @@
   "script": "latn",
   "method": "pll",
   "n_pairs": 2400,
-  "accuracy": 98.7,
+  "accuracy": 98.6,
   "accuracy_norm": 98.5,
   "per_phenomenon": {
     "anaphor_agreement": {
@@ -21,8 +21,8 @@
     },
     "dative_allomorphy": {
       "n": 150,
-      "correct": 139,
-      "accuracy": 92.7
+      "correct": 138,
+      "accuracy": 92.0
     },
     "ditransitive_dative": {
       "n": 150,

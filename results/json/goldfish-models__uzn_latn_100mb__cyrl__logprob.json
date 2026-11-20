@@ -21,8 +21,8 @@
     },
     "dative_allomorphy": {
       "n": 150,
-      "correct": 105,
-      "accuracy": 70.0
+      "correct": 106,
+      "accuracy": 70.7
     },
     "ditransitive_dative": {
       "n": 150,
@@ -46,13 +46,13 @@
     },
     "numeral_no_plural": {
       "n": 150,
-      "correct": 118,
-      "accuracy": 78.7
+      "correct": 117,
+      "accuracy": 78.0
     },
     "passives": {
       "n": 150,
-      "correct": 130,
-      "accuracy": 86.7
+      "correct": 131,
+      "accuracy": 87.3
     },
     "person_agreement": {
       "n": 150,

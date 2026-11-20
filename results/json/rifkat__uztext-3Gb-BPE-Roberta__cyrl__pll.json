@@ -21,8 +21,8 @@
     },
     "dative_allomorphy": {
       "n": 150,
-      "correct": 132,
-      "accuracy": 88.0
+      "correct": 133,
+      "accuracy": 88.7
     },
     "ditransitive_dative": {
       "n": 150,
@@ -81,8 +81,8 @@
     },
     "stem_alternation": {
       "n": 150,
-      "correct": 143,
-      "accuracy": 95.3
+      "correct": 142,
+      "accuracy": 94.7
     },
     "suspended_affixation": {
       "n": 150,

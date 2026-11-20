@@ -7,7 +7,7 @@
   "method": "logprob",
   "n_pairs": 2400,
   "accuracy": 96.7,
-  "accuracy_norm": 95.2,
+  "accuracy_norm": 95.3,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,

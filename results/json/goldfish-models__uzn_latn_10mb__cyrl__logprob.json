@@ -7,7 +7,7 @@
   "method": "logprob",
   "n_pairs": 2400,
   "accuracy": 55.8,
-  "accuracy_norm": 61.5,
+  "accuracy_norm": 61.6,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
@@ -21,8 +21,8 @@
     },
     "dative_allomorphy": {
       "n": 150,
-      "correct": 40,
-      "accuracy": 26.7
+      "correct": 39,
+      "accuracy": 26.0
     },
     "ditransitive_dative": {
       "n": 150,
@@ -31,8 +31,8 @@
     },
     "lexical_case": {
       "n": 150,
-      "correct": 94,
-      "accuracy": 62.7
+      "correct": 95,
+      "accuracy": 63.3
     },
     "nominalization": {
       "n": 150,
@@ -61,8 +61,8 @@
     },
     "possessive_agreement": {
       "n": 150,
-      "correct": 113,
-      "accuracy": 75.3
+      "correct": 114,
+      "accuracy": 76.0
     },
     "postposition_case": {
       "n": 150,

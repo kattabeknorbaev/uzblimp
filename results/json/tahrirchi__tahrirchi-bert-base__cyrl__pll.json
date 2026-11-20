@@ -6,8 +6,8 @@
   "script": "cyrl",
   "method": "pll",
   "n_pairs": 2400,
-  "accuracy": 76.9,
-  "accuracy_norm": 76.3,
+  "accuracy": 77.0,
+  "accuracy_norm": 76.5,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
@@ -21,8 +21,8 @@
     },
     "dative_allomorphy": {
       "n": 150,
-      "correct": 73,
-      "accuracy": 48.7
+      "correct": 75,
+      "accuracy": 50.0
     },
     "ditransitive_dative": {
       "n": 150,
@@ -46,13 +46,13 @@
     },
     "numeral_no_plural": {
       "n": 150,
-      "correct": 107,
-      "accuracy": 71.3
+      "correct": 108,
+      "accuracy": 72.0
     },
     "passives": {
       "n": 150,
-      "correct": 122,
-      "accuracy": 81.3
+      "correct": 121,
+      "accuracy": 80.7
     },
     "person_agreement": {
       "n": 150,
@@ -61,8 +61,8 @@
     },
     "possessive_agreement": {
       "n": 150,
-      "correct": 112,
-      "accuracy": 74.7
+      "correct": 113,
+      "accuracy": 75.3
     },
     "postposition_case": {
       "n": 150,
@@ -81,8 +81,8 @@
     },
     "stem_alternation": {
       "n": 150,
-      "correct": 144,
-      "accuracy": 96.0
+      "correct": 143,
+      "accuracy": 95.3
     },
     "suspended_affixation": {
       "n": 150,

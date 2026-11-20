@@ -6,8 +6,8 @@
   "script": "latn",
   "method": "logprob",
   "n_pairs": 2400,
-  "accuracy": 63.2,
-  "accuracy_norm": 68.4,
+  "accuracy": 63.3,
+  "accuracy_norm": 68.6,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
@@ -31,8 +31,8 @@
     },
     "lexical_case": {
       "n": 150,
-      "correct": 94,
-      "accuracy": 62.7
+      "correct": 95,
+      "accuracy": 63.3
     },
     "nominalization": {
       "n": 150,
@@ -46,13 +46,13 @@
     },
     "numeral_no_plural": {
       "n": 150,
-      "correct": 112,
-      "accuracy": 74.7
+      "correct": 111,
+      "accuracy": 74.0
     },
     "passives": {
       "n": 150,
-      "correct": 96,
-      "accuracy": 64.0
+      "correct": 97,
+      "accuracy": 64.7
     },
     "person_agreement": {
       "n": 150,
@@ -86,8 +86,8 @@
     },
     "suspended_affixation": {
       "n": 150,
-      "correct": 47,
-      "accuracy": 31.3
+      "correct": 48,
+      "accuracy": 32.0
     }
   },
   "settings": {

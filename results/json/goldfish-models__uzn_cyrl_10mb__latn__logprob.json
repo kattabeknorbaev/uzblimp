@@ -6,7 +6,7 @@
   "script": "latn",
   "method": "logprob",
   "n_pairs": 2400,
-  "accuracy": 40.3,
+  "accuracy": 40.2,
   "accuracy_norm": 51.0,
   "per_phenomenon": {
     "anaphor_agreement": {
@@ -46,8 +46,8 @@
     },
     "numeral_no_plural": {
       "n": 150,
-      "correct": 147,
-      "accuracy": 98.0
+      "correct": 148,
+      "accuracy": 98.7
     },
     "passives": {
       "n": 150,
@@ -61,8 +61,8 @@
     },
     "possessive_agreement": {
       "n": 150,
-      "correct": 102,
-      "accuracy": 68.0
+      "correct": 100,
+      "accuracy": 66.7
     },
     "postposition_case": {
       "n": 150,
@@ -81,8 +81,8 @@
     },
     "stem_alternation": {
       "n": 150,
-      "correct": 109,
-      "accuracy": 72.7
+      "correct": 108,
+      "accuracy": 72.0
     },
     "suspended_affixation": {
       "n": 150,

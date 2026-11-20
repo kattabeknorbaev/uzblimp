@@ -7,7 +7,7 @@
   "method": "logprob",
   "n_pairs": 2400,
   "accuracy": 95.8,
-  "accuracy_norm": 94.5,
+  "accuracy_norm": 94.6,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
@@ -41,8 +41,8 @@
     },
     "npi_hech": {
       "n": 150,
-      "correct": 139,
-      "accuracy": 92.7
+      "correct": 140,
+      "accuracy": 93.3
     },
     "numeral_no_plural": {
       "n": 150,

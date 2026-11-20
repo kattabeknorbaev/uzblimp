@@ -542,6 +542,8 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
         morph = int(hard.phenomenon.isin(["dative_allomorphy", "stem_alternation"]).sum())
         num("hard@morph", morph, 0)
         num("hard@binding", int((hard.phenomenon == "binding").sum()), 0)
+        num("hard@all", int((wrong == len(strongest)).sum()), 0)
+        assert list(wrong.index[wrong == len(strongest)]) == ["dative_allomorphy-1028"]  # the example named in the text
     norm = bench.grammatical.str.lower().str.replace(r"[^\w]+", " ", regex=True).str.strip()
     dup = bench[norm.duplicated(keep=False)].assign(norm=norm)
     within = sum(g.phenomenon.nunique() == 1 for _, g in dup.groupby("norm"))
