@@ -113,3 +113,15 @@ timestamp,model,dataset,n_pairs,accuracy,bos,device,dtype,n_params_M,acc_norm,sc
 2026-11-20T15:40:35,goldfish-models/uzn_latn_5mb,uzblimp_v1.2_cyrl,2400,0.5346,,,,,0.5612,,,carried over from uzn_latn_5mb_uzblimp_v1.2_cyrl.csv; 63 pairs scored
 2026-11-20T15:40:48,goldfish-models/uzn_latn_10mb,uzblimp_v1.2,2400,0.7308,,,,,0.7546,,,carried over from uzn_latn_10mb_uzblimp_v1.2.csv; 44 pairs scored
 2026-11-20T15:41:51,goldfish-models/uzn_latn_10mb,uzblimp_v1.2_cyrl,2400,0.5579,,,,,0.6154,,,carried over from uzn_latn_10mb_uzblimp_v1.2_cyrl.csv; 63 pairs scored
+2026-11-20T15:43:44,goldfish-models/uzn_latn_100mb,uzblimp_v1.2,2400,0.9575,,,,,0.9454,,,carried over from uzn_latn_100mb_uzblimp_v1.2.csv and uzn_latn_100mb_uzblimp_v1.1.csv; 44 pairs scored
+2026-11-20T15:45:12,goldfish-models/uzn_latn_100mb,uzblimp_v1.2_cyrl,2400,0.8829,,,,,0.8533,,,carried over from uzn_latn_100mb_uzblimp_v1.2_cyrl.csv and uzn_latn_100mb_uzblimp_v1.1_cyrl.csv; 63 pairs scored
+2026-11-20T15:45:33,goldfish-models/uzn_latn_full,uzblimp_v1.2,2400,0.9671,,,,,0.9525,,,carried over from uzn_latn_full_uzblimp_v1.2.csv; 44 pairs scored
+2026-11-20T15:48:50,goldfish-models/uzn_latn_full,uzblimp_v1.2_cyrl,2400,0.9167,,,,,0.8812,,,carried over from uzn_latn_full_uzblimp_v1.2_cyrl.csv; 63 pairs scored
+2026-11-20T15:49:25,goldfish-models/uzn_cyrl_5mb,uzblimp_v1.2,2400,0.4508,,,,,0.5121,,,carried over from uzn_cyrl_5mb_uzblimp_v1.2.csv; 44 pairs scored
+2026-11-20T15:49:51,goldfish-models/uzn_cyrl_5mb,uzblimp_v1.2_cyrl,2400,0.6112,,,,,0.6688,,,carried over from uzn_cyrl_5mb_uzblimp_v1.2_cyrl.csv; 63 pairs scored
+2026-11-20T15:50:41,goldfish-models/uzn_cyrl_10mb,uzblimp_v1.2,2400,0.4029,,,,,0.51,,,carried over from uzn_cyrl_10mb_uzblimp_v1.2.csv; 44 pairs scored
+2026-11-20T15:51:01,goldfish-models/uzn_cyrl_10mb,uzblimp_v1.2_cyrl,2400,0.6504,,,,,0.7146,,,carried over from uzn_cyrl_10mb_uzblimp_v1.2_cyrl.csv; 63 pairs scored
+2026-11-20T15:54:07,goldfish-models/uzn_cyrl_100mb,uzblimp_v1.2,2400,0.4758,,,,,0.5358,,,carried over from uzn_cyrl_100mb_uzblimp_v1.2.csv and uzn_cyrl_100mb_uzblimp_v1.1.csv; 44 pairs scored
+2026-11-20T15:54:32,goldfish-models/uzn_cyrl_100mb,uzblimp_v1.2_cyrl,2400,0.9467,,,,,0.9354,,,carried over from uzn_cyrl_100mb_uzblimp_v1.2_cyrl.csv and uzn_cyrl_100mb_uzblimp_v1.1_cyrl.csv; 63 pairs scored
+2026-11-20T15:56:45,goldfish-models/uzn_cyrl_full,uzblimp_v1.2,2400,0.4921,,,,,0.5558,,,carried over from uzn_cyrl_full_uzblimp_v1.2.csv; 44 pairs scored
+2026-11-20T15:58:28,goldfish-models/uzn_cyrl_full,uzblimp_v1.2_cyrl,2400,0.9733,,,,,0.9562,,,carried over from uzn_cyrl_full_uzblimp_v1.2_cyrl.csv; 63 pairs scored

@@ -29,22 +29,22 @@
       "sentences": 4800,
       "unk_sentences": 3910,
       "unk_pct": 81.5,
-      "tokens_per_sentence": 33.63,
-      "tokens_per_word": 3.83
+      "tokens_per_sentence": 33.59,
+      "tokens_per_word": 3.832
     },
     "Cyrillic": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 12.98,
-      "tokens_per_word": 1.479
+      "tokens_per_sentence": 12.97,
+      "tokens_per_word": 1.48
     },
     "Reformed": {
       "sentences": 4800,
       "unk_sentences": 4603,
       "unk_pct": 95.9,
-      "tokens_per_sentence": 34.33,
-      "tokens_per_word": 3.91
+      "tokens_per_sentence": 34.29,
+      "tokens_per_word": 3.911
     }
   },
   "GF-L 100MB": {
@@ -77,22 +77,22 @@
       "sentences": 4800,
       "unk_sentences": 3910,
       "unk_pct": 81.5,
-      "tokens_per_sentence": 32.99,
-      "tokens_per_word": 3.758
+      "tokens_per_sentence": 32.96,
+      "tokens_per_word": 3.76
     },
     "Cyrillic": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 12.42,
-      "tokens_per_word": 1.414
+      "tokens_per_sentence": 12.41,
+      "tokens_per_word": 1.416
     },
     "Reformed": {
       "sentences": 4800,
       "unk_sentences": 4603,
       "unk_pct": 95.9,
-      "tokens_per_sentence": 33.91,
-      "tokens_per_word": 3.862
+      "tokens_per_sentence": 33.87,
+      "tokens_per_word": 3.863
     }
   },
   "tahrirchi-bert": {
@@ -101,22 +101,22 @@
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 15.98,
-      "tokens_per_word": 1.82
+      "tokens_per_sentence": 15.97,
+      "tokens_per_word": 1.822
     },
     "Cyrillic": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 30.7,
-      "tokens_per_word": 3.496
+      "tokens_per_sentence": 30.67,
+      "tokens_per_word": 3.499
     },
     "Reformed": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
       "tokens_per_sentence": 19.21,
-      "tokens_per_word": 2.188
+      "tokens_per_word": 2.192
     }
   },
   "Qwen2.5-0.5B": {
@@ -173,22 +173,22 @@
       "sentences": 4800,
       "unk_sentences": 3910,
       "unk_pct": 81.5,
-      "tokens_per_sentence": 34.04,
-      "tokens_per_word": 3.877
+      "tokens_per_sentence": 34.01,
+      "tokens_per_word": 3.879
     },
     "Cyrillic": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
       "tokens_per_sentence": 12.77,
-      "tokens_per_word": 1.455
+      "tokens_per_word": 1.456
     },
     "Reformed": {
       "sentences": 4800,
       "unk_sentences": 4603,
       "unk_pct": 95.9,
-      "tokens_per_sentence": 34.89,
-      "tokens_per_word": 3.974
+      "tokens_per_sentence": 34.86,
+      "tokens_per_word": 3.976
     }
   },
   "GF-L full": {
@@ -197,22 +197,22 @@
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 15.33,
-      "tokens_per_word": 1.746
+      "tokens_per_sentence": 15.32,
+      "tokens_per_word": 1.747
     },
     "Cyrillic": {
       "sentences": 4800,
-      "unk_sentences": 1415,
-      "unk_pct": 29.5,
-      "tokens_per_sentence": 17.64,
-      "tokens_per_word": 2.009
+      "unk_sentences": 1433,
+      "unk_pct": 29.9,
+      "tokens_per_sentence": 17.63,
+      "tokens_per_word": 2.011
     },
     "Reformed": {
       "sentences": 4800,
-      "unk_sentences": 3950,
-      "unk_pct": 82.3,
+      "unk_sentences": 3954,
+      "unk_pct": 82.4,
       "tokens_per_sentence": 17.73,
-      "tokens_per_word": 2.019
+      "tokens_per_word": 2.023
     }
   },
   "GF-C full": {
@@ -221,22 +221,22 @@
       "sentences": 4800,
       "unk_sentences": 3910,
       "unk_pct": 81.5,
-      "tokens_per_sentence": 32.99,
-      "tokens_per_word": 3.758
+      "tokens_per_sentence": 32.96,
+      "tokens_per_word": 3.76
     },
     "Cyrillic": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 12.42,
-      "tokens_per_word": 1.414
+      "tokens_per_sentence": 12.41,
+      "tokens_per_word": 1.416
     },
     "Reformed": {
       "sentences": 4800,
       "unk_sentences": 4603,
       "unk_pct": 95.9,
-      "tokens_per_sentence": 33.91,
-      "tokens_per_word": 3.862
+      "tokens_per_sentence": 33.87,
+      "tokens_per_word": 3.863
     }
   },
   "UzBERT": {
