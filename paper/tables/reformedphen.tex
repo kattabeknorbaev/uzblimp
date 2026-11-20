@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{2.6pt}
+\begin{tabular}{@{}llrrrrrrrrrrrrrrrrr@{}}
+\toprule
+Model & & Ana & LexC & Ditr & Bind & Stem & NPI & Susp & Nmlz & Pers & Pass & Rel & Quan & Num & Post & Poss & Dat & Avg. \\
+\midrule
+\multicolumn{19}{@{}l}{\textit{Uzbek encoders}} \\
+tahrirchi-bert & R & 86.7 & 87.3 & 98.7 & \cellcolor{black!12}29.3 & 84.0 & 61.3 & 98.0 & 74.7 & 99.3 & 98.0 & 95.3 & 98.0 & 96.0 & 100.0 & 100.0 & 90.7 & \textbf{87.3} \\
+\midrule
+\multicolumn{19}{@{}l}{\textit{Multilingual LMs}} \\
+Qwen2.5-0.5B & R & \cellcolor{black!12}42.0 & \cellcolor{black!12}28.0 & \cellcolor{black!12}39.3 & \cellcolor{black!12}4.0 & 57.3 & \cellcolor{black!12}13.3 & 59.3 & \cellcolor{black!12}19.3 & \cellcolor{black!12}46.7 & 54.0 & \cellcolor{black!12}44.7 & 82.7 & 86.7 & 72.0 & 70.7 & \cellcolor{black!12}37.3 & \textbf{47.3} \\
+\bottomrule
+\end{tabular}
+\caption{Accuracy (\%) per phenomenon on reformed Latin (R), for the models whose tokenizer covers the new letters. Cells below chance are shaded.}
+\label{tab:reformedphen}
+\end{table*}

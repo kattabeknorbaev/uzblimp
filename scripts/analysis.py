@@ -6,7 +6,6 @@ files (results/*.csv). Only pandas and numpy are needed.
 import csv
 import difflib
 import math
-import random
 from pathlib import Path
 
 import numpy as np
@@ -116,32 +115,6 @@ def holm(pvalues):
     return adjusted
 
 
-def logistic(X, y, iterations=50):
-    """Logistic regression by iteratively reweighted least squares.
-    X: (n, k) predictors without the intercept; returns (coefficients incl. intercept, standard errors)."""
-    X = np.column_stack([np.ones(len(X)), np.asarray(X, dtype=float)])
-    y = np.asarray(y, dtype=float)
-    beta = np.zeros(X.shape[1])
-    for _ in range(iterations):
-        p = 1 / (1 + np.exp(-np.clip(X @ beta, -30, 30)))
-        w = np.clip(p * (1 - p), 1e-9, None)
-        hessian = X.T @ (X * w[:, None]) + 1e-8 * np.eye(X.shape[1])
-        step = np.linalg.solve(hessian, X.T @ (y - p))
-        beta += step
-        if np.abs(step).max() < 1e-8:
-            break
-    return beta, np.sqrt(np.diag(np.linalg.inv(hessian)))
-
-
-def ols_r2(X, y):
-    """R squared of an ordinary least-squares fit of y on X (with intercept)."""
-    X = np.column_stack([np.ones(len(X)), np.asarray(X, dtype=float)])
-    y = np.asarray(y, dtype=float)
-    resid = y - X @ np.linalg.lstsq(X, y, rcond=None)[0]
-    total = ((y - y.mean()) ** 2).sum()
-    return 1 - (resid ** 2).sum() / total if total else float("nan")
-
-
 def selftest():
     fails = 0
 
@@ -155,11 +128,6 @@ def selftest():
     check("exact McNemar 10 vs 2 is about 0.039", abs(mcnemar_exact(10, 2) - 0.0386) < 0.001)
     check("exact McNemar with no discordant pairs is 1", mcnemar_exact(0, 0) == 1.0)
     check("Holm keeps the smallest p times m", holm([0.01, 0.04, 0.03])[0] == 0.03 and holm([0.01, 0.04, 0.03])[1] == 0.06)
-    rng = random.Random(0)
-    x = [rng.gauss(0, 1) for _ in range(4000)]
-    y = [rng.random() < 1 / (1 + math.exp(-(0.5 + 1.5 * v))) for v in x]
-    beta, se = logistic(np.array(x)[:, None], y)
-    check("logistic regression recovers intercept 0.5 and slope 1.5", abs(beta[0] - 0.5) < 0.15 and abs(beta[1] - 1.5) < 0.2)
     a = pd.Series([True] * 90 + [False] * 10)
     b = pd.Series([True] * 80 + [False] * 20)
     d, lo, hi, p, n, n10, n01 = paired(a, b)

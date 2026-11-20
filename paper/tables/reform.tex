@@ -1,17 +1,16 @@
 \begin{table}[t]
 \centering\small
-\begin{tabular}{lrrrr}
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lrrrrrr@{}}
 \toprule
-New letters in & $n$ & Current & Reformed & $\Delta$ \\
+ & & & \multicolumn{4}{c}{Change by where new letters fall} \\
+\cmidrule(l){4-7}
+Model & Cur. & Ref. & both & gr. & other & none \\
 \midrule
-Critical word: both members & 819 & 99.1 & 87.8 & -11.4 \\
-Critical word: grammatical only & 251 & 99.6 & 44.2 & -55.4 \\
-Other words only & 1208 & 98.0 & 94.9 & -3.1 \\
-Unchanged & 122 & 98.4 & 98.4 & +0.0 \\
-\midrule
-All & 2400 & 98.6 & 87.3 & -11.3 \\
+tahrirchi-bert & 98.6 & 87.3 & -11.4 & -55.4 & -3.1 & +0.0 \\
+Qwen2.5-0.5B & 50.5 & 47.3 & -6.0 & -27.9 & +3.5 & +0.0 \\
 \bottomrule
 \end{tabular}
-\caption{tahrirchi-bert on current vs reformed (2026) Latin, by where the new letters (\"o, \u{g}, \c{s}, \c{c}) fall. \emph{Grammatical only}: only the grammatical member's changed word contains a new letter (e.g.\ \textit{\"ozimni} vs \textit{meni}).}
+\caption{Current against reformed Latin for the models whose tokenizer covers the new letters: accuracy (\%) on all pairs, and the change in points for pairs whose new letters (\"o, \u{g}, \c{s}, \c{c}) fall in the edited word of \emph{both} members ($n=819$), in the edited word of the \emph{gr}ammatical member only ($n=251$), only in \emph{other} words ($n=1208$), or nowhere ($n=122$).}
 \label{tab:reform}
 \end{table}

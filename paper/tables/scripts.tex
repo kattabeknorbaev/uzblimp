@@ -1,16 +1,29 @@
 \begin{table}[t]
 \centering\small
-\begin{tabular}{lrrr}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llrrr@{}}
 \toprule
-Comparison & $\Delta$ & 95\% CI & $p$ \\
+Model & Uzbek data & Latin & Cyr. & Ref. \\
 \midrule
-Matched: GF-L on Latin vs GF-C on Cyrillic & +1.1 & [+0.1, +2.2] & 0.044 \\
-GF-L: Latin vs Cyrillic text & +7.2 & [+5.9, +8.6] & 3.6e-23 \\
-BERT: Latin vs Cyrillic text & +21.7 & [+20.1, +23.4] & 5.8e-108 \\
-BERT: current vs reformed Latin & +11.3 & [+9.9, +12.6] & 1.8e-55 \\
-Qwen: Latin vs Cyrillic text & +4.4 & [+2.0, +6.8] & 0.00031 \\
+\multicolumn{5}{@{}l}{\textit{Goldfish (Latin)}} \\
+GF-L 5MB & Latin & \textbf{63.3} & 53.6 & -- \\
+GF-L 10MB & Latin & \textbf{73.2} & 55.9 & -- \\
+GF-L 100MB & Latin & \textbf{95.7} & 88.5 & -- \\
+GF-L full & Latin & \textbf{96.7} & 91.5 & -- \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Goldfish (Cyrillic)}} \\
+GF-C 5MB & Cyrillic & 45.2 & \textbf{61.4} & -- \\
+GF-C 10MB & Cyrillic & 40.6 & \textbf{65.2} & -- \\
+GF-C 100MB & Cyrillic & 47.6 & \textbf{94.6} & -- \\
+GF-C full & Cyrillic & 49.4 & \textbf{97.4} & -- \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Uzbek encoders}} \\
+tahrirchi-bert & Latin & \textbf{98.6} & 76.8 & 87.3 \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Multilingual LMs}} \\
+Qwen2.5-0.5B & multilingual & 50.5 & 46.2 & 47.3 \\
 \bottomrule
 \end{tabular}
-\caption{Paired comparisons on the same 2,400 pairs: accuracy difference (points), bootstrap 95\% CI and McNemar's $p$.}
+\caption{Accuracy (\%) on all 2,400 pairs in each alphabet; chance is 50. \emph{Uzbek data}: script of the model's Uzbek training text. For models trained on one script the score in that script is in bold. Reformed Latin is scored only when the tokenizer produces no unknown token on it (Appendix~\ref{app:tokenizers}). The 95\% Wilson interval of a score is at most $\pm$2 points.}
 \label{tab:scripts}
 \end{table}

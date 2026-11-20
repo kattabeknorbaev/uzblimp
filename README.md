@@ -126,10 +126,16 @@ Accuracy (%) on all 2,400 pairs. **logprob**: causal LM log-probability; **pll**
 <!-- results:start -->
 | Model | Method | Current Latin | Cyrillic | Reformed Latin |
 |---|---|---:|---:|---:|
-| Goldfish-cyrl (`goldfish-models/uzn_cyrl_100mb`) | logprob | 47.6 | 94.6 | — |
-| Goldfish-latn (`goldfish-models/uzn_latn_100mb`) | logprob | 95.7 | 88.5 | — |
+| GF-L 5MB (`goldfish-models/uzn_latn_5mb`) | logprob | 63.3 | 53.6 | — |
+| GF-L 10MB (`goldfish-models/uzn_latn_10mb`) | logprob | 73.2 | 55.9 | — |
+| GF-L 100MB (`goldfish-models/uzn_latn_100mb`) | logprob | 95.7 | 88.5 | — |
+| GF-L full (`goldfish-models/uzn_latn_full`) | logprob | 96.7 | 91.5 | — |
+| GF-C 5MB (`goldfish-models/uzn_cyrl_5mb`) | logprob | 45.2 | 61.4 | — |
+| GF-C 10MB (`goldfish-models/uzn_cyrl_10mb`) | logprob | 40.6 | 65.2 | — |
+| GF-C 100MB (`goldfish-models/uzn_cyrl_100mb`) | logprob | 47.6 | 94.6 | — |
+| GF-C full (`goldfish-models/uzn_cyrl_full`) | logprob | 49.4 | 97.4 | — |
+| tahrirchi-bert (`tahrirchi/tahrirchi-bert-base`) | pll | 98.6 | 76.8 | 87.3 |
 | Qwen2.5-0.5B (`Qwen/Qwen2.5-0.5B`) | logprob | 50.5 | 46.2 | 47.3 |
-| tahrirchi-bert (`tahrirchi/tahrirchi-bert-base`) | pll | 98.6 | 76.9 | 87.3 |
 <!-- results:end -->
 
 ## How the pairs were made and checked

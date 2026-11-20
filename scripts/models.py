@@ -26,34 +26,34 @@ RELEASE_SCRIPT = {"Latin": "latn", "Cyrillic": "cyrl", "Reformed": "latn_reforme
 # group      table section
 # trained    script of the Uzbek text the model was trained on: latn, cyrl, both (multilingual models: what
 #            their Uzbek data is believed to contain), or none
-# params     parameters in millions, as counted when the model was loaded (None until it has been run)
+# params     number of parameters, as given by the model's authors or card
 # size       Goldfish only: training-data size label
 MODELS = [
     # Monolingual causal LMs: the Goldfish data-size ladder in each script (Chang et al., 2024)
-    dict(key="GF-L 5MB", hf="goldfish-models/uzn_latn_5mb", method="logprob", group="Goldfish (Latin)", trained="latn", size="5MB"),
-    dict(key="GF-L 10MB", hf="goldfish-models/uzn_latn_10mb", method="logprob", group="Goldfish (Latin)", trained="latn", size="10MB"),
-    dict(key="GF-L 100MB", hf="goldfish-models/uzn_latn_100mb", method="logprob", group="Goldfish (Latin)", trained="latn", size="100MB"),
-    dict(key="GF-L full", hf="goldfish-models/uzn_latn_full", method="logprob", group="Goldfish (Latin)", trained="latn", size="full"),
-    dict(key="GF-C 5MB", hf="goldfish-models/uzn_cyrl_5mb", method="logprob", group="Goldfish (Cyrillic)", trained="cyrl", size="5MB"),
-    dict(key="GF-C 10MB", hf="goldfish-models/uzn_cyrl_10mb", method="logprob", group="Goldfish (Cyrillic)", trained="cyrl", size="10MB"),
-    dict(key="GF-C 100MB", hf="goldfish-models/uzn_cyrl_100mb", method="logprob", group="Goldfish (Cyrillic)", trained="cyrl", size="100MB"),
-    dict(key="GF-C full", hf="goldfish-models/uzn_cyrl_full", method="logprob", group="Goldfish (Cyrillic)", trained="cyrl", size="full"),
+    dict(key="GF-L 5MB", hf="goldfish-models/uzn_latn_5mb", params="39M", method="logprob", group="Goldfish (Latin)", trained="latn", size="5MB"),
+    dict(key="GF-L 10MB", hf="goldfish-models/uzn_latn_10mb", params="39M", method="logprob", group="Goldfish (Latin)", trained="latn", size="10MB"),
+    dict(key="GF-L 100MB", hf="goldfish-models/uzn_latn_100mb", params="125M", method="logprob", group="Goldfish (Latin)", trained="latn", size="100MB"),
+    dict(key="GF-L full", hf="goldfish-models/uzn_latn_full", params="125M", method="logprob", group="Goldfish (Latin)", trained="latn", size="full"),
+    dict(key="GF-C 5MB", hf="goldfish-models/uzn_cyrl_5mb", params="39M", method="logprob", group="Goldfish (Cyrillic)", trained="cyrl", size="5MB"),
+    dict(key="GF-C 10MB", hf="goldfish-models/uzn_cyrl_10mb", params="39M", method="logprob", group="Goldfish (Cyrillic)", trained="cyrl", size="10MB"),
+    dict(key="GF-C 100MB", hf="goldfish-models/uzn_cyrl_100mb", params="125M", method="logprob", group="Goldfish (Cyrillic)", trained="cyrl", size="100MB"),
+    dict(key="GF-C full", hf="goldfish-models/uzn_cyrl_full", params="125M", method="logprob", group="Goldfish (Cyrillic)", trained="cyrl", size="full"),
     # Uzbek masked LMs
-    dict(key="tahrirchi-bert", hf="tahrirchi/tahrirchi-bert-base", method="pll", group="Uzbek encoders", trained="latn"),
-    dict(key="tahrirchi-bert-small", hf="tahrirchi/tahrirchi-bert-small", method="pll", group="Uzbek encoders", trained="latn"),
-    dict(key="BERTbek", hf="elmurod1202/bertbek-news-big-cased", method="pll", group="Uzbek encoders", trained="latn"),
-    dict(key="UzBERT", hf="coppercitylabs/uzbert-base-uncased", method="pll", group="Uzbek encoders", trained="cyrl"),
-    dict(key="UzRoBERTa", hf="rifkat/uztext-3Gb-BPE-Roberta", method="pll", group="Uzbek encoders", trained="both"),
+    dict(key="tahrirchi-bert", hf="tahrirchi/tahrirchi-bert-base", params="110M", method="pll", group="Uzbek encoders", trained="latn"),
+    dict(key="tahrirchi-bert-small", hf="tahrirchi/tahrirchi-bert-small", params="67M", method="pll", group="Uzbek encoders", trained="latn"),
+    dict(key="BERTbek", hf="elmurod1202/bertbek-news-big-cased", params="110M", method="pll", group="Uzbek encoders", trained="latn"),
+    dict(key="UzBERT", hf="coppercitylabs/uzbert-base-uncased", params="110M", method="pll", group="Uzbek encoders", trained="cyrl"),
+    dict(key="UzRoBERTa", hf="rifkat/uztext-3Gb-BPE-Roberta", params="84M", method="pll", group="Uzbek encoders", trained="both"),
     # Multilingual masked LMs
-    dict(key="mBERT", hf="google-bert/bert-base-multilingual-cased", method="pll", group="Multilingual encoders", trained="multi"),
-    dict(key="XLM-R base", hf="FacebookAI/xlm-roberta-base", method="pll", group="Multilingual encoders", trained="multi"),
-    dict(key="Glot500", hf="cis-lmu/glot500-base", method="pll", group="Multilingual encoders", trained="multi"),
-    dict(key="XLM-R large", hf="FacebookAI/xlm-roberta-large", method="pll", group="Multilingual encoders", trained="multi"),
+    dict(key="mBERT", hf="google-bert/bert-base-multilingual-cased", params="179M", method="pll", group="Multilingual encoders", trained="multi"),
+    dict(key="XLM-R base", hf="FacebookAI/xlm-roberta-base", params="279M", method="pll", group="Multilingual encoders", trained="multi"),
+    dict(key="Glot500", hf="cis-lmu/glot500-base", params="395M", method="pll", group="Multilingual encoders", trained="multi"),
+    dict(key="XLM-R large", hf="FacebookAI/xlm-roberta-large", params="561M", method="pll", group="Multilingual encoders", trained="multi"),
     # Multilingual causal LMs
-    dict(key="Qwen2.5-0.5B", hf="Qwen/Qwen2.5-0.5B", method="logprob", group="Multilingual LMs", trained="multi"),
-    dict(key="Qwen2.5-1.5B", hf="Qwen/Qwen2.5-1.5B", method="logprob", group="Multilingual LMs", trained="multi"),
-    dict(key="mGPT", hf="ai-forever/mGPT", method="logprob", group="Multilingual LMs", trained="multi"),
-    dict(key="mGPT-Uzbek", hf="ai-forever/mGPT-1.3B-uzbek", method="logprob", group="Multilingual LMs", trained="multi"),
+    dict(key="Qwen2.5-0.5B", hf="Qwen/Qwen2.5-0.5B", params="0.5B", method="logprob", group="Multilingual LMs", trained="multi"),
+    dict(key="Qwen2.5-1.5B", hf="Qwen/Qwen2.5-1.5B", params="1.5B", method="logprob", group="Multilingual LMs", trained="multi"),
+    dict(key="mGPT", hf="ai-forever/mGPT", params="1.3B", method="logprob", group="Multilingual LMs", trained="multi"),
+    dict(key="mGPT-Uzbek", hf="ai-forever/mGPT-1.3B-uzbek", params="1.3B", method="logprob", group="Multilingual LMs", trained="multi"),
 ]
 
 # File stems of the four runs made with score_pairs.py before the registry ({v} = version).

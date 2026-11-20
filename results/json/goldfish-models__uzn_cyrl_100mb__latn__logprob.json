@@ -1,8 +1,8 @@
 {
   "benchmark": "UzBLiMP",
-  "version": "v1.1",
+  "version": "v1.2",
   "model": "goldfish-models/uzn_cyrl_100mb",
-  "label": "Goldfish-cyrl",
+  "label": "GF-C 100MB",
   "script": "latn",
   "method": "logprob",
   "n_pairs": 2400,
@@ -95,7 +95,7 @@
     "dtype": "float32",
     "device": "cpu",
     "bos": true,
-    "per_pair": "results/uzn_cyrl_100mb_uzblimp_v1.1.csv"
+    "per_pair": "results/uzn_cyrl_100mb_uzblimp_v1.2.csv"
   },
-  "date": "2026-11-01"
+  "date": "2026-11-20"
 }

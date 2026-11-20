@@ -1,17 +1,21 @@
 \begin{table}[t]
 \centering\small
-\begin{tabular}{llrrr}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llrrrr@{}}
 \toprule
-Model & Text & Longer & Equal & Shorter \\
+ & & \multicolumn{3}{c}{Ungrammatical member has} & \\
+\cmidrule(lr){3-5}
+Model & Text & fewer & same & more & $\Delta$ \\
 \midrule
-tahrirchi-bert & Latin & 99.0 & 98.0 & 98.8 \\
-tahrirchi-bert & Cyrillic & 83.0 & 84.4 & 68.4 \\
-tahrirchi-bert & Reformed & 95.6 & 92.3 & 79.7 \\
-Goldfish-latn & Latin & 96.6 & 95.6 & 95.4 \\
-Goldfish-latn & Cyrillic & 90.2 & 89.5 & 87.0 \\
-Qwen2.5-0.5B & Latin & 81.4 & 49.2 & 37.3 \\
+GF-L full & Latin & 89.4 & 97.5 & 98.0 & +8.6 \\
+GF-L full & Cyrillic & 78.8 & 92.3 & 95.2 & +16.4 \\
+GF-C full & Cyrillic & 90.2 & 97.5 & 99.1 & +8.9 \\
+GF-C full & Latin & 13.1 & 57.5 & 85.5 & +72.4 \\
+tahrirchi-bert & Latin & 99.1 & 98.5 & 98.4 & -0.7 \\
+tahrirchi-bert & Cyrillic & 50.2 & 83.2 & 89.4 & +39.2 \\
+tahrirchi-bert & Reformed & 58.8 & 93.3 & 95.9 & +37.0 \\
 \bottomrule
 \end{tabular}
-\caption{Accuracy (\%) by whether the ungrammatical sentence is longer ($n=500$), equal ($n=819$) or shorter ($n=1081$) than the grammatical one in bytes. A preference for shorter sentences lowers accuracy in the last column.}
+\caption{Accuracy (\%) by whether the ungrammatical member has fewer, the same number of, or more tokens than the grammatical one under the model's own tokenizer. $\Delta$: accuracy on pairs with more tokens minus accuracy on pairs with fewer; 0 means no length effect.}
 \label{tab:length}
 \end{table}
