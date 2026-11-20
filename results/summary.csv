@@ -105,3 +105,11 @@ timestamp,model,dataset,n_pairs,accuracy,bos,device,dtype,n_params_M,acc_norm,sc
 2026-11-20T14:30:56,goldfish-models/uzn_latn_full,uzblimp_v1.2_cyrl,2400,0.9146,True,cpu,float32,164.0,0.8838,causal,baseline,
 2026-11-20T14:34:28,goldfish-models/uzn_cyrl_full,uzblimp_v1.2,2400,0.4938,True,cpu,float32,164.0,0.5571,causal,baseline,
 2026-11-20T14:36:01,goldfish-models/uzn_cyrl_full,uzblimp_v1.2_cyrl,2400,0.9742,True,cpu,float32,164.0,0.9575,causal,baseline,
+2026-11-20T15:00:27,coppercitylabs/uzbert-base-uncased,uzblimp_v1.2_cyrl,2400,0.8388,True,cpu,float32,109.0,0.85,mlm-pll,baseline,
+2026-11-20T15:14:26,elmurod1202/bertbek-news-big-cased,uzblimp_v1.2,2400,0.8746,True,cpu,float32,109.0,0.8796,mlm-pll,baseline,
+2026-11-20T15:21:01,rifkat/uztext-3Gb-BPE-Roberta,uzblimp_v1.2,2400,0.9321,True,cpu,float32,123.0,0.9312,mlm-pll,baseline,
+2026-11-20T15:26:07,rifkat/uztext-3Gb-BPE-Roberta,uzblimp_v1.2_cyrl,2400,0.9617,True,cpu,float32,123.0,0.9592,mlm-pll,baseline,
+2026-11-20T15:40:16,goldfish-models/uzn_latn_5mb,uzblimp_v1.2,2400,0.6321,,,,,0.6838,,,carried over from uzn_latn_5mb_uzblimp_v1.2.csv; 44 pairs scored
+2026-11-20T15:40:35,goldfish-models/uzn_latn_5mb,uzblimp_v1.2_cyrl,2400,0.5346,,,,,0.5612,,,carried over from uzn_latn_5mb_uzblimp_v1.2_cyrl.csv; 63 pairs scored
+2026-11-20T15:40:48,goldfish-models/uzn_latn_10mb,uzblimp_v1.2,2400,0.7308,,,,,0.7546,,,carried over from uzn_latn_10mb_uzblimp_v1.2.csv; 44 pairs scored
+2026-11-20T15:41:51,goldfish-models/uzn_latn_10mb,uzblimp_v1.2_cyrl,2400,0.5579,,,,,0.6154,,,carried over from uzn_latn_10mb_uzblimp_v1.2_cyrl.csv; 63 pairs scored

@@ -102,16 +102,21 @@ def run(model, alphabet, version, previous, batch_size):
         return
     name = stem(model, alphabet, version)
     dataset = name[len(model["hf"].split("/")[-1]) + 1:]  # score_pairs.py puts the model name in front itself
-    old_file = csv_path(model, alphabet, previous) if previous else None
+    # Scores to reuse: an earlier result file for this version (its text may be older than the benchmark's)
+    # and the result file of the previous version. A pair is reused only if both sentences are unchanged.
+    sources = [f for f in (target, csv_path(model, alphabet, previous) if previous else None) if f is not None and f.exists()]
     t0 = time.time()
-    if old_file is None or not old_file.exists():
+    if not sources:
         out = score(model, ROOT / "data" / "benchmark" / DATA[alphabet], dataset, ROOT / "results", batch_size)
         if out is not None:
             print(f"done {model['key']} | {alphabet}: scored {len(out)} pairs in {time.time() - t0:.0f}s, "
                   f"accuracy {100 * out.correct.astype(str).eq('True').mean():.1f}", flush=True)
         return
-    old = pd.read_csv(old_file, keep_default_na=False)
-    known = {(r.id, r.good, r.bad): r for r in old.itertuples(index=False)}
+    old = pd.read_csv(sources[0], keep_default_na=False)
+    known = {}
+    for f in reversed(sources):
+        for r in pd.read_csv(f, keep_default_na=False).itertuples(index=False):
+            known[(r.id, r.good, r.bad)] = r
     todo = [r for r in rows if (r["id"], r["grammatical"], r["ungrammatical"]) not in known]
     fresh = {}
     if todo:
@@ -130,7 +135,7 @@ def run(model, alphabet, version, previous, batch_size):
     out["pair_id"] = range(len(out))
     out.to_csv(target, index=False, encoding="utf-8")
     acc = out.correct.astype(str).eq("True").mean()
-    note = f"carried over from {previous}; {len(todo)} pairs scored"
+    note = f"carried over from {' and '.join(f.name for f in sources)}; {len(todo)} pairs scored"
     print(f"done {model['key']} | {alphabet}: {note} in {time.time() - t0:.0f}s, accuracy {100 * acc:.1f}", flush=True)
     summary = pd.DataFrame([{"timestamp": datetime.now().isoformat(timespec="seconds"), "model": model["hf"],
                              "dataset": dataset, "n_pairs": len(out), "accuracy": round(acc, 4),
@@ -145,6 +150,9 @@ def main():
     p.add_argument("--only", nargs="*", help="model keys to run, in this order (default: all)")
     p.add_argument("--alphabets", nargs="*", default=list(ALPHABETS), choices=list(ALPHABETS))
     p.add_argument("--stats-only", action="store_true")
+    p.add_argument("--repair", action="store_true",
+                   help="only runs that already have a result file for this version: rescore the pairs whose text "
+                   "has changed since (after a change to the benchmark)")
     p.add_argument("--force-reformed", action="store_true",
                    help="score reformed Latin even when the tokenizer produces unknown tokens there")
     p.add_argument("--batch-size", type=int, default=16)
@@ -174,6 +182,8 @@ def main():
                 continue
             if alphabet == "Reformed" and model["trained"] == "cyrl" and not args.force_reformed:
                 print("  skip Reformed: the model was trained on Cyrillic-script Uzbek only", flush=True)
+                continue
+            if args.repair and not csv_path(model, alphabet, args.version).exists():
                 continue
             run(model, alphabet, args.version, args.carry_from, args.batch_size)
 

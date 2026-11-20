@@ -1,15 +1,15 @@
 phenomenon	pair_id	morphemes	gloss	translation	bad_morphemes	bad_gloss
 anaphor_agreement	anaphor_agreement-2143	Biz oʻz-imiz-ni noqulay his qil-ar-di-k.	we self-1PL.POSS-ACC uncomfortable feeling do-AOR-PST-1PL	We used to feel uncomfortable.	oʻz-im-ni	self-1SG.POSS-ACC
-lexical_case	lexical_case-1189	Faqat men u-ndan qoʻrq-a-man.	only I 3SG-ABL fear-PRS-1SG	Only I am afraid of him.	u-ni	3SG-ACC
-ditransitive_dative	ditransitive_dative-1034	Men u-nga yara-lar-im-ni koʻrsat-di-m.	I 3SG-DAT wound-PL-1SG.POSS-ACC show-PST-1SG	I showed him my wounds.	u-ni	3SG-ACC
-binding	binding-2132	Biroq men hozir-gacha oʻz-im-ni koyi-y-man.	but I now-until self-1SG.POSS-ACC blame-PRS-1SG	But to this day I blame myself.	me-ni	1SG-ACC
+lexical_case	lexical_case-1189	Faqat men un-dan qoʻrq-a-man.	only I 3SG-ABL fear-PRS-1SG	Only I am afraid of him.	u-ni	3SG-ACC
+ditransitive_dative	ditransitive_dative-1034	Men un-ga yara-lar-im-ni koʻrsat-di-m.	I 3SG-DAT wound-PL-1SG.POSS-ACC show-PST-1SG	I showed him my wounds.	u-ni	3SG-ACC
+binding	binding-2132	Biroq men hozir-gacha oʻz-im-ni koyi-y-man.	but I now-until self-1SG.POSS-ACC blame-PRS-1SG	But to this day I blame myself.	men-i	1SG-ACC
 stem_alternation	stem_alternation-1170	Bu shimpanze-ning yurag-i e-di.	this chimpanzee-GEN heart-3.POSS COP-PST	This was the chimpanzee's heart.	yurak-i	heart-3.POSS
 npi_hech	npi_hech-1241	Gap-im-ga hech~kim ishon-ma-di.	word-1SG.POSS-DAT nobody believe-NEG-PST	Nobody believed what I said.	ishon-di	believe-PST
 suspended_affixation	suspended_affixation-1117	Pul top-di-m va xotin-im-ga yubor-di-m.	money find-PST-1SG and wife-1SG.POSS-DAT send-PST-1SG	I earned money and sent it to my wife.	top-gan	find-PTCP
 nominalization	nominalization-2021	Bu tajriba-lar-ni qanday tushuntir-ish mumkin?	this experiment-PL-ACC how explain-VN possible	How can these experiments be explained?	tushuntir-gan	explain-PTCP
 person_agreement	person_agreement-2026	Avvaliga men bir~oz hayajonlan-di-m.	at.first I a.little get.nervous-PST-1SG	At first I was a little nervous.	hayajonlan-di-k	get.nervous-PST-1PL
-passives	passives-1064	Asar tanqidchi-lar tomonidan yuqori bahola-n-gan.	work critic-PL by high rate-PASS-PTCP	The work was rated highly by critics.	bahola-gan	rate-PTCP
-relative_clauses	relative_clauses-2084	Pol-da sin-gan shisha butilka yot-ib-di.	floor-LOC break-PTCP glass bottle lie-PRF-3	A broken glass bottle is lying on the floor.	sin-di	break-PST
+passives	passives-1064	Asar tanqidchi-lar tomon-i-dan yuqori bahola-n-gan.	work critic-PL side-3.POSS-ABL high rate-PASS-PTCP	The work was rated highly by critics.	bahola-gan	rate-PTCP
+relative_clauses	relative_clauses-2084	Pol-da sin-gan shisha butilka yot-ib-di.	floor-LOC break-PTCP glass bottle lie-CVB-3	A broken glass bottle is lying on the floor.	sin-di	break-PST
 quantifiers	quantifiers-2003	Har~bir mahalla tashkiliy tuzilma-ga ega.	every neighbourhood organisational structure-DAT having	Every neighbourhood has an organisational structure.	mahalla-lar	neighbourhood-PL
 numeral_no_plural	numeral_no_plural-1243	Oila-da toʻrt-ta farzand bor.	family-LOC four-CLF child exist	There are four children in the family.	farzand-lar	child-PL
 postposition_case	postposition_case-1190	Bu-ni bola-lig-im-dan beri bil-a-man.	this-ACC child-NMLZ-1SG.POSS-ABL since know-PRS-1SG	I have known this since my childhood.	bola-lig-im-ga	child-NMLZ-1SG.POSS-DAT

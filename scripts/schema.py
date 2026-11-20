@@ -54,7 +54,7 @@ RELEASE_PHENOMENA = {
     "npi_hech": ("NPI licensing (hech + negation)", "semantics"),
     "numeral_no_plural": ("No plural after numerals", "morphology"),
     "passives": ("Passives", "syntax"),
-    "person_agreement": ("Person agreement", "morphology"),
+    "person_agreement": ("Subject agreement", "morphology"),
     "possessive_agreement": ("Possessive agreement", "morphology"),
     "postposition_case": ("Case after postpositions", "syntax"),
     "quantifiers": ("Quantifiers (har bir + singular)", "morphology"),

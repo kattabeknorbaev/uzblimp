@@ -13,7 +13,8 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 REF_LETTERS = set("öÖğĞşŞçÇ")
-# The 16 phenomena in the order of the paper's tables: (slug, table name, short column label, layer)
+# The 16 phenomena in the order of the paper's tables: (slug, table name, short column label, layer);
+# layer: category shared with TurBLiMP, or added outside its inventory
 PHENOMENA = [
     ("anaphor_agreement", "Anaphor agreement", "Ana", "TurBLiMP"),
     ("lexical_case", "Lexical case", "LexC", "TurBLiMP"),
@@ -23,14 +24,14 @@ PHENOMENA = [
     ("npi_hech", "NPI \\textit{hech}", "NPI", "TurBLiMP"),
     ("suspended_affixation", "Suspended affixation", "Susp", "TurBLiMP"),
     ("nominalization", "Nominalization", "Nmlz", "TurBLiMP"),
-    ("person_agreement", "Person agreement", "Pers", "TurBLiMP"),
+    ("person_agreement", "Subject agreement", "Subj", "TurBLiMP"),
     ("passives", "Passives", "Pass", "TurBLiMP"),
     ("relative_clauses", "Relative clauses", "Rel", "TurBLiMP"),
     ("quantifiers", "Quantifiers (\\textit{har bir})", "Quan", "TurBLiMP"),
-    ("numeral_no_plural", "Numeral + singular", "Num", "Uzbek"),
-    ("postposition_case", "Postposition case", "Post", "Uzbek"),
-    ("possessive_agreement", "Possessive agreement", "Poss", "Uzbek"),
-    ("dative_allomorphy", "Dative allomorphy", "Dat", "Uzbek"),
+    ("numeral_no_plural", "Numeral + singular", "Num", "added"),
+    ("postposition_case", "Postposition case", "Post", "added"),
+    ("possessive_agreement", "Possessive agreement", "Poss", "added"),
+    ("dative_allomorphy", "Dative allomorphy", "Dat", "added"),
 ]
 SLUGS = [p[0] for p in PHENOMENA]
 

@@ -53,7 +53,7 @@ Related work: TurBLiMP (Turkish, EMNLP 2025), TatBLiMP (Tatar, arXiv 2026), Mult
 | `nominalization` | Nominalization | syntax | verb selects an -ish/-moq or -gan complement |
 | `npi_hech` | NPI licensing (hech + negation) | semantics | hech- words need a negated predicate |
 | `passives` | Passives | syntax | an agent phrase (tomonidan) needs a passive verb |
-| `person_agreement` | Person agreement | morphology | verb agrees in person with an overt pronoun subject |
+| `person_agreement` | Subject agreement | morphology | verb agrees in person and number with an overt pronoun subject |
 | `quantifiers` | Quantifiers (har bir + singular) | morphology | noun after har bir stays singular |
 | `relative_clauses` | Relative clauses | syntax | a relative clause verb is a participle (-gan), not a finite verb |
 | `stem_alternation` | Stem alternation (q/k → gʻ/g) | morphology | stem-final q/k becomes gʻ/g before a vowel-initial suffix |

@@ -20,6 +20,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).parent))
 from analysis import PHENOMENA, SLUGS, benchmark, changed_words, holm, paired, read_tsv, wilson  # noqa: E402
 from models import ALPHABETS, MODELS, VERSION, load_runs  # noqa: E402
+from schema import n_words  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "paper" / "tables"
@@ -108,7 +109,7 @@ def pair_cell(good_sentence, bad_sentence, wrap=lambda s: s):
 def phenomena_table(bench, ex):
     lines = [r"\begin{table*}[t]", r"\centering\small", r"\begin{tabular}{@{}lp{7.7cm}p{5.5cm}@{}}", r"\toprule",
              r"Phenomenon & Minimal pair & Translation of the grammatical sentence \\"]
-    for layer, title in (("TurBLiMP", "Following the TurBLiMP inventory"), ("Uzbek", "Specific to Uzbek")):
+    for layer, title in (("TurBLiMP", "Categories shared with TurBLiMP"), ("added", "Outside the TurBLiMP inventory")):
         lines += [r"\midrule", rf"\multicolumn{{3}}{{@{{}}l}}{{\textit{{{title}}}}} \\"]
         for e in ex:
             if LAYER[e["phenomenon"]] == layer:
@@ -342,11 +343,14 @@ def models_table(stats):
     lines = [r"\begin{table*}[t]", r"\centering\small", r"\begin{tabular}{@{}lllrl@{}}", r"\toprule",
              r"Model & Hugging Face identifier & Type & Parameters & Uzbek training text \\"]
     for group, models in groups(MODELS):
+        models = [m for m in models if m["key"] in stats and any((ROOT / "results").glob(f"{m['hf'].split('/')[-1]}_uzblimp_{VERSION}*.csv"))]
+        if not models:
+            continue
         lines += [r"\midrule", rf"\multicolumn{{5}}{{@{{}}l}}{{\textit{{{group}}}}} \\"]
         for m in models:
             lines.append(f"{m['key']} & \\texttt{{{tex(m['hf'])}}} & {kind[m['method']]} & {m['params']} & {TRAINED[m['trained']]} \\\\")
     lines += [r"\bottomrule", r"\end{tabular}",
-              r"\caption{The evaluated models. Parameter counts are those given by the models' authors. \emph{Uzbek training "
+              r"\caption{The evaluated models. Parameter counts are those given by the models' authors or on the Hugging Face Hub. \emph{Uzbek training "
               r"text}: script of the Uzbek text a model was trained on; multilingual models are trained on many languages in "
               r"several scripts.}", r"\label{tab:models}", r"\end{table*}"]
     return "\n".join(lines)
@@ -455,9 +459,21 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
     num("n@reserve", len(read_tsv(ROOT / "data/benchmark/reserve.tsv")), 0)
     num("n@corpus", int((bench.source == "corpus").sum()), 0)
     num("n@books", int((bench.source == "books").sum()), 0)
-    num("words@mean", bench.words.mean())
-    num("words@min", int(bench.words.min()), 0)
-    num("words@max", int(bench.words.max()), 0)
+    words = bench.grammatical.map(n_words)  # word tokens, without punctuation
+    num("words@mean", words.mean())
+    num("words@min", int(words.min()), 0)
+    num("words@max", int(words.max()), 0)
+    # Pairs replaced after the audit: excluded pairs that were in benchmark v1.1 (ids of a v1.1 result file).
+    excluded = {r["id"] for r in read_tsv(ROOT / "data/benchmark/excluded.tsv")}
+    v11 = set(pd.read_csv(ROOT / "results" / "uzn_latn_100mb_uzblimp_v1.1.csv").id)
+    num("n@replaced", len(excluded & v11), 0)
+    num("pct@replaced", 100 * len(excluded & v11) / len(bench))
+    num("n@excluded", len(excluded), 0)
+    norm = bench.grammatical.str.lower().str.replace(r"[^\w]+", " ", regex=True).str.strip()
+    dup = bench[norm.duplicated(keep=False)].assign(norm=norm)
+    within = sum(g.phenomenon.nunique() == 1 for _, g in dup.groupby("norm"))
+    num("n@dupwithin", within, 0)
+    num("n@dupacross", dup.norm.nunique() - within, 0)
     num("n@models", len({k for k, _ in runs}), 0)
     num("n@runs", len(runs), 0)
     for name, mask in (("longer", bench.dbytes > 0), ("equal", bench.dbytes == 0), ("shorter", bench.dbytes < 0)):

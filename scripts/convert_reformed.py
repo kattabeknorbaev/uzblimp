@@ -11,7 +11,6 @@ Then screens the tokenizers for <unk> (decision 8: only 0-<unk> models are score
 import collections
 import csv
 import difflib
-import os
 import sys
 from pathlib import Path
 
@@ -24,10 +23,6 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data/benchmark/uzblimp.tsv"
 OUT = ROOT / "data/benchmark/uzblimp_reformed.tsv"
 REF = set("öÖğĞşŞçÇ")
-SCREEN = [("goldfish-models/uzn_latn_100mb", os.path.expanduser("~/.cache/huggingface/hub")),
-          ("Qwen/Qwen2.5-0.5B", os.path.expanduser("~/.cache/huggingface/hub")),
-          ("tahrirchi/tahrirchi-bert-base", "D:/hf_cache")]
-
 
 def critical_words(g, b):
     tg, tb = tokens(g), tokens(b)
@@ -63,18 +58,7 @@ def main():
     for p in sorted({p for p, _ in cats if p != "ALL"}) + ["ALL"]:
         print(f"{p:22} {cats[(p, 'critical word changed')]:>22} {cats[(p, 'only other words changed')]:>17} "
               f"{cats[(p, 'unchanged')]:>10}")
-
-    from transformers import AutoTokenizer
-    print("\n<unk> screening on reformed text:")
-    sents = [o["grammatical"] for o in out] + [o["ungrammatical"] for o in out]
-    lat = [r["grammatical"] for r in rows] + [r["ungrammatical"] for r in rows]
-    for m, cache in SCREEN:
-        tok = AutoTokenizer.from_pretrained(m, cache_dir=cache)
-        ids = [tok(s).input_ids for s in sents]
-        unk = sum(tok.unk_token_id is not None and tok.unk_token_id in i for i in ids)
-        cur = sum(len(tok(s).input_ids) for s in lat) / len(lat)
-        print(f"  {m:32} <unk> in {unk}/{len(sents)} ({100 * unk / len(sents):.1f}%) | tokens/sentence "
-              f"{sum(map(len, ids)) / len(ids):.1f} (current Latin {cur:.1f})")
+    print("\nTokenizer screening for unknown tokens: python scripts/run_models.py --stats-only")
 
 
 if __name__ == "__main__":
