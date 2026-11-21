@@ -56,7 +56,7 @@ interlinear glosses (`paper/examples.tsv`).
 > categories of TurBLiMP), built from attested corpus sentences and reviewed by a native speaker,
 > and released in current Latin, Cyrillic and the Latin alphabet of Uzbekistan's 2026 reform.
 >
-> Evaluating [N] models, we find that script-matched models trained on Latin or on Cyrillic Uzbek
+> Evaluating 17 models, we find that script-matched models trained on Latin or on Cyrillic Uzbek
 > reach comparable accuracy once they have seen enough text, but lose 5 to 48 points when the same
 > sentences are written in the other script; there, and under the reformed spelling, their
 > choices depend more on token counts and familiar spellings, at times falling below chance. The
