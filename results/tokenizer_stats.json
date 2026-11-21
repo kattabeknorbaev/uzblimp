@@ -430,5 +430,29 @@
       "tokens_per_sentence": 26.21,
       "tokens_per_word": 3.002
     }
+  },
+  "Glot500": {
+    "model": "cis-lmu/glot500-base",
+    "Latin": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 19.25,
+      "tokens_per_word": 2.205
+    },
+    "Cyrillic": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 15.91,
+      "tokens_per_word": 1.822
+    },
+    "Reformed": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 18.91,
+      "tokens_per_word": 2.166
+    }
   }
 }
