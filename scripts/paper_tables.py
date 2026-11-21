@@ -595,12 +595,23 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
     old = {r["id"]: r for r in read_tsv(ROOT / "data/benchmark/uzblimp_cyrl.tsv")}
     strip = ".,!?;:«»\"()…—-"
     num("n@cyrlwords", len({w.strip(strip) for r in old.values() for w in (r["grammatical"] + " " + r["ungrammatical"]).lower().split()} - {""}), 0)
+    # Distinct word forms of the benchmark whose Cyrillic spelling comes from the loanword tables of the audit.
+    from alphabets import to_cyrillic
+    latin = {w.strip(strip) for r in bench.itertuples() for w in (r.grammatical + " " + r.ungrammatical).split()} - {""}
+    fixed = {w for w in latin if to_cyrillic(w) != to_cyrillic(w, loan_tables=False)}
+    num("n@loanforms", len({w.lower() for w in fixed}), 0)
 
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     bench = benchmark()
     runs = load_runs(VERSION)
+    # The paper reports a model only when both its Latin and its Cyrillic run are complete.
+    both = {k for k, a in runs if a == "Latin"} & {k for k, a in runs if a == "Cyrillic"}
+    left_out = sorted({k for k, _ in runs} - both)
+    runs = {key: df for key, df in runs.items() if key[0] in both}
+    if left_out:
+        print(f"left out until both the Latin and the Cyrillic run are complete: {', '.join(left_out)}")
     stats_file = ROOT / "results" / "tokenizer_stats.json"
     stats = json.loads(stats_file.read_text(encoding="utf-8")) if stats_file.exists() else {}
     ex = read_examples(bench)

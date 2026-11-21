@@ -84,9 +84,11 @@ _ROMAN = re.compile(r"(?<![^\W\d_])(?:(?=[IVXLC]{2})C{0,3}(?:XC|XL|L?X{0,3})(?:I
                     r"|[IVX](?=[\s-]+(?:asr|jahon)))(?![^\W\d_])")
 
 
-def to_cyrillic(latin: str) -> str:
+def to_cyrillic(latin: str, loan_tables: bool = True) -> str:
     """Latin → Cyrillic via TurkicNLP, with the fixes above. Still not fully rule-based
-    (sirk → цирк, sirkoniy → цирконий), so converted sentences need a human check."""
+    (sirk → цирк, sirkoniy → цирконий), so converted sentences need a human check.
+    loan_tables=False leaves out the respelling of loanwords from the tables of the v1.2 audit
+    (_LOAN_PREFIXES and _LOAN_WORDS); scripts/paper_tables.py uses it to count the corrected forms."""
     t = _S_TUTUQ_H.sub(rf"\1{_ZW}", latin)
     loans = {m.start() for m in _TS_LOAN.finditer(t)}
     t = "".join(ch + _ZW if ch in "tT" and i + 1 < len(t) and t[i + 1] == "s" and i not in loans else ch
@@ -105,6 +107,8 @@ def to_cyrillic(latin: str) -> str:
             return w[0].upper() + w[1:] if m.group(1)[0].isupper() else w
         return sub
     out = _LOAN_RE.sub(fixed(_LOAN_STEMS), _MONTH_RE.sub(fixed(_MONTHS), out))
+    if not loan_tables:
+        return out
     return _LOAN_WORD_RE.sub(fixed(_LOAN_WORDS), _LOAN_PREFIX_RE.sub(fixed(_LOAN_PREFIXES), out))
 
 
