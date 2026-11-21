@@ -216,3 +216,6 @@ timestamp,model,dataset,n_pairs,accuracy,bos,device,dtype,n_params_M,acc_norm,sc
 2026-11-21T05:49:36,Qwen/Qwen2.5-1.5B,uzblimp_v1.2,2400,0.5504,True,cpu,float32,1544.0,0.6221,causal,baseline,2400 pairs scored
 2026-11-21T06:58:24,Qwen/Qwen2.5-1.5B,uzblimp_v1.2_cyrl,2400,0.5308,True,cpu,float32,1544.0,0.5558,causal,baseline,2400 pairs scored
 2026-11-21T07:05:38,elmurod1202/bertbek-news-big-cased,uzblimp_v1.2_cyrl,2400,0.5942,True,cpu,float32,109.0,0.6108,mlm-pll,baseline,2400 pairs scored
+2026-11-21T07:15:38,tahrirchi/tahrirchi-bert-small,uzblimp_v1.2,2400,0.9221,True,cpu,float32,90.0,0.9288,mlm-pll,baseline,2400 pairs scored
+2026-11-21T07:50:04,Qwen/Qwen2.5-1.5B,uzblimp_v1.2_reformed,2400,0.4971,True,cpu,float32,1544.0,0.5517,causal,baseline,2400 pairs scored
+2026-11-21T08:08:23,tahrirchi/tahrirchi-bert-small,uzblimp_v1.2_cyrl,2400,0.5917,True,cpu,float32,90.0,0.6138,mlm-pll,baseline,2400 pairs scored

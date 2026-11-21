@@ -19,7 +19,16 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).parent))
 from analysis import PHENOMENA, SLUGS, benchmark, changed_words, holm, paired, read_tsv, wilson  # noqa: E402
-from models import ALPHABETS, MODELS, VERSION, label, load_runs  # noqa: E402
+from models import ALPHABETS, MODELS, VERSION, load_runs  # noqa: E402
+from models import label as model_label  # noqa: E402
+
+# In tables the small TahrirchiBERT sits in the row below the base model, so its name is shortened there.
+TABLE_LABEL = {"tahrirchi-bert-small": r"\quad small"}
+
+
+def label(model):
+    key = model if isinstance(model, str) else model["key"]
+    return TABLE_LABEL.get(key, model_label(model))
 from schema import n_words  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent

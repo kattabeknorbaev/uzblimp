@@ -406,5 +406,29 @@
       "tokens_per_sentence": 19.08,
       "tokens_per_word": 2.185
     }
+  },
+  "mGPT-Uzbek": {
+    "model": "ai-forever/mGPT-1.3B-uzbek",
+    "Latin": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 27.7,
+      "tokens_per_word": 3.173
+    },
+    "Cyrillic": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 36.84,
+      "tokens_per_word": 4.22
+    },
+    "Reformed": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 26.21,
+      "tokens_per_word": 3.002
+    }
   }
 }
