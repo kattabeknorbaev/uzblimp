@@ -6,13 +6,13 @@
   "script": "latn",
   "method": "logprob",
   "n_pairs": 2400,
-  "accuracy": 45.1,
-  "accuracy_norm": 51.3,
+  "accuracy": 45.2,
+  "accuracy_norm": 51.5,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
-      "correct": 81,
-      "accuracy": 54.0
+      "correct": 80,
+      "accuracy": 53.3
     },
     "binding": {
       "n": 150,
@@ -26,13 +26,13 @@
     },
     "ditransitive_dative": {
       "n": 150,
-      "correct": 69,
-      "accuracy": 46.0
+      "correct": 70,
+      "accuracy": 46.7
     },
     "lexical_case": {
       "n": 150,
-      "correct": 47,
-      "accuracy": 31.3
+      "correct": 48,
+      "accuracy": 32.0
     },
     "nominalization": {
       "n": 150,
@@ -61,8 +61,8 @@
     },
     "possessive_agreement": {
       "n": 150,
-      "correct": 98,
-      "accuracy": 65.3
+      "correct": 97,
+      "accuracy": 64.7
     },
     "postposition_case": {
       "n": 150,
@@ -76,8 +76,8 @@
     },
     "relative_clauses": {
       "n": 150,
-      "correct": 71,
-      "accuracy": 47.3
+      "correct": 70,
+      "accuracy": 46.7
     },
     "stem_alternation": {
       "n": 150,
@@ -86,8 +86,8 @@
     },
     "suspended_affixation": {
       "n": 150,
-      "correct": 59,
-      "accuracy": 39.3
+      "correct": 62,
+      "accuracy": 41.3
     }
   },
   "settings": {
@@ -97,5 +97,5 @@
     "bos": true,
     "per_pair": "results/uzn_cyrl_5mb_uzblimp_v1.2.csv"
   },
-  "date": "2026-11-20"
+  "date": "2026-11-21"
 }

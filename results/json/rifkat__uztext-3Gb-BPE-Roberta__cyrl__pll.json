@@ -46,8 +46,8 @@
     },
     "numeral_no_plural": {
       "n": 150,
-      "correct": 143,
-      "accuracy": 95.3
+      "correct": 145,
+      "accuracy": 96.7
     },
     "passives": {
       "n": 150,
@@ -81,8 +81,8 @@
     },
     "stem_alternation": {
       "n": 150,
-      "correct": 142,
-      "accuracy": 94.7
+      "correct": 141,
+      "accuracy": 94.0
     },
     "suspended_affixation": {
       "n": 150,
@@ -97,5 +97,5 @@
     "bos": true,
     "per_pair": "results/uztext-3Gb-BPE-Roberta_uzblimp_v1.2_cyrl.csv"
   },
-  "date": "2026-11-20"
+  "date": "2026-11-21"
 }

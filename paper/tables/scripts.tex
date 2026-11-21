@@ -6,25 +6,23 @@
 Model & Uzbek data & Latin & Cyr. & Ref. \\
 \midrule
 \multicolumn{5}{@{}l}{\textit{Goldfish (Latin)}} \\
-GF-L 5MB & Latin & \textbf{63.3} & 53.4 & -- \\
-GF-L 10MB & Latin & \textbf{73.1} & 55.8 & -- \\
+GF-L 5MB & Latin & \textbf{63.3} & 53.3 & -- \\
+GF-L 10MB & Latin & \textbf{73.4} & 55.8 & -- \\
 GF-L 100MB & Latin & \textbf{95.8} & 88.3 & -- \\
-GF-L full & Latin & \textbf{96.7} & 91.6 & -- \\
+GF-L full & Latin & \textbf{96.7} & 91.7 & -- \\
 \midrule
 \multicolumn{5}{@{}l}{\textit{Goldfish (Cyrillic)}} \\
-GF-C 5MB & Cyrillic & 45.1 & \textbf{61.1} & -- \\
-GF-C 10MB & Cyrillic & 40.2 & \textbf{65.1} & -- \\
-GF-C 100MB & Cyrillic & 47.4 & \textbf{94.6} & -- \\
-GF-C full & Cyrillic & 49.3 & \textbf{97.4} & -- \\
+GF-C 5MB & Cyrillic & 45.2 & \textbf{61.3} & -- \\
+GF-C 10MB & Cyrillic & 40.3 & \textbf{65.4} & -- \\
+GF-C 100MB & Cyrillic & 47.6 & \textbf{94.7} & -- \\
+GF-C full & Cyrillic & 49.5 & \textbf{97.3} & -- \\
 \midrule
 \multicolumn{5}{@{}l}{\textit{Uzbek encoders}} \\
-TahrirchiBERT & Latin & \textbf{98.6} & 77.0 & 87.2 \\
-BERTbek & Latin & \textbf{87.6} & -- & -- \\
-UzBERT & Cyrillic & -- & \textbf{84.2} & -- \\
-UzRoBERTa & both & 93.3 & 96.4 & -- \\
+TahrirchiBERT & Latin & \textbf{98.7} & 76.8 & 87.3 \\
+UzRoBERTa & both & 93.4 & 96.4 & -- \\
 \midrule
 \multicolumn{5}{@{}l}{\textit{Multilingual LMs}} \\
-Qwen2.5-0.5B & multilingual & 50.5 & 46.2 & 47.0 \\
+Qwen2.5-0.5B & multilingual & 50.4 & 46.2 & 46.8 \\
 \bottomrule
 \end{tabular}
 \caption{Accuracy (\%) on all 2,400 pairs in each alphabet; chance is 50. \emph{Uzbek data}: script of the model's Uzbek training text. For models trained on one script the score in that script is in bold. Reformed Latin is scored only when the tokenizer produces no unknown token on it (Appendix~\ref{app:tokenizers}). The 95\% Wilson interval of a score is at most $\pm$2 points.}

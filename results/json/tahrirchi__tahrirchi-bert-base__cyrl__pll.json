@@ -6,13 +6,13 @@
   "script": "cyrl",
   "method": "pll",
   "n_pairs": 2400,
-  "accuracy": 77.0,
-  "accuracy_norm": 76.5,
+  "accuracy": 76.8,
+  "accuracy_norm": 76.4,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
-      "correct": 108,
-      "accuracy": 72.0
+      "correct": 109,
+      "accuracy": 72.7
     },
     "binding": {
       "n": 150,
@@ -46,13 +46,13 @@
     },
     "numeral_no_plural": {
       "n": 150,
-      "correct": 108,
-      "accuracy": 72.0
+      "correct": 107,
+      "accuracy": 71.3
     },
     "passives": {
       "n": 150,
-      "correct": 121,
-      "accuracy": 80.7
+      "correct": 119,
+      "accuracy": 79.3
     },
     "person_agreement": {
       "n": 150,
@@ -61,8 +61,8 @@
     },
     "possessive_agreement": {
       "n": 150,
-      "correct": 113,
-      "accuracy": 75.3
+      "correct": 111,
+      "accuracy": 74.0
     },
     "postposition_case": {
       "n": 150,
@@ -97,5 +97,5 @@
     "bos": true,
     "per_pair": "results/tahrirchi-bert-base_uzblimp_v1.2_cyrl.csv"
   },
-  "date": "2026-11-20"
+  "date": "2026-11-21"
 }

@@ -7,7 +7,7 @@
   "method": "logprob",
   "n_pairs": 2400,
   "accuracy": 95.8,
-  "accuracy_norm": 94.6,
+  "accuracy_norm": 94.8,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
@@ -26,8 +26,8 @@
     },
     "ditransitive_dative": {
       "n": 150,
-      "correct": 145,
-      "accuracy": 96.7
+      "correct": 146,
+      "accuracy": 97.3
     },
     "lexical_case": {
       "n": 150,
@@ -41,8 +41,8 @@
     },
     "npi_hech": {
       "n": 150,
-      "correct": 140,
-      "accuracy": 93.3
+      "correct": 141,
+      "accuracy": 94.0
     },
     "numeral_no_plural": {
       "n": 150,
@@ -76,8 +76,8 @@
     },
     "relative_clauses": {
       "n": 150,
-      "correct": 148,
-      "accuracy": 98.7
+      "correct": 147,
+      "accuracy": 98.0
     },
     "stem_alternation": {
       "n": 150,
@@ -86,8 +86,8 @@
     },
     "suspended_affixation": {
       "n": 150,
-      "correct": 138,
-      "accuracy": 92.0
+      "correct": 137,
+      "accuracy": 91.3
     }
   },
   "settings": {
@@ -97,5 +97,5 @@
     "bos": true,
     "per_pair": "results/uzn_latn_100mb_uzblimp_v1.2.csv"
   },
-  "date": "2026-11-20"
+  "date": "2026-11-21"
 }

@@ -11,8 +11,8 @@
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
-      "correct": 116,
-      "accuracy": 77.3
+      "correct": 115,
+      "accuracy": 76.7
     },
     "binding": {
       "n": 150,
@@ -26,13 +26,13 @@
     },
     "ditransitive_dative": {
       "n": 150,
-      "correct": 138,
-      "accuracy": 92.0
+      "correct": 139,
+      "accuracy": 92.7
     },
     "lexical_case": {
       "n": 150,
-      "correct": 127,
-      "accuracy": 84.7
+      "correct": 126,
+      "accuracy": 84.0
     },
     "nominalization": {
       "n": 150,
@@ -61,8 +61,8 @@
     },
     "possessive_agreement": {
       "n": 150,
-      "correct": 142,
-      "accuracy": 94.7
+      "correct": 143,
+      "accuracy": 95.3
     },
     "postposition_case": {
       "n": 150,
@@ -76,13 +76,13 @@
     },
     "relative_clauses": {
       "n": 150,
-      "correct": 142,
-      "accuracy": 94.7
+      "correct": 140,
+      "accuracy": 93.3
     },
     "stem_alternation": {
       "n": 150,
-      "correct": 128,
-      "accuracy": 85.3
+      "correct": 130,
+      "accuracy": 86.7
     },
     "suspended_affixation": {
       "n": 150,
@@ -97,5 +97,5 @@
     "bos": true,
     "per_pair": "results/bertbek-news-big-cased_uzblimp_v1.2.csv"
   },
-  "date": "2026-11-20"
+  "date": "2026-11-21"
 }

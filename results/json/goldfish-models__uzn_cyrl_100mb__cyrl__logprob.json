@@ -6,7 +6,7 @@
   "script": "cyrl",
   "method": "logprob",
   "n_pairs": 2400,
-  "accuracy": 94.6,
+  "accuracy": 94.7,
   "accuracy_norm": 93.5,
   "per_phenomenon": {
     "anaphor_agreement": {
@@ -26,13 +26,13 @@
     },
     "ditransitive_dative": {
       "n": 150,
-      "correct": 141,
-      "accuracy": 94.0
+      "correct": 142,
+      "accuracy": 94.7
     },
     "lexical_case": {
       "n": 150,
-      "correct": 147,
-      "accuracy": 98.0
+      "correct": 148,
+      "accuracy": 98.7
     },
     "nominalization": {
       "n": 150,
@@ -41,8 +41,8 @@
     },
     "npi_hech": {
       "n": 150,
-      "correct": 127,
-      "accuracy": 84.7
+      "correct": 128,
+      "accuracy": 85.3
     },
     "numeral_no_plural": {
       "n": 150,
@@ -86,8 +86,8 @@
     },
     "suspended_affixation": {
       "n": 150,
-      "correct": 141,
-      "accuracy": 94.0
+      "correct": 139,
+      "accuracy": 92.7
     }
   },
   "settings": {
@@ -97,5 +97,5 @@
     "bos": true,
     "per_pair": "results/uzn_cyrl_100mb_uzblimp_v1.2_cyrl.csv"
   },
-  "date": "2026-11-20"
+  "date": "2026-11-21"
 }

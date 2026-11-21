@@ -6,13 +6,13 @@
   "script": "cyrl",
   "method": "logprob",
   "n_pairs": 2400,
-  "accuracy": 91.6,
+  "accuracy": 91.7,
   "accuracy_norm": 88.2,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
-      "correct": 141,
-      "accuracy": 94.0
+      "correct": 142,
+      "accuracy": 94.7
     },
     "binding": {
       "n": 150,
@@ -31,8 +31,8 @@
     },
     "lexical_case": {
       "n": 150,
-      "correct": 148,
-      "accuracy": 98.7
+      "correct": 149,
+      "accuracy": 99.3
     },
     "nominalization": {
       "n": 150,
@@ -41,18 +41,18 @@
     },
     "npi_hech": {
       "n": 150,
-      "correct": 131,
-      "accuracy": 87.3
+      "correct": 132,
+      "accuracy": 88.0
     },
     "numeral_no_plural": {
       "n": 150,
-      "correct": 123,
-      "accuracy": 82.0
+      "correct": 125,
+      "accuracy": 83.3
     },
     "passives": {
       "n": 150,
-      "correct": 134,
-      "accuracy": 89.3
+      "correct": 133,
+      "accuracy": 88.7
     },
     "person_agreement": {
       "n": 150,
@@ -86,8 +86,8 @@
     },
     "suspended_affixation": {
       "n": 150,
-      "correct": 137,
-      "accuracy": 91.3
+      "correct": 136,
+      "accuracy": 90.7
     }
   },
   "settings": {
@@ -97,5 +97,5 @@
     "bos": true,
     "per_pair": "results/uzn_latn_full_uzblimp_v1.2_cyrl.csv"
   },
-  "date": "2026-11-20"
+  "date": "2026-11-21"
 }

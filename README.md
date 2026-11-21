@@ -129,19 +129,21 @@ In short: models trained on about 100 MB or more of Uzbek text score 95–99% in
 <!-- results:start -->
 | Model | Method | Current Latin | Cyrillic | Reformed Latin |
 |---|---|---:|---:|---:|
-| GF-L 5MB (`goldfish-models/uzn_latn_5mb`) | logprob | 63.3 | 53.4 | — |
-| GF-L 10MB (`goldfish-models/uzn_latn_10mb`) | logprob | 73.1 | 55.8 | — |
+| GF-L 5MB (`goldfish-models/uzn_latn_5mb`) | logprob | 63.3 | 53.3 | — |
+| GF-L 10MB (`goldfish-models/uzn_latn_10mb`) | logprob | 73.4 | 55.8 | — |
 | GF-L 100MB (`goldfish-models/uzn_latn_100mb`) | logprob | 95.8 | 88.3 | — |
-| GF-L full (`goldfish-models/uzn_latn_full`) | logprob | 96.7 | 91.6 | — |
-| GF-C 5MB (`goldfish-models/uzn_cyrl_5mb`) | logprob | 45.1 | 61.1 | — |
-| GF-C 10MB (`goldfish-models/uzn_cyrl_10mb`) | logprob | 40.2 | 65.1 | — |
-| GF-C 100MB (`goldfish-models/uzn_cyrl_100mb`) | logprob | 47.4 | 94.6 | — |
-| GF-C full (`goldfish-models/uzn_cyrl_full`) | logprob | 49.3 | 97.4 | — |
-| tahrirchi-bert (`tahrirchi/tahrirchi-bert-base`) | pll | 98.6 | 77.0 | 87.2 |
+| GF-L full (`goldfish-models/uzn_latn_full`) | logprob | 96.7 | 91.7 | — |
+| GF-C 5MB (`goldfish-models/uzn_cyrl_5mb`) | logprob | 45.2 | 61.2 | — |
+| GF-C 10MB (`goldfish-models/uzn_cyrl_10mb`) | logprob | 40.3 | 65.4 | — |
+| GF-C 100MB (`goldfish-models/uzn_cyrl_100mb`) | logprob | 47.6 | 94.7 | — |
+| GF-C full (`goldfish-models/uzn_cyrl_full`) | logprob | 49.5 | 97.3 | — |
+| tahrirchi-bert (`tahrirchi/tahrirchi-bert-base`) | pll | 98.7 | 76.8 | 87.3 |
 | BERTbek (`elmurod1202/bertbek-news-big-cased`) | pll | 87.6 | — | — |
-| UzBERT (`coppercitylabs/uzbert-base-uncased`) | pll | — | 84.2 | — |
-| UzRoBERTa (`rifkat/uztext-3Gb-BPE-Roberta`) | pll | 93.3 | 96.4 | — |
-| Qwen2.5-0.5B (`Qwen/Qwen2.5-0.5B`) | logprob | 50.5 | 46.2 | 47.0 |
+| UzBERT (`coppercitylabs/uzbert-base-uncased`) | pll | — | 84.3 | — |
+| UzRoBERTa (`rifkat/uztext-3Gb-BPE-Roberta`) | pll | 93.4 | 96.4 | — |
+| mBERT (`google-bert/bert-base-multilingual-cased`) | pll | 62.5 | — | — |
+| XLM-R base (`FacebookAI/xlm-roberta-base`) | pll | 78.2 | — | — |
+| Qwen2.5-0.5B (`Qwen/Qwen2.5-0.5B`) | logprob | 50.4 | 46.2 | 46.8 |
 <!-- results:end -->
 
 ## How the pairs were made and checked

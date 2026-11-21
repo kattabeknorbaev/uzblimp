@@ -6,7 +6,7 @@
   "script": "latn",
   "method": "pll",
   "n_pairs": 2400,
-  "accuracy": 98.6,
+  "accuracy": 98.7,
   "accuracy_norm": 98.5,
   "per_phenomenon": {
     "anaphor_agreement": {
@@ -41,13 +41,13 @@
     },
     "npi_hech": {
       "n": 150,
-      "correct": 144,
-      "accuracy": 96.0
+      "correct": 145,
+      "accuracy": 96.7
     },
     "numeral_no_plural": {
       "n": 150,
-      "correct": 147,
-      "accuracy": 98.0
+      "correct": 148,
+      "accuracy": 98.7
     },
     "passives": {
       "n": 150,
@@ -97,5 +97,5 @@
     "bos": true,
     "per_pair": "results/tahrirchi-bert-base_uzblimp_v1.2.csv"
   },
-  "date": "2026-11-20"
+  "date": "2026-11-21"
 }
