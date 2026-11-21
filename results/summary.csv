@@ -212,3 +212,4 @@ timestamp,model,dataset,n_pairs,accuracy,bos,device,dtype,n_params_M,acc_norm,sc
 2026-11-21T04:26:28,coppercitylabs/uzbert-base-uncased,uzblimp_v1.2,2400,0.4271,True,cpu,float32,109.0,0.4642,mlm-pll,baseline,1037 pairs scored; 1363 carried over from uzbert-base-uncased_uzblimp_v1.2.csv
 2026-11-21T04:33:03,FacebookAI/xlm-roberta-base,uzblimp_v1.2_reformed,2400,0.7154,True,cpu,float32,278.0,0.7338,mlm-pll,baseline,2400 pairs scored
 2026-11-21T04:51:27,rifkat/uztext-3Gb-BPE-Roberta,uzblimp_v1.2_reformed,2400,0.78,True,cpu,float32,123.0,0.8012,mlm-pll,baseline,2400 pairs scored
+2026-11-21T04:53:16,elmurod1202/bertbek-news-big-cased,uzblimp_v1.2_reformed,2400,0.6817,True,cpu,float32,109.0,0.6971,mlm-pll,baseline,2400 pairs scored

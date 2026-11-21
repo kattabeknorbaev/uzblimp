@@ -300,7 +300,8 @@ def scripts_table(runs, stats):
         if rows:
             lines += [r"\midrule", rf"\multicolumn{{5}}{{@{{}}l}}{{\textit{{{group}}}}} \\"] + rows
     lines += [r"\bottomrule", r"\end{tabular}",
-              r"\caption{Accuracy (\%) on all 2,400 pairs in each alphabet; chance is 50. \emph{Uzbek data}: script of the "
+              r"\caption{Accuracy (\%) on all 2,400 pairs in current Latin, Cyrillic and reformed Latin (Ref.); chance is 50. "
+              r"GF-L, GF-C: Goldfish models trained on Latin-script and Cyrillic-script Uzbek. \emph{Uzbek data}: script of the "
               r"model's Uzbek training text. For models trained on one script the score in that script is in bold. "
               r"Reformed Latin is scored only when the tokenizer produces no unknown token on it "
               r"(Appendix~\ref{app:tokenizers}). The 95\% Wilson interval of a score is at most $\pm$2 points.}",
@@ -328,7 +329,7 @@ def matched_table(runs):
     lines += [r"\bottomrule", r"\end{tabular}",
               r"\caption{Script-matched Goldfish models of the same training-data size: the Latin model on Latin text against "
               r"the Cyrillic model on Cyrillic text, on the same 2,400 pairs. $\Delta$: difference in points with a bootstrap "
-              r"95\% interval; $p$: exact McNemar test, Holm-adjusted over the four sizes.}",
+              r"95\% interval (not adjusted for multiple comparisons); $p$: exact McNemar test, Holm-adjusted over the four sizes.}",
               r"\label{tab:matched}", r"\end{table}"]
     return "\n".join(lines)
 
@@ -404,7 +405,7 @@ def models_table(runs):
         for m in models:
             lines.append(f"{label(m)} & \\texttt{{{tex(m['hf'])}}} & {kind[m['method']]} & {m['params']} & {TRAINED[m['trained']]} \\\\")
     lines += [r"\bottomrule", r"\end{tabular}",
-              r"\caption{The evaluated models. Parameter counts are those given by the models' authors or on the Hugging Face Hub. \emph{Uzbek training "
+              r"\caption{The evaluated models. GF-L, GF-C: Goldfish models trained on Latin-script and Cyrillic-script Uzbek. Parameter counts are those given by the models' authors or on the Hugging Face Hub. \emph{Uzbek training "
               r"text}: script of the Uzbek text a model was trained on; multilingual models are trained on many languages in "
               r"several scripts.}", r"\label{tab:models}", r"\end{table*}"]
     return "\n".join(lines)
@@ -436,7 +437,7 @@ def reform_table(runs, bench):
         lines.append(f"{label(m)} & {acc(cur):.1f} & {acc(ref):.1f} & " + " & ".join(cells) + r" \\")
     for g, _ in REFORM_GROUPS:
         num(f"refn@{g}", int((bench.reform_group == g).sum()), 0)
-    n = [int((bench.reform_group == g).sum()) for g, _ in REFORM_GROUPS]
+    n = [f"{int((bench.reform_group == g).sum()):,}".replace(",", "{,}") for g, _ in REFORM_GROUPS]
     lines += [r"\bottomrule", r"\end{tabular}",
               rf"\caption{{Current against reformed Latin for the models whose tokenizer covers the new letters: accuracy (\%) "
               rf"on all pairs, and the change in points for pairs whose new letters (\"o, \u{{g}}, \c{{s}}, \c{{c}}) fall in "
@@ -542,6 +543,9 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
         morph = int(hard.phenomenon.isin(["dative_allomorphy", "stem_alternation"]).sum())
         num("hard@morph", morph, 0)
         num("hard@binding", int((hard.phenomenon == "binding").sum()), 0)
+        rest = hard[~hard.phenomenon.isin(["dative_allomorphy", "stem_alternation", "binding"])]
+        num("hard@other", len(rest), 0)
+        num("hard@otherphen", rest.phenomenon.nunique(), 0)
         num("hard@all", int((wrong == len(strongest)).sum()), 0)
         assert list(wrong.index[wrong == len(strongest)]) == ["dative_allomorphy-1028"]  # the example named in the text
     norm = bench.grammatical.str.lower().str.replace(r"[^\w]+", " ", regex=True).str.strip()
@@ -551,8 +555,13 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
     num("n@dupacross", dup.norm.nunique() - within, 0)
     num("n@models", len({k for k, _ in runs}), 0)
     num("n@runs", len(runs), 0)
+    num("accnorm@maxchange", max(abs(acc(df, "correct_norm") - acc(df)) for df in runs.values()), 0)
     for name, mask in (("longer", bench.dbytes > 0), ("equal", bench.dbytes == 0), ("shorter", bench.dbytes < 0)):
         num(f"nbytes@{name}", int(mask.sum()), 0)
+    # Length alone as a baseline: always prefer the member with fewer (or more) bytes; ties split evenly.
+    longer, equal, shorter = (int(m.sum()) for m in (bench.dbytes > 0, bench.dbytes == 0, bench.dbytes < 0))
+    num("base@shorter", 100 * (longer + equal / 2) / len(bench))
+    num("base@longer", 100 * (shorter + equal / 2) / len(bench))
     mixed = [ph for ph in SLUGS if bench[bench.phenomenon == ph].source.nunique() == 2]
     num("n@mixedphen", len(mixed), 0)
     for key in ("GF-L 100MB", "GF-L full", "tahrirchi-bert", "BERTbek"):
@@ -581,7 +590,8 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
     def spearman(x, y):
         return float(pd.Series(x).rank().corr(pd.Series(y).rank()))
 
-    for name, keep in (("all", lambda df: df), ("nobind", lambda df: df[df.phenomenon != "binding"])):
+    for name, keep in (("all", lambda df: df), ("nobind", lambda df: df[df.phenomenon != "binding"]),
+                       ("nobn", lambda df: df[~df.phenomenon.isin(["binding", "npi_hech"])])):
         prof = [length_profile(keep(df)) for df in runs.values()]
         num(f"lencorr@{name}@rho", spearman([p[0] for p in prof], [p[1] for p in prof]), 2)
     num("lencorr@n", len(runs), 0)
@@ -590,6 +600,23 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
         if (key, a) in runs:
             df = runs[(key, a)]
             num(f"lennb@{key}@{a}@gap", length_profile(df[df.phenomenon != "binding"])[1])
+            num(f"lennbn@{key}@{a}@gap", length_profile(df[~df.phenomenon.isin(["binding", "npi_hech"])])[1])
+    # Byte normalisation and the length gap: the gap in byte-normalised accuracy for every run, and how often
+    # normalisation shrinks or reverses a gap of more than ten points.
+    big = shrunk = reversed_ = 0
+    for (key, a), df in runs.items():
+        d = df.bad_ntok - df.good_ntok
+        raw, nrm = ok(df), df.correct_norm.astype(str).eq("True")
+        g_raw = 100 * (raw[d > 0].mean() - raw[d < 0].mean())
+        g_nrm = 100 * (nrm[d > 0].mean() - nrm[d < 0].mean())
+        num(f"lennorm@{key}@{a}@gap", g_nrm)
+        if g_raw > 10:
+            big += 1
+            shrunk += int(abs(g_nrm) < g_raw)
+            reversed_ += int(g_nrm < 0)
+    num("lennorm@n@big", big, 0)
+    num("lennorm@n@shrunk", shrunk, 0)
+    num("lennorm@n@reversed", reversed_, 0)
     ties = sum(int((df["diff"] == 0).sum()) for df in runs.values())
     num("n@ties", ties, 0)
     old = {r["id"]: r for r in read_tsv(ROOT / "data/benchmark/uzblimp_cyrl.tsv")}
@@ -600,6 +627,10 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
     latin = {w.strip(strip) for r in bench.itertuples() for w in (r.grammatical + " " + r.ungrammatical).split()} - {""}
     fixed = {w for w in latin if to_cyrillic(w) != to_cyrillic(w, loan_tables=False)}
     num("n@loanforms", len({w.lower() for w in fixed}), 0)
+
+
+SMALL = {"GF-L 5MB", "GF-L 10MB", "GF-C 5MB", "GF-C 10MB"}  # in the appendix table only
+TRAINED_BY_KEY = {m["key"]: m["trained"] for m in MODELS}
 
 
 def main():
@@ -628,10 +659,17 @@ def main():
         "stats": stats_table(bench, reviewed, accepted),
         "reasons": reasons_table(reasons),
         "main": per_phenomenon_table(
-            runs, own, r"Accuracy (\%) per phenomenon, each model on text in the script of its Uzbek training data "
-            r"(L: current Latin, C: Cyrillic; multilingual models on Latin). Cells below chance (50) are shaded. Column "
+            {k: v for k, v in runs.items() if k[0] not in SMALL and TRAINED_BY_KEY[k[0]] != "multi"}, own,
+            r"Accuracy (\%) per phenomenon, each model on text in the script of its Uzbek training data "
+            r"(L: current Latin, C: Cyrillic). GF-L, GF-C: Goldfish models trained on Latin-script and "
+            r"Cyrillic-script Uzbek. Cells below chance (50) are shaded. Column "
             r"labels abbreviate the phenomena of Table~\ref{tab:phenomena} in the same order. With 150 pairs per cell, the "
-            r"95\% Wilson interval is at most $\pm$8 points.", "tab:main"),
+            r"95\% Wilson interval is at most $\pm$8 points. The Goldfish models trained on 5 and 10\,MB and the multilingual "
+            r"models are in Table~\ref{tab:ownall} in the appendix.", "tab:main"),
+        "ownall": per_phenomenon_table(
+            runs, own, r"Accuracy (\%) per phenomenon for every model, each on text in the script of its Uzbek training "
+            r"data (L: current Latin, C: Cyrillic; multilingual models on Latin), as in Table~\ref{tab:main}. Cells below "
+            r"chance are shaded.", "tab:ownall"),
         "otherscript": per_phenomenon_table(
             runs, other, r"Accuracy (\%) per phenomenon on the \emph{other} script: Cyrillic text for models trained on "
             r"Latin-script Uzbek and for multilingual models, Latin text for models trained on Cyrillic. Cells below chance "

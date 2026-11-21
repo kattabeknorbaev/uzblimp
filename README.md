@@ -50,7 +50,7 @@ Related work: TurBLiMP (Turkish, EMNLP 2025), TatBLiMP (Tatar, arXiv 2026), Mult
 | `binding` | Binding | syntax | reflexive, not a pronoun, inside its binding domain |
 | `ditransitive_dative` | Ditransitive dative | syntax | indirect object takes dative, not a second accusative |
 | `lexical_case` | Lexical case | syntax | verb assigns a lexical case to its object (qoʻrqmoq + ablative) |
-| `nominalization` | Nominalization | syntax | verb selects an -ish/-moq or -gan complement |
+| `nominalization` | Nominalization | syntax | predicates such as kerak, mumkin, lozim take the verbal noun in -(i)sh, not the participle -gan |
 | `npi_hech` | NPI licensing (hech + negation) | semantics | hech- words need a negated predicate |
 | `passives` | Passives | syntax | an agent phrase (tomonidan) needs a passive verb |
 | `person_agreement` | Subject agreement | morphology | verb agrees in person and number with an overt pronoun subject |
@@ -148,7 +148,7 @@ In short: the strongest monolingual models (TahrirchiBERT and the Goldfish model
 
 ## How the pairs were made and checked
 
-- **Sources.** 959 pairs come from Javohir Matniyozov's rule-based pairs over `tahrirchi/uz-books-v2` (`data/external/`, generator in `scripts/jm_generator/`) and 1,441 from Kattabek Norbaev's generator (`scripts/make_pairs.py`) over books (929), Uzbek Wikipedia (502) and legal codes (10).
+- **Sources.** 960 pairs come from Javohir Matniyozov's rule-based pairs over `tahrirchi/uz-books-v2` (`data/external/`, generator in `scripts/jm_generator/`) and 1,440 from Kattabek Norbaev's generator (`scripts/make_pairs.py`) over books (934), Uzbek Wikipedia (496) and legal codes (10).
 - **Review.** Of 3,800 candidate pairs, 3,729 were reviewed and 3,267 (87.6%) accepted. Every pair was judged first by Kattabek Norbaev, a native speaker, and then checked with three other native speakers; for some phenomena an AI assistant was used as a consistency check. Rejected pairs keep their reason in `data/pairs_v*.tsv`.
 - **Audit of the selected pairs (v1.2).** The 2,400 selected pairs were screened in two passes with the help of an AI assistant: for generator errors (ungrammatical members that have a grammatical reading, edited words that are not an instance of the phenomenon, malformed forms) and for spelling or OCR errors in the source sentences (found by reading the 1,000 most surprising words under the largest Latin Goldfish model and by proofreading every grammatical sentence once more). 120 pairs (5.0%) were replaced by the next accepted pairs of their phenomenon, and the replacements were checked in the same way. Every excluded pair is listed with its reason in `data/benchmark/excluded.tsv` (143 pairs, including reserve pairs); **these exclusions still have to be confirmed by the authors.** Known weaknesses that were kept are described in the paper (Appendix A).
 - **Cyrillic audit (v1.2).** The roughly 10,000 distinct word forms of the Cyrillic version were checked three times for Russian loanwords that Latin spells differently; 72 forms are respelled from a table (`scripts/alphabets.py`). Loanwords that were not recognised may remain.
@@ -202,7 +202,7 @@ A paper is in preparation (`paper/`). Until then:
 | Person | Role |
 |---|---|
 | Kattabek Norbaev | Project lead: phenomena and design, corpus pair generator, native-speaker review of every pair, evaluation, paper draft |
-| Javohir Matniyozov | Rule-based pair generator and its 4,500 pairs (959 in the benchmark), second annotator sheet |
+| Javohir Matniyozov | Rule-based pair generator and its 4,500 pairs (960 in the benchmark), second annotator sheet |
 | Three native speakers | Checked the reviewed pairs (not named) |
 
 AI assistants (Claude) helped write code, import review decisions, run the model evaluation, audit the Cyrillic conversion and draft the paper, its glosses and the grammar explanations prepared for a later experiment; the authors check the results. The paper's AI-assistance statement gives the details.

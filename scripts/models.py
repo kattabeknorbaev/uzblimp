@@ -14,7 +14,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 # Benchmark version the result files refer to. v1.2 = v1.1 with the Cyrillic spelling of Russian loanwords
-# corrected and with 44 pairs replaced from the reserve after an audit (data/benchmark/excluded.tsv).
+# corrected and with 120 pairs replaced from the reserve after an audit and two spelling passes (data/benchmark/excluded.tsv).
 VERSION = "v1.2"
 ALPHABETS = {"Latin": "", "Cyrillic": "_cyrl", "Reformed": "_reformed"}
 DATA = {"Latin": "uzblimp.tsv", "Cyrillic": "uzblimp_cyrl.tsv", "Reformed": "uzblimp_reformed.tsv"}

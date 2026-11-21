@@ -23,7 +23,7 @@ PHENOMENA = [
     ("stem_alternation", "Stem alternation (q/k)", "Stem", "TurBLiMP"),
     ("npi_hech", "NPI \\textit{hech}", "NPI", "TurBLiMP"),
     ("suspended_affixation", "Suspended affixation", "Susp", "TurBLiMP"),
-    ("nominalization", "Nominalization", "Nmlz", "TurBLiMP"),
+    ("nominalization", "Nominalisation", "Nmlz", "TurBLiMP"),
     ("person_agreement", "Subject agreement", "Subj", "TurBLiMP"),
     ("passives", "Passives", "Pass", "TurBLiMP"),
     ("relative_clauses", "Relative clauses", "Rel", "TurBLiMP"),

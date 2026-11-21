@@ -358,5 +358,29 @@
       "tokens_per_sentence": 20.04,
       "tokens_per_word": 2.295
     }
+  },
+  "Qwen2.5-1.5B": {
+    "model": "Qwen/Qwen2.5-1.5B",
+    "Latin": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 27.95,
+      "tokens_per_word": 3.201
+    },
+    "Cyrillic": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 36.22,
+      "tokens_per_word": 4.148
+    },
+    "Reformed": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 26.41,
+      "tokens_per_word": 3.025
+    }
   }
 }
