@@ -569,6 +569,27 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
     num("drop@max", max(drops))
     for a in ("Latin", "Cyrillic"):
         num(f"best@{a}", max(acc(df) for (key, alphabet), df in runs.items() if alphabet == a))
+    # Length effect against competence across runs: accuracy on pairs whose members have the same number of
+    # tokens (no length cue) against the gap (accuracy where the ungrammatical member has more tokens minus
+    # where it has fewer); Spearman correlation over all complete runs, with and without the binding pairs,
+    # whose ungrammatical member is shorter in every Latin pair.
+    def length_profile(df):
+        d = df.bad_ntok - df.good_ntok
+        good = ok(df)
+        return 100 * good[d == 0].mean(), 100 * (good[d > 0].mean() - good[d < 0].mean())
+
+    def spearman(x, y):
+        return float(pd.Series(x).rank().corr(pd.Series(y).rank()))
+
+    for name, keep in (("all", lambda df: df), ("nobind", lambda df: df[df.phenomenon != "binding"])):
+        prof = [length_profile(keep(df)) for df in runs.values()]
+        num(f"lencorr@{name}@rho", spearman([p[0] for p in prof], [p[1] for p in prof]), 2)
+    num("lencorr@n", len(runs), 0)
+    for key, a in (("tahrirchi-bert", "Cyrillic"), ("tahrirchi-bert", "Reformed"), ("GF-L full", "Cyrillic"),
+                   ("UzBERT", "Cyrillic"), ("XLM-R base", "Latin"), ("mBERT", "Latin")):
+        if (key, a) in runs:
+            df = runs[(key, a)]
+            num(f"lennb@{key}@{a}@gap", length_profile(df[df.phenomenon != "binding"])[1])
     ties = sum(int((df["diff"] == 0).sum()) for df in runs.values())
     num("n@ties", ties, 0)
     old = {r["id"]: r for r in read_tsv(ROOT / "data/benchmark/uzblimp_cyrl.tsv")}

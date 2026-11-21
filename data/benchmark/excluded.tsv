@@ -115,3 +115,30 @@ stem_alternation-1246	stem_alternation	the edited word comes from a compound wri
 stem_alternation-1165	stem_alternation	source sentence has a spelling error (birbiriga for bir-biriga)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
 npi_hech-1167	npi_hech	source sentence has a loanword spelled against the Latin rules (stantsiya for stansiya)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
 lexical_case-1228	lexical_case	source sentence has a spelling error (Naxot for Nahot)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+numeral_no_plural-1036	numeral_no_plural	source sentence has a spelling error (chiqgan for chiqqan)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+numeral_no_plural-1221	numeral_no_plural	source sentence has a spelling error (koʻyishdi for qoʻyishdi)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+passives-1048	passives	source sentence has a space before the full stop	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+passives-2039	passives	source sentence has a loanword spelled against the Latin rules (Differentsial for Differensial)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+passives-2115	passives	source sentence has a spelling error (harajatlar for xarajatlar)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+possessive_agreement-1137	possessive_agreement	source sentence has a spelling error (koʻyib for qoʻyib)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+possessive_agreement-1116	possessive_agreement	source sentence is garbled (a doubled inson; reads as a machine translation)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+possessive_agreement-1204	possessive_agreement	source sentence is a garbled fragment without a predicate	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+postposition_case-1146	postposition_case	source sentence is direct speech with a dialogue dash (beramiz,- dedi)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+postposition_case-1155	postposition_case	the edited word is misspelled in both members (xafta- for hafta-)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+postposition_case-1157	postposition_case	source sentence has a misspelled loanword (operasiya for operatsiya), which also gives a wrong Cyrillic form	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+postposition_case-1048	postposition_case	source sentence is ungrammatical (ichidagi for ichida)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+postposition_case-1115	postposition_case	the target construction has a doubled postposition (-dan keyin soʻng)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-1012	relative_clauses	source sentence writes a tutuq after ʻ (moʻʼjiza for moʻjiza)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2050	relative_clauses	source sentence has a spelling error (xolda for holda) and an accusative object of a passive verb	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2055	relative_clauses	source sentence has a spelling error (etishib for yetishib)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2073	relative_clauses	source sentence has a spelling error (uz for oʻz)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2075	relative_clauses	source sentence has a spelling error (xolda for holda)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2076	relative_clauses	source sentence is garbled, and the edited word is misspelled (kuyilgan for qoʻyilgan)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2120	relative_clauses	source sentence is truncated	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2128	relative_clauses	source sentence is garbled (birikmadan bilan)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2043	relative_clauses	source sentence has an accusative object of a passive verb (Loyni ... pishitiladi)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2131	relative_clauses	source sentence has a spelling error (ogrikdan for ogʻriqdan)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2117	relative_clauses	source sentence has an accusative object of a passive verb (qogʻozlarni tortilganda)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+postposition_case-1050	postposition_case	source sentence has a spelling error (rusxat for ruxsat)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+possessive_agreement-1044	possessive_agreement	source sentence is ungrammatical (oʻrtasidagi kurashayotgan for oʻrtasida kurashayotgan)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2048	relative_clauses	source sentence has a missing possessive suffix (Uning davrning for Uning davrining)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
