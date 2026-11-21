@@ -101,21 +101,21 @@
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 15.94,
-      "tokens_per_word": 1.822
+      "tokens_per_sentence": 15.91,
+      "tokens_per_word": 1.821
     },
     "Cyrillic": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 30.58,
+      "tokens_per_sentence": 30.54,
       "tokens_per_word": 3.495
     },
     "Reformed": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 19.18,
+      "tokens_per_sentence": 19.15,
       "tokens_per_word": 2.192
     }
   },
@@ -317,22 +317,22 @@
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 24.26,
-      "tokens_per_word": 2.768
+      "tokens_per_sentence": 24.15,
+      "tokens_per_word": 2.764
     },
     "Cyrillic": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 29.6,
-      "tokens_per_word": 3.377
+      "tokens_per_sentence": 29.47,
+      "tokens_per_word": 3.373
     },
     "Reformed": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 24.13,
-      "tokens_per_word": 2.753
+      "tokens_per_sentence": 24.01,
+      "tokens_per_word": 2.748
     }
   },
   "XLM-R base": {
@@ -341,22 +341,22 @@
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 20.43,
-      "tokens_per_word": 2.331
+      "tokens_per_sentence": 20.35,
+      "tokens_per_word": 2.329
     },
     "Cyrillic": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 27.39,
-      "tokens_per_word": 3.125
+      "tokens_per_sentence": 27.29,
+      "tokens_per_word": 3.124
     },
     "Reformed": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 20.14,
-      "tokens_per_word": 2.298
+      "tokens_per_sentence": 20.05,
+      "tokens_per_word": 2.295
     }
   }
 }

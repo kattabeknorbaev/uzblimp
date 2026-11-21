@@ -161,3 +161,8 @@ timestamp,model,dataset,n_pairs,accuracy,bos,device,dtype,n_params_M,acc_norm,sc
 2026-11-20T19:30:28,Qwen/Qwen2.5-0.5B,uzblimp_v1.2_bos,2400,0.505,True,cpu,float32,494.0,0.5688,causal,baseline,33 pairs scored; 2367 carried over from Qwen2.5-0.5B_uzblimp_v1.2_bos.csv and Qwen2.5-0.5B_uzblimp_v1.1_bos.csv
 2026-11-20T19:31:32,Qwen/Qwen2.5-0.5B,uzblimp_v1.2_cyrl_bos,2400,0.4617,True,cpu,float32,494.0,0.4917,causal,baseline,33 pairs scored; 2367 carried over from Qwen2.5-0.5B_uzblimp_v1.2_cyrl_bos.csv and Qwen2.5-0.5B_uzblimp_v1.1_cyrl_bos.csv
 2026-11-20T19:32:16,Qwen/Qwen2.5-0.5B,uzblimp_v1.2_reformed_bos,2400,0.4704,True,cpu,float32,494.0,0.5329,causal,baseline,33 pairs scored; 2367 carried over from Qwen2.5-0.5B_uzblimp_v1.2_reformed_bos.csv and Qwen2.5-0.5B_uzblimp_v1.1_reformed_bos.csv
+2026-11-20T20:13:59,FacebookAI/xlm-roberta-base,uzblimp_v1.2,2400,0.7825,True,cpu,float32,278.0,0.79,mlm-pll,baseline,2400 pairs scored
+2026-11-20T20:34:42,google-bert/bert-base-multilingual-cased,uzblimp_v1.2,2400,0.6246,True,cpu,float32,178.0,0.6583,mlm-pll,baseline,2400 pairs scored
+2026-11-21T01:40:10,FacebookAI/xlm-roberta-base,uzblimp_v1.2,2400,0.7817,True,cpu,float32,278.0,0.7883,mlm-pll,baseline,33 pairs scored; 2367 carried over from xlm-roberta-base_uzblimp_v1.2.csv
+2026-11-21T01:40:20,google-bert/bert-base-multilingual-cased,uzblimp_v1.2,2400,0.6254,True,cpu,float32,178.0,0.6596,mlm-pll,baseline,33 pairs scored; 2367 carried over from bert-base-multilingual-cased_uzblimp_v1.2.csv
+2026-11-21T01:40:32,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2,2400,0.9867,True,cpu,float32,110.0,0.9846,mlm-pll,baseline,24 pairs scored; 2376 carried over from tahrirchi-bert-base_uzblimp_v1.2.csv and tahrirchi-bert-base_uzblimp_v1.1.csv

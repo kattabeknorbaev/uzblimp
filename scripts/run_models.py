@@ -138,7 +138,7 @@ def run(model, alphabet, version, previous, batch_size):
             known[(r.id, r.good, r.bad)] = r
     todo = [r for r, k in zip(rows, keys) if k not in known]
     reused = len(rows) - len(todo)
-    chunk = 400 if model["method"] == "pll" else 1200
+    chunk = 200 if model["method"] == "pll" else 1200
     t0, meta = time.time(), {}
     for start in range(0, len(todo), chunk):
         result = score(model, todo[start:start + chunk], batch_size)

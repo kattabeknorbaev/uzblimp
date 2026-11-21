@@ -90,3 +90,28 @@ postposition_case-1103	postposition_case	source sentence has a broken word (zara
 stem_alternation-1205	stem_alternation	source sentence has a spelling error (Usha for Oʻsha)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
 npi_hech-1140	npi_hech	source sentence writes the tutuq of taʼrif with the wrong apostrophe character	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
 passives-1053	passives	source sentence has a spelling error (labaratoriya for laboratoriya)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+suspended_affixation-1118	suspended_affixation	source sentence has a broken word (qoʻ yilgan)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+npi_hech-1189	npi_hech	source sentence has a spelling error (xam for ham)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+lexical_case-1075	lexical_case	source sentence has a spelling error (buyi for boʻyi)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+stem_alternation-1062	stem_alternation	source sentence has a spelling error (etib for yetib) and reads as a machine translation	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+npi_hech-1146	npi_hech	source sentence has a spelling error (etib for yetib)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+suspended_affixation-1158	suspended_affixation	source sentence has a spelling error (Xolbuki for Holbuki)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+stem_alternation-1224	stem_alternation	source sentence uses the wrong word (surʼatga 'speed' for suratga 'picture')	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+suspended_affixation-1089	suspended_affixation	source sentence uses the wrong word (ishlab chaqirish for ishlab chiqarish)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+lexical_case-1182	lexical_case	source sentence has a spelling error (Korovulbegi for Qorovulbegi)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+stem_alternation-1195	stem_alternation	source sentence merges two words (chapkoʻksida for chap koʻksida)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+ditransitive_dative-2020	ditransitive_dative	source sentence has a spelling error (qoʻyapman for qoʻyyapman)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+ditransitive_dative-1012	ditransitive_dative	source sentence has a misspelled loanword (karera for karyera) and reads as a machine translation	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+suspended_affixation-1029	suspended_affixation	source sentence has a misspelled loanword (ofisiant for ofitsiant), which also gives a wrong Cyrillic form	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+anaphor_agreement-2106	anaphor_agreement	source sentence uses the wrong word (yod 'memory' for yot 'alien')	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+lexical_case-1125	lexical_case	source sentence has a spelling error (xalpida for halpida)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+stem_alternation-1175	stem_alternation	source sentence is a garbled machine translation (accusative olatni where the genitive is required)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+stem_alternation-1023	stem_alternation	source sentence is garbled (Poʻstlogʻi ..., poʻstloqli, poʻstloq)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+nominalization-2055	nominalization	source sentence has a misspelled loanword (kalkulatsiya for kalkulyatsiya)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+anaphor_agreement-2177	anaphor_agreement	source sentence starts with an expression that is probably corrupted (Har koʻra)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+ditransitive_dative-1052	ditransitive_dative	source sentence is a fragment without a subject	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+stem_alternation-1171	stem_alternation	the edited word is built on a nonstandard stem (sogʻlik for sogʻliq)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+stem_alternation-1246	stem_alternation	the edited word comes from a compound written apart (Koʻz oynagi for koʻzoynagi)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+stem_alternation-1165	stem_alternation	source sentence has a spelling error (birbiriga for bir-biriga)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+npi_hech-1167	npi_hech	source sentence has a loanword spelled against the Latin rules (stantsiya for stansiya)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+lexical_case-1228	lexical_case	source sentence has a spelling error (Naxot for Nahot)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
