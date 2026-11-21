@@ -532,6 +532,7 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
     spelling = sum("spelling" in r["flagged_by"] for r in excluded)
     num("n@excluded@spelling", spelling, 0)
     num("n@excluded@audit", len(excluded) - spelling, 0)
+    num("n@excluded@reserve", len(excluded) - replaced, 0)
     # Pairs that at least three of the six strongest runs (each model on its own script) judge wrong.
     strongest = [("tahrirchi-bert", "Latin"), ("GF-L full", "Latin"), ("GF-L 100MB", "Latin"),
                  ("GF-C full", "Cyrillic"), ("GF-C 100MB", "Cyrillic"), ("UzRoBERTa", "Cyrillic")]
@@ -562,6 +563,11 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
     longer, equal, shorter = (int(m.sum()) for m in (bench.dbytes > 0, bench.dbytes == 0, bench.dbytes < 0))
     num("base@shorter", 100 * (longer + equal / 2) / len(bench))
     num("base@longer", 100 * (shorter + equal / 2) / len(bench))
+    cyr = {r["id"]: len(r["ungrammatical"].encode()) - len(r["grammatical"].encode())
+           for r in read_tsv(ROOT / "data/benchmark/uzblimp_cyrl.tsv")}
+    db = pd.Series(cyr)
+    num("base@shorter@Cyrillic", 100 * (int((db > 0).sum()) + int((db == 0).sum()) / 2) / len(db))
+    num("base@longer@Cyrillic", 100 * (int((db < 0).sum()) + int((db == 0).sum()) / 2) / len(db))
     mixed = [ph for ph in SLUGS if bench[bench.phenomenon == ph].source.nunique() == 2]
     num("n@mixedphen", len(mixed), 0)
     for key in ("GF-L 100MB", "GF-L full", "tahrirchi-bert", "BERTbek"):
@@ -603,7 +609,7 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
             num(f"lennbn@{key}@{a}@gap", length_profile(df[~df.phenomenon.isin(["binding", "npi_hech"])])[1])
     # Byte normalisation and the length gap: the gap in byte-normalised accuracy for every run, and how often
     # normalisation shrinks or reverses a gap of more than ten points.
-    big = shrunk = reversed_ = 0
+    big = shrunk = reversed_ = stillbig = 0
     for (key, a), df in runs.items():
         d = df.bad_ntok - df.good_ntok
         raw, nrm = ok(df), df.correct_norm.astype(str).eq("True")
@@ -614,9 +620,11 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
             big += 1
             shrunk += int(abs(g_nrm) < g_raw)
             reversed_ += int(g_nrm < 0)
+            stillbig += int(abs(g_nrm) > 10)
     num("lennorm@n@big", big, 0)
     num("lennorm@n@shrunk", shrunk, 0)
     num("lennorm@n@reversed", reversed_, 0)
+    num("lennorm@n@stillbig", stillbig, 0)
     ties = sum(int((df["diff"] == 0).sum()) for df in runs.values())
     num("n@ties", ties, 0)
     old = {r["id"]: r for r in read_tsv(ROOT / "data/benchmark/uzblimp_cyrl.tsv")}
@@ -629,7 +637,7 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
     num("n@loanforms", len({w.lower() for w in fixed}), 0)
 
 
-SMALL = {"GF-L 5MB", "GF-L 10MB", "GF-C 5MB", "GF-C 10MB"}  # in the appendix table only
+SMALL = {"GF-L 5MB", "GF-L 10MB", "GF-L 100MB", "GF-C 5MB", "GF-C 10MB", "GF-C 100MB"}  # in the appendix table only
 TRAINED_BY_KEY = {m["key"]: m["trained"] for m in MODELS}
 
 
@@ -664,7 +672,7 @@ def main():
             r"(L: current Latin, C: Cyrillic). GF-L, GF-C: Goldfish models trained on Latin-script and "
             r"Cyrillic-script Uzbek. Cells below chance (50) are shaded. Column "
             r"labels abbreviate the phenomena of Table~\ref{tab:phenomena} in the same order. With 150 pairs per cell, the "
-            r"95\% Wilson interval is at most $\pm$8 points. The Goldfish models trained on 5 and 10\,MB and the multilingual "
+            r"95\% Wilson interval is at most $\pm$8 points. The Goldfish models trained on less data and the multilingual "
             r"models are in Table~\ref{tab:ownall} in the appendix.", "tab:main"),
         "ownall": per_phenomenon_table(
             runs, own, r"Accuracy (\%) per phenomenon for every model, each on text in the script of its Uzbek training "

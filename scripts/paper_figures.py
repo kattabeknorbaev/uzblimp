@@ -43,7 +43,7 @@ def ladder(runs):
               ("GF-C", "Cyrillic", ORANGE, "-", "s", True, "Cyrillic model, Cyrillic text"),
               ("GF-L", "Cyrillic", BLUE, "--", "o", False, "Latin model, Cyrillic text"),
               ("GF-C", "Latin", ORANGE, "--", "s", False, "Cyrillic model, Latin text")]
-    fig, ax = plt.subplots(figsize=(COLUMN, 2.25))
+    fig, ax = plt.subplots(figsize=(COLUMN, 1.95))
     ax.axhline(50, color=AXIS, linewidth=0.6)
     ax.text(len(SIZES) - 0.55, 50.8, "chance", color=MUTED, fontsize=7, ha="right", va="bottom")
     for family, alphabet, color, style, marker, filled, label in series:
@@ -62,7 +62,7 @@ def ladder(runs):
     handles, labels = ax.get_legend_handles_labels()
     fig.legend(handles, labels, loc="lower center", ncol=2, handlelength=2.6, columnspacing=1.2, labelspacing=0.3,
                borderaxespad=0.0)
-    fig.tight_layout(pad=0.3, rect=(0, 0.16, 1, 1))
+    fig.tight_layout(pad=0.3, rect=(0, 0.185, 1, 1))
     fig.savefig(OUT / "ladder.pdf")
     plt.close(fig)
 
@@ -73,7 +73,7 @@ def length(runs):
     panels = [m for m in panels if (m["key"], own(m)) in runs]
     if not panels:
         return
-    fig, axes = plt.subplots(2, 2, figsize=(COLUMN, 2.45), sharex=True, sharey=True)
+    fig, axes = plt.subplots(2, 2, figsize=(COLUMN, 2.3), sharex=True, sharey=True)
     for ax, m in zip(axes.flat, panels):
         ax.axhline(50, color=AXIS, linewidth=0.6)
         for alphabet, color, style, marker, filled, label in (
@@ -98,7 +98,7 @@ def length(runs):
     fig.legend(handles, labels, loc="lower center", ncol=2, handlelength=2.6, columnspacing=1.5, borderaxespad=0.0)
     fig.supylabel("Accuracy (%)", fontsize=8, x=0.02)
     fig.supxlabel("Tokens in the ungrammatical member", fontsize=8, y=0.085)
-    fig.tight_layout(pad=0.3, h_pad=0.7, w_pad=0.6, rect=(0.03, 0.145, 1, 1))
+    fig.tight_layout(pad=0.3, h_pad=0.7, w_pad=0.6, rect=(0.03, 0.155, 1, 1))
     fig.savefig(OUT / "length.pdf")
     plt.close(fig)
 

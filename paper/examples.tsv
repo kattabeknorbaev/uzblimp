@@ -9,7 +9,7 @@ suspended_affixation	suspended_affixation-1117	Pul top-di-m va xotin-im-ga yubor
 nominalization	nominalization-2021	Bu tajriba-lar-ni qanday tushuntir-ish mumkin?	this experiment-PL-ACC how explain-VN possible	How can these experiments be explained?	tushuntir-gan	explain-PTCP
 person_agreement	person_agreement-2026	Avvaliga men bir~oz hayajonlan-di-m.	at.first I a.little get.nervous-PST-1SG	At first I was a little nervous.	hayajonlan-di-k	get.nervous-PST-1PL
 passives	passives-1064	Asar tanqidchi-lar tomon-i-dan yuqori bahola-n-gan.	work critic-PL side-3.POSS-ABL high rate-PASS-PTCP	The work was rated highly by critics.	bahola-gan	rate-PTCP
-relative_clauses	relative_clauses-2084	Pol-da sin-gan shisha butilka yot-ib-di.	floor-LOC break-PTCP glass bottle lie-CVB-3	A broken glass bottle is lying on the floor.	sin-di	break-PST
+relative_clauses	relative_clauses-2084	Pol-da sin-gan shisha butilka yot-ib-di.	floor-LOC break-PTCP glass bottle lie-CVB-COP	A broken glass bottle is lying on the floor.	sin-di	break-PST
 quantifiers	quantifiers-2003	Har~bir mahalla tashkiliy tuzilma-ga ega.	every neighbourhood organisational structure-DAT having	Every neighbourhood has an organisational structure.	mahalla-lar	neighbourhood-PL
 numeral_no_plural	numeral_no_plural-1243	Oila-da toʻrt-ta farzand bor.	family-LOC four-CLF child exist	There are four children in the family.	farzand-lar	child-PL
 postposition_case	postposition_case-1190	Bu-ni bola-lig-im-dan beri bil-a-man.	this-ACC child-NMLZ-1SG.POSS-ABL since know-PRS-1SG	I have known this since my childhood.	bola-lig-im-ga	child-NMLZ-1SG.POSS-DAT
