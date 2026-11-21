@@ -5,46 +5,46 @@
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 15.76,
-      "tokens_per_word": 1.802
+      "tokens_per_sentence": 15.72,
+      "tokens_per_word": 1.801
     },
     "Cyrillic": {
       "sentences": 4800,
-      "unk_sentences": 1369,
+      "unk_sentences": 1366,
       "unk_pct": 28.5,
-      "tokens_per_sentence": 18.79,
-      "tokens_per_word": 2.148
+      "tokens_per_sentence": 18.73,
+      "tokens_per_word": 2.145
     },
     "Reformed": {
       "sentences": 4800,
-      "unk_sentences": 3952,
-      "unk_pct": 82.3,
-      "tokens_per_sentence": 18.1,
-      "tokens_per_word": 2.069
+      "unk_sentences": 3957,
+      "unk_pct": 82.4,
+      "tokens_per_sentence": 18.06,
+      "tokens_per_word": 2.068
     }
   },
   "GF-C 5MB": {
     "model": "goldfish-models/uzn_cyrl_5mb",
     "Latin": {
       "sentences": 4800,
-      "unk_sentences": 3912,
-      "unk_pct": 81.5,
-      "tokens_per_sentence": 33.49,
-      "tokens_per_word": 3.829
+      "unk_sentences": 3902,
+      "unk_pct": 81.3,
+      "tokens_per_sentence": 33.4,
+      "tokens_per_word": 3.826
     },
     "Cyrillic": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 12.93,
-      "tokens_per_word": 1.478
+      "tokens_per_sentence": 12.9,
+      "tokens_per_word": 1.477
     },
     "Reformed": {
       "sentences": 4800,
       "unk_sentences": 4599,
       "unk_pct": 95.8,
-      "tokens_per_sentence": 34.18,
-      "tokens_per_word": 3.908
+      "tokens_per_sentence": 34.09,
+      "tokens_per_word": 3.904
     }
   },
   "GF-L 100MB": {
@@ -53,21 +53,21 @@
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 15.25,
+      "tokens_per_sentence": 15.24,
       "tokens_per_word": 1.746
     },
     "Cyrillic": {
       "sentences": 4800,
-      "unk_sentences": 1433,
-      "unk_pct": 29.9,
-      "tokens_per_sentence": 17.53,
-      "tokens_per_word": 2.007
+      "unk_sentences": 1430,
+      "unk_pct": 29.8,
+      "tokens_per_sentence": 17.51,
+      "tokens_per_word": 2.006
     },
     "Reformed": {
       "sentences": 4800,
-      "unk_sentences": 3953,
+      "unk_sentences": 3957,
       "unk_pct": 82.4,
-      "tokens_per_sentence": 17.67,
+      "tokens_per_sentence": 17.65,
       "tokens_per_word": 2.022
     }
   },
@@ -75,24 +75,24 @@
     "model": "goldfish-models/uzn_cyrl_100mb",
     "Latin": {
       "sentences": 4800,
-      "unk_sentences": 3906,
-      "unk_pct": 81.4,
-      "tokens_per_sentence": 32.8,
+      "unk_sentences": 3902,
+      "unk_pct": 81.3,
+      "tokens_per_sentence": 32.78,
       "tokens_per_word": 3.754
     },
     "Cyrillic": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 12.35,
-      "tokens_per_word": 1.414
+      "tokens_per_sentence": 12.33,
+      "tokens_per_word": 1.412
     },
     "Reformed": {
       "sentences": 4800,
       "unk_sentences": 4599,
       "unk_pct": 95.8,
-      "tokens_per_sentence": 33.7,
-      "tokens_per_word": 3.857
+      "tokens_per_sentence": 33.68,
+      "tokens_per_word": 3.858
     }
   },
   "tahrirchi-bert": {
@@ -125,22 +125,22 @@
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 28.02,
-      "tokens_per_word": 3.203
+      "tokens_per_sentence": 27.95,
+      "tokens_per_word": 3.201
     },
     "Cyrillic": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 36.32,
-      "tokens_per_word": 4.151
+      "tokens_per_sentence": 36.22,
+      "tokens_per_word": 4.148
     },
     "Reformed": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 26.48,
-      "tokens_per_word": 3.028
+      "tokens_per_sentence": 26.41,
+      "tokens_per_word": 3.025
     }
   },
   "GF-L 10MB": {
@@ -149,46 +149,46 @@
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 15.57,
-      "tokens_per_word": 1.78
+      "tokens_per_sentence": 15.53,
+      "tokens_per_word": 1.778
     },
     "Cyrillic": {
       "sentences": 4800,
-      "unk_sentences": 1435,
-      "unk_pct": 29.9,
-      "tokens_per_sentence": 18.36,
-      "tokens_per_word": 2.099
+      "unk_sentences": 1430,
+      "unk_pct": 29.8,
+      "tokens_per_sentence": 18.31,
+      "tokens_per_word": 2.097
     },
     "Reformed": {
       "sentences": 4800,
-      "unk_sentences": 3952,
-      "unk_pct": 82.3,
-      "tokens_per_sentence": 18.26,
-      "tokens_per_word": 2.088
+      "unk_sentences": 3957,
+      "unk_pct": 82.4,
+      "tokens_per_sentence": 18.22,
+      "tokens_per_word": 2.087
     }
   },
   "GF-C 10MB": {
     "model": "goldfish-models/uzn_cyrl_10mb",
     "Latin": {
       "sentences": 4800,
-      "unk_sentences": 3912,
-      "unk_pct": 81.5,
-      "tokens_per_sentence": 33.9,
-      "tokens_per_word": 3.875
+      "unk_sentences": 3902,
+      "unk_pct": 81.3,
+      "tokens_per_sentence": 33.81,
+      "tokens_per_word": 3.872
     },
     "Cyrillic": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 12.72,
-      "tokens_per_word": 1.454
+      "tokens_per_sentence": 12.68,
+      "tokens_per_word": 1.452
     },
     "Reformed": {
       "sentences": 4800,
       "unk_sentences": 4599,
       "unk_pct": 95.8,
-      "tokens_per_sentence": 34.74,
-      "tokens_per_word": 3.972
+      "tokens_per_sentence": 34.66,
+      "tokens_per_word": 3.969
     }
   },
   "GF-L full": {
@@ -245,22 +245,22 @@
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 35.96,
-      "tokens_per_word": 4.111
+      "tokens_per_sentence": 35.86,
+      "tokens_per_word": 4.107
     },
     "Cyrillic": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 15.63,
-      "tokens_per_word": 1.786
+      "tokens_per_sentence": 15.58,
+      "tokens_per_word": 1.784
     },
     "Reformed": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 33.93,
-      "tokens_per_word": 3.879
+      "tokens_per_sentence": 33.84,
+      "tokens_per_word": 3.876
     }
   },
   "BERTbek": {
@@ -293,21 +293,21 @@
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 15.69,
-      "tokens_per_word": 1.796
+      "tokens_per_sentence": 15.68,
+      "tokens_per_word": 1.795
     },
     "Cyrillic": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 13.79,
-      "tokens_per_word": 1.578
+      "tokens_per_sentence": 13.77,
+      "tokens_per_word": 1.577
     },
     "Reformed": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 20.46,
+      "tokens_per_sentence": 20.44,
       "tokens_per_word": 2.341
     }
   },
