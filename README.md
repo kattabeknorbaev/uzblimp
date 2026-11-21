@@ -133,16 +133,16 @@ In short: the strongest monolingual models (TahrirchiBERT and the Goldfish model
 | GF-L 10MB (`goldfish-models/uzn_latn_10mb`) | logprob | 73.4 | 55.8 | — |
 | GF-L 100MB (`goldfish-models/uzn_latn_100mb`) | logprob | 95.8 | 88.3 | — |
 | GF-L full (`goldfish-models/uzn_latn_full`) | logprob | 96.7 | 91.7 | — |
-| GF-C 5MB (`goldfish-models/uzn_cyrl_5mb`) | logprob | 45.2 | 61.2 | — |
+| GF-C 5MB (`goldfish-models/uzn_cyrl_5mb`) | logprob | 45.2 | 61.3 | — |
 | GF-C 10MB (`goldfish-models/uzn_cyrl_10mb`) | logprob | 40.3 | 65.4 | — |
 | GF-C 100MB (`goldfish-models/uzn_cyrl_100mb`) | logprob | 47.6 | 94.7 | — |
 | GF-C full (`goldfish-models/uzn_cyrl_full`) | logprob | 49.5 | 97.3 | — |
 | tahrirchi-bert (`tahrirchi/tahrirchi-bert-base`) | pll | 98.7 | 76.8 | 87.3 |
-| BERTbek (`elmurod1202/bertbek-news-big-cased`) | pll | 87.6 | — | — |
-| UzBERT (`coppercitylabs/uzbert-base-uncased`) | pll | — | 84.3 | — |
-| UzRoBERTa (`rifkat/uztext-3Gb-BPE-Roberta`) | pll | 93.4 | 96.4 | — |
-| mBERT (`google-bert/bert-base-multilingual-cased`) | pll | 62.5 | — | — |
-| XLM-R base (`FacebookAI/xlm-roberta-base`) | pll | 78.2 | — | — |
+| BERTbek (`elmurod1202/bertbek-news-big-cased`) | pll | 87.6 | — | 68.2 |
+| UzBERT (`coppercitylabs/uzbert-base-uncased`) | pll | 42.7 | 84.3 | — |
+| UzRoBERTa (`rifkat/uztext-3Gb-BPE-Roberta`) | pll | 93.4 | 96.4 | 78.0 |
+| mBERT (`google-bert/bert-base-multilingual-cased`) | pll | 62.5 | 51.2 | 55.6 |
+| XLM-R base (`FacebookAI/xlm-roberta-base`) | pll | 78.2 | 51.3 | 71.5 |
 | Qwen2.5-0.5B (`Qwen/Qwen2.5-0.5B`) | logprob | 50.4 | 46.2 | 46.8 |
 <!-- results:end -->
 

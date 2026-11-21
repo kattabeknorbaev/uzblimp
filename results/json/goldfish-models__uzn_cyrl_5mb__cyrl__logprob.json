@@ -6,7 +6,7 @@
   "script": "cyrl",
   "method": "logprob",
   "n_pairs": 2400,
-  "accuracy": 61.2,
+  "accuracy": 61.3,
   "accuracy_norm": 66.9,
   "per_phenomenon": {
     "anaphor_agreement": {

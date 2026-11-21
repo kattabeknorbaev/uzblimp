@@ -7,7 +7,7 @@
   "method": "pll",
   "n_pairs": 2400,
   "accuracy": 84.3,
-  "accuracy_norm": 85.2,
+  "accuracy_norm": 85.3,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
