@@ -219,24 +219,24 @@
     "model": "goldfish-models/uzn_cyrl_full",
     "Latin": {
       "sentences": 4800,
-      "unk_sentences": 3906,
-      "unk_pct": 81.4,
-      "tokens_per_sentence": 32.8,
+      "unk_sentences": 3902,
+      "unk_pct": 81.3,
+      "tokens_per_sentence": 32.78,
       "tokens_per_word": 3.754
     },
     "Cyrillic": {
       "sentences": 4800,
       "unk_sentences": 0,
       "unk_pct": 0.0,
-      "tokens_per_sentence": 12.35,
-      "tokens_per_word": 1.414
+      "tokens_per_sentence": 12.33,
+      "tokens_per_word": 1.412
     },
     "Reformed": {
       "sentences": 4800,
       "unk_sentences": 4599,
       "unk_pct": 95.8,
-      "tokens_per_sentence": 33.7,
-      "tokens_per_word": 3.857
+      "tokens_per_sentence": 33.68,
+      "tokens_per_word": 3.858
     }
   },
   "UzBERT": {
