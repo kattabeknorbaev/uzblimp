@@ -30,9 +30,10 @@ interlinear glosses (`paper/examples.tsv`).
 > phenomena such as case government, agreement, negative concord and the k/q alternation. Every
 > pair is given in current Latin, in Cyrillic and in the Latin alphabet of the 2026 reform.
 >
-> Our main finding is that models learn this grammar equally well from Latin or Cyrillic text, but
-> lose much of it when they read the other alphabet or the reformed spelling, and then fall back
-> on sentence length and familiar spellings. The draft paper is attached.
+> Our main finding is that models learn this grammar comparably well from Latin or Cyrillic text,
+> given enough of it, but lose part of it when they read the other alphabet or the reformed
+> spelling, and then rely more on sentence length and familiar spellings. The draft paper is
+> attached.
 >
 > Because your work on [their area] is close to this, I would be very grateful for your opinion,
 > in particular on [the description of the phenomena / the glosses / a sample of pairs]. We also
@@ -52,13 +53,14 @@ interlinear glosses (`paper/examples.tsv`).
 >
 > I am writing because [TurBLiMP / MultiBLiMP / Goldfish / your work on X] shaped a project of
 > ours. UzBLiMP is a benchmark of 2,400 Uzbek minimal pairs over 16 phenomena (12 in the
-> categories of TurBLiMP), built from attested corpus sentences and reviewed by native speakers,
+> categories of TurBLiMP), built from attested corpus sentences and reviewed by a native speaker,
 > and released in current Latin, Cyrillic and the Latin alphabet of Uzbekistan's 2026 reform.
 >
 > Evaluating [N] models, we find that script-matched models trained on Latin or on Cyrillic Uzbek
-> learn the phenomena to the same degree, but lose up to [X] points on the other script; there,
-> and under the reformed spelling, their choices follow token counts and orthographic familiarity
-> rather than grammar. The draft is attached and the data and code are public.
+> reach comparable accuracy once they have seen enough text, but lose 5 to 48 points when the same
+> sentences are written in the other script; there, and under the reformed spelling, their
+> choices depend more on token counts and familiar spellings, at times falling below chance. The
+> draft is attached and the data and code are public.
 >
 > We would be very grateful for any feedback before we submit to ACL 2027. [If needed: As
 > first-time arXiv submitters, we would also need an endorsement for cs.CL, should you be willing
