@@ -11,6 +11,7 @@ import json
 import sys
 from pathlib import Path
 
+from models import MODELS
 from schema import RELEASE_PHENOMENA
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -31,7 +32,9 @@ def runs_by_model(results):
     rows = {}
     for r in results:
         rows.setdefault((r["method"], r["label"], r["model"]), {})[r["script"]] = r
-    key = lambda k: (METHOD_ORDER.index(k[0]) if k[0] in METHOD_ORDER else len(METHOD_ORDER), k[1])
+    # Models of the registry (scripts/models.py) come first, in its order; other runs follow by method and name.
+    order = {m["hf"]: i for i, m in enumerate(MODELS)}
+    key = lambda k: (order.get(k[2], len(order)), METHOD_ORDER.index(k[0]) if k[0] in METHOD_ORDER else len(METHOD_ORDER), k[1])
     return dict(sorted(rows.items(), key=lambda kv: key(kv[0])))
 
 

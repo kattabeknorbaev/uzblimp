@@ -1,0 +1,25 @@
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{2.1pt}
+\begin{tabular}{@{}llrrrrrrrrrrrrrrrrr@{}}
+\toprule
+Model & & Ana & LexC & Ditr & Bind & Stem & NPI & Susp & Nmlz & Subj & Pass & Rel & Quan & Num & Post & Poss & Dat & Avg. \\
+\midrule
+\multicolumn{19}{@{}l}{\textit{Uzbek encoders}} \\
+TahrirchiBERT & R & 87.3 & 87.3 & 98.7 & \cellcolor{black!12}29.3 & 83.3 & 61.3 & 98.0 & 74.7 & 99.3 & 98.0 & 96.0 & 97.3 & 96.0 & 100.0 & 100.0 & 90.0 & \textbf{87.3} \\
+\quad small & R & 96.0 & 84.7 & 94.0 & \cellcolor{black!12}11.3 & 84.7 & \cellcolor{black!12}36.0 & 96.7 & \cellcolor{black!12}40.7 & 99.3 & 97.3 & 97.3 & 94.7 & 91.3 & 100.0 & 98.0 & 78.7 & \textbf{81.3} \\
+BERTbek & R & 70.0 & \cellcolor{black!12}40.7 & 84.0 & \cellcolor{black!12}8.0 & 64.7 & \cellcolor{black!12}24.7 & 89.3 & \cellcolor{black!12}14.0 & 90.7 & 87.3 & 81.3 & 88.7 & 82.0 & 98.7 & 92.0 & 74.7 & \textbf{68.2} \\
+UzRoBERTa & R & 80.0 & 56.0 & 93.3 & \cellcolor{black!12}10.0 & 78.0 & \cellcolor{black!12}40.0 & 95.3 & \cellcolor{black!12}28.7 & 99.3 & 98.0 & 96.0 & 96.7 & 90.7 & 100.0 & 98.7 & 87.3 & \textbf{78.0} \\
+\midrule
+\multicolumn{19}{@{}l}{\textit{Multilingual encoders}} \\
+mBERT & R & \cellcolor{black!12}41.3 & \cellcolor{black!12}36.7 & 58.0 & \cellcolor{black!12}5.3 & 58.0 & \cellcolor{black!12}8.7 & 63.3 & \cellcolor{black!12}28.7 & \cellcolor{black!12}49.3 & 79.3 & 88.7 & 83.3 & 62.0 & 95.3 & 68.7 & 62.7 & \textbf{55.6} \\
+XLM-R base & R & 82.0 & \cellcolor{black!12}41.3 & 74.0 & \cellcolor{black!12}41.3 & 68.7 & 58.7 & 88.7 & \cellcolor{black!12}33.3 & 94.0 & 88.7 & 94.7 & 87.3 & 63.3 & 96.7 & 87.3 & \cellcolor{black!12}44.7 & \textbf{71.5} \\
+\midrule
+\multicolumn{19}{@{}l}{\textit{Multilingual LMs}} \\
+Qwen2.5-0.5B & R & \cellcolor{black!12}42.7 & \cellcolor{black!12}27.3 & \cellcolor{black!12}38.7 & \cellcolor{black!12}4.0 & 54.0 & \cellcolor{black!12}12.0 & 56.7 & \cellcolor{black!12}19.3 & \cellcolor{black!12}46.7 & 54.7 & \cellcolor{black!12}44.7 & 82.7 & 88.0 & 72.0 & 68.0 & \cellcolor{black!12}36.7 & \textbf{46.8} \\
+Qwen2.5-1.5B & R & \cellcolor{black!12}48.0 & \cellcolor{black!12}34.7 & \cellcolor{black!12}30.0 & \cellcolor{black!12}5.3 & 67.3 & \cellcolor{black!12}22.7 & 51.3 & \cellcolor{black!12}30.7 & \cellcolor{black!12}48.7 & 61.3 & 74.0 & 87.3 & 82.7 & 68.0 & 67.3 & \cellcolor{black!12}16.0 & \textbf{49.7} \\
+\bottomrule
+\end{tabular}
+\caption{Accuracy (\%) per phenomenon on reformed Latin (R), for the models whose tokenizer covers the new letters. Cells below chance are shaded.}
+\label{tab:reformedphen}
+\end{table*}

@@ -73,7 +73,7 @@ def load_pairs(folder, script, per_phenomenon=None):
 def summarize(rows, model, script, method, settings, label=None):
     """rows: per-pair dicts with `paradigm` and `correct` (bool, or 0/0.5/1 for forced choice)."""
     def acc(rs, key="correct"):
-        return round(100 * sum(r[key] for r in rs) / len(rs), 1)
+        return round(100 * sum(r[key] for r in rs) / len(rs) + 1e-9, 1)  # halves round up, as in the paper's tables
 
     by = defaultdict(list)
     for r in rows:

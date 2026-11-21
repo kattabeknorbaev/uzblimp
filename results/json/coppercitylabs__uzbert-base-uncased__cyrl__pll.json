@@ -1,0 +1,101 @@
+{
+  "benchmark": "UzBLiMP",
+  "version": "v1.2",
+  "model": "coppercitylabs/uzbert-base-uncased",
+  "label": "UzBERT",
+  "script": "cyrl",
+  "method": "pll",
+  "n_pairs": 2400,
+  "accuracy": 84.3,
+  "accuracy_norm": 85.3,
+  "per_phenomenon": {
+    "anaphor_agreement": {
+      "n": 150,
+      "correct": 137,
+      "accuracy": 91.3
+    },
+    "binding": {
+      "n": 150,
+      "correct": 11,
+      "accuracy": 7.3
+    },
+    "dative_allomorphy": {
+      "n": 150,
+      "correct": 126,
+      "accuracy": 84.0
+    },
+    "ditransitive_dative": {
+      "n": 150,
+      "correct": 138,
+      "accuracy": 92.0
+    },
+    "lexical_case": {
+      "n": 150,
+      "correct": 121,
+      "accuracy": 80.7
+    },
+    "nominalization": {
+      "n": 150,
+      "correct": 150,
+      "accuracy": 100.0
+    },
+    "npi_hech": {
+      "n": 150,
+      "correct": 83,
+      "accuracy": 55.3
+    },
+    "numeral_no_plural": {
+      "n": 150,
+      "correct": 132,
+      "accuracy": 88.0
+    },
+    "passives": {
+      "n": 150,
+      "correct": 141,
+      "accuracy": 94.0
+    },
+    "person_agreement": {
+      "n": 150,
+      "correct": 146,
+      "accuracy": 97.3
+    },
+    "possessive_agreement": {
+      "n": 150,
+      "correct": 149,
+      "accuracy": 99.3
+    },
+    "postposition_case": {
+      "n": 150,
+      "correct": 123,
+      "accuracy": 82.0
+    },
+    "quantifiers": {
+      "n": 150,
+      "correct": 143,
+      "accuracy": 95.3
+    },
+    "relative_clauses": {
+      "n": 150,
+      "correct": 136,
+      "accuracy": 90.7
+    },
+    "stem_alternation": {
+      "n": 150,
+      "correct": 140,
+      "accuracy": 93.3
+    },
+    "suspended_affixation": {
+      "n": 150,
+      "correct": 147,
+      "accuracy": 98.0
+    }
+  },
+  "settings": {
+    "scorer": "scripts/score_pairs.py, minicons 0.3.39 --mlm (pseudo-log-likelihood)",
+    "dtype": "float32",
+    "device": "cpu",
+    "bos": true,
+    "per_pair": "results/uzbert-base-uncased_uzblimp_v1.2_cyrl.csv"
+  },
+  "date": "2026-11-21"
+}

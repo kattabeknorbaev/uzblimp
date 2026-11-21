@@ -4,6 +4,8 @@ Reads every data/pairs_v*.tsv; usable = accepted or edited. For each core phenom
 with at least --per usable pairs, picks --per of them at random with a seed derived
 from the phenomenon name, so adding phenomena or reserve pairs later never changes
 the pairs already chosen for another phenomenon. The rest goes to the reserve file.
+Hand-written seed pairs and the pairs listed in data/benchmark/excluded.tsv (pairs that failed a
+later check, each with its reason) are skipped after the shuffle, so only their slots change.
 Phenomena below --per are listed as incomplete and left out.
 
     python scripts/build_benchmark.py            # → data/benchmark/uzblimp.tsv + reserve.tsv
@@ -36,6 +38,11 @@ def main():
                 if r["status"] in ("accepted", "edited") and r["phenomenon"] in PHENOMENA:
                     usable[r["phenomenon"]].append(r)
 
+    excluded = set()
+    if (ROOT / "data" / "benchmark" / "excluded.tsv").exists():
+        with open(ROOT / "data" / "benchmark" / "excluded.tsv", encoding="utf-8", newline="") as fh:
+            excluded = {r["id"] for r in csv.DictReader(fh, delimiter="\t", quoting=csv.QUOTE_NONE)}
+
     bench, reserve, incomplete = [], [], []
     for ph in PHENOMENA:
         rows = sorted(usable[ph], key=lambda r: r["id"])  # deterministic before shuffling
@@ -46,6 +53,9 @@ def main():
         # Corpus sentences only (2026-10-27): the hand-written seed pairs of pairs_v0.tsv are
         # skipped after shuffling, so every other pair keeps its place and only their slots change.
         rows = [r for r in rows if r.get("method") != "hand-written"]
+        # Pairs that failed a later check (data/benchmark/excluded.tsv, with the reason for each) are skipped
+        # in the same way: the next accepted pair in the shuffled order takes the place.
+        rows = [r for r in rows if r["id"] not in excluded]
         bench += rows[:args.per]
         reserve += rows[args.per:]
 
@@ -61,6 +71,7 @@ def main():
     print(f"Benchmark: {len(bench)} pairs, {done} phenomena × {args.per} → {out_dir / 'uzblimp.tsv'}")
     print(f"Reserve: {len(reserve)} pairs → {out_dir / 'reserve.tsv'}")
     print(f"Incomplete (left out): {', '.join(incomplete) or 'none'}")
+    print(f"Excluded after later checks: {len(excluded)} pairs (data/benchmark/excluded.tsv)")
 
 
 if __name__ == "__main__":

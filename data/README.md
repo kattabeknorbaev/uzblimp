@@ -4,7 +4,8 @@
 
 One minimal pair per row, tab-separated, UTF-8, with a header line. Names:
 - `pairs_v0.tsv`: seed pairs
-- `pairs_v1_<phenomenon>.tsv`: generated candidates
+- `pairs_v1_<phenomenon>.tsv`: generated candidates (`scripts/make_pairs.py`)
+- `pairs_v2_<phenomenon>.tsv`: candidates from Javohir Matniyozov's rule-based generator over `tahrirchi/uz-books-v2` (`scripts/jm_generator/`, imported from `external/`); `postposition_order` and `vowel_glide` are not in the benchmark
 
 Check every file with `python scripts/validate_pairs.py <file>`.
 
@@ -25,14 +26,14 @@ Check every file with `python scripts/validate_pairs.py <file>`.
 
 | Column | Meaning |
 |---|---|
-| `reviewer` | Initials of the native speaker who checked the pair (`KN` Kattabek Norbaev, `JM` Javokhir Matniyazov) |
+| `reviewer` | Initials of the native speaker who checked the pair (`KN` Kattabek Norbaev, `JM` Javohir Matniyozov) |
 | `reviewed_at` | ISO timestamp of the decision |
 | `reason` | Short reason for a rejection |
 
 ### Rules (checked by the validator)
 
 - **One place only:** the two sentences differ in exactly one contiguous stretch of words. Changing one word, or inserting or deleting adjacent words (*hech qachon*), counts as one place.
-- **Word-order phenomena** (`ellipsis`, `scrambling`): both sentences use the same words in a different order.
+- **Word-order phenomena** (`ellipsis`, `scrambling`; dropped, not in the benchmark): both sentences use the same words in a different order.
 - **One script per sentence:** no Latin and Cyrillic letters mixed in one sentence.
 - **oʻ/gʻ use U+02BB (ʻ) only.** Other apostrophe variants after o/g are errors.
 - **Length:** 4–15 words preferred. Longer or shorter sentences are warnings, empty ones are errors.
@@ -47,6 +48,9 @@ Check every file with `python scripts/validate_pairs.py <file>`.
 
 | File | What it is |
 |---|---|
+| `benchmark/` | The benchmark: `uzblimp.tsv` (2,400 pairs in current Latin), `uzblimp_cyrl.tsv` and `uzblimp_reformed.tsv` (the same pairs in Cyrillic and reformed Latin), `reserve.tsv` (724 accepted pairs that can replace failing ones) and `excluded.tsv` (143 pairs removed in the v1.2 audit, with reasons) |
+| `external/` | Javohir Matniyozov's generated pair sets (`uzblimp_v11.json`, `uzblimp_v12.json`) |
+| `explanations.tsv` | Short grammar explanations per phenomenon, prepared for a later prompting experiment (`notes/grammar_prompting.md`) |
 | `sanity.tsv` | 3 hand-written test pairs (day 1) |
 | `multiblimp_uzb.tsv` | MultiBLiMP 1.0 Uzbek split (50 pairs), for comparison |
 | `pilot_3alphabets.tsv` | 13-pair three-alphabet pilot (day 2) |

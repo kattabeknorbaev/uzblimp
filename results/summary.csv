@@ -79,3 +79,144 @@ timestamp,model,dataset,n_pairs,accuracy,bos,device,dtype,n_params_M,acc_norm,sc
 2026-10-27T23:16:22,google/gemini-4-argon,uzblimp_v1.1_pilot3,48,1.0,,,,,,api-forced-choice,baseline,consistent 1.0000; invalid 0; cost $0.1053
 2026-10-27T23:16:49,openai/gpt-6.1-sol,uzblimp_v1.1_pilot3,48,1.0,,,,,,api-forced-choice,baseline,consistent 1.0000; invalid 0; cost $0.0836
 2026-10-27T23:17:15,anthropic/claude-sonnet-5.5,uzblimp_v1.1_pilot3,48,1.0,,,,,,api-forced-choice,baseline,consistent 1.0000; invalid 0; cost $0.2742
+2026-11-20T14:13:33,goldfish-models/uzn_latn_5mb,uzblimp_v1.1,2400,0.6329,True,cpu,float32,65.0,0.685,causal,baseline,
+2026-11-20T14:14:40,goldfish-models/uzn_latn_5mb,uzblimp_v1.1_cyrl,2400,0.5371,True,cpu,float32,65.0,0.5621,causal,baseline,
+2026-11-20T14:16:32,goldfish-models/uzn_cyrl_5mb,uzblimp_v1.1,2400,0.4525,True,cpu,float32,65.0,0.5117,causal,baseline,
+2026-11-20T14:17:25,goldfish-models/uzn_cyrl_5mb,uzblimp_v1.1_cyrl,2400,0.6142,True,cpu,float32,65.0,0.6704,causal,baseline,
+2026-11-20T14:18:33,goldfish-models/uzn_latn_5mb,uzblimp_v1.2,2400,0.6329,,,,,0.685,,,carried over from v1.1; 0 pairs scored
+2026-11-20T14:18:41,goldfish-models/uzn_latn_5mb,uzblimp_v1.2_cyrl,2400,0.5362,,,,,0.5612,,,carried over from v1.1; 41 pairs scored
+2026-11-20T14:18:44,goldfish-models/uzn_cyrl_5mb,uzblimp_v1.2,2400,0.4525,,,,,0.5117,,,carried over from v1.1; 0 pairs scored
+2026-11-20T14:18:51,goldfish-models/uzn_cyrl_5mb,uzblimp_v1.2_cyrl,2400,0.6138,,,,,0.6704,,,carried over from v1.1; 41 pairs scored
+2026-11-20T14:18:55,goldfish-models/uzn_latn_100mb,uzblimp_v1.2,2400,0.9571,,,,,0.9458,,,carried over from v1.1; 0 pairs scored
+2026-11-20T14:19:15,goldfish-models/uzn_latn_100mb,uzblimp_v1.2_cyrl,2400,0.8846,,,,,0.8562,,,carried over from v1.1; 41 pairs scored
+2026-11-20T14:19:20,goldfish-models/uzn_cyrl_100mb,uzblimp_v1.2,2400,0.4762,,,,,0.5325,,,carried over from v1.1; 0 pairs scored
+2026-11-20T14:19:41,goldfish-models/uzn_cyrl_100mb,uzblimp_v1.2_cyrl,2400,0.9462,,,,,0.9346,,,carried over from v1.1; 41 pairs scored
+2026-11-20T14:19:44,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2,2400,0.9858,,,,,0.985,,,carried over from v1.1; 0 pairs scored
+2026-11-20T14:22:04,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2_cyrl,2400,0.7683,,,,,0.7617,,,carried over from v1.1; 41 pairs scored
+2026-11-20T14:22:05,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2_reformed,2400,0.8733,,,,,0.8975,,,carried over from v1.1; 0 pairs scored
+2026-11-20T14:22:08,Qwen/Qwen2.5-0.5B,uzblimp_v1.2_bos,2400,0.5054,,,,,0.5683,,,carried over from v1.1; 0 pairs scored
+2026-11-20T14:22:45,Qwen/Qwen2.5-0.5B,uzblimp_v1.2_cyrl_bos,2400,0.4625,,,,,0.4896,,,carried over from v1.1; 41 pairs scored
+2026-11-20T14:22:45,Qwen/Qwen2.5-0.5B,uzblimp_v1.2_reformed_bos,2400,0.4733,,,,,0.5362,,,carried over from v1.1; 0 pairs scored
+2026-11-20T14:23:41,goldfish-models/uzn_latn_10mb,uzblimp_v1.2,2400,0.7325,True,cpu,float32,65.0,0.7562,causal,baseline,
+2026-11-20T14:24:36,goldfish-models/uzn_latn_10mb,uzblimp_v1.2_cyrl,2400,0.5592,True,cpu,float32,65.0,0.6175,causal,baseline,
+2026-11-20T14:26:10,goldfish-models/uzn_cyrl_10mb,uzblimp_v1.2,2400,0.4058,True,cpu,float32,65.0,0.5117,causal,baseline,
+2026-11-20T14:26:50,goldfish-models/uzn_cyrl_10mb,uzblimp_v1.2_cyrl,2400,0.6525,True,cpu,float32,65.0,0.7171,causal,baseline,
+2026-11-20T14:28:45,goldfish-models/uzn_latn_full,uzblimp_v1.2,2400,0.9667,True,cpu,float32,164.0,0.9512,causal,baseline,
+2026-11-20T14:30:56,goldfish-models/uzn_latn_full,uzblimp_v1.2_cyrl,2400,0.9146,True,cpu,float32,164.0,0.8838,causal,baseline,
+2026-11-20T14:34:28,goldfish-models/uzn_cyrl_full,uzblimp_v1.2,2400,0.4938,True,cpu,float32,164.0,0.5571,causal,baseline,
+2026-11-20T14:36:01,goldfish-models/uzn_cyrl_full,uzblimp_v1.2_cyrl,2400,0.9742,True,cpu,float32,164.0,0.9575,causal,baseline,
+2026-11-20T15:00:27,coppercitylabs/uzbert-base-uncased,uzblimp_v1.2_cyrl,2400,0.8388,True,cpu,float32,109.0,0.85,mlm-pll,baseline,
+2026-11-20T15:14:26,elmurod1202/bertbek-news-big-cased,uzblimp_v1.2,2400,0.8746,True,cpu,float32,109.0,0.8796,mlm-pll,baseline,
+2026-11-20T15:21:01,rifkat/uztext-3Gb-BPE-Roberta,uzblimp_v1.2,2400,0.9321,True,cpu,float32,123.0,0.9312,mlm-pll,baseline,
+2026-11-20T15:26:07,rifkat/uztext-3Gb-BPE-Roberta,uzblimp_v1.2_cyrl,2400,0.9617,True,cpu,float32,123.0,0.9592,mlm-pll,baseline,
+2026-11-20T15:40:16,goldfish-models/uzn_latn_5mb,uzblimp_v1.2,2400,0.6321,,,,,0.6838,,,carried over from uzn_latn_5mb_uzblimp_v1.2.csv; 44 pairs scored
+2026-11-20T15:40:35,goldfish-models/uzn_latn_5mb,uzblimp_v1.2_cyrl,2400,0.5346,,,,,0.5612,,,carried over from uzn_latn_5mb_uzblimp_v1.2_cyrl.csv; 63 pairs scored
+2026-11-20T15:40:48,goldfish-models/uzn_latn_10mb,uzblimp_v1.2,2400,0.7308,,,,,0.7546,,,carried over from uzn_latn_10mb_uzblimp_v1.2.csv; 44 pairs scored
+2026-11-20T15:41:51,goldfish-models/uzn_latn_10mb,uzblimp_v1.2_cyrl,2400,0.5579,,,,,0.6154,,,carried over from uzn_latn_10mb_uzblimp_v1.2_cyrl.csv; 63 pairs scored
+2026-11-20T15:43:44,goldfish-models/uzn_latn_100mb,uzblimp_v1.2,2400,0.9575,,,,,0.9454,,,carried over from uzn_latn_100mb_uzblimp_v1.2.csv and uzn_latn_100mb_uzblimp_v1.1.csv; 44 pairs scored
+2026-11-20T15:45:12,goldfish-models/uzn_latn_100mb,uzblimp_v1.2_cyrl,2400,0.8829,,,,,0.8533,,,carried over from uzn_latn_100mb_uzblimp_v1.2_cyrl.csv and uzn_latn_100mb_uzblimp_v1.1_cyrl.csv; 63 pairs scored
+2026-11-20T15:45:33,goldfish-models/uzn_latn_full,uzblimp_v1.2,2400,0.9671,,,,,0.9525,,,carried over from uzn_latn_full_uzblimp_v1.2.csv; 44 pairs scored
+2026-11-20T15:48:50,goldfish-models/uzn_latn_full,uzblimp_v1.2_cyrl,2400,0.9167,,,,,0.8812,,,carried over from uzn_latn_full_uzblimp_v1.2_cyrl.csv; 63 pairs scored
+2026-11-20T15:49:25,goldfish-models/uzn_cyrl_5mb,uzblimp_v1.2,2400,0.4508,,,,,0.5121,,,carried over from uzn_cyrl_5mb_uzblimp_v1.2.csv; 44 pairs scored
+2026-11-20T15:49:51,goldfish-models/uzn_cyrl_5mb,uzblimp_v1.2_cyrl,2400,0.6112,,,,,0.6688,,,carried over from uzn_cyrl_5mb_uzblimp_v1.2_cyrl.csv; 63 pairs scored
+2026-11-20T15:50:41,goldfish-models/uzn_cyrl_10mb,uzblimp_v1.2,2400,0.4029,,,,,0.51,,,carried over from uzn_cyrl_10mb_uzblimp_v1.2.csv; 44 pairs scored
+2026-11-20T15:51:01,goldfish-models/uzn_cyrl_10mb,uzblimp_v1.2_cyrl,2400,0.6504,,,,,0.7146,,,carried over from uzn_cyrl_10mb_uzblimp_v1.2_cyrl.csv; 63 pairs scored
+2026-11-20T15:54:07,goldfish-models/uzn_cyrl_100mb,uzblimp_v1.2,2400,0.4758,,,,,0.5358,,,carried over from uzn_cyrl_100mb_uzblimp_v1.2.csv and uzn_cyrl_100mb_uzblimp_v1.1.csv; 44 pairs scored
+2026-11-20T15:54:32,goldfish-models/uzn_cyrl_100mb,uzblimp_v1.2_cyrl,2400,0.9467,,,,,0.9354,,,carried over from uzn_cyrl_100mb_uzblimp_v1.2_cyrl.csv and uzn_cyrl_100mb_uzblimp_v1.1_cyrl.csv; 63 pairs scored
+2026-11-20T15:56:45,goldfish-models/uzn_cyrl_full,uzblimp_v1.2,2400,0.4921,,,,,0.5558,,,carried over from uzn_cyrl_full_uzblimp_v1.2.csv; 44 pairs scored
+2026-11-20T15:58:28,goldfish-models/uzn_cyrl_full,uzblimp_v1.2_cyrl,2400,0.9733,,,,,0.9562,,,carried over from uzn_cyrl_full_uzblimp_v1.2_cyrl.csv; 63 pairs scored
+2026-11-20T16:05:10,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2,2400,0.9867,,,,,0.9854,,,carried over from tahrirchi-bert-base_uzblimp_v1.2.csv and tahrirchi-bert-base_uzblimp_v1.1.csv; 44 pairs scored
+2026-11-20T16:36:22,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2_cyrl,2400,0.7688,,,,,0.7633,,,carried over from tahrirchi-bert-base_uzblimp_v1.2_cyrl.csv and tahrirchi-bert-base_uzblimp_v1.1_cyrl.csv; 63 pairs scored
+2026-11-20T18:45:27,Qwen/Qwen2.5-0.5B,uzblimp_v1.2_bos,2400,0.5054,True,cpu,float32,494.0,0.57,causal,baseline,44 pairs scored; 2356 carried over from Qwen2.5-0.5B_uzblimp_v1.2_bos.csv and Qwen2.5-0.5B_uzblimp_v1.1_bos.csv
+2026-11-20T18:51:01,Qwen/Qwen2.5-0.5B,uzblimp_v1.2_reformed_bos,2400,0.4729,True,cpu,float32,494.0,0.5354,causal,baseline,44 pairs scored; 2356 carried over from Qwen2.5-0.5B_uzblimp_v1.2_reformed_bos.csv and Qwen2.5-0.5B_uzblimp_v1.1_reformed_bos.csv
+2026-11-20T18:51:22,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2_reformed,2400,0.8733,True,cpu,float32,110.0,0.8967,mlm-pll,baseline,44 pairs scored; 2356 carried over from tahrirchi-bert-base_uzblimp_v1.2_reformed.csv and tahrirchi-bert-base_uzblimp_v1.1_reformed.csv
+2026-11-20T18:51:30,elmurod1202/bertbek-news-big-cased,uzblimp_v1.2,2400,0.8762,True,cpu,float32,109.0,0.8808,mlm-pll,baseline,44 pairs scored; 2356 carried over from bertbek-news-big-cased_uzblimp_v1.2.csv
+2026-11-20T18:51:42,Qwen/Qwen2.5-0.5B,uzblimp_v1.2_cyrl_bos,2400,0.4633,True,cpu,float32,494.0,0.4929,causal,baseline,63 pairs scored; 2337 carried over from Qwen2.5-0.5B_uzblimp_v1.2_cyrl_bos.csv and Qwen2.5-0.5B_uzblimp_v1.1_cyrl_bos.csv
+2026-11-20T18:52:30,rifkat/uztext-3Gb-BPE-Roberta,uzblimp_v1.2,2400,0.9329,True,cpu,float32,123.0,0.9312,mlm-pll,baseline,44 pairs scored; 2356 carried over from uztext-3Gb-BPE-Roberta_uzblimp_v1.2.csv
+2026-11-20T18:52:36,rifkat/uztext-3Gb-BPE-Roberta,uzblimp_v1.2_cyrl,2400,0.9638,True,cpu,float32,123.0,0.96,mlm-pll,baseline,63 pairs scored; 2337 carried over from uztext-3Gb-BPE-Roberta_uzblimp_v1.2_cyrl.csv
+2026-11-20T18:53:04,coppercitylabs/uzbert-base-uncased,uzblimp_v1.2_cyrl,2400,0.8404,True,cpu,float32,109.0,0.8504,mlm-pll,baseline,63 pairs scored; 2337 carried over from uzbert-base-uncased_uzblimp_v1.2_cyrl.csv
+2026-11-20T19:16:47,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2,2400,0.9862,True,cpu,float32,110.0,0.9846,mlm-pll,baseline,33 pairs scored; 2367 carried over from tahrirchi-bert-base_uzblimp_v1.2.csv and tahrirchi-bert-base_uzblimp_v1.1.csv
+2026-11-20T19:19:25,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2_cyrl,2400,0.7696,True,cpu,float32,110.0,0.765,mlm-pll,baseline,33 pairs scored; 2367 carried over from tahrirchi-bert-base_uzblimp_v1.2_cyrl.csv and tahrirchi-bert-base_uzblimp_v1.1_cyrl.csv
+2026-11-20T19:20:35,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2_reformed,2400,0.8721,True,cpu,float32,110.0,0.8954,mlm-pll,baseline,33 pairs scored; 2367 carried over from tahrirchi-bert-base_uzblimp_v1.2_reformed.csv and tahrirchi-bert-base_uzblimp_v1.1_reformed.csv
+2026-11-20T19:20:57,goldfish-models/uzn_latn_full,uzblimp_v1.2,2400,0.9671,True,cpu,float32,164.0,0.9529,causal,baseline,33 pairs scored; 2367 carried over from uzn_latn_full_uzblimp_v1.2.csv
+2026-11-20T19:21:11,goldfish-models/uzn_latn_full,uzblimp_v1.2_cyrl,2400,0.9158,True,cpu,float32,164.0,0.8817,causal,baseline,33 pairs scored; 2367 carried over from uzn_latn_full_uzblimp_v1.2_cyrl.csv
+2026-11-20T19:22:08,goldfish-models/uzn_cyrl_full,uzblimp_v1.2,2400,0.4929,True,cpu,float32,164.0,0.5558,causal,baseline,33 pairs scored; 2367 carried over from uzn_cyrl_full_uzblimp_v1.2.csv
+2026-11-20T19:22:18,goldfish-models/uzn_cyrl_full,uzblimp_v1.2_cyrl,2400,0.9738,True,cpu,float32,164.0,0.9571,causal,baseline,33 pairs scored; 2367 carried over from uzn_cyrl_full_uzblimp_v1.2_cyrl.csv
+2026-11-20T19:23:05,goldfish-models/uzn_latn_100mb,uzblimp_v1.2,2400,0.9579,True,cpu,float32,164.0,0.9462,causal,baseline,33 pairs scored; 2367 carried over from uzn_latn_100mb_uzblimp_v1.2.csv and uzn_latn_100mb_uzblimp_v1.1.csv
+2026-11-20T19:23:17,goldfish-models/uzn_latn_100mb,uzblimp_v1.2_cyrl,2400,0.8833,True,cpu,float32,164.0,0.8533,causal,baseline,33 pairs scored; 2367 carried over from uzn_latn_100mb_uzblimp_v1.2_cyrl.csv and uzn_latn_100mb_uzblimp_v1.1_cyrl.csv
+2026-11-20T19:24:14,goldfish-models/uzn_cyrl_100mb,uzblimp_v1.2,2400,0.4742,True,cpu,float32,164.0,0.5358,causal,baseline,33 pairs scored; 2367 carried over from uzn_cyrl_100mb_uzblimp_v1.2.csv and uzn_cyrl_100mb_uzblimp_v1.1.csv
+2026-11-20T19:24:26,goldfish-models/uzn_cyrl_100mb,uzblimp_v1.2_cyrl,2400,0.9462,True,cpu,float32,164.0,0.9354,causal,baseline,33 pairs scored; 2367 carried over from uzn_cyrl_100mb_uzblimp_v1.2_cyrl.csv and uzn_cyrl_100mb_uzblimp_v1.1_cyrl.csv
+2026-11-20T19:25:00,rifkat/uztext-3Gb-BPE-Roberta,uzblimp_v1.2,2400,0.9329,True,cpu,float32,123.0,0.9325,mlm-pll,baseline,33 pairs scored; 2367 carried over from uztext-3Gb-BPE-Roberta_uzblimp_v1.2.csv
+2026-11-20T19:25:21,rifkat/uztext-3Gb-BPE-Roberta,uzblimp_v1.2_cyrl,2400,0.9638,True,cpu,float32,123.0,0.96,mlm-pll,baseline,33 pairs scored; 2367 carried over from uztext-3Gb-BPE-Roberta_uzblimp_v1.2_cyrl.csv
+2026-11-20T19:26:21,elmurod1202/bertbek-news-big-cased,uzblimp_v1.2,2400,0.8762,True,cpu,float32,109.0,0.8812,mlm-pll,baseline,33 pairs scored; 2367 carried over from bertbek-news-big-cased_uzblimp_v1.2.csv
+2026-11-20T19:27:12,coppercitylabs/uzbert-base-uncased,uzblimp_v1.2_cyrl,2400,0.8425,True,cpu,float32,109.0,0.8512,mlm-pll,baseline,33 pairs scored; 2367 carried over from uzbert-base-uncased_uzblimp_v1.2_cyrl.csv
+2026-11-20T19:27:35,goldfish-models/uzn_latn_10mb,uzblimp_v1.2,2400,0.7308,True,cpu,float32,65.0,0.755,causal,baseline,33 pairs scored; 2367 carried over from uzn_latn_10mb_uzblimp_v1.2.csv
+2026-11-20T19:27:44,goldfish-models/uzn_latn_10mb,uzblimp_v1.2_cyrl,2400,0.5583,True,cpu,float32,65.0,0.6158,causal,baseline,33 pairs scored; 2367 carried over from uzn_latn_10mb_uzblimp_v1.2_cyrl.csv
+2026-11-20T19:28:11,goldfish-models/uzn_cyrl_10mb,uzblimp_v1.2,2400,0.4021,True,cpu,float32,65.0,0.5096,causal,baseline,33 pairs scored; 2367 carried over from uzn_cyrl_10mb_uzblimp_v1.2.csv
+2026-11-20T19:28:19,goldfish-models/uzn_cyrl_10mb,uzblimp_v1.2_cyrl,2400,0.6512,True,cpu,float32,65.0,0.7138,causal,baseline,33 pairs scored; 2367 carried over from uzn_cyrl_10mb_uzblimp_v1.2_cyrl.csv
+2026-11-20T19:28:44,goldfish-models/uzn_latn_5mb,uzblimp_v1.2,2400,0.6329,True,cpu,float32,65.0,0.6858,causal,baseline,33 pairs scored; 2367 carried over from uzn_latn_5mb_uzblimp_v1.2.csv
+2026-11-20T19:28:53,goldfish-models/uzn_latn_5mb,uzblimp_v1.2_cyrl,2400,0.5337,True,cpu,float32,65.0,0.5625,causal,baseline,33 pairs scored; 2367 carried over from uzn_latn_5mb_uzblimp_v1.2_cyrl.csv
+2026-11-20T19:29:23,goldfish-models/uzn_cyrl_5mb,uzblimp_v1.2,2400,0.4512,True,cpu,float32,65.0,0.5129,causal,baseline,33 pairs scored; 2367 carried over from uzn_cyrl_5mb_uzblimp_v1.2.csv
+2026-11-20T19:29:31,goldfish-models/uzn_cyrl_5mb,uzblimp_v1.2_cyrl,2400,0.6108,True,cpu,float32,65.0,0.6683,causal,baseline,33 pairs scored; 2367 carried over from uzn_cyrl_5mb_uzblimp_v1.2_cyrl.csv
+2026-11-20T19:30:28,Qwen/Qwen2.5-0.5B,uzblimp_v1.2_bos,2400,0.505,True,cpu,float32,494.0,0.5688,causal,baseline,33 pairs scored; 2367 carried over from Qwen2.5-0.5B_uzblimp_v1.2_bos.csv and Qwen2.5-0.5B_uzblimp_v1.1_bos.csv
+2026-11-20T19:31:32,Qwen/Qwen2.5-0.5B,uzblimp_v1.2_cyrl_bos,2400,0.4617,True,cpu,float32,494.0,0.4917,causal,baseline,33 pairs scored; 2367 carried over from Qwen2.5-0.5B_uzblimp_v1.2_cyrl_bos.csv and Qwen2.5-0.5B_uzblimp_v1.1_cyrl_bos.csv
+2026-11-20T19:32:16,Qwen/Qwen2.5-0.5B,uzblimp_v1.2_reformed_bos,2400,0.4704,True,cpu,float32,494.0,0.5329,causal,baseline,33 pairs scored; 2367 carried over from Qwen2.5-0.5B_uzblimp_v1.2_reformed_bos.csv and Qwen2.5-0.5B_uzblimp_v1.1_reformed_bos.csv
+2026-11-20T20:13:59,FacebookAI/xlm-roberta-base,uzblimp_v1.2,2400,0.7825,True,cpu,float32,278.0,0.79,mlm-pll,baseline,2400 pairs scored
+2026-11-20T20:34:42,google-bert/bert-base-multilingual-cased,uzblimp_v1.2,2400,0.6246,True,cpu,float32,178.0,0.6583,mlm-pll,baseline,2400 pairs scored
+2026-11-21T01:40:10,FacebookAI/xlm-roberta-base,uzblimp_v1.2,2400,0.7817,True,cpu,float32,278.0,0.7883,mlm-pll,baseline,33 pairs scored; 2367 carried over from xlm-roberta-base_uzblimp_v1.2.csv
+2026-11-21T01:40:20,google-bert/bert-base-multilingual-cased,uzblimp_v1.2,2400,0.6254,True,cpu,float32,178.0,0.6596,mlm-pll,baseline,33 pairs scored; 2367 carried over from bert-base-multilingual-cased_uzblimp_v1.2.csv
+2026-11-21T01:40:32,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2,2400,0.9867,True,cpu,float32,110.0,0.9846,mlm-pll,baseline,24 pairs scored; 2376 carried over from tahrirchi-bert-base_uzblimp_v1.2.csv and tahrirchi-bert-base_uzblimp_v1.1.csv
+2026-11-21T01:41:49,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2_cyrl,2400,0.77,True,cpu,float32,110.0,0.765,mlm-pll,baseline,24 pairs scored; 2376 carried over from tahrirchi-bert-base_uzblimp_v1.2_cyrl.csv and tahrirchi-bert-base_uzblimp_v1.1_cyrl.csv
+2026-11-21T01:42:27,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2_reformed,2400,0.8729,True,cpu,float32,110.0,0.8962,mlm-pll,baseline,24 pairs scored; 2376 carried over from tahrirchi-bert-base_uzblimp_v1.2_reformed.csv and tahrirchi-bert-base_uzblimp_v1.1_reformed.csv
+2026-11-21T01:43:10,goldfish-models/uzn_latn_full,uzblimp_v1.2,2400,0.9671,True,cpu,float32,164.0,0.9529,causal,baseline,24 pairs scored; 2376 carried over from uzn_latn_full_uzblimp_v1.2.csv
+2026-11-21T01:43:19,goldfish-models/uzn_latn_full,uzblimp_v1.2_cyrl,2400,0.9167,True,cpu,float32,164.0,0.8817,causal,baseline,24 pairs scored; 2376 carried over from uzn_latn_full_uzblimp_v1.2_cyrl.csv
+2026-11-21T01:44:08,goldfish-models/uzn_cyrl_full,uzblimp_v1.2,2400,0.4938,True,cpu,float32,164.0,0.5558,causal,baseline,24 pairs scored; 2376 carried over from uzn_cyrl_full_uzblimp_v1.2.csv
+2026-11-21T01:44:15,goldfish-models/uzn_cyrl_full,uzblimp_v1.2_cyrl,2400,0.9738,True,cpu,float32,164.0,0.9567,causal,baseline,24 pairs scored; 2376 carried over from uzn_cyrl_full_uzblimp_v1.2_cyrl.csv
+2026-11-21T01:44:55,goldfish-models/uzn_latn_100mb,uzblimp_v1.2,2400,0.9583,True,cpu,float32,164.0,0.9467,causal,baseline,24 pairs scored; 2376 carried over from uzn_latn_100mb_uzblimp_v1.2.csv and uzn_latn_100mb_uzblimp_v1.1.csv
+2026-11-21T01:45:03,goldfish-models/uzn_latn_100mb,uzblimp_v1.2_cyrl,2400,0.8829,True,cpu,float32,164.0,0.8525,causal,baseline,24 pairs scored; 2376 carried over from uzn_latn_100mb_uzblimp_v1.2_cyrl.csv and uzn_latn_100mb_uzblimp_v1.1_cyrl.csv
+2026-11-21T01:45:54,goldfish-models/uzn_cyrl_100mb,uzblimp_v1.2,2400,0.4746,True,cpu,float32,164.0,0.5358,causal,baseline,24 pairs scored; 2376 carried over from uzn_cyrl_100mb_uzblimp_v1.2.csv and uzn_cyrl_100mb_uzblimp_v1.1.csv
+2026-11-21T01:46:02,goldfish-models/uzn_cyrl_100mb,uzblimp_v1.2_cyrl,2400,0.9467,True,cpu,float32,164.0,0.9358,causal,baseline,24 pairs scored; 2376 carried over from uzn_cyrl_100mb_uzblimp_v1.2_cyrl.csv and uzn_cyrl_100mb_uzblimp_v1.1_cyrl.csv
+2026-11-21T01:46:42,rifkat/uztext-3Gb-BPE-Roberta,uzblimp_v1.2,2400,0.9333,True,cpu,float32,123.0,0.9329,mlm-pll,baseline,24 pairs scored; 2376 carried over from uztext-3Gb-BPE-Roberta_uzblimp_v1.2.csv
+2026-11-21T01:46:56,rifkat/uztext-3Gb-BPE-Roberta,uzblimp_v1.2_cyrl,2400,0.9633,True,cpu,float32,123.0,0.9596,mlm-pll,baseline,24 pairs scored; 2376 carried over from uztext-3Gb-BPE-Roberta_uzblimp_v1.2_cyrl.csv
+2026-11-21T01:47:47,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2,2400,0.9871,True,cpu,float32,110.0,0.985,mlm-pll,baseline,21 pairs scored; 2379 carried over from tahrirchi-bert-base_uzblimp_v1.2.csv and tahrirchi-bert-base_uzblimp_v1.1.csv
+2026-11-21T01:49:33,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2_cyrl,2400,0.7679,True,cpu,float32,110.0,0.7642,mlm-pll,baseline,28 pairs scored; 2372 carried over from tahrirchi-bert-base_uzblimp_v1.2_cyrl.csv and tahrirchi-bert-base_uzblimp_v1.1_cyrl.csv
+2026-11-21T01:50:06,tahrirchi/tahrirchi-bert-base,uzblimp_v1.2_reformed,2400,0.8729,True,cpu,float32,110.0,0.8971,mlm-pll,baseline,21 pairs scored; 2379 carried over from tahrirchi-bert-base_uzblimp_v1.2_reformed.csv and tahrirchi-bert-base_uzblimp_v1.1_reformed.csv
+2026-11-21T01:50:19,goldfish-models/uzn_latn_full,uzblimp_v1.2,2400,0.9667,True,cpu,float32,164.0,0.9529,causal,baseline,21 pairs scored; 2379 carried over from uzn_latn_full_uzblimp_v1.2.csv
+2026-11-21T01:50:28,goldfish-models/uzn_latn_full,uzblimp_v1.2_cyrl,2400,0.9171,True,cpu,float32,164.0,0.8821,causal,baseline,28 pairs scored; 2372 carried over from uzn_latn_full_uzblimp_v1.2_cyrl.csv
+2026-11-21T01:50:43,goldfish-models/uzn_cyrl_full,uzblimp_v1.2,2400,0.495,True,cpu,float32,164.0,0.5567,causal,baseline,21 pairs scored; 2379 carried over from uzn_cyrl_full_uzblimp_v1.2.csv
+2026-11-21T01:50:51,goldfish-models/uzn_cyrl_full,uzblimp_v1.2_cyrl,2400,0.9733,True,cpu,float32,164.0,0.9571,causal,baseline,28 pairs scored; 2372 carried over from uzn_cyrl_full_uzblimp_v1.2_cyrl.csv
+2026-11-21T01:51:04,goldfish-models/uzn_latn_100mb,uzblimp_v1.2,2400,0.9579,True,cpu,float32,164.0,0.9475,causal,baseline,21 pairs scored; 2379 carried over from uzn_latn_100mb_uzblimp_v1.2.csv and uzn_latn_100mb_uzblimp_v1.1.csv
+2026-11-21T01:51:13,goldfish-models/uzn_latn_100mb,uzblimp_v1.2_cyrl,2400,0.8829,True,cpu,float32,164.0,0.8525,causal,baseline,28 pairs scored; 2372 carried over from uzn_latn_100mb_uzblimp_v1.2_cyrl.csv and uzn_latn_100mb_uzblimp_v1.1_cyrl.csv
+2026-11-21T01:51:28,goldfish-models/uzn_cyrl_100mb,uzblimp_v1.2,2400,0.4762,True,cpu,float32,164.0,0.5367,causal,baseline,21 pairs scored; 2379 carried over from uzn_cyrl_100mb_uzblimp_v1.2.csv and uzn_cyrl_100mb_uzblimp_v1.1.csv
+2026-11-21T01:51:36,goldfish-models/uzn_cyrl_100mb,uzblimp_v1.2_cyrl,2400,0.9467,True,cpu,float32,164.0,0.9354,causal,baseline,28 pairs scored; 2372 carried over from uzn_cyrl_100mb_uzblimp_v1.2_cyrl.csv and uzn_cyrl_100mb_uzblimp_v1.1_cyrl.csv
+2026-11-21T01:51:54,rifkat/uztext-3Gb-BPE-Roberta,uzblimp_v1.2,2400,0.9342,True,cpu,float32,123.0,0.9338,mlm-pll,baseline,21 pairs scored; 2379 carried over from uztext-3Gb-BPE-Roberta_uzblimp_v1.2.csv
+2026-11-21T01:52:10,rifkat/uztext-3Gb-BPE-Roberta,uzblimp_v1.2_cyrl,2400,0.9642,True,cpu,float32,123.0,0.9604,mlm-pll,baseline,28 pairs scored; 2372 carried over from uztext-3Gb-BPE-Roberta_uzblimp_v1.2_cyrl.csv
+2026-11-21T01:53:18,elmurod1202/bertbek-news-big-cased,uzblimp_v1.2,2400,0.8762,True,cpu,float32,109.0,0.8812,mlm-pll,baseline,45 pairs scored; 2355 carried over from bertbek-news-big-cased_uzblimp_v1.2.csv
+2026-11-21T01:54:10,coppercitylabs/uzbert-base-uncased,uzblimp_v1.2_cyrl,2400,0.8429,True,cpu,float32,109.0,0.8525,mlm-pll,baseline,50 pairs scored; 2350 carried over from uzbert-base-uncased_uzblimp_v1.2_cyrl.csv
+2026-11-21T01:54:30,goldfish-models/uzn_latn_10mb,uzblimp_v1.2,2400,0.7342,True,cpu,float32,65.0,0.7558,causal,baseline,45 pairs scored; 2355 carried over from uzn_latn_10mb_uzblimp_v1.2.csv
+2026-11-21T01:54:38,goldfish-models/uzn_latn_10mb,uzblimp_v1.2_cyrl,2400,0.5579,True,cpu,float32,65.0,0.6158,causal,baseline,50 pairs scored; 2350 carried over from uzn_latn_10mb_uzblimp_v1.2_cyrl.csv
+2026-11-21T01:55:03,goldfish-models/uzn_cyrl_10mb,uzblimp_v1.2,2400,0.4029,True,cpu,float32,65.0,0.5117,causal,baseline,45 pairs scored; 2355 carried over from uzn_cyrl_10mb_uzblimp_v1.2.csv
+2026-11-21T01:55:10,goldfish-models/uzn_cyrl_10mb,uzblimp_v1.2_cyrl,2400,0.6538,True,cpu,float32,65.0,0.7154,causal,baseline,50 pairs scored; 2350 carried over from uzn_cyrl_10mb_uzblimp_v1.2_cyrl.csv
+2026-11-21T01:55:31,goldfish-models/uzn_latn_5mb,uzblimp_v1.2,2400,0.6333,True,cpu,float32,65.0,0.6871,causal,baseline,45 pairs scored; 2355 carried over from uzn_latn_5mb_uzblimp_v1.2.csv
+2026-11-21T01:55:39,goldfish-models/uzn_latn_5mb,uzblimp_v1.2_cyrl,2400,0.5329,True,cpu,float32,65.0,0.5596,causal,baseline,50 pairs scored; 2350 carried over from uzn_latn_5mb_uzblimp_v1.2_cyrl.csv
+2026-11-21T01:56:07,goldfish-models/uzn_cyrl_5mb,uzblimp_v1.2,2400,0.4521,True,cpu,float32,65.0,0.515,causal,baseline,45 pairs scored; 2355 carried over from uzn_cyrl_5mb_uzblimp_v1.2.csv
+2026-11-21T01:56:14,goldfish-models/uzn_cyrl_5mb,uzblimp_v1.2_cyrl,2400,0.6125,True,cpu,float32,65.0,0.6688,causal,baseline,50 pairs scored; 2350 carried over from uzn_cyrl_5mb_uzblimp_v1.2_cyrl.csv
+2026-11-21T01:57:39,Qwen/Qwen2.5-0.5B,uzblimp_v1.2_bos,2400,0.5042,True,cpu,float32,494.0,0.5675,causal,baseline,45 pairs scored; 2355 carried over from Qwen2.5-0.5B_uzblimp_v1.2_bos.csv and Qwen2.5-0.5B_uzblimp_v1.1_bos.csv
+2026-11-21T01:58:47,Qwen/Qwen2.5-0.5B,uzblimp_v1.2_cyrl_bos,2400,0.4621,True,cpu,float32,494.0,0.4933,causal,baseline,50 pairs scored; 2350 carried over from Qwen2.5-0.5B_uzblimp_v1.2_cyrl_bos.csv and Qwen2.5-0.5B_uzblimp_v1.1_cyrl_bos.csv
+2026-11-21T01:59:33,Qwen/Qwen2.5-0.5B,uzblimp_v1.2_reformed_bos,2400,0.4675,True,cpu,float32,494.0,0.5296,causal,baseline,45 pairs scored; 2355 carried over from Qwen2.5-0.5B_uzblimp_v1.2_reformed_bos.csv and Qwen2.5-0.5B_uzblimp_v1.1_reformed_bos.csv
+2026-11-21T02:00:57,FacebookAI/xlm-roberta-base,uzblimp_v1.2,2400,0.7821,True,cpu,float32,278.0,0.7883,mlm-pll,baseline,45 pairs scored; 2355 carried over from xlm-roberta-base_uzblimp_v1.2.csv
+2026-11-21T02:02:41,google-bert/bert-base-multilingual-cased,uzblimp_v1.2,2400,0.6254,True,cpu,float32,178.0,0.66,mlm-pll,baseline,45 pairs scored; 2355 carried over from bert-base-multilingual-cased_uzblimp_v1.2.csv
+2026-11-21T03:30:19,google-bert/bert-base-multilingual-cased,uzblimp_v1.2_cyrl,2400,0.5121,True,cpu,float32,178.0,0.5462,mlm-pll,baseline,654 pairs scored; 1746 carried over from bert-base-multilingual-cased_uzblimp_v1.2_cyrl.csv
+2026-11-21T03:58:11,google-bert/bert-base-multilingual-cased,uzblimp_v1.2_reformed,2400,0.5558,True,cpu,float32,178.0,0.5762,mlm-pll,baseline,1600 pairs scored; 800 carried over from bert-base-multilingual-cased_uzblimp_v1.2_reformed.csv
+2026-11-21T04:20:04,FacebookAI/xlm-roberta-base,uzblimp_v1.2_cyrl,2400,0.5129,True,cpu,float32,278.0,0.5146,mlm-pll,baseline,1609 pairs scored; 791 carried over from xlm-roberta-base_uzblimp_v1.2_cyrl.csv
+2026-11-21T04:26:28,coppercitylabs/uzbert-base-uncased,uzblimp_v1.2,2400,0.4271,True,cpu,float32,109.0,0.4642,mlm-pll,baseline,1037 pairs scored; 1363 carried over from uzbert-base-uncased_uzblimp_v1.2.csv
+2026-11-21T04:33:03,FacebookAI/xlm-roberta-base,uzblimp_v1.2_reformed,2400,0.7154,True,cpu,float32,278.0,0.7338,mlm-pll,baseline,2400 pairs scored
+2026-11-21T04:51:27,rifkat/uztext-3Gb-BPE-Roberta,uzblimp_v1.2_reformed,2400,0.78,True,cpu,float32,123.0,0.8012,mlm-pll,baseline,2400 pairs scored
+2026-11-21T04:53:16,elmurod1202/bertbek-news-big-cased,uzblimp_v1.2_reformed,2400,0.6817,True,cpu,float32,109.0,0.6971,mlm-pll,baseline,2400 pairs scored
+2026-11-21T05:49:36,Qwen/Qwen2.5-1.5B,uzblimp_v1.2,2400,0.5504,True,cpu,float32,1544.0,0.6221,causal,baseline,2400 pairs scored
+2026-11-21T06:58:24,Qwen/Qwen2.5-1.5B,uzblimp_v1.2_cyrl,2400,0.5308,True,cpu,float32,1544.0,0.5558,causal,baseline,2400 pairs scored
+2026-11-21T07:05:38,elmurod1202/bertbek-news-big-cased,uzblimp_v1.2_cyrl,2400,0.5942,True,cpu,float32,109.0,0.6108,mlm-pll,baseline,2400 pairs scored
+2026-11-21T07:15:38,tahrirchi/tahrirchi-bert-small,uzblimp_v1.2,2400,0.9221,True,cpu,float32,90.0,0.9288,mlm-pll,baseline,2400 pairs scored
+2026-11-21T07:50:04,Qwen/Qwen2.5-1.5B,uzblimp_v1.2_reformed,2400,0.4971,True,cpu,float32,1544.0,0.5517,causal,baseline,2400 pairs scored
+2026-11-21T08:08:23,tahrirchi/tahrirchi-bert-small,uzblimp_v1.2_cyrl,2400,0.5917,True,cpu,float32,90.0,0.6138,mlm-pll,baseline,2400 pairs scored
+2026-11-21T08:25:27,tahrirchi/tahrirchi-bert-small,uzblimp_v1.2_reformed,2400,0.8129,True,cpu,float32,90.0,0.8171,mlm-pll,baseline,2400 pairs scored

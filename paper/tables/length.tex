@@ -1,17 +1,25 @@
 \begin{table}[t]
 \centering\small
-\begin{tabular}{llrrr}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llrrrr@{}}
 \toprule
-Model & Text & Longer & Equal & Shorter \\
+Model & Text & fewer & same & more & $\Delta$ \\
 \midrule
-tahrirchi-bert & Latin & 99.0 & 98.0 & 98.8 \\
-tahrirchi-bert & Cyrillic & 83.0 & 84.4 & 68.4 \\
-tahrirchi-bert & Reformed & 95.6 & 92.3 & 79.7 \\
-Goldfish-latn & Latin & 96.6 & 95.6 & 95.4 \\
-Goldfish-latn & Cyrillic & 90.2 & 89.5 & 87.0 \\
-Qwen2.5-0.5B & Latin & 81.4 & 49.2 & 37.3 \\
+GF-L full & Latin & 89.8 & 97.6 & 97.7 & +7.9 \\
+GF-L full & Cyrillic & 79.4 & 92.6 & 95.1 & +15.7 \\
+GF-C full & Cyrillic & 90.7 & 97.4 & 98.6 & +7.9 \\
+GF-C full & Latin & 13.3 & 57.5 & 86.0 & +72.7 \\
+TahrirchiBERT & Latin & 99.1 & 98.6 & 98.8 & $-$0.3 \\
+TahrirchiBERT & Cyrillic & 50.3 & 83.6 & 88.6 & +38.3 \\
+TahrirchiBERT & Reformed & 59.3 & 93.3 & 95.8 & +36.4 \\
+UzBERT & Cyrillic & 34.1 & 92.6 & 91.1 & +57.0 \\
+UzBERT & Latin & 27.4 & 42.2 & 64.1 & +36.7 \\
+XLM-R base & Latin & 60.4 & 81.7 & 85.5 & +25.1 \\
+XLM-R base & Cyrillic & 20.1 & 56.7 & 79.0 & +58.9 \\
+Qwen2.5-0.5B & Latin & 30.9 & 51.3 & 74.0 & +43.1 \\
+Qwen2.5-0.5B & Cyrillic & 16.7 & 50.0 & 92.5 & +75.8 \\
 \bottomrule
 \end{tabular}
-\caption{Accuracy (\%) by whether the ungrammatical sentence is longer ($n=500$), equal ($n=819$) or shorter ($n=1081$) than the grammatical one in bytes. A preference for shorter sentences lowers accuracy in the last column.}
+\caption{Accuracy (\%) by whether the ungrammatical member has fewer, the same number of, or more tokens than the grammatical one under the model's own tokenizer. $\Delta$: accuracy on pairs with more tokens minus accuracy on pairs with fewer; 0 means no length effect.}
 \label{tab:length}
 \end{table}

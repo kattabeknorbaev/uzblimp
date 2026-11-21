@@ -13,3 +13,15 @@
 - **Timeline:** finish the preprint by **mid-December 2026** (decision 12), then submit to the **January 2027 ARR cycle**. A paper reviewed through ARR can later be committed to ACL 2027 (main or Findings), or to a workshop that accepts ARR-reviewed papers.
 - **SIGTURK and BabyLM:** watch for their 2027 calls. Workshops often co-locate with ACL/NAACL, and an ARR-reviewed paper can usually be committed to them.
 - **Check official pages before relying on any date.** Some listings disagree.
+
+## Update 2026-11-20 (web search; check the official pages before relying on a date)
+
+| Venue | Status | Dates | Source |
+|---|---|---|---|
+| **ACL 2027** (Kyoto, 17–22 Aug 2027) | **target** | ARR submission deadline **4 January 2027** (anywhere on earth), now on the official site; commitment and notification dates not announced yet | [2027.aclweb.org](https://2027.aclweb.org/) |
+| NAACL 2027 | closed for us | ARR deadline was 12 Oct 2026; commitment 23 Dec 2026 | [CFP](https://2027.naacl.org/calls/main_conference_papers/) |
+| SIGTURK 2027 | no call found | SIGTURK 2026 was at EACL (Rabat) | [sigturk.github.io](https://sigturk.github.io/workshop2026) |
+| TU+12 (Workshop on Turkic and Languages in Contact with Turkic; linguistics, not NLP) | open | abstracts due 22 Dec 2026; Rutgers, 17–18 Apr 2027 | [LINGUIST List 37.3491](https://linguistlist.org/issues/37/3491/) |
+
+- The paper is ready as a preprint (`paper/uzblimp.pdf`, `\usepackage[preprint]{acl}`); for ARR switch to `[review]` and remove the repository link.
+- What reviewers will ask for first is human validation: run the forced-choice sheet in `human_study/` with at least three independent annotators before 4 January if possible.

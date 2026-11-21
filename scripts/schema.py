@@ -54,7 +54,7 @@ RELEASE_PHENOMENA = {
     "npi_hech": ("NPI licensing (hech + negation)", "semantics"),
     "numeral_no_plural": ("No plural after numerals", "morphology"),
     "passives": ("Passives", "syntax"),
-    "person_agreement": ("Person agreement", "morphology"),
+    "person_agreement": ("Subject agreement", "morphology"),
     "possessive_agreement": ("Possessive agreement", "morphology"),
     "postposition_case": ("Case after postpositions", "syntax"),
     "quantifiers": ("Quantifiers (har bir + singular)", "morphology"),
@@ -63,7 +63,7 @@ RELEASE_PHENOMENA = {
     "suspended_affixation": ("Suspended affixation", "morphology"),
 }
 FIELDS = {"morphology", "syntax", "semantics"}
-RELEASE_VERSION = "v1.1"
+RELEASE_VERSION = "v1.2"
 # Release alphabet → benchmark TSV. Cyrillic and reformed Latin are converted from current Latin.
 SCRIPT_FILES = {"latn": "uzblimp.tsv", "cyrl": "uzblimp_cyrl.tsv", "latn_reformed": "uzblimp_reformed.tsv"}
 

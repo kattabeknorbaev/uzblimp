@@ -1,0 +1,37 @@
+\begin{table*}[t]
+\centering\small
+\begin{tabular}{@{}lllrl@{}}
+\toprule
+Model & Hugging Face identifier & Type & Parameters & Uzbek training text \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Goldfish (Latin)}} \\
+GF-L 5MB & \texttt{goldfish-models/uzn\_latn\_5mb} & autoregressive & 39M & Latin \\
+GF-L 10MB & \texttt{goldfish-models/uzn\_latn\_10mb} & autoregressive & 39M & Latin \\
+GF-L 100MB & \texttt{goldfish-models/uzn\_latn\_100mb} & autoregressive & 125M & Latin \\
+GF-L full & \texttt{goldfish-models/uzn\_latn\_full} & autoregressive & 125M & Latin \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Goldfish (Cyrillic)}} \\
+GF-C 5MB & \texttt{goldfish-models/uzn\_cyrl\_5mb} & autoregressive & 39M & Cyrillic \\
+GF-C 10MB & \texttt{goldfish-models/uzn\_cyrl\_10mb} & autoregressive & 39M & Cyrillic \\
+GF-C 100MB & \texttt{goldfish-models/uzn\_cyrl\_100mb} & autoregressive & 125M & Cyrillic \\
+GF-C full & \texttt{goldfish-models/uzn\_cyrl\_full} & autoregressive & 125M & Cyrillic \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Uzbek encoders}} \\
+TahrirchiBERT & \texttt{tahrirchi/tahrirchi-bert-base} & masked & 110M & Latin \\
+\quad small & \texttt{tahrirchi/tahrirchi-bert-small} & masked & 67M & Latin \\
+BERTbek & \texttt{elmurod1202/bertbek-news-big-cased} & masked & 110M & Latin \\
+UzBERT & \texttt{coppercitylabs/uzbert-base-uncased} & masked & 110M & Cyrillic \\
+UzRoBERTa & \texttt{rifkat/uztext-3Gb-BPE-Roberta} & masked & 84M & both \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Multilingual encoders}} \\
+mBERT & \texttt{google-bert/bert-base-multilingual-cased} & masked & 179M & multilingual \\
+XLM-R base & \texttt{FacebookAI/xlm-roberta-base} & masked & 279M & multilingual \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Multilingual LMs}} \\
+Qwen2.5-0.5B & \texttt{Qwen/Qwen2.5-0.5B} & autoregressive & 0.5B & multilingual \\
+Qwen2.5-1.5B & \texttt{Qwen/Qwen2.5-1.5B} & autoregressive & 1.5B & multilingual \\
+\bottomrule
+\end{tabular}
+\caption{The evaluated models. GF-L, GF-C: Goldfish models trained on Latin-script and Cyrillic-script Uzbek. Parameter counts are those given by the models' authors or on the Hugging Face Hub. \emph{Uzbek training text}: script of the Uzbek text a model was trained on; multilingual models are trained on many languages in several scripts.}
+\label{tab:models}
+\end{table*}

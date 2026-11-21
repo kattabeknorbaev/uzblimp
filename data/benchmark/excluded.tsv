@@ -1,0 +1,144 @@
+id	phenomenon	reason	flagged_by
+anaphor_agreement-2187	anaphor_agreement	the embedded clause licenses the other person of the reflexive	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+lexical_case-1096	lexical_case	the edited word is an adverb, not the object of the case-governing verb	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+lexical_case-1206	lexical_case	the edited word is an adverb, not the object of the case-governing verb	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+npi_hech-1032	npi_hech	idiom hech boʻlmaganda / hech boʻlmasa 'at least', not NPI licensing	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+npi_hech-1083	npi_hech	idiom hech boʻlmaganda / hech boʻlmasa 'at least', not NPI licensing	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+npi_hech-1200	npi_hech	idiom hech boʻlmaganda / hech boʻlmasa 'at least', not NPI licensing	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+npi_hech-1202	npi_hech	idiom hech boʻlmaganda / hech boʻlmasa 'at least', not NPI licensing	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+npi_hech-1215	npi_hech	idiom hech boʻlmaganda / hech boʻlmasa 'at least', not NPI licensing	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+npi_hech-1223	npi_hech	idiom hech boʻlmaganda / hech boʻlmasa 'at least', not NPI licensing	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+npi_hech-1233	npi_hech	idiom hech boʻlmaganda / hech boʻlmasa 'at least', not NPI licensing	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1023	numeral_no_plural	the edited noun is a modifier in a compound; the numeral or quantifier counts the head noun, so the plural is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1026	numeral_no_plural	the grammatical sentence itself has a plural after the numeral	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1033	numeral_no_plural	the edited noun is a modifier in a compound; the numeral or quantifier counts the head noun, so the plural is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1038	numeral_no_plural	the ungrammatical form is malformed (plural added after a possessive suffix, or misspelled)	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1040	numeral_no_plural	the ungrammatical form is malformed (plural added after a possessive suffix, or misspelled)	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1052	numeral_no_plural	the edited noun is a modifier in a compound; the numeral or quantifier counts the head noun, so the plural is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1082	numeral_no_plural	the edited noun is a modifier in a compound; the numeral or quantifier counts the head noun, so the plural is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1087	numeral_no_plural	the edited noun is a modifier in a compound; the numeral or quantifier counts the head noun, so the plural is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1092	numeral_no_plural	the edited noun is a modifier in a compound; the numeral or quantifier counts the head noun, so the plural is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1096	numeral_no_plural	the ungrammatical form is malformed (plural added after a possessive suffix, or misspelled)	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1123	numeral_no_plural	the edited noun is a modifier in a compound; the numeral or quantifier counts the head noun, so the plural is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1131	numeral_no_plural	the edited noun is a modifier in a compound; the numeral or quantifier counts the head noun, so the plural is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1152	numeral_no_plural	the edited noun is a modifier in a compound; the numeral or quantifier counts the head noun, so the plural is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1184	numeral_no_plural	the ungrammatical form is malformed (plural added after a possessive suffix, or misspelled)	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1191	numeral_no_plural	the edited noun is a modifier in a compound; the numeral or quantifier counts the head noun, so the plural is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1194	numeral_no_plural	the edited noun is a modifier in a compound; the numeral or quantifier counts the head noun, so the plural is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1200	numeral_no_plural	the edited noun is a modifier in a compound; the numeral or quantifier counts the head noun, so the edit does not test the numeral	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1201	numeral_no_plural	the edited noun is a modifier in a compound; the numeral or quantifier counts the head noun, so the plural is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+passives-1055	passives	the edited form is still passive	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+passives-1088	passives	the edited form is still passive	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+postposition_case-1055	postposition_case	the dative noun can be read with the verb, with keyin as the adverb 'later'	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+postposition_case-1109	postposition_case	the dative noun can be read with the verb, with keyin as the adverb 'later'	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+quantifiers-1007	quantifiers	the edited noun is a modifier in a compound; the numeral or quantifier counts the head noun, so the plural is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+relative_clauses-2005	relative_clauses	the edited -gan form is a finite predicate, not a relative clause; the ungrammatical member is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+relative_clauses-2066	relative_clauses	the edited -gan form is a finite predicate, not a relative clause; the ungrammatical member is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+relative_clauses-2077	relative_clauses	the edited -gan form is a finite predicate, not a relative clause; the ungrammatical member is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+relative_clauses-2078	relative_clauses	the edited -gan form is a finite predicate, not a relative clause; the ungrammatical member is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+relative_clauses-2107	relative_clauses	the edited -gan form is a finite predicate, not a relative clause; the ungrammatical member is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+relative_clauses-2118	relative_clauses	the edited -gan form is a finite predicate, not a relative clause; the ungrammatical member is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+relative_clauses-2123	relative_clauses	the edited -gan form is a finite predicate, not a relative clause; the ungrammatical member is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+relative_clauses-2127	relative_clauses	the edited -gan form is a finite predicate, not a relative clause; the ungrammatical member is grammatical	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+stem_alternation-1035	stem_alternation	not the phenomenon: atigi 'only' is a particle, not a noun with a possessive suffix	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+stem_alternation-1049	stem_alternation	not the phenomenon: atigi 'only' is a particle, not a noun with a possessive suffix	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+stem_alternation-1055	stem_alternation	not the phenomenon: atigi 'only' is a particle, not a noun with a possessive suffix	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+stem_alternation-1074	stem_alternation	not the phenomenon: atigi 'only' is a particle, not a noun with a possessive suffix	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+stem_alternation-1141	stem_alternation	not the phenomenon: atigi 'only' is a particle, not a noun with a possessive suffix	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+stem_alternation-1149	stem_alternation	not the phenomenon: atigi 'only' is a particle, not a noun with a possessive suffix	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+stem_alternation-1174	stem_alternation	not the phenomenon: atigi 'only' is a particle, not a noun with a possessive suffix	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+stem_alternation-1218	stem_alternation	not the phenomenon: atigi 'only' is a particle, not a noun with a possessive suffix	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+suspended_affixation-1041	suspended_affixation	the ungrammatical member is a licit suspended form (-gan edim / -gan boʻldim)	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+suspended_affixation-1045	suspended_affixation	the ungrammatical member is a licit suspended form (-gan edim / -gan boʻldim)	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+suspended_affixation-1099	suspended_affixation	the ungrammatical form is not a word form (-gan added to an aorist stem)	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+suspended_affixation-1101	suspended_affixation	the ungrammatical member is a licit suspended form (-gan edim / -gan boʻldim)	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+suspended_affixation-1165	suspended_affixation	the ungrammatical form is not a word form (-gan added to an aorist stem)	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+suspended_affixation-1174	suspended_affixation	the ungrammatical form is not a word form (-gan added to an aorist stem)	AI-assisted audit, 2026-11-20; to be confirmed by the authors
+suspended_affixation-1084	suspended_affixation	source sentence has a spelling error (yoʻgonlashib for yoʻgʻonlashib)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+suspended_affixation-1015	suspended_affixation	source sentence has a malformed word (bogʻlanganib)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+suspended_affixation-1154	suspended_affixation	source sentence has a broken word (qayta-qay ta)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+suspended_affixation-1086	suspended_affixation	source sentence has OCR errors (bolsam, inomlar, konglidagi)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1229	numeral_no_plural	source sentence has a spelling error (yeyish-ichishii)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1105	numeral_no_plural	source sentence has a spelling error (podshoxlik for podshohlik)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1212	numeral_no_plural	source sentence has a spelling error (oʻkda for oʻqda)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1061	numeral_no_plural	source sentence has a spelling error (kuloqboshiga for quloqboshiga)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1140	numeral_no_plural	source sentence has a spelling error (umumman) and a stray space before the full stop	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1199	numeral_no_plural	source sentence has a spelling error (yorug for yorugʻ)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+numeral_no_plural-1190	numeral_no_plural	source sentence has a spelling error (xandaqka for xandaqqa)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+lexical_case-1043	lexical_case	the edited word is misspelled in both members (hashorot- for hasharot-)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+lexical_case-1203	lexical_case	source sentence has spelling errors (ogohlatirishni, ketirmadim)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+passives-1021	passives	source sentence has a malformed word (qobigʻlar)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+passives-2049	passives	source sentence has a spelling error (fidoiylik for fidoyilik)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+passives-1087	passives	source sentence has a spelling error (ishlabb)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+passives-1074	passives	source sentence has a spelling error (axli for ahli)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+npi_hech-1119	npi_hech	source sentence has a spelling error (harakatimining)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+stem_alternation-1032	stem_alternation	source sentence has a spelling error (oʻtirmasaligini)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+stem_alternation-1206	stem_alternation	source sentence is a fragment and has a spelling error (bugdoy for bugʻdoy)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+stem_alternation-1077	stem_alternation	source sentence has a spelling error (xidi for hidi)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+stem_alternation-1236	stem_alternation	source sentence has a spelling error (xapriqib for hapriqib)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+possessive_agreement-1024	possessive_agreement	source sentence has OCR errors (yaalgan, boplib)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+possessive_agreement-1174	possessive_agreement	source sentence has OCR errors (Bulaming for Bularning, boʻlaredi)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+possessive_agreement-1243	possessive_agreement	source sentence has a spelling error (muxtojmiz for muhtojmiz)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+possessive_agreement-1129	possessive_agreement	source sentence has a spelling error (Lekigin for Lekin)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+relative_clauses-2057	relative_clauses	source sentence has a spelling error (Fuqorolar for Fuqarolar)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+relative_clauses-2085	relative_clauses	source sentence has a spelling error (takazo for taqozo)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+relative_clauses-2088	relative_clauses	source sentence has spelling errors (karash for qarash, xolda for holda)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+dative_allomorphy-1115	dative_allomorphy	source sentence is a corrupted proverb (tokka for togʻga, kovushar for qovushar)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+dative_allomorphy-1079	dative_allomorphy	source sentence has a spelling error (utdimi for oʻtdimi)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+postposition_case-1079	postposition_case	source sentence has a stray hyphen before the full stop (turdi-.)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+postposition_case-1103	postposition_case	source sentence has a broken word (zararlanish- modda)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+stem_alternation-1205	stem_alternation	source sentence has a spelling error (Usha for Oʻsha)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+npi_hech-1140	npi_hech	source sentence writes the tutuq of taʼrif with the wrong apostrophe character	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+passives-1053	passives	source sentence has a spelling error (labaratoriya for laboratoriya)	AI-assisted spelling screen, 2026-11-20; to be confirmed by the authors
+suspended_affixation-1118	suspended_affixation	source sentence has a broken word (qoʻ yilgan)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+npi_hech-1189	npi_hech	source sentence has a spelling error (xam for ham)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+lexical_case-1075	lexical_case	source sentence has a spelling error (buyi for boʻyi)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+stem_alternation-1062	stem_alternation	source sentence has a spelling error (etib for yetib) and reads as a machine translation	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+npi_hech-1146	npi_hech	source sentence has a spelling error (etib for yetib)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+suspended_affixation-1158	suspended_affixation	source sentence has a spelling error (Xolbuki for Holbuki)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+stem_alternation-1224	stem_alternation	source sentence uses the wrong word (surʼatga 'speed' for suratga 'picture')	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+suspended_affixation-1089	suspended_affixation	source sentence uses the wrong word (ishlab chaqirish for ishlab chiqarish)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+lexical_case-1182	lexical_case	source sentence has a spelling error (Korovulbegi for Qorovulbegi)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+stem_alternation-1195	stem_alternation	source sentence merges two words (chapkoʻksida for chap koʻksida)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+ditransitive_dative-2020	ditransitive_dative	source sentence has a spelling error (qoʻyapman for qoʻyyapman)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+ditransitive_dative-1012	ditransitive_dative	source sentence has a misspelled loanword (karera for karyera) and reads as a machine translation	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+suspended_affixation-1029	suspended_affixation	source sentence has a misspelled loanword (ofisiant for ofitsiant), which also gives a wrong Cyrillic form	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+anaphor_agreement-2106	anaphor_agreement	source sentence uses the wrong word (yod 'memory' for yot 'alien')	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+lexical_case-1125	lexical_case	source sentence has a spelling error (xalpida for halpida)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+stem_alternation-1175	stem_alternation	source sentence is a garbled machine translation (accusative olatni where the genitive is required)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+stem_alternation-1023	stem_alternation	source sentence is garbled (Poʻstlogʻi ..., poʻstloqli, poʻstloq)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+nominalization-2055	nominalization	source sentence has a misspelled loanword (kalkulatsiya for kalkulyatsiya)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+anaphor_agreement-2177	anaphor_agreement	source sentence starts with an expression that is probably corrupted (Har koʻra)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+ditransitive_dative-1052	ditransitive_dative	source sentence is a fragment without a subject	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+stem_alternation-1171	stem_alternation	the edited word is built on a nonstandard stem (sogʻlik for sogʻliq)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+stem_alternation-1246	stem_alternation	the edited word comes from a compound written apart (Koʻz oynagi for koʻzoynagi)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+stem_alternation-1165	stem_alternation	source sentence has a spelling error (birbiriga for bir-biriga)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+npi_hech-1167	npi_hech	source sentence has a loanword spelled against the Latin rules (stantsiya for stansiya)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+lexical_case-1228	lexical_case	source sentence has a spelling error (Naxot for Nahot)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+numeral_no_plural-1036	numeral_no_plural	source sentence has a spelling error (chiqgan for chiqqan)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+numeral_no_plural-1221	numeral_no_plural	source sentence has a spelling error (koʻyishdi for qoʻyishdi)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+passives-1048	passives	source sentence has a space before the full stop	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+passives-2039	passives	source sentence has a loanword spelled against the Latin rules (Differentsial for Differensial)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+passives-2115	passives	source sentence has a spelling error (harajatlar for xarajatlar)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+possessive_agreement-1137	possessive_agreement	source sentence has a spelling error (koʻyib for qoʻyib)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+possessive_agreement-1116	possessive_agreement	source sentence is garbled (a doubled inson; reads as a machine translation)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+possessive_agreement-1204	possessive_agreement	source sentence is a garbled fragment without a predicate	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+postposition_case-1146	postposition_case	source sentence is direct speech with a dialogue dash (beramiz,- dedi)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+postposition_case-1155	postposition_case	the edited word is misspelled in both members (xafta- for hafta-)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+postposition_case-1157	postposition_case	source sentence has a misspelled loanword (operasiya for operatsiya), which also gives a wrong Cyrillic form	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+postposition_case-1048	postposition_case	source sentence is ungrammatical (ichidagi for ichida)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+postposition_case-1115	postposition_case	the target construction has a doubled postposition (-dan keyin soʻng)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-1012	relative_clauses	source sentence writes a tutuq after ʻ (moʻʼjiza for moʻjiza)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2050	relative_clauses	source sentence has a spelling error (xolda for holda) and an accusative object of a passive verb	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2055	relative_clauses	source sentence has a spelling error (etishib for yetishib)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2073	relative_clauses	source sentence has a spelling error (uz for oʻz)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2075	relative_clauses	source sentence has a spelling error (xolda for holda)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2076	relative_clauses	source sentence is garbled, and the edited word is misspelled (kuyilgan for qoʻyilgan)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2120	relative_clauses	source sentence is truncated	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2128	relative_clauses	source sentence is garbled (birikmadan bilan)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2043	relative_clauses	source sentence has an accusative object of a passive verb (Loyni ... pishitiladi)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2131	relative_clauses	source sentence has a spelling error (ogrikdan for ogʻriqdan)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2117	relative_clauses	source sentence has an accusative object of a passive verb (qogʻozlarni tortilganda)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+postposition_case-1050	postposition_case	source sentence has a spelling error (rusxat for ruxsat)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+possessive_agreement-1044	possessive_agreement	source sentence is ungrammatical (oʻrtasidagi kurashayotgan for oʻrtasida kurashayotgan)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors
+relative_clauses-2048	relative_clauses	source sentence has a missing possessive suffix (Uning davrning for Uning davrining)	AI-assisted spelling proofreading, 2026-11-21; to be confirmed by the authors

@@ -1,13 +1,13 @@
 {
   "benchmark": "UzBLiMP",
-  "version": "v1.1",
+  "version": "v1.2",
   "model": "goldfish-models/uzn_cyrl_100mb",
-  "label": "Goldfish-cyrl",
+  "label": "GF-C 100MB",
   "script": "cyrl",
   "method": "logprob",
   "n_pairs": 2400,
-  "accuracy": 94.6,
-  "accuracy_norm": 93.4,
+  "accuracy": 94.7,
+  "accuracy_norm": 93.5,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
@@ -26,13 +26,13 @@
     },
     "ditransitive_dative": {
       "n": 150,
-      "correct": 141,
-      "accuracy": 94.0
+      "correct": 142,
+      "accuracy": 94.7
     },
     "lexical_case": {
       "n": 150,
-      "correct": 147,
-      "accuracy": 98.0
+      "correct": 148,
+      "accuracy": 98.7
     },
     "nominalization": {
       "n": 150,
@@ -41,13 +41,13 @@
     },
     "npi_hech": {
       "n": 150,
-      "correct": 129,
-      "accuracy": 86.0
+      "correct": 128,
+      "accuracy": 85.3
     },
     "numeral_no_plural": {
       "n": 150,
-      "correct": 143,
-      "accuracy": 95.3
+      "correct": 145,
+      "accuracy": 96.7
     },
     "passives": {
       "n": 150,
@@ -61,8 +61,8 @@
     },
     "possessive_agreement": {
       "n": 150,
-      "correct": 145,
-      "accuracy": 96.7
+      "correct": 144,
+      "accuracy": 96.0
     },
     "postposition_case": {
       "n": 150,
@@ -76,8 +76,8 @@
     },
     "relative_clauses": {
       "n": 150,
-      "correct": 148,
-      "accuracy": 98.7
+      "correct": 150,
+      "accuracy": 100.0
     },
     "stem_alternation": {
       "n": 150,
@@ -86,8 +86,8 @@
     },
     "suspended_affixation": {
       "n": 150,
-      "correct": 141,
-      "accuracy": 94.0
+      "correct": 139,
+      "accuracy": 92.7
     }
   },
   "settings": {
@@ -95,7 +95,7 @@
     "dtype": "float32",
     "device": "cpu",
     "bos": true,
-    "per_pair": "results/uzn_cyrl_100mb_uzblimp_v1.1_cyrl.csv"
+    "per_pair": "results/uzn_cyrl_100mb_uzblimp_v1.2_cyrl.csv"
   },
-  "date": "2026-11-01"
+  "date": "2026-11-21"
 }

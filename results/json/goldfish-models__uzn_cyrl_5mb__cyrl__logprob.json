@@ -1,0 +1,101 @@
+{
+  "benchmark": "UzBLiMP",
+  "version": "v1.2",
+  "model": "goldfish-models/uzn_cyrl_5mb",
+  "label": "GF-C 5MB",
+  "script": "cyrl",
+  "method": "logprob",
+  "n_pairs": 2400,
+  "accuracy": 61.3,
+  "accuracy_norm": 66.9,
+  "per_phenomenon": {
+    "anaphor_agreement": {
+      "n": 150,
+      "correct": 62,
+      "accuracy": 41.3
+    },
+    "binding": {
+      "n": 150,
+      "correct": 3,
+      "accuracy": 2.0
+    },
+    "dative_allomorphy": {
+      "n": 150,
+      "correct": 81,
+      "accuracy": 54.0
+    },
+    "ditransitive_dative": {
+      "n": 150,
+      "correct": 60,
+      "accuracy": 40.0
+    },
+    "lexical_case": {
+      "n": 150,
+      "correct": 98,
+      "accuracy": 65.3
+    },
+    "nominalization": {
+      "n": 150,
+      "correct": 150,
+      "accuracy": 100.0
+    },
+    "npi_hech": {
+      "n": 150,
+      "correct": 23,
+      "accuracy": 15.3
+    },
+    "numeral_no_plural": {
+      "n": 150,
+      "correct": 114,
+      "accuracy": 76.0
+    },
+    "passives": {
+      "n": 150,
+      "correct": 97,
+      "accuracy": 64.7
+    },
+    "person_agreement": {
+      "n": 150,
+      "correct": 77,
+      "accuracy": 51.3
+    },
+    "possessive_agreement": {
+      "n": 150,
+      "correct": 120,
+      "accuracy": 80.0
+    },
+    "postposition_case": {
+      "n": 150,
+      "correct": 150,
+      "accuracy": 100.0
+    },
+    "quantifiers": {
+      "n": 150,
+      "correct": 124,
+      "accuracy": 82.7
+    },
+    "relative_clauses": {
+      "n": 150,
+      "correct": 148,
+      "accuracy": 98.7
+    },
+    "stem_alternation": {
+      "n": 150,
+      "correct": 134,
+      "accuracy": 89.3
+    },
+    "suspended_affixation": {
+      "n": 150,
+      "correct": 29,
+      "accuracy": 19.3
+    }
+  },
+  "settings": {
+    "scorer": "scripts/score_pairs.py, minicons 0.3.39",
+    "dtype": "float32",
+    "device": "cpu",
+    "bos": true,
+    "per_pair": "results/uzn_cyrl_5mb_uzblimp_v1.2_cyrl.csv"
+  },
+  "date": "2026-11-21"
+}

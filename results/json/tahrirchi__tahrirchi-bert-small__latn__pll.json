@@ -1,0 +1,101 @@
+{
+  "benchmark": "UzBLiMP",
+  "version": "v1.2",
+  "model": "tahrirchi/tahrirchi-bert-small",
+  "label": "tahrirchi-bert-small",
+  "script": "latn",
+  "method": "pll",
+  "n_pairs": 2400,
+  "accuracy": 92.2,
+  "accuracy_norm": 92.9,
+  "per_phenomenon": {
+    "anaphor_agreement": {
+      "n": 150,
+      "correct": 145,
+      "accuracy": 96.7
+    },
+    "binding": {
+      "n": 150,
+      "correct": 72,
+      "accuracy": 48.0
+    },
+    "dative_allomorphy": {
+      "n": 150,
+      "correct": 118,
+      "accuracy": 78.7
+    },
+    "ditransitive_dative": {
+      "n": 150,
+      "correct": 144,
+      "accuracy": 96.0
+    },
+    "lexical_case": {
+      "n": 150,
+      "correct": 146,
+      "accuracy": 97.3
+    },
+    "nominalization": {
+      "n": 150,
+      "correct": 150,
+      "accuracy": 100.0
+    },
+    "npi_hech": {
+      "n": 150,
+      "correct": 126,
+      "accuracy": 84.0
+    },
+    "numeral_no_plural": {
+      "n": 150,
+      "correct": 140,
+      "accuracy": 93.3
+    },
+    "passives": {
+      "n": 150,
+      "correct": 148,
+      "accuracy": 98.7
+    },
+    "person_agreement": {
+      "n": 150,
+      "correct": 149,
+      "accuracy": 99.3
+    },
+    "possessive_agreement": {
+      "n": 150,
+      "correct": 146,
+      "accuracy": 97.3
+    },
+    "postposition_case": {
+      "n": 150,
+      "correct": 149,
+      "accuracy": 99.3
+    },
+    "quantifiers": {
+      "n": 150,
+      "correct": 140,
+      "accuracy": 93.3
+    },
+    "relative_clauses": {
+      "n": 150,
+      "correct": 150,
+      "accuracy": 100.0
+    },
+    "stem_alternation": {
+      "n": 150,
+      "correct": 149,
+      "accuracy": 99.3
+    },
+    "suspended_affixation": {
+      "n": 150,
+      "correct": 141,
+      "accuracy": 94.0
+    }
+  },
+  "settings": {
+    "scorer": "scripts/score_pairs.py, minicons 0.3.39 --mlm (pseudo-log-likelihood)",
+    "dtype": "float32",
+    "device": "cpu",
+    "bos": true,
+    "per_pair": "results/tahrirchi-bert-small_uzblimp_v1.2.csv"
+  },
+  "date": "2026-11-21"
+}

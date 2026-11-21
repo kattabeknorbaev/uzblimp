@@ -1,18 +1,18 @@
 {
   "benchmark": "UzBLiMP",
-  "version": "v1.1",
+  "version": "v1.2",
   "model": "Qwen/Qwen2.5-0.5B",
   "label": "Qwen2.5-0.5B",
   "script": "latn",
   "method": "logprob",
   "n_pairs": 2400,
-  "accuracy": 50.5,
+  "accuracy": 50.4,
   "accuracy_norm": 56.8,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
-      "correct": 76,
-      "accuracy": 50.7
+      "correct": 77,
+      "accuracy": 51.3
     },
     "binding": {
       "n": 150,
@@ -26,13 +26,13 @@
     },
     "ditransitive_dative": {
       "n": 150,
-      "correct": 47,
-      "accuracy": 31.3
+      "correct": 48,
+      "accuracy": 32.0
     },
     "lexical_case": {
       "n": 150,
-      "correct": 47,
-      "accuracy": 31.3
+      "correct": 49,
+      "accuracy": 32.7
     },
     "nominalization": {
       "n": 150,
@@ -41,18 +41,18 @@
     },
     "npi_hech": {
       "n": 150,
-      "correct": 8,
-      "accuracy": 5.3
+      "correct": 7,
+      "accuracy": 4.7
     },
     "numeral_no_plural": {
       "n": 150,
-      "correct": 116,
-      "accuracy": 77.3
+      "correct": 117,
+      "accuracy": 78.0
     },
     "passives": {
       "n": 150,
-      "correct": 91,
-      "accuracy": 60.7
+      "correct": 92,
+      "accuracy": 61.3
     },
     "person_agreement": {
       "n": 150,
@@ -66,8 +66,8 @@
     },
     "postposition_case": {
       "n": 150,
-      "correct": 97,
-      "accuracy": 64.7
+      "correct": 95,
+      "accuracy": 63.3
     },
     "quantifiers": {
       "n": 150,
@@ -76,18 +76,18 @@
     },
     "relative_clauses": {
       "n": 150,
-      "correct": 100,
-      "accuracy": 66.7
+      "correct": 102,
+      "accuracy": 68.0
     },
     "stem_alternation": {
       "n": 150,
-      "correct": 92,
-      "accuracy": 61.3
+      "correct": 88,
+      "accuracy": 58.7
     },
     "suspended_affixation": {
       "n": 150,
-      "correct": 61,
-      "accuracy": 40.7
+      "correct": 57,
+      "accuracy": 38.0
     }
   },
   "settings": {
@@ -95,7 +95,7 @@
     "dtype": "float32",
     "device": "cpu",
     "bos": true,
-    "per_pair": "results/Qwen2.5-0.5B_uzblimp_v1.1_bos.csv"
+    "per_pair": "results/Qwen2.5-0.5B_uzblimp_v1.2_bos.csv"
   },
-  "date": "2026-11-01"
+  "date": "2026-11-21"
 }

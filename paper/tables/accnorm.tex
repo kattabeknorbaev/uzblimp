@@ -1,29 +1,31 @@
-\begin{table*}[t]
+\begin{table}[t]
 \centering\small
-\begin{tabular}{lrrrrrrrrrr}
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lrrrrrr@{}}
 \toprule
-Phenomenon & GF-L/L & GF-C/L & BERT/L & Qwen/L & GF-L/C & GF-C/C & BERT/C & Qwen/C & BERT/R & Qwen/R \\
+ & \multicolumn{2}{c}{Latin} & \multicolumn{2}{c}{Cyrillic} & \multicolumn{2}{c}{Reformed} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(l){6-7}
+Model & acc & norm & acc & norm & acc & norm \\
 \midrule
-Anaphor agreement & 99.3 & 66.7 & 99.3 & 64.0 & 91.3 & 99.3 & 83.3 & 58.7 & 95.3 & 53.3 \\
-Lexical case & 98.7 & 56.7 & 100.0 & 46.0 & 98.7 & 98.0 & 88.7 & 47.3 & 90.7 & 45.3 \\
-Ditransitive dative & 98.0 & 57.3 & 99.3 & 48.7 & 98.0 & 97.3 & 91.3 & 46.0 & 99.3 & 65.3 \\
-Binding & 100.0 & 98.0 & 100.0 & 70.7 & 99.3 & 98.7 & 72.7 & 38.7 & 60.7 & 51.3 \\
-Stem alternation (q/k) & 96.0 & 74.7 & 99.3 & 68.7 & 96.7 & 94.7 & 93.3 & 54.7 & 84.7 & 58.0 \\
-NPI \textit{hech} & 98.0 & 28.7 & 99.3 & 60.0 & 96.0 & 95.3 & 68.7 & 70.0 & 86.0 & 72.7 \\
-Suspended affixation & 93.3 & 14.7 & 98.0 & 40.7 & 85.3 & 94.0 & 89.3 & 21.3 & 98.0 & 60.0 \\
-Nominalization & 100.0 & 84.7 & 99.3 & 89.3 & 98.7 & 100.0 & 96.7 & 4.7 & 73.3 & 15.3 \\
-Person agreement & 99.3 & 52.0 & 100.0 & 57.3 & 88.7 & 98.0 & 85.3 & 56.7 & 99.3 & 51.3 \\
-Passives & 97.3 & 76.0 & 98.0 & 88.7 & 94.0 & 98.0 & 92.0 & 74.7 & 99.3 & 88.0 \\
-Relative clauses & 100.0 & 91.3 & 98.7 & 84.0 & 99.3 & 99.3 & 98.0 & 91.3 & 98.0 & 74.0 \\
-Quantifiers (\textit{har bir}) & 83.3 & 3.3 & 96.7 & 24.0 & 38.0 & 78.7 & 31.3 & 8.0 & 88.0 & 25.3 \\
-Numeral + singular & 66.0 & 3.3 & 95.3 & 10.7 & 19.3 & 60.0 & 10.0 & 3.3 & 72.7 & 14.7 \\
-Postposition case & 100.0 & 96.0 & 100.0 & 85.3 & 100.0 & 100.0 & 100.0 & 94.0 & 100.0 & 86.7 \\
-Possessive agreement & 96.0 & 47.3 & 100.0 & 57.3 & 95.3 & 95.3 & 70.7 & 45.3 & 100.0 & 59.3 \\
-Dative allomorphy & 88.0 & 1.3 & 92.7 & 14.0 & 70.7 & 87.3 & 48.7 & 67.3 & 90.7 & 37.3 \\
-\midrule
-All & \textbf{94.6} & \textbf{53.2} & \textbf{98.5} & \textbf{56.8} & \textbf{85.6} & \textbf{93.4} & \textbf{76.2} & \textbf{48.9} & \textbf{89.8} & \textbf{53.6} \\
+GF-L 5MB & 63.3 & 68.7 & 53.3 & 56.0 & -- & -- \\
+GF-L 10MB & 73.4 & 75.6 & 55.8 & 61.6 & -- & -- \\
+GF-L 100MB & 95.8 & 94.8 & 88.3 & 85.2 & -- & -- \\
+GF-L full & 96.7 & 95.3 & 91.7 & 88.2 & -- & -- \\
+GF-C 5MB & 45.2 & 51.5 & 61.3 & 66.9 & -- & -- \\
+GF-C 10MB & 40.3 & 51.2 & 65.4 & 71.5 & -- & -- \\
+GF-C 100MB & 47.6 & 53.7 & 94.7 & 93.5 & -- & -- \\
+GF-C full & 49.5 & 55.7 & 97.3 & 95.7 & -- & -- \\
+TahrirchiBERT & 98.7 & 98.5 & 76.8 & 76.4 & 87.3 & 89.7 \\
+\quad small & 92.2 & 92.9 & 59.2 & 61.4 & 81.3 & 81.7 \\
+BERTbek & 87.6 & 88.1 & 59.4 & 61.1 & 68.2 & 69.7 \\
+UzBERT & 42.7 & 46.4 & 84.3 & 85.2 & -- & -- \\
+UzRoBERTa & 93.4 & 93.4 & 96.4 & 96.0 & 78.0 & 80.1 \\
+mBERT & 62.5 & 66.0 & 51.2 & 54.6 & 55.6 & 57.6 \\
+XLM-R base & 78.2 & 78.8 & 51.3 & 51.5 & 71.5 & 73.4 \\
+Qwen2.5-0.5B & 50.4 & 56.8 & 46.2 & 49.3 & 46.8 & 53.0 \\
+Qwen2.5-1.5B & 55.0 & 62.2 & 53.1 & 55.6 & 49.7 & 55.2 \\
 \bottomrule
 \end{tabular}
-\caption{Length-normalised accuracy (\%; log-probability per UTF-8 byte, as in TatBLiMP). L/C/R: Latin, Cyrillic and reformed Latin text.}
+\caption{Raw accuracy (acc) and byte-normalised accuracy (norm; log-probability per UTF-8 byte, the main metric of TatBLiMP), in \%.}
 \label{tab:accnorm}
-\end{table*}
+\end{table}

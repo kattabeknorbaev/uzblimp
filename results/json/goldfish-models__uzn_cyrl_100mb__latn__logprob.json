@@ -1,18 +1,18 @@
 {
   "benchmark": "UzBLiMP",
-  "version": "v1.1",
+  "version": "v1.2",
   "model": "goldfish-models/uzn_cyrl_100mb",
-  "label": "Goldfish-cyrl",
+  "label": "GF-C 100MB",
   "script": "latn",
   "method": "logprob",
   "n_pairs": 2400,
   "accuracy": 47.6,
-  "accuracy_norm": 53.2,
+  "accuracy_norm": 53.7,
   "per_phenomenon": {
     "anaphor_agreement": {
       "n": 150,
-      "correct": 61,
-      "accuracy": 40.7
+      "correct": 62,
+      "accuracy": 41.3
     },
     "binding": {
       "n": 150,
@@ -26,13 +26,13 @@
     },
     "ditransitive_dative": {
       "n": 150,
-      "correct": 68,
-      "accuracy": 45.3
+      "correct": 69,
+      "accuracy": 46.0
     },
     "lexical_case": {
       "n": 150,
-      "correct": 68,
-      "accuracy": 45.3
+      "correct": 67,
+      "accuracy": 44.7
     },
     "nominalization": {
       "n": 150,
@@ -46,13 +46,13 @@
     },
     "numeral_no_plural": {
       "n": 150,
-      "correct": 140,
-      "accuracy": 93.3
+      "correct": 138,
+      "accuracy": 92.0
     },
     "passives": {
       "n": 150,
-      "correct": 76,
-      "accuracy": 50.7
+      "correct": 75,
+      "accuracy": 50.0
     },
     "person_agreement": {
       "n": 150,
@@ -61,28 +61,28 @@
     },
     "possessive_agreement": {
       "n": 150,
-      "correct": 100,
-      "accuracy": 66.7
+      "correct": 102,
+      "accuracy": 68.0
     },
     "postposition_case": {
       "n": 150,
-      "correct": 72,
-      "accuracy": 48.0
+      "correct": 75,
+      "accuracy": 50.0
     },
     "quantifiers": {
       "n": 150,
-      "correct": 121,
-      "accuracy": 80.7
+      "correct": 120,
+      "accuracy": 80.0
     },
     "relative_clauses": {
       "n": 150,
-      "correct": 105,
-      "accuracy": 70.0
+      "correct": 102,
+      "accuracy": 68.0
     },
     "stem_alternation": {
       "n": 150,
-      "correct": 91,
-      "accuracy": 60.7
+      "correct": 92,
+      "accuracy": 61.3
     },
     "suspended_affixation": {
       "n": 150,
@@ -95,7 +95,7 @@
     "dtype": "float32",
     "device": "cpu",
     "bos": true,
-    "per_pair": "results/uzn_cyrl_100mb_uzblimp_v1.1.csv"
+    "per_pair": "results/uzn_cyrl_100mb_uzblimp_v1.2.csv"
   },
-  "date": "2026-11-01"
+  "date": "2026-11-21"
 }
