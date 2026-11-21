@@ -382,5 +382,29 @@
       "tokens_per_sentence": 26.41,
       "tokens_per_word": 3.025
     }
+  },
+  "tahrirchi-bert-small": {
+    "model": "tahrirchi/tahrirchi-bert-small",
+    "Latin": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 14.22,
+      "tokens_per_word": 1.629
+    },
+    "Cyrillic": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 36.19,
+      "tokens_per_word": 4.145
+    },
+    "Reformed": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 19.08,
+      "tokens_per_word": 2.185
+    }
   }
 }
