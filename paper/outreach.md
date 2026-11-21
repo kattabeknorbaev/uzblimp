@@ -43,7 +43,7 @@ interlinear glosses (`paper/examples.tsv`).
 >
 > With kind regards,
 > Kattabek Norbaev
-> [e-mail] · https://github.com/kattabeknorbaev/uzblimp
+> kattabeknorbayev@gmail.com · https://github.com/kattabeknorbaev/uzblimp
 
 ## Template 2: international NLP researchers
 
@@ -68,4 +68,4 @@ interlinear glosses (`paper/examples.tsv`).
 >
 > Best regards,
 > Kattabek Norbaev
-> [e-mail] · https://github.com/kattabeknorbaev/uzblimp
+> kattabeknorbayev@gmail.com · https://github.com/kattabeknorbaev/uzblimp
