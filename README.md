@@ -184,7 +184,7 @@ In short: the strongest monolingual models (TahrirchiBERT and the Goldfish model
 
 ## License
 
-**Data** (`data/`): CC BY-SA 4.0 ([`data/LICENSE`](data/LICENSE)), except `data/multiblimp_uzb.tsv` (MultiBLiMP 1.0, under its own licence). Some sentences come from Uzbek Wikipedia (CC BY-SA), so the pairs keep its share-alike terms. Other sentences are short excerpts from published books; each pair's `source_id` names its source, and we remove any sentence on request (open an issue). **Code** (`scripts/`): MIT ([`LICENSE`](LICENSE)).
+**Data** (`data/`): CC BY-SA 4.0 ([`data/LICENSE`](data/LICENSE)), except `data/multiblimp_uzb.tsv` (MultiBLiMP 1.0, under its own licence). Some sentences come from Uzbek Wikipedia (CC BY-SA), so the pairs keep its share-alike terms. Other sentences are short excerpts from published books, from copies publicly available on the internet; each pair's `source_id` names its source, and we remove any sentence on request (open an issue). **Code** (`scripts/`): MIT ([`LICENSE`](LICENSE)).
 
 ## Citation
 

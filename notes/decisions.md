@@ -61,4 +61,4 @@ Each decision gives its source and date: **Kattabek** = his decision; **feedback
 - arXiv endorsement route.
 - Ethics approval: settled 2026-11-22 for the forced-choice validation (five anonymous unpaid volunteers; consent text, no names, aggregate release): no ethics review was sought, and the paper says why. Decide again before the rating study.
 - Which Tomaris.ai dataset(s), and their terms.
-- Licensing for the public release: Wikipedia text is CC BY-SA (attribution, share-alike), and the books' copyright status is not documented in `notes/corpus.md`.
+- Licensing for the public release: Wikipedia text is CC BY-SA (attribution, share-alike). The books of our corpus are copies publicly available on the internet (Kattabek, 2026-11-22); their licence terms are not documented, so the release keeps a source identifier per pair and removes sentences on request.

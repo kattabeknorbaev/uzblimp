@@ -17,8 +17,8 @@ in the form of the current cycle: it changes from time to time.
 - **B1 Citing the creators of artifacts used.** Yes: Sections 2 and 5, Table 8 (models with Hugging Face
   identifiers), Appendix H (software and versions).
 - **B2 Licences.** Yes: *Ethics Statement* (data CC BY-SA 4.0, code MIT; evaluated models Apache 2.0 or MIT,
-  Table 8; UzBooks labelled MIT on its Hugging Face page; Wikipedia CC BY-SA). **AUTHORS:** the licence of the book sentences of our own corpus is
-  not documented (`notes/corpus.md`); the paper says so and offers removal on request.
+  Table 8; UzBooks labelled MIT on its Hugging Face page; Wikipedia CC BY-SA). The books of our own corpus are copies publicly available on the
+  internet whose licence terms are not documented; the paper says so and offers removal on request.
 - **B3 Use consistent with intended use.** Yes: *Ethics Statement* (models and corpora used only to compute
   sentence scores for research; the benchmark is intended for research on language models).
 - **B4 Personal information and offensive content.** Partly: sentences with personal names after the first

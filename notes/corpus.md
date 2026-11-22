@@ -15,7 +15,7 @@ Status: DRAFT, 2026-10-06. **Verified** = checked from the files themselves. **K
 
 | Part | Verified | Source | Collected (when, how, by whom) | Terms / license | Cleaning applied |
 |---|---|---|---|---|---|
-| `books/` | 2,971 `.txt`, one work per file. File names give author (Latin + Cyrillic) and genre (hikoya, roman, hajviya). | **Kattabek** | **Kattabek** | **Kattabek** | **Kattabek** |
+| `books/` | 2,971 `.txt`, one work per file. File names give author (Latin + Cyrillic) and genre (hikoya, roman, hajviya). | Books publicly available on the internet (Kattabek, 2026-11-22) | **Kattabek** | Not documented; sentences are removed on request (paper, Ethics statement) | **Kattabek** |
 | `legal/` | 17 `.txt` (codes and laws, e.g. `konstitutsiya.txt`, `soliq_kodeksi.txt`) | **Kattabek** | **Kattabek** | **Kattabek** | **Kattabek** |
 | `wiki/` | `wikipedia_uz_deduped.jsonl`, one article per line, fields `text`, `title`, `source`, `doc_id` | **Kattabek** | **Kattabek** (dump date?) | **Kattabek** | "deduped": how? **Kattabek** |
 

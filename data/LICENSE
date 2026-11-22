@@ -6,7 +6,7 @@ Summary: https://creativecommons.org/licenses/by-sa/4.0/
 Legal code: https://creativecommons.org/licenses/by-sa/4.0/legalcode
 
 Some sentences come from Uzbek Wikipedia, which is licensed under CC BY-SA; the pairs keep its share-alike
-terms. Other sentences are short excerpts from published books. Each pair's source_id names its source, and
+terms. Other sentences are short excerpts from published books, from copies publicly available on the internet. Each pair's source_id names its source, and
 we remove any sentence on request (open an issue in the repository). The pairs in external/ were generated
 by Javohir Matniyozov from the tahrirchi/uz-books-v2 collection (labelled MIT on its Hugging Face page).
 
