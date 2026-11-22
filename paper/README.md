@@ -47,7 +47,6 @@ TeX Live.
 - The limitations name what is still open: acceptability ratings (materials in `human_study/`),
   validation of the Cyrillic and reformed versions, a check of the full benchmark by a linguist, and
   models above 1.5 billion parameters.
-- Confirm what Appendix E says about the five annotators of the human validation (native speakers, not
-  involved in building or reviewing the benchmark, one of them a linguist, voluntary), and add whether they
-  were paid and whether an ethics review was sought or needed; the ARR checklist asks about recruitment,
-  payment and ethics review.
+- The facts about the five annotators in Appendix E were confirmed by the first author on 22 November 2026:
+  native speakers, anonymous unpaid volunteers, not involved in building or checking the benchmark, one of
+  them (p09) a linguist. Still to state for the ARR checklist: whether an ethics review was sought or needed.

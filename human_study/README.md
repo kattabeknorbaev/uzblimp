@@ -8,8 +8,8 @@ the benchmark by `scripts/make_human_study.py` (seed 2026); returned sheets are 
 
 ## Forced choice: results
 
-Five native speakers of Uzbek (codes p06–p10), recruited through the first author's contacts and not
-involved in building or reviewing the benchmark, one of them a linguist, chose the correct sentence of all
+Five native speakers of Uzbek (codes p06–p10), anonymous and unpaid volunteers recruited through the
+first author's contacts and not involved in building or reviewing the benchmark, one of them a linguist, chose the correct sentence of all
 320 pairs. Each received an Excel workbook made by `scripts/make_human_study_xlsx.py` (consent text in Uzbek;
 instructions in Uzbek and English, the Uzbek texts in both scripts, see `workbook_instructions.json`; the
 pairs in a Latin and a Cyrillic tab, of which they used one) and sent the answers back as a Telegram
