@@ -8,3 +8,5 @@ tqdm
 turkicnlp[transformers]==0.4.0
 # Added 2026-11-21 for the paper figures (scripts/paper_figures.py)
 matplotlib==3.11.2
+# Added 2026-11-22 for the workbooks of the human validation (scripts/make_human_study_xlsx.py)
+openpyxl==3.1.5

@@ -48,5 +48,6 @@ TeX Live.
   validation of the Cyrillic and reformed versions, a check of the full benchmark by a linguist, and
   models above 1.5 billion parameters.
 - Confirm what Appendix E says about the five annotators of the human validation (native speakers, not
-  involved in building or reviewing the benchmark, one of them a linguist, voluntary) and add whether they
-  were paid; the ARR checklist asks about recruitment and payment.
+  involved in building or reviewing the benchmark, one of them a linguist, voluntary), and add whether they
+  were paid and whether an ethics review was sought or needed; the ARR checklist asks about recruitment,
+  payment and ethics review.

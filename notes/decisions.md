@@ -59,6 +59,6 @@ Each decision gives its source and date: **Kattabek** = his decision; **feedback
 - Which models exactly (frontier, multilingual), and where to run them. Anything over ~1B needs a cloud GPU.
 - SIGTURK and BabyLM deadlines.
 - arXiv endorsement route.
-- Ethics approval, only if we run a human judgment study.
+- Ethics approval: the forced-choice validation was run in November 2026 (five volunteers, consent text, no names, aggregate release) without an ethics review; the authors must state in the paper whether one was needed (ARR checklist), and decide before the rating study.
 - Which Tomaris.ai dataset(s), and their terms.
 - Licensing for the public release: Wikipedia text is CC BY-SA (attribution, share-alike), and the books' copyright status is not documented in `notes/corpus.md`.

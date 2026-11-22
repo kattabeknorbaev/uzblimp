@@ -10,9 +10,10 @@ the benchmark by `scripts/make_human_study.py` (seed 2026); returned sheets are 
 
 Five native speakers of Uzbek (codes p06–p10), recruited through the first author's contacts and not
 involved in building or reviewing the benchmark, one of them a linguist, chose the correct sentence of all
-320 pairs. Each received an Excel workbook (consent text and instructions in Uzbek and English; the pairs
-in a Latin and a Cyrillic tab, of which they filled in one) and sent the answers back as a Telegram
-message; the messages were transcribed and checked against screenshots. An earlier round of five sheets
+320 pairs. Each received an Excel workbook made by `scripts/make_human_study_xlsx.py` (consent text in Uzbek;
+instructions in Uzbek and English, the Uzbek texts in both scripts, see `workbook_instructions.json`; the
+pairs in a Latin and a Cyrillic tab, of which they used one) and sent the answers back as a Telegram
+message, one letter per pair; the messages were transcribed and checked against screenshots. An earlier round of five sheets
 (p01–p05) was discarded because its answers could not be traced to the participants.
 
 | Measure | Result |
@@ -29,7 +30,7 @@ on the same pairs: [`results/human_study.md`](../results/human_study.md); paper,
 
 **What is released.** The consent text promises that answers are published only in aggregate, so the
 individual sheets (`responses/fc_<code>.csv`) are not in the repository (`.gitignore`); the first author
-keeps them with the original messages. `scripts/human_study_report.py` reduces them to two files from which
+keeps them privately, together with the original messages and screenshots. `scripts/human_study_report.py` reduces them to two files from which
 every reported statistic can be recomputed: `forced_choice_judgments.csv` (per pair: annotators, how many
 chose the grammatical sentence, how many marked the pair as unsure, and how many of those chose the
 ungrammatical one) and `forced_choice_annotators.csv` (per code: answered, correct, unsure).
@@ -83,6 +84,14 @@ should be re-examined and, if needed, replaced from `data/benchmark/reserve.tsv`
 > ixtiyoriy, istalgan paytda toʻxtatishingiz mumkin. Ismingiz yoki boshqa shaxsiy maʼlumotlaringiz
 > soʻralmaydi; javoblar kod ostida saqlanadi va faqat umumlashtirilgan holda eʼlon qilinadi. Davom
 > etish orqali ishtirok etishga rozilik bildirasiz.
+
+> Ушбу сўровнома ўзбек тили бўйича илмий тадқиқот доирасида ўтказилмоқда. Иштирок этиш ихтиёрий,
+> исталган пайтда тўхтатишингиз мумкин. Исмингиз ёки бошқа шахсий маълумотларингиз сўралмайди;
+> жавоблар код остида сақланади ва фақат умумлаштирилган ҳолда эълон қилинади. Давом этиш орқали
+> иштирок этишга розилик билдирасиз.
+
+The workbooks of the forced-choice study carried the consent text in both Uzbek scripts and the
+instructions in both Uzbek scripts and in English (`workbook_instructions.json`).
 
 ## Instructions for participants
 

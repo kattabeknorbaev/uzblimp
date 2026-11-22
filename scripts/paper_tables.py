@@ -297,6 +297,17 @@ def human_rows(judg):
             ("Majority", major, 100 * (2 * judg.correct > judg.annotators).mean())]
 
 
+def rating_numbers():
+    """Size of the rating study (not yet run): pairs per list and per phenomenon, from its key."""
+    f = ROOT / "human_study" / "ratings_key.csv"
+    if f.exists():
+        key = pd.read_csv(f)
+        per_list = key.groupby("list").size()
+        assert per_list.nunique() == 1, "the two rating lists must have the same length"
+        num("rate@pairs", per_list.iloc[0], 0)
+        num("rate@perphen", per_list.iloc[0] / key.phenomenon.nunique(), 0)
+
+
 def human_numbers(judg, ann, runs, bench):
     from human_study_report import krippendorff_nominal
     words = {3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten"}
@@ -771,6 +782,7 @@ def main():
         "accnorm": accnorm_table(runs),
         "pilot": pilot_table(),
     }
+    rating_numbers()
     judg, ann = human_judgments()
     if judg is not None:
         human_numbers(judg, ann, runs, bench)
