@@ -50,8 +50,7 @@ in the form of the current cycle: it changes from time to time.
 - **D3 Consent.** Yes: Appendix E and *Ethics Statement* (consent text in Uzbek; answers stored under codes
   and released only in aggregate).
 - **D4 Ethics review board.** No: *Ethics Statement* (no ethics review was sought; the authors are independent
-  researchers without an institutional review board, and the study collected anonymous judgments of sentences
-  and no personal data).
+  researchers, and the volunteers only judged sentences; their answers are released only in aggregate).
 - **D5 Demographics.** Partly: native speakers of Uzbek, one of them a linguist (Appendix E). No further
   demographic data were collected; say so in the form.
 
