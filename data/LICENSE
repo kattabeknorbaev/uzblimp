@@ -8,6 +8,9 @@ Legal code: https://creativecommons.org/licenses/by-sa/4.0/legalcode
 Some sentences come from Uzbek Wikipedia, which is licensed under CC BY-SA; the pairs keep its share-alike
 terms. Other sentences are short excerpts from published books. Each pair's source_id names its source, and
 we remove any sentence on request (open an issue in the repository). The pairs in external/ were generated
-by Javohir Matniyozov from the tahrirchi/uz-books-v2 collection (MIT licence).
+by Javohir Matniyozov from the tahrirchi/uz-books-v2 collection (labelled MIT on its Hugging Face page).
+
+Exception: multiblimp_uzb.tsv is the Uzbek split of MultiBLiMP 1.0 (Jumelet et al.), included for comparison.
+It is not ours and stays under its own licence; see the MultiBLiMP release.
 
 The code in scripts/ is licensed under the MIT licence (../LICENSE).

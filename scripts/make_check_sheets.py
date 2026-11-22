@@ -29,7 +29,7 @@ def read_tsv(path):
 
 def write_csv(path, header, rows):
     with open(path, "w", encoding="utf-8-sig", newline="") as f:  # byte-order mark: Excel then reads the Uzbek letters correctly
-        w = csv.writer(f)
+        w = csv.writer(f, lineterminator="\n")
         w.writerow(header)
         w.writerows(rows)
 
