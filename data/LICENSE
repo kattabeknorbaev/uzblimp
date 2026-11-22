@@ -1,0 +1,13 @@
+UzBLiMP data (this folder: the benchmark, its release files, the candidate pairs and the reserve)
+Copyright (c) 2026 Kattabek Norbaev and Javohir Matniyozov
+
+Licensed under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0).
+Summary: https://creativecommons.org/licenses/by-sa/4.0/
+Legal code: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+Some sentences come from Uzbek Wikipedia, which is licensed under CC BY-SA; the pairs keep its share-alike
+terms. Other sentences are short excerpts from published books. Each pair's source_id names its source, and
+we remove any sentence on request (open an issue in the repository). The pairs in external/ were generated
+by Javohir Matniyozov from the tahrirchi/uz-books-v2 collection (MIT licence).
+
+The code in scripts/ is licensed under the MIT licence (../LICENSE).

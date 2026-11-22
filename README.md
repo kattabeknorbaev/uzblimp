@@ -155,7 +155,7 @@ In short: the strongest monolingual models (TahrirchiBERT and the Goldfish model
 - **Audit of the selected pairs (v1.2).** The 2,400 selected pairs were screened in two passes with the help of an AI assistant: for generator errors (ungrammatical members that have a grammatical reading, edited words that are not an instance of the phenomenon, malformed forms) and for spelling or OCR errors in the source sentences (found by reading the 1,000 most surprising words under the largest Latin Goldfish model and by proofreading every grammatical sentence once more). 120 pairs (5.0%) were replaced by the next accepted pairs of their phenomenon, and the replacements were checked in the same way. Every excluded pair is listed with its reason in `data/benchmark/excluded.tsv` (143 pairs, including reserve pairs); **these exclusions still have to be confirmed by the authors.** Known weaknesses that were kept are described in the paper (Appendix A).
 - **Cyrillic audit (v1.2).** The roughly 10,000 distinct word forms of the Cyrillic version were checked three times for Russian loanwords that Latin spells differently; 72 forms are respelled from a table (`scripts/alphabets.py`). Loanwords that were not recognised may remain.
 - **Human validation (November 2026).** Following BLiMP, five native speakers who had not worked on the benchmark, one of them a linguist, chose the grammatical sentence of 320 pairs (20 per phenomenon, shown as A and B in random order). 99.2% of the 1,600 judgments agree with the benchmark (individual annotators 97.8–100%), the majority agrees on all 320 pairs, mean pairwise agreement is 98.4% and Krippendorff's α 0.97. No pair was misjudged by more than one annotator; the 13 pairs misjudged by one were reread and are correct. On the same pairs TahrirchiBERT scores 98.4% and the largest Goldfish models 98.8% (Latin) and 98.1% (Cyrillic). Report: [`results/human_study.md`](results/human_study.md); materials and released counts: [`human_study/`](human_study/README.md) (the individual answer sheets stay private, as the consent text promised).
-- **Not done yet.** No linguist has checked the full benchmark (`verified` is false everywhere); the Cyrillic and reformed versions are not validated separately; there are no acceptability ratings yet (sheets in [`human_study/`](human_study/README.md)). The comparison in `results/agreement_KN_JM.md` doesn't count as inter-annotator agreement, because the two sets of judgments weren't made independently (`notes/decisions.md`, decision 20).
+- **Not done yet.** No linguist has checked the full benchmark (`verified` is false everywhere); the Cyrillic and reformed versions are not validated separately; there are no acceptability ratings yet (sheets in [`human_study/`](human_study/README.md)). The authors still have to confirm the 143 exclusions ([`handcheck/exclusions_to_confirm.csv`](handcheck/exclusions_to_confirm.csv)) and finish the Cyrillic spot check for eight phenomena ([`handcheck/cyrillic_check_v1.2_remaining.csv`](handcheck/cyrillic_check_v1.2_remaining.csv)). The comparison in `results/agreement_KN_JM.md` doesn't count as inter-annotator agreement, because the two sets of judgments weren't made independently (`notes/decisions.md`, decision 20).
 - **Selection.** 150 accepted pairs per phenomenon, chosen at random with a fixed seed; 724 further accepted pairs (`data/benchmark/reserve.tsv`) can replace pairs that fail a later check.
 
 ## Repository layout
@@ -184,11 +184,11 @@ In short: the strongest monolingual models (TahrirchiBERT and the Goldfish model
 
 ## License
 
-**Data** (`data/`): CC BY-SA 4.0. Some sentences come from Uzbek Wikipedia (CC BY-SA), so the pairs keep its share-alike terms. Other sentences are short excerpts from published books; each pair's `source_id` names its source, and we remove any sentence on request (open an issue). **Code** (`scripts/`): MIT.
+**Data** (`data/`): CC BY-SA 4.0 ([`data/LICENSE`](data/LICENSE)). Some sentences come from Uzbek Wikipedia (CC BY-SA), so the pairs keep its share-alike terms. Other sentences are short excerpts from published books; each pair's `source_id` names its source, and we remove any sentence on request (open an issue). **Code** (`scripts/`): MIT ([`LICENSE`](LICENSE)).
 
 ## Citation
 
-A paper is in preparation (`paper/`). Until then:
+The paper is [`paper/uzblimp.pdf`](paper/uzblimp.pdf) (preprint). Until it has an arXiv or ACL Anthology entry, please cite (also in [`CITATION.cff`](CITATION.cff)):
 
 ```bibtex
 @misc{uzblimp2026,

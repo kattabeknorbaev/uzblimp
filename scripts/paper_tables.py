@@ -488,10 +488,21 @@ def models_table(runs):
         lines += [r"\midrule", rf"\multicolumn{{5}}{{@{{}}l}}{{\textit{{{group}}}}} \\"]
         for m in models:
             lines.append(f"{label(m)} & \\texttt{{{tex(m['hf'])}}} & {kind[m['method']]} & {m['params']} & {TRAINED[m['trained']]} \\\\")
+    # Licences, as stated on the models' Hugging Face pages: the most common one, and the exceptions by name.
+    lic = Counter(m["license"] for m in MODELS if m["key"] in scored)
+    main_lic = lic.most_common(1)[0][0]
+    others = defaultdict(list)
+    for m in MODELS:
+        if m["key"] in scored and m["license"] != main_lic:
+            others[m["license"]].append(label(m))
+    def names(xs):
+        return xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1]
+    licence_note = (f" Licences, as stated on the models' Hugging Face pages: {main_lic}"
+                    + "".join(f", except {names(v)} ({k})" for k, v in others.items()) + ".")
     lines += [r"\bottomrule", r"\end{tabular}",
               r"\caption{The evaluated models. GF-L, GF-C: Goldfish models trained on Latin-script and Cyrillic-script Uzbek. Parameter counts are those given by the models' authors or on the Hugging Face Hub. \emph{Uzbek training "
               r"text}: script of the Uzbek text a model was trained on; multilingual models are trained on many languages in "
-              r"several scripts.}", r"\label{tab:models}", r"\end{table*}"]
+              r"several scripts." + licence_note + "}", r"\label{tab:models}", r"\end{table*}"]
     return "\n".join(lines)
 
 
@@ -512,6 +523,16 @@ def reform_table(runs, bench):
             num(f"ref@{m['key']}@{g}@delta", r - c)
             num(f"ref@{m['key']}@{g}@loss", c - r)
             cells.append(sg(r - c))
+        # The same groups within each phenomenon that has at least ten pairs in the group: the grammatical-only
+        # group is mostly binding, so the text compares the groups within stem alternation and nominalisation.
+        for g in ("critical word: both", "critical word: grammatical only"):
+            for ph, ids in bench[bench.reform_group == g].groupby("phenomenon").groups.items():
+                if len(ids) >= 10:
+                    c, r = acc(cur.loc[ids]), acc(ref.loc[ids])
+                    num(f"refph@{m['key']}@{g}@{ph}@cur", c)
+                    num(f"refph@{m['key']}@{g}@{ph}@ref", r)
+                    num(f"refph@{m['key']}@{g}@{ph}@loss", c - r)
+                    num(f"refphn@{g}@{ph}", len(ids), 0)
         d, lo, hi, p, _, _, _ = paired(ok(cur), ok(ref))
         num(f"ref@{m['key']}@all@delta", -d)
         num(f"ref@{m['key']}@all@loss", d)

@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use UzBLiMP, please cite it as below."
+title: "UzBLiMP: A Benchmark of Linguistic Minimal Pairs for Uzbek in Three Alphabets"
+type: dataset
+authors:
+  - family-names: Norbaev
+    given-names: Kattabek
+  - family-names: Matniyozov
+    given-names: Javohir
+version: "1.2"
+date-released: "2026-11-21"
+repository-code: "https://github.com/kattabeknorbaev/uzblimp"
+license: CC-BY-SA-4.0
+abstract: >-
+  2,400 Uzbek minimal pairs for 16 grammatical phenomena (150 each), built from attested corpus
+  sentences by one controlled edit, in current Latin, Cyrillic and the reformed 2026 Latin alphabet,
+  with an evaluation of 17 language models and a forced-choice human validation.
+keywords:
+  - Uzbek
+  - minimal pairs
+  - benchmark
+  - language models
+  - BLiMP

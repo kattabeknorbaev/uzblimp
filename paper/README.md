@@ -39,14 +39,40 @@ TeX Live.
 
 ## Before submitting
 
-- The text was drafted by Claude from the project files and results at Kattabek's request; the
-  authors own it and must read all of it. The Ethics section states how AI assistance was used.
-- The interlinear glosses in `examples.tsv` and the phenomenon descriptions in Appendix A were
-  drafted by Claude and need a check by a native speaker and, ideally, a linguist.
-- Confirm the author list, affiliations and e-mail addresses in `main.tex`.
-- The limitations name what is still open: acceptability ratings (materials in `human_study/`),
-  validation of the Cyrillic and reformed versions, a check of the full benchmark by a linguist, and
-  models above 1.5 billion parameters.
-- The facts about the five annotators in Appendix E were confirmed by the first author on 22 November 2026:
-  native speakers, anonymous unpaid volunteers, not involved in building or checking the benchmark, one of
-  them (p09) a linguist. Still to state for the ARR checklist: whether an ethics review was sought or needed.
+Open items after the readiness audit of 22 November 2026 (only the authors can settle them):
+
+1. **Read the whole paper.** The text was drafted by Claude from the project files and results at
+   Kattabek's request; the authors own it and must read all of it. The Ethics section states how AI
+   assistance was used.
+2. **Confirm the 143 exclusions**: `handcheck/exclusions_to_confirm.csv` (see `handcheck/README.md`).
+3. **Finish the Cyrillic spot check** for eight phenomena: `handcheck/cyrillic_check_v1.2_remaining.csv`.
+   Then Section 4.3 ("the samples for the other eight have not been checked yet") is updated with the result.
+4. **Glosses and Appendix A.** The interlinear glosses in `examples.tsv` and the phenomenon descriptions were
+   drafted by Claude and need a check by a native speaker and, ideally, a linguist: in particular *yotibdi*
+   (glossed `lie-CVB-COP`), the contracted past copula in *qilardik* (`do-AOR-PST-1PL`), *-gina* glossed
+   `DIM`, and the Cyrillic spelling of month names.
+5. **Author block**: the second author's e-mail and affiliation, the spelling of his name (Matniyozov in the
+   paper and the BibTeX entry), the author order, and whether an affiliation such as Tomaris.ai should be
+   named or disclosed (`notes/decisions.md`, decisions 7 and 13).
+6. **Book sentences**: the source and terms of the book part of our corpus (`notes/corpus.md`).
+7. **Ethics review**: one sentence in the Ethics statement on whether a review was sought or needed for the
+   human validation (also asked by the ARR checklist).
+
+For ACL Rolling Review (deadline 4 January 2027):
+
+- Compile with `[review]`, remove the repository footnote in the introduction, and submit the data and code as
+  an anonymous supplementary zip (no git history, without `paper/uzblimp.pdf` and `paper/outreach.md`).
+- Fill in the Responsible NLP checklist: draft answers in `arr_checklist.md`.
+- All authors need OpenReview profiles. Check the ARR call for the current rules on reviewing duties and on
+  preprints. ARR dropped its anonymity period in February 2024 (aclrollingreview.org/anonymity), but one
+  copy of the ACL 2027 call still mentions a one-month period; posting the arXiv version before
+  4 December 2026 satisfies either rule.
+- arXiv asks first-time submitters in cs.CL for an endorsement.
+
+What stays open beyond this submission is named in the Limitations: acceptability ratings (materials in
+`human_study/`), validation of the Cyrillic and reformed versions, a check of the full benchmark by a
+linguist, and models above 1.5 billion parameters.
+
+Done: the facts about the five annotators in Appendix E were confirmed by the first author on 22 November
+2026 (native speakers, anonymous unpaid volunteers, not involved in building or checking the benchmark, one of
+them (p09) a linguist).
