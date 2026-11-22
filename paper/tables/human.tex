@@ -1,0 +1,26 @@
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{1.8pt}
+\begin{tabular}{@{}llrrrrrrrrrrrrrrrrr@{}}
+\toprule
+Model & & Ana & LexC & Ditr & Bind & Stem & NPI & Susp & Nmlz & Subj & Pass & Rel & Quan & Num & Post & Poss & Dat & Avg. \\
+\midrule
+\multicolumn{19}{@{}l}{\textit{Goldfish (Latin)}} \\
+GF-L full & L & 100 & 100 & 95 & 90 & 100 & 95 & 100 & 100 & 100 & 100 & 100 & 100 & 100 & 100 & 100 & 100 & \textbf{98.8} \\
+\midrule
+\multicolumn{19}{@{}l}{\textit{Goldfish (Cyrillic)}} \\
+GF-C full & C & 100 & 95 & 95 & 95 & 100 & 100 & 95 & 100 & 95 & 95 & 100 & 100 & 100 & 100 & 100 & 100 & \textbf{98.1} \\
+\midrule
+\multicolumn{19}{@{}l}{\textit{Uzbek encoders}} \\
+TahrirchiBERT & L & 100 & 100 & 100 & 100 & 100 & 100 & 100 & 95 & 100 & 95 & 100 & 100 & 95 & 100 & 100 & 90 & \textbf{98.4} \\
+\quad small & L & 90 & 100 & 95 & \cellcolor{black!12}35 & 100 & 95 & 85 & 100 & 100 & 100 & 100 & 85 & 90 & 100 & 100 & 80 & \textbf{90.9} \\
+BERTbek & L & 75 & 90 & 90 & 55 & 90 & 80 & 95 & 95 & 95 & 95 & 90 & 85 & 95 & 100 & 95 & 80 & \textbf{87.8} \\
+UzBERT & C & 90 & 90 & 95 & \cellcolor{black!12}5 & 100 & 60 & 100 & 100 & 100 & 90 & 90 & 90 & 85 & 80 & 100 & 95 & \textbf{85.6} \\
+UzRoBERTa & L & 90 & 100 & 95 & \cellcolor{black!12}25 & 100 & 95 & 95 & 100 & 100 & 100 & 100 & 85 & 90 & 100 & 95 & 100 & \textbf{91.9} \\
+\midrule
+Humans & & 98 & 98 & 99 & 100 & 98 & 100 & 98 & 100 & 100 & 100 & 100 & 100 & 100 & 100 & 99 & 97 & \textbf{99.2} \\
+\bottomrule
+\end{tabular}
+\caption{Human validation: accuracy (\%) on the 320 pairs judged by the annotators, 20 per phenomenon. \emph{Humans}: mean accuracy of the five annotators; models of Table~\ref{tab:main} on the same pairs, each on text in the script of its Uzbek training data (L: current Latin, C: Cyrillic). The majority of the annotators (at least three) chose the grammatical sentence in every pair.}
+\label{tab:human}
+\end{table*}

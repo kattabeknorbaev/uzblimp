@@ -8,3 +8,5 @@ venv/
 data/candidates/
 # Generator caches (corpus lexicon, candidate pools, skip logs)
 data/cache/
+# Individual answer sheets of the human validation: the consent text promises publication only in aggregate
+human_study/responses/

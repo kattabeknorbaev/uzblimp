@@ -44,5 +44,9 @@ TeX Live.
 - The interlinear glosses in `examples.tsv` and the phenomenon descriptions in Appendix A were
   drafted by Claude and need a check by a native speaker and, ideally, a linguist.
 - Confirm the author list, affiliations and e-mail addresses in `main.tex`.
-- The limitations name what is still open: linguist verification, independent agreement and human
-  ratings (materials in `human_study/`), and models above 1.5 billion parameters.
+- The limitations name what is still open: acceptability ratings (materials in `human_study/`),
+  validation of the Cyrillic and reformed versions, a check of the full benchmark by a linguist, and
+  models above 1.5 billion parameters.
+- Confirm what Appendix E says about the five annotators of the human validation (native speakers, not
+  involved in building or reviewing the benchmark, one of them a linguist, voluntary) and add whether they
+  were paid; the ARR checklist asks about recruitment and payment.

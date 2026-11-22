@@ -246,27 +246,91 @@ def reasons_table(reasons):
 
 # --- results ----------------------------------------------------------------------------------------------
 
-def per_phenomenon_table(runs, pick, caption, ref):
-    """Rows: models (alphabet given by pick(model)); columns: the 16 phenomena and their mean."""
-    lines = [r"\begin{table*}[t]", r"\centering\footnotesize", r"\setlength{\tabcolsep}{2.1pt}",
+def per_phenomenon_table(runs, pick, caption, ref, extra=(), pairs=None, models=None, digits=1):
+    """Rows: models (alphabet given by pick(model)); columns: the 16 phenomena and their mean. extra: rows
+    (label, {phenomenon: accuracy}, mean) added after a rule at the end; pairs: only these pair ids."""
+    # Rows of human accuracy add 100.0 to columns that have none otherwise, so these tables are set tighter.
+    lines = [r"\begin{table*}[t]", r"\centering\footnotesize", rf"\setlength{{\tabcolsep}}{{{1.8 if extra else 2.1}pt}}",
              r"\begin{tabular}{@{}ll" + "r" * 17 + "@{}}", r"\toprule",
              "Model & & " + " & ".join(SHORT[ph] for ph in SLUGS) + r" & Avg. \\"]
-    for group, models in groups(MODELS):
+    for group, models in groups(models or MODELS):
         rows = []
         for m in models:
             a = pick(m)
             df = runs.get((m["key"], a))
             if df is None:
                 continue
+            if pairs is not None:
+                df = df[df.index.isin(pairs)]
             cells = []
             for ph in SLUGS:
                 v = acc(df[df.phenomenon == ph])
-                cells.append(f"\\cellcolor{{black!12}}{v:.1f}" if v < 50 else f"{v:.1f}")
+                cells.append(f"\\cellcolor{{black!12}}{v:.{digits}f}" if v < 50 else f"{v:.{digits}f}")
             rows.append(f"{label(m)} & {a[0]} & " + " & ".join(cells) + f" & \\textbf{{{acc(df):.1f}}} \\\\")
         if rows:
             lines += [r"\midrule", rf"\multicolumn{{19}}{{@{{}}l}}{{\textit{{{group}}}}} \\"] + rows
+    if extra:
+        lines.append(r"\midrule")
+        for name, values, mean in extra:
+            lines.append(f"{name} & & " + " & ".join(f"{values[ph]:.{digits}f}" for ph in SLUGS) + f" & \\textbf{{{mean:.1f}}} \\\\")
     lines += [r"\bottomrule", r"\end{tabular}", rf"\caption{{{caption}}}", rf"\label{{{ref}}}", r"\end{table*}"]
     return "\n".join(lines)
+
+
+# --- human validation -------------------------------------------------------------------------------------
+
+def human_judgments():
+    """Released counts of the forced-choice validation (human_study/forced_choice_*.csv, written by
+    scripts/human_study_report.py from the private sheets): per pair and per annotator; None if not run."""
+    f = ROOT / "human_study" / "forced_choice_judgments.csv"
+    if not f.exists():
+        return None, None
+    return pd.read_csv(f).set_index("pair_id"), pd.read_csv(ROOT / "human_study" / "forced_choice_annotators.csv")
+
+
+def human_rows(judg):
+    """Rows for the tables: mean accuracy of the annotators and majority-vote accuracy per phenomenon."""
+    by = judg.groupby("phenomenon")
+    mean = {ph: 100 * g.correct.sum() / g.annotators.sum() for ph, g in by}
+    major = {ph: 100 * (2 * g.correct > g.annotators).mean() for ph, g in by}
+    return [("Humans", mean, 100 * judg.correct.sum() / judg.annotators.sum()),
+            ("Majority", major, 100 * (2 * judg.correct > judg.annotators).mean())]
+
+
+def human_numbers(judg, ann, runs, bench):
+    from human_study_report import krippendorff_nominal
+    words = {3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten"}
+    NUM["hum@nword"] = words.get(len(ann), str(len(ann)))
+    NUM["hum@Nword"] = NUM["hum@nword"].capitalize()
+    NUM["hum@majword"] = words.get(len(ann) // 2 + 1, str(len(ann) // 2 + 1))
+    assert ann.answered.eq(len(judg)).all() and judg.annotators.eq(len(ann)).all(), "every annotator must answer every pair"
+    accs = sorted(100 * ann.correct / ann.answered)
+    num("hum@pairs", len(judg), 0)
+    num("hum@perphen", len(judg) / judg.phenomenon.nunique(), 0)
+    num("hum@pctbench", 100 * len(judg) / len(bench), 0)
+    num("hum@judgments", judg.annotators.sum(), 0)
+    num("hum@min", accs[0])
+    num("hum@max", accs[-1])
+    num("hum@mean", 100 * judg.correct.sum() / judg.annotators.sum())
+    num("hum@majority", (2 * judg.correct > judg.annotators).sum(), 0)
+    wrong = judg.annotators - judg.correct
+    # The text says that no pair was misjudged by more than one annotator; stop if the data say otherwise.
+    assert wrong.max() <= 1, "a pair was misjudged by two or more annotators: revise the text of the human validation"
+    num("hum@errpairs", (wrong > 0).sum(), 0)
+    num("hum@unsure", judg.unsure.sum(), 0)
+    num("hum@unsurepairs", (judg.unsure > 0).sum(), 0)
+    num("hum@unsurewrong", judg.unsure_wrong.sum(), 0)
+    other = {"A": "B", "B": "A"}
+    units = [[r.grammatical] * r.correct + [other[r.grammatical]] * (r.annotators - r.correct) for r in judg.itertuples()]
+    num("hum@alpha", krippendorff_nominal(units), 2)
+    agree = [a == b for u in units for i, a in enumerate(u) for b in u[i + 1:]]
+    num("hum@agree", 100 * sum(agree) / len(agree))
+    low = min(human_rows(judg)[0][1].items(), key=lambda kv: kv[1])
+    num("hum@low", low[1])
+    for m in MODELS:
+        df = runs.get((m["key"], own(m)))
+        if df is not None:
+            num(f"humacc@{m['key']}", acc(df[df.index.isin(judg.index)]))
 
 
 def scripts_table(runs, stats):
@@ -647,6 +711,12 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
 
 
 SMALL = {"GF-L 5MB", "GF-L 10MB", "GF-L 100MB", "GF-C 5MB", "GF-C 10MB", "GF-C 100MB"}  # in the appendix table only
+MAIN_CAPTION = (r"Accuracy (\%) per phenomenon, each model on text in the script of its Uzbek training data "
+                r"(L: current Latin, C: Cyrillic). GF-L, GF-C: Goldfish models trained on Latin-script and "
+                r"Cyrillic-script Uzbek. Cells below chance (50) are shaded. Column "
+                r"labels abbreviate the phenomena of Table~\ref{tab:phenomena} in the same order. With 150 pairs per cell, the "
+                r"95\% Wilson interval is at most $\pm$8 points. The Goldfish models trained on less data and the multilingual "
+                r"models are in Table~\ref{tab:ownall} in the appendix.")
 TRAINED_BY_KEY = {m["key"]: m["trained"] for m in MODELS}
 
 
@@ -677,12 +747,7 @@ def main():
         "reasons": reasons_table(reasons),
         "main": per_phenomenon_table(
             {k: v for k, v in runs.items() if k[0] not in SMALL and TRAINED_BY_KEY[k[0]] != "multi"}, own,
-            r"Accuracy (\%) per phenomenon, each model on text in the script of its Uzbek training data "
-            r"(L: current Latin, C: Cyrillic). GF-L, GF-C: Goldfish models trained on Latin-script and "
-            r"Cyrillic-script Uzbek. Cells below chance (50) are shaded. Column "
-            r"labels abbreviate the phenomena of Table~\ref{tab:phenomena} in the same order. With 150 pairs per cell, the "
-            r"95\% Wilson interval is at most $\pm$8 points. The Goldfish models trained on less data and the multilingual "
-            r"models are in Table~\ref{tab:ownall} in the appendix.", "tab:main"),
+            MAIN_CAPTION, "tab:main"),
         "ownall": per_phenomenon_table(
             runs, own, r"Accuracy (\%) per phenomenon for every model, each on text in the script of its Uzbek training "
             r"data (L: current Latin, C: Cyrillic; multilingual models on Latin), as in Table~\ref{tab:main}. Cells below "
@@ -706,6 +771,27 @@ def main():
         "accnorm": accnorm_table(runs),
         "pilot": pilot_table(),
     }
+    judg, ann = human_judgments()
+    if judg is not None:
+        human_numbers(judg, ann, runs, bench)
+        main_models = [m for m in MODELS if m["key"] not in SMALL and m["trained"] != "multi"]
+        tables["main"] = per_phenomenon_table(
+            {k: v for k, v in runs.items() if k[0] not in SMALL and TRAINED_BY_KEY[k[0]] != "multi"}, own,
+            MAIN_CAPTION + rf" \emph{{Humans}}: mean accuracy of {NUM['hum@nword']} native speakers on a sample of "
+            rf"{NUM['hum@perphen']} pairs per phenomenon (\S\ref{{sec:creation}}).", "tab:main",
+            extra=human_rows(judg)[:1])
+        rows = human_rows(judg)
+        unanimous = rows[1][2] == 100  # the majority chose the grammatical sentence in every pair: say so instead of a row of 100s
+        majority = (rf" The majority of the annotators (at least {NUM['hum@majword']}) chose the grammatical sentence in every pair."
+                    if unanimous else rf" \emph{{Majority}}: share of pairs on which at least {NUM['hum@majword']} annotators "
+                    r"chose the grammatical sentence.")
+        tables["human"] = per_phenomenon_table(
+            runs, own, rf"Human validation: accuracy (\%) on the {NUM['hum@pairs']} pairs judged by the annotators, "
+            rf"{NUM['hum@perphen']} per phenomenon. \emph{{Humans}}: mean accuracy of the {NUM['hum@nword']} "
+            r"annotators; models of Table~\ref{tab:main} on the same pairs, each on text in the script of its Uzbek "
+            r"training data (L: current Latin, C: Cyrillic)." + majority,
+            "tab:human", extra=rows[:1] if unanimous else rows, pairs=set(judg.index), models=main_models,
+            digits=0)  # 20 pairs and 100 human judgments per phenomenon: every cell is a whole number
     misc_numbers(bench, runs, generated, reviewed, accepted)
     OUT.mkdir(parents=True, exist_ok=True)
     for name, text in tables.items():

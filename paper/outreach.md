@@ -11,8 +11,8 @@ interlinear glosses (`paper/examples.tsv`).
 ## What to ask for
 
 - **Linguists in Uzbekistan:** a check of the phenomena, the glosses and a sample of pairs; help
-  running the human validation study (`human_study/`) with three or more native speakers, which is
-  what reviewers will ask for first; co-authorship if they contribute substantially.
+  running the acceptability-rating study (`human_study/`; the forced-choice validation with five
+  native speakers is done); co-authorship if they contribute substantially.
 - **International NLP researchers:** feedback on the evaluation and the analysis, and, if you post
   on arXiv for the first time, an endorsement for the cs.CL category (arXiv asks first-time
   submitters for one; an established author in the category can give it).
@@ -36,9 +36,9 @@ interlinear glosses (`paper/examples.tsv`).
 > attached.
 >
 > Because your work on [their area] is close to this, I would be very grateful for your opinion,
-> in particular on [the description of the phenomena / the glosses / a sample of pairs]. We also
-> plan a human validation study with native speakers and would welcome your advice or
-> participation. If you were interested in contributing, we would be glad to discuss
+> in particular on [the description of the phenomena / the glosses / a sample of pairs]. Five native
+> speakers have validated a sample of 320 pairs; we also plan an acceptability-rating study and would
+> welcome your advice or participation. If you were interested in contributing, we would be glad to discuss
 > co-authorship. We plan to submit to ACL 2027 (deadline 4 January 2027).
 >
 > With kind regards,

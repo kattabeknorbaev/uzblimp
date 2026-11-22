@@ -1,10 +1,39 @@
-# Human validation study (ready to run; not yet run)
+# Human validation study (forced choice: done, November 2026; ratings: not yet run)
 
-UzBLiMP's pairs were judged by one native speaker and checked with three others. Two things are still
-missing for publication: judgments from **independent** native speakers, and a **human baseline** to set
-beside the models. This folder holds everything needed to collect both. The sheets were drawn from the
-benchmark by `scripts/make_human_study.py` (seed 2026); returned sheets are scored by
+UzBLiMP's pairs were judged by one native speaker and checked with three others. Publication needs
+judgments from **independent** native speakers and a **human baseline** to set beside the models. This
+folder holds the materials for both and the results of the forced-choice study. The sheets were drawn from
+the benchmark by `scripts/make_human_study.py` (seed 2026); returned sheets are scored by
 `scripts/human_study_report.py`.
+
+## Forced choice: results
+
+Five native speakers of Uzbek (codes p06–p10), recruited through the first author's contacts and not
+involved in building or reviewing the benchmark, one of them a linguist, chose the correct sentence of all
+320 pairs. Each received an Excel workbook (consent text and instructions in Uzbek and English; the pairs
+in a Latin and a Cyrillic tab, of which they filled in one) and sent the answers back as a Telegram
+message; the messages were transcribed and checked against screenshots. An earlier round of five sheets
+(p01–p05) was discarded because its answers could not be traced to the participants.
+
+| Measure | Result |
+|---|---|
+| Accuracy over all 1,600 judgments | 99.2% (individual annotators 97.8–100%) |
+| Majority vote | agrees with the benchmark on all 320 pairs |
+| Agreement between annotators | mean pairwise 98.4%; Krippendorff's α = 0.97 (on the choices of A or B) |
+| Pairs misjudged | 13, each by one annotator; none by two or more |
+| Answers marked unsure | 9, on 8 pairs; 2 of them (both suspended affixation) chose the ungrammatical sentence |
+
+The 13 misjudged pairs were reread: in each, the benchmark's choice is correct (mostly slips on clear
+contrasts such as *qishloqga for qishloqqa), so no pair was replaced. Per-phenomenon accuracy and the models
+on the same pairs: [`results/human_study.md`](../results/human_study.md); paper, Appendix E.
+
+**What is released.** The consent text promises that answers are published only in aggregate, so the
+individual sheets (`responses/fc_<code>.csv`) are not in the repository (`.gitignore`); the first author
+keeps them with the original messages. `scripts/human_study_report.py` reduces them to two files from which
+every reported statistic can be recomputed: `forced_choice_judgments.csv` (per pair: annotators, how many
+chose the grammatical sentence, how many marked the pair as unsure, and how many of those chose the
+ungrammatical one) and `forced_choice_annotators.csv` (per code: answered, correct, unsure).
+`forced_choice_key.csv` was in this public repository while the study ran.
 
 | Design | Sheet (Latin / Cyrillic) | Size | Time | What it gives |
 |---|---|---|---|---|
@@ -33,12 +62,13 @@ sentence is the grammatical one: **keep them away from participants.**
    instructions below. Forced choice: fill the `answer` column with **A** or **B** (and an `x` in
    `unsure` when in doubt). Ratings: fill the `rating` column with a number from **1 to 7**.
 2. Participants work alone, without dictionaries or the internet, and do not discuss the items.
-3. Save each returned sheet as CSV in `human_study/responses/`:
+3. Save each returned sheet as CSV in `human_study/responses/` (git-ignored: keep the sheets private):
    `fc_<code>.csv` for forced choice, `ratings1_<code>.csv` or `ratings2_<code>.csv` for the lists.
-4. Run `python scripts/human_study_report.py`. It writes `results/human_study.md`: accuracy per
-   annotator and phenomenon, majority vote, mean pairwise agreement and Krippendorff's alpha, the
-   models' accuracy on the same pairs, mean z-scored ratings per phenomenon, and the correlation
-   between human and model differences. `--selftest` checks the script on simulated answers.
+4. Run `python scripts/human_study_report.py`. It writes the two released count files (above) and
+   `results/human_study.md`: accuracy per annotator and phenomenon, majority vote, mean pairwise agreement
+   and Krippendorff's alpha, the models' accuracy on the same pairs (each on the script of its training
+   data), mean z-scored ratings per phenomenon, and the correlation between human and model differences.
+   `--selftest` checks the script on simulated answers.
 
 Pairs on which the majority of annotators disagrees with the benchmark are listed in the report; they
 should be re-examined and, if needed, replaced from `data/benchmark/reserve.tsv`.
@@ -97,4 +127,7 @@ taassurotingiz muhim.
 
 `python scripts/make_human_study.py --forced-choice 30 --ratings 6 --seed 2026` rebuilds the sheets with
 another size or seed. Rebuild **before** any sheet is sent out, never after: the keys must match the
-sheets that participants filled in.
+sheets that participants filled in. The files in this folder belong to the completed forced-choice study
+and must not be rebuilt. `ratings_key.csv` is public as well; for the rating study, draw a fresh sample
+into a private folder (`--seed <new> --out <folder>`), send those lists, publish the key only after all
+sheets are back, and score them with `python scripts/human_study_report.py --study <folder>`.

@@ -24,4 +24,4 @@
 | TU+12 (Workshop on Turkic and Languages in Contact with Turkic; linguistics, not NLP) | open | abstracts due 22 Dec 2026; Rutgers, 17–18 Apr 2027 | [LINGUIST List 37.3491](https://linguistlist.org/issues/37/3491/) |
 
 - The paper is ready as a preprint (`paper/uzblimp.pdf`, `\usepackage[preprint]{acl}`); for ARR switch to `[review]` and remove the repository link.
-- What reviewers will ask for first is human validation: run the forced-choice sheet in `human_study/` with at least three independent annotators before 4 January if possible.
+- Human validation: the forced-choice study is done (five annotators, 320 pairs, 99.2% accuracy, majority agrees on every pair; `results/human_study.md`). An acceptability-rating study as in TurBLiMP would strengthen the submission (sheets in `human_study/`; draw a fresh sample with a private key).

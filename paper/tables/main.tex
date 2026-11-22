@@ -1,6 +1,6 @@
 \begin{table*}[t]
 \centering\footnotesize
-\setlength{\tabcolsep}{2.1pt}
+\setlength{\tabcolsep}{1.8pt}
 \begin{tabular}{@{}llrrrrrrrrrrrrrrrrr@{}}
 \toprule
 Model & & Ana & LexC & Ditr & Bind & Stem & NPI & Susp & Nmlz & Subj & Pass & Rel & Quan & Num & Post & Poss & Dat & Avg. \\
@@ -17,8 +17,10 @@ TahrirchiBERT & L & 99.3 & 100.0 & 99.3 & 100.0 & 99.3 & 96.7 & 98.0 & 99.3 & 10
 BERTbek & L & 76.7 & 84.0 & 92.7 & \cellcolor{black!12}44.7 & 86.7 & 85.3 & 91.3 & 98.0 & 94.7 & 93.3 & 93.3 & 90.0 & 92.0 & 100.0 & 95.3 & 84.0 & \textbf{87.6} \\
 UzBERT & C & 91.3 & 80.7 & 92.0 & \cellcolor{black!12}7.3 & 93.3 & 55.3 & 98.0 & 100.0 & 97.3 & 94.0 & 90.7 & 95.3 & 88.0 & 82.0 & 99.3 & 84.0 & \textbf{84.3} \\
 UzRoBERTa & L & 96.0 & 99.3 & 97.3 & \cellcolor{black!12}36.0 & 99.3 & 95.3 & 99.3 & 100.0 & 99.3 & 99.3 & 99.3 & 94.7 & 92.0 & 100.0 & 98.0 & 89.3 & \textbf{93.4} \\
+\midrule
+Humans & & 98.0 & 98.0 & 99.0 & 100.0 & 98.0 & 100.0 & 98.0 & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 & 99.0 & 97.0 & \textbf{99.2} \\
 \bottomrule
 \end{tabular}
-\caption{Accuracy (\%) per phenomenon, each model on text in the script of its Uzbek training data (L: current Latin, C: Cyrillic). GF-L, GF-C: Goldfish models trained on Latin-script and Cyrillic-script Uzbek. Cells below chance (50) are shaded. Column labels abbreviate the phenomena of Table~\ref{tab:phenomena} in the same order. With 150 pairs per cell, the 95\% Wilson interval is at most $\pm$8 points. The Goldfish models trained on less data and the multilingual models are in Table~\ref{tab:ownall} in the appendix.}
+\caption{Accuracy (\%) per phenomenon, each model on text in the script of its Uzbek training data (L: current Latin, C: Cyrillic). GF-L, GF-C: Goldfish models trained on Latin-script and Cyrillic-script Uzbek. Cells below chance (50) are shaded. Column labels abbreviate the phenomena of Table~\ref{tab:phenomena} in the same order. With 150 pairs per cell, the 95\% Wilson interval is at most $\pm$8 points. The Goldfish models trained on less data and the multilingual models are in Table~\ref{tab:ownall} in the appendix. \emph{Humans}: mean accuracy of five native speakers on a sample of 20 pairs per phenomenon (\S\ref{sec:creation}).}
 \label{tab:main}
 \end{table*}
