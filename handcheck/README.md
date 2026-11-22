@@ -14,7 +14,8 @@ or LibreOffice, fill in the last two columns, and save as CSV (UTF-8) under the 
 - **`cyrillic_check_v1.2_remaining.csv`**: the Cyrillic spot check of Section 4.3 for the eight phenomena
   that were not checked yet (10 pairs each). Write **y** in `cyrillic_ok` if both Cyrillic sentences are
   spelled correctly, **n** otherwise, with the correct spelling in `comment`. The other eight phenomena were
-  checked in `cyrillic_check_60.csv` (on the conversion of October 2026).
+  checked in `cyrillic_check_60.csv` (on the conversion of October 2026). **Done** on 22 November 2026: all 80
+  pairs are correctly converted; the four comments concern the source sentences (also in Latin) and one pair.
 
 # Second annotator
 

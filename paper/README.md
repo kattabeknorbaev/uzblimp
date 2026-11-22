@@ -45,12 +45,8 @@ Open items after the readiness audit of 22 November 2026 (only the authors can s
    authors are responsible for every statement in it and must read all of it. The Ethics section states how
    AI assistance was used, as the ACL policy on AI writing assistance asks.
 2. ~~Confirm the 143 exclusions~~: done, confirmed by the first author on 22 November 2026.
-3. **Finish the Cyrillic spot check** for eight phenomena: `handcheck/cyrillic_check_v1.2_remaining.csv`.
-   Then Section 4.3 ("the samples for the other eight have not been checked yet") is updated with the result.
-4. **Glosses and Appendix A.** The interlinear glosses in `examples.tsv` and the phenomenon descriptions were
-   drafted by Claude and need a check by a native speaker and, ideally, a linguist: in particular *yotibdi*
-   (glossed `lie-CVB-COP`), the contracted past copula in *qilardik* (`do-AOR-PST-1PL`), *-gina* glossed
-   `DIM`, and the Cyrillic spelling of month names.
+3. ~~Finish the Cyrillic spot check~~: done on 22 November 2026 (no conversion errors; Section 4.3 updated).
+4. ~~Glosses and Appendix A~~: checked and confirmed by a linguist (p09) on 22 November 2026.
 5. **Author block**: Javohir Matniyozov stays second author, as an independent researcher (22 November
    2026). Only if you want an affiliation such as Tomaris.ai named (`notes/decisions.md`, decisions 7 and 13),
    change the author block; no Tomaris model or data is evaluated in the paper.

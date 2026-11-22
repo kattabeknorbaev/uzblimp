@@ -58,6 +58,11 @@ def cyrillic():
     todo = [r for r in old if not (r["cyrillic_ok"] or "").strip()]
     sampled = {r["id"] for r in old}
     rng = random.Random(2026)
+    done_file = ROOT / "handcheck" / "cyrillic_check_v1.2_remaining.csv"
+    done = {}
+    if done_file.exists():  # keep the answers already given when the sheet is rebuilt
+        with open(done_file, encoding="utf-8-sig", newline="") as f:
+            done = {r["id"]: (r["cyrillic_ok"], r["comment"]) for r in csv.DictReader(f)}
     rows, replaced = [], 0
     for ph in dict.fromkeys(r["phenomenon"] for r in todo):
         keep = [r["id"] for r in todo if r["phenomenon"] == ph and r["id"] in cyrl]
@@ -66,7 +71,8 @@ def cyrillic():
         new = rng.sample(pool, need)
         replaced += need
         for i in keep + new:
-            rows.append([i, ph, latn[i]["grammatical"], cyrl[i]["grammatical"], latn[i]["ungrammatical"], cyrl[i]["ungrammatical"], "", ""])
+            ok, comment = done.get(i, ("", ""))
+            rows.append([i, ph, latn[i]["grammatical"], cyrl[i]["grammatical"], latn[i]["ungrammatical"], cyrl[i]["ungrammatical"], ok, comment])
     write_csv(ROOT / "handcheck" / "cyrillic_check_v1.2_remaining.csv",
               ["id", "phenomenon", "latin_grammatical", "grammatical", "latin_ungrammatical", "ungrammatical", "cyrillic_ok", "comment"], rows)
     return len(rows), replaced
