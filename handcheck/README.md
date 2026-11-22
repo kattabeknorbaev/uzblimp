@@ -9,7 +9,8 @@ or LibreOffice, fill in the last two columns, and save as CSV (UTF-8) under the 
   benchmark (`data/benchmark/excluded.tsv`), with both sentences and the reason. Write **y** in
   `keep_excluded` if you agree that the pair should stay out, **n** if it should come back (say why in
   `comment`). The `note` column marks the few rows the readiness audit questioned. Pairs marked n are
-  put back from the reserve and rescored.
+  put back from the reserve and rescored. **Done:** the first author confirmed all 143 exclusions on
+  22 November 2026 (`keep_excluded` = y; `flagged_by` in `excluded.tsv` records it).
 - **`cyrillic_check_v1.2_remaining.csv`**: the Cyrillic spot check of Section 4.3 for the eight phenomena
   that were not checked yet (10 pairs each). Write **y** in `cyrillic_ok` if both Cyrillic sentences are
   spelled correctly, **n** otherwise, with the correct spelling in `comment`. The other eight phenomena were

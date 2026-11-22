@@ -41,22 +41,21 @@ TeX Live.
 
 Open items after the readiness audit of 22 November 2026 (only the authors can settle them):
 
-1. **Read the whole paper.** The text was drafted by Claude from the project files and results at
-   Kattabek's request; the authors own it and must read all of it. The Ethics section states how AI
-   assistance was used.
-2. **Confirm the 143 exclusions**: `handcheck/exclusions_to_confirm.csv` (see `handcheck/README.md`).
+1. **Read the whole paper.** The text was drafted with Claude from the project files and results; the
+   authors are responsible for every statement in it and must read all of it. The Ethics section states how
+   AI assistance was used, as the ACL policy on AI writing assistance asks.
+2. ~~Confirm the 143 exclusions~~: done, confirmed by the first author on 22 November 2026.
 3. **Finish the Cyrillic spot check** for eight phenomena: `handcheck/cyrillic_check_v1.2_remaining.csv`.
    Then Section 4.3 ("the samples for the other eight have not been checked yet") is updated with the result.
 4. **Glosses and Appendix A.** The interlinear glosses in `examples.tsv` and the phenomenon descriptions were
    drafted by Claude and need a check by a native speaker and, ideally, a linguist: in particular *yotibdi*
    (glossed `lie-CVB-COP`), the contracted past copula in *qilardik* (`do-AOR-PST-1PL`), *-gina* glossed
    `DIM`, and the Cyrillic spelling of month names.
-5. **Author block**: the second author's e-mail and affiliation, the spelling of his name (Matniyozov in the
-   paper and the BibTeX entry), the author order, and whether an affiliation such as Tomaris.ai should be
-   named or disclosed (`notes/decisions.md`, decisions 7 and 13).
+5. **Author block**: Javohir Matniyozov stays second author, as an independent researcher (22 November
+   2026). Only if you want an affiliation such as Tomaris.ai named (`notes/decisions.md`, decisions 7 and 13),
+   change the author block; no Tomaris model or data is evaluated in the paper.
 6. **Book sentences**: the source and terms of the book part of our corpus (`notes/corpus.md`).
-7. **Ethics review**: one sentence in the Ethics statement on whether a review was sought or needed for the
-   human validation (also asked by the ARR checklist).
+7. ~~Ethics review~~: done; the Ethics statement says that no review was sought and why.
 
 For ACL Rolling Review (deadline 4 January 2027):
 

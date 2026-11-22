@@ -43,7 +43,8 @@ def exclusions():
     for r in read_tsv(ROOT / "data" / "benchmark" / "excluded.tsv"):
         p = pairs[r["id"]]
         note = NOTES.get(r["id"], LOANWORD_NOTE if r["id"] in LOANWORD_IDS else "")
-        rows.append([r["id"], r["phenomenon"], r["reason"], r["flagged_by"], p["grammatical"], p["ungrammatical"], note, "", ""])
+        confirmed = "y" if "confirmed by the first author" in r["flagged_by"] else ""
+        rows.append([r["id"], r["phenomenon"], r["reason"], r["flagged_by"], p["grammatical"], p["ungrammatical"], note, confirmed, ""])
     write_csv(ROOT / "handcheck" / "exclusions_to_confirm.csv",
               ["id", "phenomenon", "reason", "flagged_by", "grammatical", "ungrammatical", "note", "keep_excluded", "comment"], rows)
     return len(rows)

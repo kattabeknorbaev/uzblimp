@@ -49,9 +49,9 @@ in the form of the current cycle: it changes from time to time.
   through the first author's contacts; unpaid volunteers).
 - **D3 Consent.** Yes: Appendix E and *Ethics Statement* (consent text in Uzbek; answers stored under codes
   and released only in aggregate).
-- **D4 Ethics review board.** **AUTHORS:** state whether the study was reviewed by an ethics board or why none
-  was needed (no institution; anonymous, voluntary, minimal-risk acceptability judgments), and add the same
-  sentence to the *Ethics Statement*.
+- **D4 Ethics review board.** No: *Ethics Statement* (no ethics review was sought; the authors are independent
+  researchers without an institutional review board, and the study collected anonymous judgments of sentences
+  and no personal data).
 - **D5 Demographics.** Partly: native speakers of Uzbek, one of them a linguist (Appendix E). No further
   demographic data were collected; say so in the form.
 
