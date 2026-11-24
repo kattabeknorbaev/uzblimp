@@ -7,7 +7,7 @@
 - Models trained on one script lose 5.0 to 47.8 points on the other script (TahrirchiBERT 21.9, UzBERT 41.6). UzRoBERTa, trained on both scripts, scores 93.4% on Latin and 96.4% on Cyrillic, but loses 15.4 points in the reformed spelling.
 - Reformed Latin costs TahrirchiBERT 11.4 points; where only the grammatical member's edited word contains a new letter, its accuracy falls from 99.6% to 44.5%.
 - Multilingual models know much less of this grammar: XLM-R 78.2% on Latin (51.3% on Cyrillic), mBERT 62.5%, Qwen2.5 50.4% (0.5B) and 55.0% (1.5B).
-- Larger models (added 2026-11-24): 14 open models from 0.9 to 36 billion parameters, scored on rented GPUs for the second author with `scripts/eval.py` (record and checks in `results/gpu_runs/`; paper Appendix H). They reach 66.3–97.3% on Latin and 62.8–98.1% on Cyrillic (11 of 14 higher on Cyrillic; Gemma 4 31B 97.3/98.1). Reformed Latin costs every one of them 6.8–16.5 points, 25.2–66.1 where only the grammatical member's edited word contains a new letter against 7.3–20.8 where both members' do. Tomaris.ai (98.7/92.6/92.8) is the model of the authors' company and is not held out: its private pretraining corpus contains 99.3% of the grammatical sentences from our own corpus (`results/gpu_runs/tomaris_overlap_v1.2.json`). The tables below list the larger models after the CPU models.
+- Larger models (added 2026-11-24): 14 open models from 0.9 to 36 billion parameters, scored on rented GPUs by an AI agent on behalf of the second author with `scripts/eval.py` (record and checks in `results/gpu_runs/`; paper Appendix H). They reach 66.3–97.3% on Latin and 62.8–98.1% on Cyrillic (11 of 14 higher on Cyrillic; Gemma 4 31B 97.3/98.1). Reformed Latin costs every one of them 6.8–16.5 points, 25.2–66.1 where only the grammatical member's edited word contains a new letter against 7.3–20.8 where both members' do. Tomaris.ai (98.7/92.6/92.8) is the model of the authors' company and is not held out: its private pretraining corpus contains 99.3% of the grammatical sentences from our own corpus (`results/gpu_runs/tomaris_overlap_v1.2.json`). The tables below list the larger models after the CPU models.
 - The less grammar a run can use, the more its choices follow token counts: across all 42 runs, the gap between pairs whose ungrammatical member has more and fewer tokens falls as accuracy on equal-length pairs rises (Spearman ρ = −0.65; −0.67 without binding and NPI licensing). Byte normalisation does not remove the gap: of the 38 runs with a gap above ten points, 30 keep one of more than ten points and 18 reverse its sign.
 
 ## Accuracy (%) by model and alphabet (2400 pairs, 16 phenomena; chance 50)
@@ -174,21 +174,21 @@ Exact McNemar test and percentile bootstrap (2,000 resamples) over pairs.
 | XLM-R base: Latin vs Cyrillic | +26.9 | +24.5 .. +29.4 | 868 | 222 | 1.1e-90 | 2.8e-89 |
 | Qwen2.5-0.5B: Latin vs Cyrillic | +4.2 | +1.9 .. +6.5 | 464 | 363 | 5.0e-04 | 0.004 |
 | Qwen2.5-1.5B: Latin vs Cyrillic | +2.0 | -0.3 .. +4.2 | 431 | 384 | 0.107 | 0.428 |
-| Qwen3.5-0.8B: Latin vs Cyrillic | +3.5 | +1.3 .. +5.7 | 418 | 334 | 0.002 | 0.020 |
-| Qwen3.5-2B: Latin vs Cyrillic | -1.6 | -3.6 .. +0.3 | 272 | 310 | 0.125 | 0.428 |
-| Qwen3.5-4B: Latin vs Cyrillic | -5.5 | -7.3 .. -3.7 | 188 | 320 | 5.1e-09 | 7.1e-08 |
-| Qwen3.5-9B: Latin vs Cyrillic | -2.1 | -4.0 .. -0.3 | 232 | 283 | 0.027 | 0.165 |
+| Qwen3.5-0.8B: Latin vs Cyrillic | +3.5 | +1.3 .. +5.8 | 418 | 334 | 0.002 | 0.020 |
+| Qwen3.5-2B: Latin vs Cyrillic | -1.6 | -3.5 .. +0.4 | 272 | 310 | 0.125 | 0.428 |
+| Qwen3.5-4B: Latin vs Cyrillic | -5.5 | -7.3 .. -3.6 | 188 | 320 | 5.1e-09 | 7.1e-08 |
+| Qwen3.5-9B: Latin vs Cyrillic | -2.1 | -4.1 .. -0.3 | 232 | 283 | 0.027 | 0.165 |
 | Gemma 4 E4B: Latin vs Cyrillic | -4.0 | -5.2 .. -2.8 | 62 | 159 | 5.2e-11 | 8.4e-10 |
-| Llama 3.1 8B: Latin vs Cyrillic | +8.4 | +6.3 .. +10.4 | 403 | 201 | 1.5e-16 | 2.7e-15 |
-| Mistral Small 3.1: Latin vs Cyrillic | +6.1 | +4.1 .. +7.9 | 355 | 209 | 8.3e-10 | 1.2e-08 |
-| Gemma 4 26B-A4B: Latin vs Cyrillic | -2.8 | -3.8 .. -1.8 | 35 | 102 | 8.7e-09 | 1.1e-07 |
-| Gemma 4 31B: Latin vs Cyrillic | -0.8 | -1.6 .. -0.0 | 35 | 54 | 0.056 | 0.279 |
+| Llama 3.1 8B: Latin vs Cyrillic | +8.4 | +6.5 .. +10.4 | 403 | 201 | 1.5e-16 | 2.7e-15 |
+| Mistral Small 3.1: Latin vs Cyrillic | +6.1 | +4.2 .. +8.0 | 355 | 209 | 8.3e-10 | 1.2e-08 |
+| Gemma 4 26B-A4B: Latin vs Cyrillic | -2.8 | -3.7 .. -1.8 | 35 | 102 | 8.7e-09 | 1.1e-07 |
+| Gemma 4 31B: Latin vs Cyrillic | -0.8 | -1.5 .. -0.0 | 35 | 54 | 0.056 | 0.279 |
 | Qwen3.5-27B: Latin vs Cyrillic | -2.8 | -4.0 .. -1.7 | 72 | 140 | 3.5e-06 | 3.5e-05 |
-| Qwen3.6-27B: Latin vs Cyrillic | -0.5 | -1.7 .. +0.6 | 99 | 112 | 0.409 | 0.818 |
-| Qwen3.8-27B: Latin vs Cyrillic | -1.5 | -2.7 .. -0.3 | 100 | 136 | 0.023 | 0.158 |
-| Qwen3.5-35B-A3B: Latin vs Cyrillic | -3.1 | -4.4 .. -2.0 | 72 | 147 | 4.5e-07 | 4.9e-06 |
+| Qwen3.6-27B: Latin vs Cyrillic | -0.5 | -1.7 .. +0.7 | 99 | 112 | 0.409 | 0.818 |
+| Qwen3.8-27B: Latin vs Cyrillic | -1.5 | -2.8 .. -0.2 | 100 | 136 | 0.023 | 0.158 |
+| Qwen3.5-35B-A3B: Latin vs Cyrillic | -3.1 | -4.3 .. -1.9 | 72 | 147 | 4.5e-07 | 4.9e-06 |
 | Qwen3.6-35B-A3B: Latin vs Cyrillic | -0.6 | -2.0 .. +0.8 | 149 | 163 | 0.462 | 0.818 |
-| Tomaris.ai: Latin vs Cyrillic | +6.1 | +5.0 .. +7.2 | 165 | 18 | 6.4e-31 | 1.4e-29 |
+| Tomaris.ai: Latin vs Cyrillic | +6.1 | +5.1 .. +7.3 | 165 | 18 | 6.4e-31 | 1.4e-29 |
 
 ## Current against reformed Latin
 
@@ -202,18 +202,18 @@ Exact McNemar test and percentile bootstrap (2,000 resamples) over pairs.
 | XLM-R base: Latin vs Reformed | +6.7 | +5.0 .. +8.5 | 326 | 166 | 4.8e-13 | 1.4e-12 |
 | Qwen2.5-0.5B: Latin vs Reformed | +3.7 | +1.5 .. +5.7 | 350 | 262 | 4.3e-04 | 4.3e-04 |
 | Qwen2.5-1.5B: Latin vs Reformed | +5.3 | +3.2 .. +7.3 | 379 | 251 | 3.8e-07 | 7.7e-07 |
-| Qwen3.5-0.8B: Latin vs Reformed | +10.5 | +8.5 .. +12.3 | 419 | 168 | 1.0e-25 | 5.1e-25 |
-| Qwen3.5-2B: Latin vs Reformed | +11.0 | +9.0 .. +12.9 | 424 | 161 | 2.9e-28 | 1.7e-27 |
-| Qwen3.5-4B: Latin vs Reformed | +15.2 | +13.3 .. +17.1 | 470 | 105 | 4.5e-56 | 8.0e-55 |
-| Qwen3.5-9B: Latin vs Reformed | +14.5 | +12.7 .. +16.2 | 464 | 117 | 7.7e-50 | 1.2e-48 |
-| Gemma 4 E4B: Latin vs Reformed | +13.6 | +12.1 .. +15.2 | 382 | 56 | 9.8e-61 | 2.0e-59 |
+| Qwen3.5-0.8B: Latin vs Reformed | +10.5 | +8.5 .. +12.4 | 419 | 168 | 1.0e-25 | 5.1e-25 |
+| Qwen3.5-2B: Latin vs Reformed | +11.0 | +9.0 .. +12.8 | 424 | 161 | 2.9e-28 | 1.7e-27 |
+| Qwen3.5-4B: Latin vs Reformed | +15.2 | +13.4 .. +17.2 | 470 | 105 | 4.5e-56 | 8.0e-55 |
+| Qwen3.5-9B: Latin vs Reformed | +14.5 | +12.5 .. +16.3 | 464 | 117 | 7.7e-50 | 1.2e-48 |
+| Gemma 4 E4B: Latin vs Reformed | +13.6 | +12.0 .. +15.2 | 382 | 56 | 9.8e-61 | 2.0e-59 |
 | Llama 3.1 8B: Latin vs Reformed | +16.5 | +14.5 .. +18.4 | 522 | 127 | 9.7e-58 | 1.9e-56 |
 | Mistral Small 3.1: Latin vs Reformed | +12.0 | +10.3 .. +13.8 | 407 | 118 | 3.3e-38 | 3.3e-37 |
-| Gemma 4 26B-A4B: Latin vs Reformed | +8.5 | +7.2 .. +10.0 | 256 | 51 | 5.3e-34 | 4.2e-33 |
-| Gemma 4 31B: Latin vs Reformed | +6.8 | +5.7 .. +7.9 | 181 | 19 | 2.5e-34 | 2.2e-33 |
+| Gemma 4 26B-A4B: Latin vs Reformed | +8.5 | +7.2 .. +9.9 | 256 | 51 | 5.3e-34 | 4.2e-33 |
+| Gemma 4 31B: Latin vs Reformed | +6.8 | +5.7 .. +7.8 | 181 | 19 | 2.5e-34 | 2.2e-33 |
 | Qwen3.5-27B: Latin vs Reformed | +10.0 | +8.5 .. +11.6 | 307 | 66 | 2.9e-38 | 3.2e-37 |
 | Qwen3.6-27B: Latin vs Reformed | +10.0 | +8.5 .. +11.5 | 299 | 59 | 9.2e-40 | 1.1e-38 |
-| Qwen3.8-27B: Latin vs Reformed | +11.9 | +10.2 .. +13.5 | 348 | 63 | 7.3e-49 | 1.0e-47 |
+| Qwen3.8-27B: Latin vs Reformed | +11.9 | +10.4 .. +13.5 | 348 | 63 | 7.3e-49 | 1.0e-47 |
 | Qwen3.5-35B-A3B: Latin vs Reformed | +11.8 | +10.2 .. +13.4 | 344 | 61 | 5.6e-49 | 8.4e-48 |
 | Qwen3.6-35B-A3B: Latin vs Reformed | +12.5 | +10.8 .. +14.2 | 395 | 95 | 1.7e-44 | 2.2e-43 |
 | Tomaris.ai: Latin vs Reformed | +5.9 | +4.9 .. +6.9 | 151 | 10 | 1.8e-33 | 1.2e-32 |

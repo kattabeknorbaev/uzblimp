@@ -48,7 +48,8 @@ def convert(path, alphabet, hf, condition):
     out["correct_norm"] = out.good_logprob / out.good_bytes > out.bad_logprob / out.bad_bytes
     out["good_ntok"], out["bad_ntok"] = d.good_ntok, d.bad_ntok
     out["model"], out["condition"] = hf, condition
-    return out
+    # In benchmark order, as the files of scripts/run_models.py, so that row numbers mean the same in both.
+    return out.set_index("id").loc[b.index].reset_index()[["phenomenon", "id"] + [c for c in out.columns if c not in ("phenomenon", "id")]]
 
 
 def main():

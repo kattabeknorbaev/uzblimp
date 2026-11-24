@@ -1,6 +1,6 @@
 # The GPU run of the larger models: what was checked
 
-The second author had 16 models scored on rented GPUs (README.txt, logs/, scripts/; one A100 80 GB and one RTX PRO
+The second author had 16 models scored on rented GPUs by an AI agent (README.txt, logs/, scripts/; one A100 80 GB and one RTX PRO
 6000 96 GB, PyTorch 2.11.0, Transformers 5.24.0) with the repository's `scripts/eval.py` (logprob: summed
 log-probability with a start token). `scripts/import_gpu_runs.py` imported the per-pair results of the 15 models in
 `scripts/models.py` into `results/` and kept the run's Qwen2.5-1.5B results in `check/` and its float32-against-
@@ -14,10 +14,10 @@ Checks made on 2026-11-24, before the results went into the paper:
   the run's JSON summaries and README.txt; no two models share score vectors; log-probabilities grow with token
   count as expected; the timings in the logs agree with the queue logs. The import checks ids, sentences and
   judgments again.
-- **Same scorer as ours.** The run's Qwen2.5-1.5B scores match our CPU run on all 7,200 pairs (log-probabilities
-  within 0.002 nats, every judgment and token count the same).
+- **Same scorer as ours.** The run's Qwen2.5-1.5B scores match our CPU run on all 2,400 pairs in each of the
+  three alphabets (7,200 judgments; log-probabilities within 0.002 nats, every judgment and token count the same).
 - **Re-scoring on CPU.** `scripts/recheck_gpu_runs.py` re-scored random samples with Qwen3.5-0.8B (80 pairs per
-  alphabet) and Qwen3.5-2B (40 per alphabet) in float32 on CPU: all 360 judgments agree with the GPU run, and the
+  alphabet) and Qwen3.5-2B (40 of the same pairs per alphabet) in float32 on CPU: all 360 judgments agree with the GPU run, and the
   largest log-probability difference is 0.14 nats (`cpu_recheck_*.csv`). The models above 2 billion parameters
   could not be re-scored on our hardware.
 - **Precision.** Qwen3.5-9B-Base in float32 and in bfloat16 gives the same accuracy to one decimal in all three

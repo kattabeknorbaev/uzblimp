@@ -83,6 +83,8 @@ def model_runs():
     runs = load_runs()
     out = {}
     for m in MODELS:
+        if m.get("setup") == "gpu":  # the models scored on CPU, as in the paper's comparison
+            continue
         alphabet = "Cyrillic" if m["trained"] == "cyrl" else "Latin"
         if (m["key"], alphabet) in runs:
             out[f"{m['key']} ({alphabet[0]})"] = runs[(m["key"], alphabet)]

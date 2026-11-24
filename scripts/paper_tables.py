@@ -352,6 +352,9 @@ def gpu_block(gruns, cruns, bench):
         num("gpu@recheck@n", len(r), 0)
         num("gpu@recheck@agree", int((r.correct_cpu == r.correct_gpu).sum()), 0)
         num("gpu@recheck@models", len(rc), 0)
+        sizes = sorted(d.id.nunique() for d in rc)
+        num("gpu@recheck@pairs@min", sizes[0], 0)
+        num("gpu@recheck@pairs@max", sizes[-1], 0)
     flips, accdiff = [], []
     for a in ALPHABETS:
         f = ROOT / "results" / "gpu_runs" / "bf16check" / f"Qwen__Qwen3.5-9B-Base__{stem[a]}__logprob.csv"
@@ -378,6 +381,7 @@ def gpu_block(gruns, cruns, bench):
         num("tom@all@pct", 100 * len(seen & set(bench.index)) / len(bench))
         L = gruns[(rest[0]["key"], "Latin")].join(bench[["source"]])
         num("tom@L@own", acc(L[L.source == "corpus"]))
+        num("tom@sft", len(json.loads(ov.read_text(encoding="utf-8"))["sft_sets"]["loose_ids"]), 0)
         num("tom@L@books", acc(L[L.source == "books"]))
     # The appendix table.
     lines = [r"\begin{table*}[t]", r"\centering\small", r"\setlength{\tabcolsep}{5pt}", r"\begin{tabular}{@{}lrlrrrrr@{}}", r"\toprule",

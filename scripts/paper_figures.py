@@ -141,6 +141,8 @@ def main():
     runs = load_runs(VERSION)
     both = {k for k, a in runs if a == "Latin"} & {k for k, a in runs if a == "Cyrillic"}
     runs = {key: df for key, df in runs.items() if key[0] in both}  # as in paper_tables.py
+    gpu = {m["key"] for m in MODELS if m.get("setup") == "gpu"}  # the larger models have their own table (Appendix H)
+    runs = {key: df for key, df in runs.items() if key[0] not in gpu}
     ladder(runs)
     length(runs)
     reform(runs, benchmark())

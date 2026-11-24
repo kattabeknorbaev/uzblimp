@@ -48,8 +48,8 @@ Open items after the readiness audit of 22 November 2026 (only the authors can s
 3. ~~Finish the Cyrillic spot check~~: done on 22 November 2026 (no conversion errors; Section 4.3 updated).
 4. ~~Glosses and Appendix A~~: checked and confirmed by a linguist (p09) on 22 November 2026.
 5. **Author block**: Javohir Matniyozov stays second author, as an independent researcher (22 November
-   2026). Only if you want an affiliation such as Tomaris.ai named (`notes/decisions.md`, decisions 7 and 13),
-   change the author block; no Tomaris model or data is evaluated in the paper.
+   2026). Tomaris.ai's model is evaluated only in Appendix H, marked as not held out, and the Ethics statement
+   discloses that both authors co-founded the company; naming it in the author block is a separate choice.
 6. ~~Book sentences~~: copies of books publicly available on the internet (first author, 22 November 2026); the Ethics statement says so, and their licence terms stay undocumented with removal on request.
 7. ~~Ethics review~~: done; the Ethics statement says that no review was sought and why.
 
