@@ -722,11 +722,17 @@ def pilot_table():
              "openai__gpt-6.1-sol": "GPT-6.1 Sol", "google__gemma-3-12b-it": "Gemma-3-12B-it",
              "meta-llama__llama-3.3-70b-instruct": "Llama-3.3-70B-Instruct", "qwen__qwen-2.5-7b-instruct": "Qwen2.5-7B-Instruct",
              "meta-llama__llama-3.1-8b-instruct": "Llama-3.1-8B-Instruct"}
-    rows = []
+    # The pilot ran on benchmark v1.1: count its pairs that v1.2 no longer contains unchanged.
+    cur = pd.read_csv(ROOT / "data" / "benchmark" / "uzblimp.tsv", sep="\t", dtype=str)
+    cur = set(zip(cur["id"], cur["grammatical"], cur["ungrammatical"]))
+    rows, gone = [], set()
     for f in glob.glob(str(ROOT / "results" / "api_*_pilot3.csv")):
         d = pd.read_csv(f)
         key = Path(f).name[len("api_"):].split("_uzblimp")[0]
         rows.append((names.get(key, key), 100 * d.accuracy.mean(), 100 * d.consistent.astype(str).eq("True").mean(), len(d)))
+        gone.add(sum((i, g, b) not in cur for i, g, b in zip(d["id"], d["good"], d["bad"])))
+    assert len(gone) <= 1, "the pilot files should share the same pairs"
+    replaced = gone.pop() if gone else 0
     rows.sort(key=lambda r: -r[1])
     lines = [r"\begin{table}[t]", r"\centering\small", r"\begin{tabular}{@{}lrr@{}}", r"\toprule",
              r"Model & Accuracy & Consistent \\", r"\midrule"]
@@ -734,8 +740,10 @@ def pilot_table():
         num(f"pilot@{name}", a)
         lines.append(f"{name} & {a:.1f} & {c:.1f} \\\\")
     num("pilot@n", rows[0][3] if rows else 0, 0)
+    num("pilot@replaced", replaced, 0)
     lines += [r"\bottomrule", r"\end{tabular}",
-              r"\caption{Forced-choice pilot with chat models on 48 pairs in current Latin (three per phenomenon). Each pair "
+              r"\caption{Forced-choice pilot with chat models on 48 pairs of benchmark v1.1 in current Latin (three per "
+              rf"phenomenon; {replaced} of them were later replaced). Each pair "
               r"is shown in both orders; \emph{Accuracy} counts both orders, \emph{Consistent} the pairs answered correctly in "
               r"both.}", r"\label{tab:pilot}", r"\end{table}"]
     return "\n".join(lines)
