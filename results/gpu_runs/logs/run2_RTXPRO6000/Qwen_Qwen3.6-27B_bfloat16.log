@@ -1,0 +1,55 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+loaded Qwen/Qwen3.6-27B as Qwen3_5ForCausalLM, bfloat16, on cuda
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+Qwen3.6-27B | latn | logprob: 93.3% of 2400 pairs → results/json/Qwen__Qwen3.6-27B__latn__logprob.json
+  anaphor_agreement       92.7
+  binding                 90.7
+  dative_allomorphy       93.3
+  ditransitive_dative     82.7
+  lexical_case            82.0
+  nominalization         100.0
+  npi_hech                93.3
+  numeral_no_plural       86.0
+  passives               100.0
+  person_agreement        98.7
+  possessive_agreement    94.0
+  postposition_case       98.7
+  quantifiers             94.0
+  relative_clauses        98.7
+  stem_alternation        91.3
+  suspended_affixation    96.7
+Qwen3.6-27B | cyrl | logprob: 93.8% of 2400 pairs → results/json/Qwen__Qwen3.6-27B__cyrl__logprob.json
+  anaphor_agreement       94.0
+  binding                 94.7
+  dative_allomorphy       95.3
+  ditransitive_dative     73.3
+  lexical_case            90.7
+  nominalization         100.0
+  npi_hech                95.3
+  numeral_no_plural       90.0
+  passives                98.0
+  person_agreement        98.7
+  possessive_agreement    94.0
+  postposition_case       95.3
+  quantifiers             96.0
+  relative_clauses        99.3
+  stem_alternation        92.7
+  suspended_affixation    94.0
+Qwen3.6-27B | latn_reformed | logprob: 83.3% of 2400 pairs → results/json/Qwen__Qwen3.6-27B__latn_reformed__logprob.json
+  anaphor_agreement       90.7
+  binding                 41.3
+  dative_allomorphy       85.3
+  ditransitive_dative     82.7
+  lexical_case            76.7
+  nominalization          82.7
+  npi_hech                73.3
+  numeral_no_plural       83.3
+  passives                97.3
+  person_agreement        92.7
+  possessive_agreement    88.7
+  postposition_case       90.7
+  quantifiers             89.3
+  relative_clauses        91.3
+  stem_alternation        76.7
+  suspended_affixation    90.0
+DONE Qwen/Qwen3.6-27B in 172s

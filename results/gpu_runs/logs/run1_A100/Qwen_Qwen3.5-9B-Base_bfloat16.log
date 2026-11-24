@@ -1,0 +1,54 @@
+loaded Qwen/Qwen3.5-9B-Base as Qwen3_5ForCausalLM, bfloat16, on cuda
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+Qwen3.5-9B-Base | latn | logprob: 80.0% of 2400 pairs → results/json/Qwen__Qwen3.5-9B-Base__latn__logprob.json
+  anaphor_agreement       88.7
+  binding                 68.7
+  dative_allomorphy       56.7
+  ditransitive_dative     77.3
+  lexical_case            71.3
+  nominalization          99.3
+  npi_hech                62.0
+  numeral_no_plural       83.3
+  passives                95.3
+  person_agreement        80.0
+  possessive_agreement    82.0
+  postposition_case       78.7
+  quantifiers             94.7
+  relative_clauses        96.0
+  stem_alternation        87.3
+  suspended_affixation    58.7
+Qwen3.5-9B-Base | cyrl | logprob: 82.1% of 2400 pairs → results/json/Qwen__Qwen3.5-9B-Base__cyrl__logprob.json
+  anaphor_agreement       85.3
+  binding                 88.7
+  dative_allomorphy       66.0
+  ditransitive_dative     78.7
+  lexical_case            70.0
+  nominalization          94.7
+  npi_hech                57.3
+  numeral_no_plural       83.3
+  passives                93.3
+  person_agreement        90.7
+  possessive_agreement    88.7
+  postposition_case       80.7
+  quantifiers             95.3
+  relative_clauses        96.7
+  stem_alternation        83.3
+  suspended_affixation    60.7
+Qwen3.5-9B-Base | latn_reformed | logprob: 65.5% of 2400 pairs → results/json/Qwen__Qwen3.5-9B-Base__latn_reformed__logprob.json
+  anaphor_agreement       72.7
+  binding                 26.7
+  dative_allomorphy       54.7
+  ditransitive_dative     66.0
+  lexical_case            60.0
+  nominalization          41.3
+  npi_hech                32.7
+  numeral_no_plural       78.0
+  passives                88.7
+  person_agreement        74.7
+  possessive_agreement    72.7
+  postposition_case       70.7
+  quantifiers             94.7
+  relative_clauses        87.3
+  stem_alternation        70.7
+  suspended_affixation    56.7
+DONE Qwen/Qwen3.5-9B-Base in 102s

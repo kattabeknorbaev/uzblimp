@@ -1,0 +1,14 @@
+Qwen/Qwen2.5-1.5B float32 64 results keep=no
+Qwen/Qwen3.5-0.8B-Base float32 64 results keep=no
+Qwen/Qwen3.5-2B-Base float32 64 results keep=no
+Qwen/Qwen3.5-4B-Base float32 32 results keep=no
+Qwen/Qwen3.5-9B-Base float32 32 results keep=yes
+Qwen/Qwen3.5-9B-Base bfloat16 32 results_bf16check keep=no
+google/gemma-4-31B bfloat16 16 results keep=no
+mistralai/Mistral-Small-3.1-24B-Base-2503 bfloat16 16 results keep=no
+unsloth/Meta-Llama-3.1-8B float32 32 results keep=no
+Qwen/Qwen3.5-35B-A3B-Base bfloat16 8 results keep=no
+google/gemma-4-E4B float32 32 results keep=no
+Qwen/Qwen3.5-27B bfloat16 16 results keep=no
+tomaris/Tomaris.ai bfloat16 16 results keep=no
+google/gemma-4-26B-A4B bfloat16 16 results keep=no

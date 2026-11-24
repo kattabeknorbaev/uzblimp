@@ -1,0 +1,101 @@
+{
+  "benchmark": "UzBLiMP",
+  "version": "v1.2",
+  "model": "Qwen/Qwen3.6-35B-A3B",
+  "label": "Qwen3.6-35B-A3B",
+  "script": "latn",
+  "method": "logprob",
+  "n_pairs": 2400,
+  "accuracy": 91.0,
+  "accuracy_norm": 89.3,
+  "per_phenomenon": {
+    "anaphor_agreement": {
+      "n": 150,
+      "correct": 135,
+      "accuracy": 90.0
+    },
+    "binding": {
+      "n": 150,
+      "correct": 125,
+      "accuracy": 83.3
+    },
+    "dative_allomorphy": {
+      "n": 150,
+      "correct": 124,
+      "accuracy": 82.7
+    },
+    "ditransitive_dative": {
+      "n": 150,
+      "correct": 120,
+      "accuracy": 80.0
+    },
+    "lexical_case": {
+      "n": 150,
+      "correct": 137,
+      "accuracy": 91.3
+    },
+    "nominalization": {
+      "n": 150,
+      "correct": 150,
+      "accuracy": 100.0
+    },
+    "npi_hech": {
+      "n": 150,
+      "correct": 135,
+      "accuracy": 90.0
+    },
+    "numeral_no_plural": {
+      "n": 150,
+      "correct": 137,
+      "accuracy": 91.3
+    },
+    "passives": {
+      "n": 150,
+      "correct": 147,
+      "accuracy": 98.0
+    },
+    "person_agreement": {
+      "n": 150,
+      "correct": 132,
+      "accuracy": 88.0
+    },
+    "possessive_agreement": {
+      "n": 150,
+      "correct": 140,
+      "accuracy": 93.3
+    },
+    "postposition_case": {
+      "n": 150,
+      "correct": 145,
+      "accuracy": 96.7
+    },
+    "quantifiers": {
+      "n": 150,
+      "correct": 145,
+      "accuracy": 96.7
+    },
+    "relative_clauses": {
+      "n": 150,
+      "correct": 147,
+      "accuracy": 98.0
+    },
+    "stem_alternation": {
+      "n": 150,
+      "correct": 143,
+      "accuracy": 95.3
+    },
+    "suspended_affixation": {
+      "n": 150,
+      "correct": 123,
+      "accuracy": 82.0
+    }
+  },
+  "settings": {
+    "scorer": "scripts/eval.py (logprob), run on GPUs; see results/gpu_runs/README.txt",
+    "dtype": "bfloat16",
+    "device": "cuda",
+    "bos": true,
+    "per_pair": "results/Qwen3.6-35B-A3B_uzblimp_v1.2.csv"
+  },
+  "date": "2026-11-24"
+}

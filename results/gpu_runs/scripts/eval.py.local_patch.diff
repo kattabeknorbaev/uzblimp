@@ -1,0 +1,27 @@
+diff --git a/scripts/eval.py b/scripts/eval.py
+index 3d08ad0..b010c63 100644
+--- a/scripts/eval.py
++++ b/scripts/eval.py
+@@ -126,11 +126,18 @@ def logprob_scores(sentences, model_name, device, dtype, batch_size, start_token
+     if dtype == "auto":
+         dtype = "float32" if device == "cpu" else ("bfloat16" if torch.cuda.is_bf16_supported() else "float16")
+     tok = AutoTokenizer.from_pretrained(model_name)
++    # LOCAL PATCH (Javohir, not pushed): load straight onto the device, and fall back to the
++    # image-text-to-text class for text+vision checkpoints (Mistral3, some Qwen3.5) that
++    # AutoModelForCausalLM does not map. Only text input is ever given, so the scores are text-only.
++    from transformers import AutoModelForImageTextToText
++    kw = dict(dtype=getattr(torch, dtype), device_map=device)
+     try:
+-        model = AutoModelForCausalLM.from_pretrained(model_name, dtype=getattr(torch, dtype))
+-    except TypeError:  # transformers before 4.56 calls it torch_dtype
+-        model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=getattr(torch, dtype))
+-    model.to(device).eval()
++        model = AutoModelForCausalLM.from_pretrained(model_name, **kw)
++    except (ValueError, KeyError) as e:
++        print(f"AutoModelForCausalLM failed ({type(e).__name__}); using AutoModelForImageTextToText", flush=True)
++        model = AutoModelForImageTextToText.from_pretrained(model_name, **kw)
++    model.eval()
++    print(f"loaded {model_name} as {type(model).__name__}, {dtype}, on {device}", flush=True)
+ 
+     adds_bos = tok("a").input_ids[0] in tok.all_special_ids
+     prefix = (tok.bos_token or tok.eos_token) if start_token and not adds_bos else ""

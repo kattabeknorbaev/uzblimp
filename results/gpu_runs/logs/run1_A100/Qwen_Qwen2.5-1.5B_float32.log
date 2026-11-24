@@ -1,0 +1,54 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+loaded Qwen/Qwen2.5-1.5B as Qwen2ForCausalLM, float32, on cuda
+Qwen2.5-1.5B | latn | logprob: 55.0% of 2400 pairs → results/json/Qwen__Qwen2.5-1.5B__latn__logprob.json
+  anaphor_agreement       59.3
+  binding                 14.7
+  dative_allomorphy        4.7
+  ditransitive_dative     35.3
+  lexical_case            35.3
+  nominalization          99.3
+  npi_hech                 9.3
+  numeral_no_plural       76.7
+  passives                61.3
+  person_agreement        49.3
+  possessive_agreement    73.3
+  postposition_case       72.0
+  quantifiers             88.7
+  relative_clauses        82.7
+  stem_alternation        75.3
+  suspended_affixation    43.3
+Qwen2.5-1.5B | cyrl | logprob: 53.1% of 2400 pairs → results/json/Qwen__Qwen2.5-1.5B__cyrl__logprob.json
+  anaphor_agreement       38.7
+  binding                  1.3
+  dative_allomorphy       66.0
+  ditransitive_dative     52.0
+  lexical_case            37.3
+  nominalization          81.3
+  npi_hech                 6.0
+  numeral_no_plural       84.0
+  passives                48.0
+  person_agreement        56.0
+  possessive_agreement    74.0
+  postposition_case       61.3
+  quantifiers             85.3
+  relative_clauses        87.3
+  stem_alternation        56.7
+  suspended_affixation    14.0
+Qwen2.5-1.5B | latn_reformed | logprob: 49.7% of 2400 pairs → results/json/Qwen__Qwen2.5-1.5B__latn_reformed__logprob.json
+  anaphor_agreement       48.0
+  binding                  5.3
+  dative_allomorphy       16.0
+  ditransitive_dative     30.0
+  lexical_case            34.7
+  nominalization          30.7
+  npi_hech                22.7
+  numeral_no_plural       82.7
+  passives                61.3
+  person_agreement        48.7
+  possessive_agreement    67.3
+  postposition_case       68.0
+  quantifiers             87.3
+  relative_clauses        74.0
+  stem_alternation        67.3
+  suspended_affixation    51.3
+DONE Qwen/Qwen2.5-1.5B in 101s

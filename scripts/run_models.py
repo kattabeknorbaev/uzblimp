@@ -185,7 +185,9 @@ def main():
     unknown = [k for k in args.only or [] if k not in {m["key"] for m in MODELS}]
     if unknown:
         p.error(f"not in scripts/models.py: {unknown}")
-    queue = [m for k in args.only for m in MODELS if m["key"] == k] if args.only else MODELS
+    # The larger models of the registry were scored on GPUs (setup "gpu", scripts/import_gpu_runs.py); they run
+    # here only when named with --only.
+    queue = [m for k in args.only for m in MODELS if m["key"] == k] if args.only else [m for m in MODELS if m.get("setup") != "gpu"]
     for model in queue:
         print(f"\n=== {model['key']} ({model['hf']}, {model['method']}) ===", flush=True)
         try:

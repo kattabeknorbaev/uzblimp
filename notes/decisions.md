@@ -60,5 +60,5 @@ Each decision gives its source and date: **Kattabek** = his decision; **feedback
 - SIGTURK and BabyLM deadlines.
 - arXiv endorsement route.
 - Ethics approval: settled 2026-11-22 for the forced-choice validation (five anonymous unpaid volunteers; consent text, no names, aggregate release): no ethics review was sought, and the paper says why. Decide again before the rating study.
-- Which Tomaris.ai dataset(s), and their terms.
+- Which Tomaris.ai dataset(s), and their terms. (2026-11-24: Tomaris.ai's model was scored on GPUs for the second author; the paper reports it only in Appendix H, marked as not held out, and the Ethics statement discloses that both authors co-founded Tomaris.ai. Its private pretraining corpus contains 99.3% of the grammatical sentences from our own corpus: `results/gpu_runs/tomaris_overlap_v1.2.json`.)
 - Licensing for the public release: Wikipedia text is CC BY-SA (attribution, share-alike). The books of our corpus are copies publicly available on the internet (Kattabek, 2026-11-22); their licence terms are not documented, so the release keeps a source identifier per pair and removes sentences on request.

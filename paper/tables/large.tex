@@ -1,0 +1,31 @@
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}lrlrrrrr@{}}
+\toprule
+ & & & & & & \multicolumn{2}{c}{Ref.: change} \\
+\cmidrule(l){7-8}
+Model & Parameters & Precision & Latin & Cyr. & Ref. & both & gr. \\
+\midrule
+Gemma 4 31B & 31.3B & bf16 & 97.3 & 98.1 & 90.5 & $-$7.3 & $-$25.2 \\
+Gemma 4 26B-A4B & 25.8B & bf16 & 94.8 & 97.5 & 86.2 & $-$10.2 & $-$29.5 \\
+Qwen3.6-27B$^\dagger$ & 27.8B & bf16 & 93.3 & 93.8 & 83.3 & $-$9.7 & $-$40.2 \\
+Qwen3.8-27B$^\dagger$ & 27.8B & bf16 & 92.9 & 94.4 & 81.0 & $-$10.8 & $-$44.1 \\
+Qwen3.5-35B-A3B & 36.0B & bf16 & 92.5 & 95.6 & 80.7 & $-$13.6 & $-$42.1 \\
+Qwen3.5-27B$^\dagger$ & 27.8B & bf16 & 92.3 & 95.1 & 82.2 & $-$9.7 & $-$39.0 \\
+Gemma 4 E4B & 8.0B & fp32 & 91.9 & 95.9 & 78.3 & $-$14.3 & $-$50.4 \\
+Qwen3.6-35B-A3B$^\dagger$ & 36.0B & bf16 & 91.0 & 91.6 & 78.5 & $-$14.4 & $-$38.2 \\
+Mistral Small 3.1 & 24.0B & bf16 & 83.9 & 77.8 & 71.8 & $-$13.9 & $-$55.1 \\
+Llama 3.1 8B & 8.0B & fp32 & 81.6 & 73.2 & 65.1 & $-$20.8 & $-$66.1 \\
+Qwen3.5-9B & 9.7B & fp32 & 80.0 & 82.1 & 65.5 & $-$17.1 & $-$52.4 \\
+Qwen3.5-4B & 4.7B & fp32 & 78.6 & 84.1 & 63.4 & $-$18.4 & $-$60.2 \\
+Qwen3.5-2B & 2.3B & fp32 & 77.1 & 78.7 & 66.1 & $-$11.7 & $-$46.5 \\
+Qwen3.5-0.8B & 0.9B & fp32 & 66.3 & 62.8 & 55.8 & $-$11.1 & $-$50.8 \\
+\midrule
+\multicolumn{8}{@{}l}{\textit{Not held out: the authors' company's model}} \\
+Tomaris.ai$^\dagger$ & 27.1B & bf16 & 98.7 & 92.6 & 92.8 & $-$4.4 & $-$30.7 \\
+\bottomrule
+\end{tabular}
+\caption{Larger models, scored on GPUs: accuracy (\%) on all 2,400 pairs in current Latin, Cyrillic and reformed Latin, and the change in points from current to reformed Latin for pairs whose new letters fall in the edited word of \emph{both} members or of the \emph{gr}ammatical member only (as in Table~\ref{tab:reform}). fp32, bf16: 32-bit and bfloat16 precision. $^\dagger$: post-trained checkpoint, scored like the others. Tomaris.ai is not comparable with the other models (Appendix~\ref{app:large}).}
+\label{tab:large}
+\end{table*}

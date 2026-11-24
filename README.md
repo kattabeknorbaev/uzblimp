@@ -32,7 +32,7 @@ configs:
 
 # UzBLiMP
 
-**Status, v1.2:** 2,400 pairs across 16 phenomena, in three alphabets; every pair was reviewed by a native speaker and checked with three other native speakers; in a forced-choice validation of 320 pairs, five further native speakers chose the grammatical sentence in 99.2% of 1,600 judgments and their majority agreed with the benchmark on every pair ([`results/human_study.md`](results/human_study.md)); acceptability ratings not yet collected; evaluation harness and paper ([`paper/uzblimp.pdf`](paper/uzblimp.pdf)) included. v1.2 replaces 120 pairs (5.0%) found faulty in an audit of the selected pairs (generator errors, spelling and OCR errors) and corrects the Cyrillic spelling of Russian loanwords (72 word forms).
+**Status, v1.2:** 2,400 pairs across 16 phenomena, in three alphabets; every pair was reviewed by a native speaker and checked with three other native speakers; in a forced-choice validation of 320 pairs, five further native speakers chose the grammatical sentence in 99.2% of 1,600 judgments and their majority agreed with the benchmark on every pair ([`results/human_study.md`](results/human_study.md)); acceptability ratings not yet collected; 31 models evaluated, 17 on CPU and 14 larger ones (up to 36 billion parameters) on GPUs, plus Tomaris.ai, which is not held out; evaluation harness and paper ([`paper/uzblimp.pdf`](paper/uzblimp.pdf)) included. v1.2 replaces 120 pairs (5.0%) found faulty in an audit of the selected pairs (generator errors, spelling and OCR errors) and corrects the Cyrillic spelling of Russian loanwords (72 word forms).
 
 UzBLiMP is a benchmark of linguistic minimal pairs for Uzbek. Each pair is two sentences that differ in one word: one grammatical, one not. The grammatical sentence is a sentence found in a corpus; the ungrammatical one changes it with one controlled edit. A language model passes a pair if it gives the grammatical sentence the higher probability, or picks it when asked.
 
@@ -124,7 +124,7 @@ python scripts/make_table.py
 
 Accuracy (%) on all 2,400 pairs. **logprob**: causal LM log-probability; **pll**: masked-LM pseudo-log-likelihood; **forced-choice**: chat model picks the sentence. GF-L / GF-C are the Goldfish models trained on Latin-script / Cyrillic-script Uzbek. Only models with no unknown tokens on the new letters are run on reformed Latin (`notes/decisions.md`, decision 8), and not models trained on Cyrillic only. Per phenomenon: [`results/per_phenomenon.md`](results/per_phenomenon.md); what changed since v1.1: [`results/eval_v1.2.md`](results/eval_v1.2.md).
 
-In short: the strongest monolingual models (TahrirchiBERT and the Goldfish models trained on 100 MB or more) score about 95–99% in the script they were trained on, Latin or Cyrillic alike, and every model trained on one script loses 5 to 48 points when the same sentences are written in the other script; there, and on the reformed spelling, their choices follow token counts and familiar spellings instead of grammar. UzRoBERTa, trained on both scripts, scores 93–96% on both. Multilingual models know much less of this grammar (XLM-R 78% on Latin, 51% on Cyrillic).
+In short: the strongest monolingual models (TahrirchiBERT and the Goldfish models trained on 100 MB or more) score about 95–99% in the script they were trained on, Latin or Cyrillic alike, and every model trained on one script loses 5 to 48 points when the same sentences are written in the other script; there, and on the reformed spelling, their choices follow token counts and familiar spellings instead of grammar. UzRoBERTa, trained on both scripts, scores 93–96% on both. Small multilingual models know much less of this grammar (XLM-R 78% on Latin, 51% on Cyrillic), but the larger ones, scored on GPUs (`results/gpu_runs/`), know most of it in both scripts (Gemma 4 31B: 97.3% Latin, 98.1% Cyrillic) and still lose 7–17 points on reformed Latin. Tomaris.ai is the model of the authors' company; its pretraining corpus contains 99% of the grammatical sentences from our own corpus, so its scores are not held out (paper, Appendix H).
 
 <!-- results:start -->
 | Model | Method | Current Latin | Cyrillic | Reformed Latin |
@@ -146,6 +146,21 @@ In short: the strongest monolingual models (TahrirchiBERT and the Goldfish model
 | XLM-R base (`FacebookAI/xlm-roberta-base`) | pll | 78.2 | 51.3 | 71.5 |
 | Qwen2.5-0.5B (`Qwen/Qwen2.5-0.5B`) | logprob | 50.4 | 46.2 | 46.8 |
 | Qwen2.5-1.5B (`Qwen/Qwen2.5-1.5B`) | logprob | 55.0 | 53.1 | 49.7 |
+| Qwen3.5-0.8B (`Qwen/Qwen3.5-0.8B-Base`) | logprob | 66.3 | 62.8 | 55.8 |
+| Qwen3.5-2B (`Qwen/Qwen3.5-2B-Base`) | logprob | 77.1 | 78.7 | 66.1 |
+| Qwen3.5-4B (`Qwen/Qwen3.5-4B-Base`) | logprob | 78.6 | 84.1 | 63.4 |
+| Qwen3.5-9B (`Qwen/Qwen3.5-9B-Base`) | logprob | 80.0 | 82.1 | 65.5 |
+| Gemma 4 E4B (`google/gemma-4-E4B`) | logprob | 91.9 | 95.9 | 78.3 |
+| Llama 3.1 8B (`unsloth/Meta-Llama-3.1-8B`) | logprob | 81.6 | 73.2 | 65.1 |
+| Mistral Small 3.1 (`mistralai/Mistral-Small-3.1-24B-Base-2503`) | logprob | 83.9 | 77.8 | 71.8 |
+| Gemma 4 26B-A4B (`google/gemma-4-26B-A4B`) | logprob | 94.8 | 97.5 | 86.2 |
+| Gemma 4 31B (`google/gemma-4-31B`) | logprob | 97.3 | 98.1 | 90.5 |
+| Qwen3.5-27B (`Qwen/Qwen3.5-27B`) | logprob | 92.3 | 95.1 | 82.2 |
+| Qwen3.6-27B (`Qwen/Qwen3.6-27B`) | logprob | 93.3 | 93.8 | 83.3 |
+| Qwen3.8-27B (`Qwen/Qwen3.8-27B`) | logprob | 92.9 | 94.4 | 81.0 |
+| Qwen3.5-35B-A3B (`Qwen/Qwen3.5-35B-A3B-Base`) | logprob | 92.5 | 95.6 | 80.7 |
+| Qwen3.6-35B-A3B (`Qwen/Qwen3.6-35B-A3B`) | logprob | 91.0 | 91.6 | 78.5 |
+| Tomaris.ai (not held out) (`tomaris/Tomaris.ai`) | logprob | 98.7 | 92.6 | 92.8 |
 <!-- results:end -->
 
 ## How the pairs were made and checked
@@ -179,7 +194,7 @@ In short: the strongest monolingual models (TahrirchiBERT and the Goldfish model
 
 - **Converted alphabets.** The Cyrillic and reformed versions are converted from Latin, not written natively. Russian loanwords can't all be recovered by rule: those found in the benchmark are corrected from a table, and suffixed forms of loans ending in ь (медални, моделлари) are left as converted. The 2026 law gives an alphabet and no spelling rules, so only its four letter replacements are applied.
 - **Review.** Judgments come from one native speaker, checked with three others. The independent validation covers 320 pairs (13%) as forced choice, without acceptability ratings, and the answer key of that sample was in this public repository while the study ran.
-- **Models.** All evaluated models have at most 1.5 billion parameters (scored by likelihood on a CPU); larger open models and chat models are covered only by a 48-pair pilot.
+- **Models.** We scored models of up to 1.5 billion parameters on a CPU. The 14 larger ones were scored on rented GPUs for the second author with the same scorer, partly in bfloat16 and four of them post-trained checkpoints; we re-scored samples of the two smallest on CPU (`results/gpu_runs/CHECKS.md`). Chat models are covered only by a 48-pair pilot.
 - **Size.** With 150 pairs, the 95% interval of a per-phenomenon accuracy is at most ±8 points.
 
 ## License

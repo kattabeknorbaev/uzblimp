@@ -1,0 +1,55 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+loaded Qwen/Qwen3.5-4B-Base as Qwen3_5ForCausalLM, float32, on cuda
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+Qwen3.5-4B-Base | latn | logprob: 78.6% of 2400 pairs → results/json/Qwen__Qwen3.5-4B-Base__latn__logprob.json
+  anaphor_agreement       78.0
+  binding                 68.0
+  dative_allomorphy       43.3
+  ditransitive_dative     72.0
+  lexical_case            70.0
+  nominalization         100.0
+  npi_hech                60.7
+  numeral_no_plural       81.3
+  passives                92.0
+  person_agreement        82.0
+  possessive_agreement    82.7
+  postposition_case       92.7
+  quantifiers             90.7
+  relative_clauses        93.3
+  stem_alternation        88.7
+  suspended_affixation    62.0
+Qwen3.5-4B-Base | cyrl | logprob: 84.1% of 2400 pairs → results/json/Qwen__Qwen3.5-4B-Base__cyrl__logprob.json
+  anaphor_agreement       84.7
+  binding                 70.7
+  dative_allomorphy       58.7
+  ditransitive_dative     73.3
+  lexical_case            84.0
+  nominalization          97.3
+  npi_hech                72.7
+  numeral_no_plural       78.0
+  passives                94.7
+  person_agreement        86.7
+  possessive_agreement    92.7
+  postposition_case       92.7
+  quantifiers             91.3
+  relative_clauses        96.0
+  stem_alternation        90.7
+  suspended_affixation    81.3
+Qwen3.5-4B-Base | latn_reformed | logprob: 63.4% of 2400 pairs → results/json/Qwen__Qwen3.5-4B-Base__latn_reformed__logprob.json
+  anaphor_agreement       67.3
+  binding                 12.0
+  dative_allomorphy       42.0
+  ditransitive_dative     66.7
+  lexical_case            48.0
+  nominalization          35.3
+  npi_hech                43.3
+  numeral_no_plural       74.7
+  passives                89.3
+  person_agreement        75.3
+  possessive_agreement    76.7
+  postposition_case       84.0
+  quantifiers             90.0
+  relative_clauses        80.0
+  stem_alternation        70.0
+  suspended_affixation    59.3
+DONE Qwen/Qwen3.5-4B-Base in 301s

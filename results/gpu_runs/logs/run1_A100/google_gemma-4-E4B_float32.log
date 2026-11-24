@@ -1,0 +1,54 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+loaded google/gemma-4-E4B as Gemma4ForConditionalGeneration, float32, on cuda
+gemma-4-E4B | latn | logprob: 91.9% of 2400 pairs → results/json/google__gemma-4-E4B__latn__logprob.json
+  anaphor_agreement       94.7
+  binding                 79.3
+  dative_allomorphy       89.3
+  ditransitive_dative     72.7
+  lexical_case            88.7
+  nominalization         100.0
+  npi_hech                94.7
+  numeral_no_plural       94.0
+  passives                98.7
+  person_agreement        90.7
+  possessive_agreement    93.3
+  postposition_case       98.7
+  quantifiers             97.3
+  relative_clauses        98.7
+  stem_alternation        92.7
+  suspended_affixation    86.7
+gemma-4-E4B | cyrl | logprob: 95.9% of 2400 pairs → results/json/google__gemma-4-E4B__cyrl__logprob.json
+  anaphor_agreement       96.7
+  binding                 92.0
+  dative_allomorphy       97.3
+  ditransitive_dative     84.0
+  lexical_case            95.3
+  nominalization          99.3
+  npi_hech                98.7
+  numeral_no_plural       92.7
+  passives                98.7
+  person_agreement        98.0
+  possessive_agreement    96.0
+  postposition_case       98.7
+  quantifiers             99.3
+  relative_clauses        99.3
+  stem_alternation        96.0
+  suspended_affixation    92.7
+gemma-4-E4B | latn_reformed | logprob: 78.3% of 2400 pairs → results/json/google__gemma-4-E4B__latn_reformed__logprob.json
+  anaphor_agreement       81.3
+  binding                 30.7
+  dative_allomorphy       84.0
+  ditransitive_dative     66.7
+  lexical_case            63.3
+  nominalization          59.3
+  npi_hech                84.0
+  numeral_no_plural       86.7
+  passives                97.3
+  person_agreement        85.3
+  possessive_agreement    90.7
+  postposition_case       76.7
+  quantifiers             90.7
+  relative_clauses        94.0
+  stem_alternation        80.0
+  suspended_affixation    82.0
+DONE google/gemma-4-E4B in 271s

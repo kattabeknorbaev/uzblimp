@@ -26,8 +26,14 @@ def ok(df):
     return df.correct.astype(str).eq("True")
 
 
+def name(m):
+    """Model name in the report; Tomaris.ai is marked as not held out (scripts/models.py)."""
+    return m["key"] + ("" if m.get("held_out", True) else " (not held out)")
+
+
 def acc(df, col="correct"):
-    return 100 * df[col].astype(str).eq("True").mean()
+    # Exact halves round up (92.25 to 92.3), as in scripts/eval.py and the README.
+    return 100 * df[col].astype(str).eq("True").mean() + 1e-9
 
 
 def own(m):
@@ -55,7 +61,7 @@ def per_phenomenon(runs, pick, title):
     for m in MODELS:
         df = runs.get((m["key"], pick(m)))
         if df is not None:
-            rows.append([m["key"], pick(m)] + [f"{acc(df[df.phenomenon == ph]):.1f}" for ph in SLUGS] + [f"**{acc(df):.1f}**"])
+            rows.append([name(m), pick(m)] + [f"{acc(df[df.phenomenon == ph]):.1f}" for ph in SLUGS] + [f"**{acc(df):.1f}**"])
     if rows:
         print(f"## {title}\n")
         table(["Model", "Text"] + [SHORT[ph] for ph in SLUGS] + ["All"], rows)
@@ -93,7 +99,7 @@ def main():
         for a in ALPHABETS:
             df = runs.get((m["key"], a))
             cells.append("–" if df is None else f"{acc(df):.1f} ({acc(df, 'correct_norm'):.1f})")
-        rows.append([m["key"], m["hf"], m["trained"]] + cells)
+        rows.append([name(m), m["hf"], m["trained"]] + cells)
     table(["Model", "Hugging Face id", "Uzbek data", "Latin", "Cyrillic", "Reformed"], rows)
 
     per_phenomenon(runs, own, "Accuracy per phenomenon, own script (multilingual models: Latin)")

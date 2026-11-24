@@ -53,6 +53,11 @@ Open items after the readiness audit of 22 November 2026 (only the authors can s
 6. ~~Book sentences~~: copies of books publicly available on the internet (first author, 22 November 2026); the Ethics statement says so, and their licence terms stay undocumented with removal on request.
 7. ~~Ethics review~~: done; the Ethics statement says that no review was sought and why.
 
+The larger models (Appendix H) were scored on rented GPUs for the second author; their record and our checks
+are in `results/gpu_runs/` (`CHECKS.md`). Before submission, it would be worth re-scoring one large model (for
+example Gemma 4 31B) on other hardware with `scripts/eval.py`, since we could re-score only the two smallest
+ones. Tomaris.ai is reported only in Appendix H, marked as not held out, with the conflict of interest stated.
+
 For ACL Rolling Review (deadline 4 January 2027):
 
 - Compile with `[review]`, remove the repository footnote in the introduction, and submit the data and code as

@@ -1,0 +1,57 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `tokenizer_class` is `LlamaTokenizerFast` but `tokenizer.json` is ByteLevel; loading `TokenizersBackend`. Set `tokenizer_class` to `TokenizersBackend` in `tokenizer_config.json`.
+AutoModelForCausalLM failed (ValueError); using AutoModelForImageTextToText
+[transformers] The tied weights mapping and config for this model specifies to tie model.language_model.embed_tokens.weight to lm_head.weight, but both are present in the checkpoints with different values, so we will NOT tie them. You should update the config with `tie_word_embeddings=False` to silence this warning.
+loaded mistralai/Mistral-Small-3.1-24B-Base-2503 as Mistral3ForConditionalGeneration, bfloat16, on cuda
+Mistral-Small-3.1-24B-Base-2503 | latn | logprob: 83.9% of 2400 pairs → results/json/mistralai__Mistral-Small-3.1-24B-Base-2503__latn__logprob.json
+  anaphor_agreement       76.0
+  binding                 78.0
+  dative_allomorphy       80.7
+  ditransitive_dative     66.0
+  lexical_case            81.3
+  nominalization         100.0
+  npi_hech                73.3
+  numeral_no_plural       87.3
+  passives                98.0
+  person_agreement        75.3
+  possessive_agreement    88.0
+  postposition_case       87.3
+  quantifiers             91.3
+  relative_clauses        96.7
+  stem_alternation        90.0
+  suspended_affixation    72.7
+Mistral-Small-3.1-24B-Base-2503 | cyrl | logprob: 77.8% of 2400 pairs → results/json/mistralai__Mistral-Small-3.1-24B-Base-2503__cyrl__logprob.json
+  anaphor_agreement       66.0
+  binding                 49.3
+  dative_allomorphy       59.3
+  ditransitive_dative     50.0
+  lexical_case            76.0
+  nominalization          97.3
+  npi_hech                88.0
+  numeral_no_plural       83.3
+  passives                90.0
+  person_agreement        68.0
+  possessive_agreement    86.0
+  postposition_case       89.3
+  quantifiers             97.3
+  relative_clauses        96.7
+  stem_alternation        79.3
+  suspended_affixation    68.7
+Mistral-Small-3.1-24B-Base-2503 | latn_reformed | logprob: 71.8% of 2400 pairs → results/json/mistralai__Mistral-Small-3.1-24B-Base-2503__latn_reformed__logprob.json
+  anaphor_agreement       61.3
+  binding                 24.7
+  dative_allomorphy       84.0
+  ditransitive_dative     66.7
+  lexical_case            65.3
+  nominalization          50.7
+  npi_hech                66.7
+  numeral_no_plural       78.7
+  passives                96.0
+  person_agreement        74.0
+  possessive_agreement    82.7
+  postposition_case       83.3
+  quantifiers             86.7
+  relative_clauses        88.7
+  stem_alternation        68.7
+  suspended_affixation    71.3
+DONE mistralai/Mistral-Small-3.1-24B-Base-2503 in 187s

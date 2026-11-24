@@ -1,0 +1,54 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+loaded google/gemma-4-26B-A4B as Gemma4ForConditionalGeneration, bfloat16, on cuda
+gemma-4-26B-A4B | latn | logprob: 94.8% of 2400 pairs → results/json/google__gemma-4-26B-A4B__latn__logprob.json
+  anaphor_agreement       95.3
+  binding                 95.3
+  dative_allomorphy       94.0
+  ditransitive_dative     76.7
+  lexical_case            90.7
+  nominalization         100.0
+  npi_hech                97.3
+  numeral_no_plural       96.7
+  passives                99.3
+  person_agreement        94.0
+  possessive_agreement    94.7
+  postposition_case       98.0
+  quantifiers             98.7
+  relative_clauses        98.7
+  stem_alternation        94.0
+  suspended_affixation    92.7
+gemma-4-26B-A4B | cyrl | logprob: 97.5% of 2400 pairs → results/json/google__gemma-4-26B-A4B__cyrl__logprob.json
+  anaphor_agreement       97.3
+  binding                 97.3
+  dative_allomorphy       97.3
+  ditransitive_dative     84.7
+  lexical_case            97.3
+  nominalization         100.0
+  npi_hech                98.0
+  numeral_no_plural       97.3
+  passives               100.0
+  person_agreement        99.3
+  possessive_agreement    98.0
+  postposition_case       98.0
+  quantifiers            100.0
+  relative_clauses       100.0
+  stem_alternation        98.0
+  suspended_affixation    98.0
+gemma-4-26B-A4B | latn_reformed | logprob: 86.2% of 2400 pairs → results/json/google__gemma-4-26B-A4B__latn_reformed__logprob.json
+  anaphor_agreement       89.3
+  binding                 70.0
+  dative_allomorphy       88.7
+  ditransitive_dative     78.0
+  lexical_case            80.0
+  nominalization          74.7
+  npi_hech                83.3
+  numeral_no_plural       88.7
+  passives                96.7
+  person_agreement        93.3
+  possessive_agreement    92.7
+  postposition_case       88.0
+  quantifiers             92.0
+  relative_clauses        95.3
+  stem_alternation        82.0
+  suspended_affixation    86.7
+DONE google/gemma-4-26B-A4B in 179s

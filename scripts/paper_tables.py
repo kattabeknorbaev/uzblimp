@@ -83,7 +83,9 @@ def other(model):
 
 
 def acc(df, col="correct"):
-    return 100 * df[col].astype(str).eq("True").mean()
+    # The tiny offset rounds an exact half up (92.25 to 92.3), as scripts/eval.py does for the README and the
+    # JSON summaries; without it Python would round it to the even digit.
+    return 100 * df[col].astype(str).eq("True").mean() + 1e-9
 
 
 def ok(df):
@@ -274,6 +276,128 @@ def per_phenomenon_table(runs, pick, caption, ref, extra=(), pairs=None, models=
         for name, values, mean in extra:
             lines.append(f"{name} & & " + " & ".join(f"{values[ph]:.{digits}f}" for ph in SLUGS) + f" & \\textbf{{{mean:.1f}}} \\\\")
     lines += [r"\bottomrule", r"\end{tabular}", rf"\caption{{{caption}}}", rf"\label{{{ref}}}", r"\end{table*}"]
+    return "\n".join(lines)
+
+
+# --- larger models (GPU) -----------------------------------------------------------------------------------
+
+def gpu_length_profile(df):
+    """Accuracy on pairs whose members have the same number of tokens, and the length gap (as for the CPU runs)."""
+    d = df.bad_ntok - df.good_ntok
+    good = ok(df)
+    return 100 * good[d == 0].mean(), 100 * (good[d > 0].mean() - good[d < 0].mean())
+
+
+def gpu_block(gruns, cruns, bench):
+    """Numbers and the appendix table for the larger models scored on GPUs (results/gpu_runs/README.txt). Tomaris.ai,
+    which is not held out, is reported in its own row and kept out of every range and count."""
+    gpu = [m for m in MODELS if m.get("setup") == "gpu" and all((m["key"], a) in gruns for a in ALPHABETS)]
+    held = [m for m in gpu if m.get("held_out", True)]
+    rest = [m for m in gpu if not m.get("held_out", True)]
+    both = bench.index[bench.reform_group == "critical word: both"]
+    gr = bench.index[bench.reform_group == "critical word: grammatical only"]
+    vals = {}
+    for m in held + rest:
+        L, C, R = (gruns[(m["key"], a)] for a in ALPHABETS)
+        v = dict(L=acc(L), C=acc(C), R=acc(R), loss=acc(L) - acc(R),
+                 both=acc(L.loc[both]) - acc(R.loc[both]), gr=acc(L.loc[gr]) - acc(R.loc[gr]))
+        for a, df in zip(ALPHABETS, (L, C, R)):
+            num(f"acc@{m['key']}@{a}", acc(df))
+            for ph in SLUGS:
+                num(f"accph@{m['key']}@{a}@{ph}", acc(df[df.phenomenon == ph]))
+        num(f"ref@{m['key']}@all@loss", v["loss"])
+        num(f"ref@{m['key']}@critical word: both@loss", v["both"])
+        num(f"ref@{m['key']}@critical word: grammatical only@loss", v["gr"])
+        num(f"len@{m['key']}@Latin@gap", gpu_length_profile(L)[1])
+        vals[m["key"]] = v
+    H = [vals[m["key"]] for m in held]
+    num("gpu@n", len(held), 0)
+    params = [float(m["params"].rstrip("B")) for m in held]
+    num("gpu@params@min", min(params))
+    num("gpu@params@max", max(params), 0)
+    for k in ("L", "C", "R", "loss", "both", "gr"):
+        num(f"gpu@{k}@min", min(v[k] for v in H))
+        num(f"gpu@{k}@max", max(v[k] for v in H))
+    num("gpu@cyrhigher", sum(v["C"] > v["L"] for v in H), 0)
+    num("n@models@all", len({k for k, _ in cruns}) + len(held), 0)
+    # The text says that every larger model loses more where only the grammatical member has a new letter.
+    assert min(v["gr"] for v in H) > max(v["both"] for v in H), "revise the text on the reform asymmetry of the larger models"
+    num("gpu@post", sum(bool(m.get("post")) for m in held), 0)
+    num("gpu@bf16", sum(m["dtype"] == "bfloat16" for m in held), 0)
+    # The length fallback across the GPU runs, measured as for the CPU runs.
+    prof = [gpu_length_profile(gruns[(m["key"], a)]) for m in held for a in ALPHABETS]
+    num("lencorr@gpu@rho", float(pd.Series([q[0] for q in prof]).rank().corr(pd.Series([q[1] for q in prof]).rank())), 2)
+    num("lencorr@gpu@n", len(prof), 0)
+    # Checks of the GPU run: its Qwen2.5-1.5B run against our CPU run (all pairs), our CPU re-scoring of samples,
+    # and its float32-against-bfloat16 control on Qwen3.5-9B-Base.
+    stem = {"Latin": "latn", "Cyrillic": "cyrl", "Reformed": "latn_reformed"}
+    diffs, agree, total = [], 0, 0
+    for a in ALPHABETS:
+        f = ROOT / "results" / "gpu_runs" / "check" / f"Qwen__Qwen2.5-1.5B__{stem[a]}__logprob.csv"
+        if f.exists() and ("Qwen2.5-1.5B", a) in cruns:
+            g, c = pd.read_csv(f).set_index("id"), cruns[("Qwen2.5-1.5B", a)]
+            c = c.loc[g.index]
+            diffs += [(g.good_logprob - c.good_logprob).abs().max(), (g.bad_logprob - c.bad_logprob).abs().max()]
+            agree += int((ok(g) == ok(c)).sum())
+            total += len(g)
+    if diffs:
+        num("gpu@check@maxdiff", max(diffs), 3)
+        num("gpu@check@agree", agree, 0)
+        num("gpu@check@n", total, 0)
+    rc = [pd.read_csv(f) for f in sorted((ROOT / "results" / "gpu_runs").glob("cpu_recheck_*.csv"))]
+    if rc:
+        r = pd.concat(rc)
+        dd = pd.concat([(r.good_logprob_cpu - r.good_logprob_gpu).abs(), (r.bad_logprob_cpu - r.bad_logprob_gpu).abs()])
+        num("gpu@recheck@maxdiff", dd.max(), 2)
+        num("gpu@recheck@n", len(r), 0)
+        num("gpu@recheck@agree", int((r.correct_cpu == r.correct_gpu).sum()), 0)
+        num("gpu@recheck@models", len(rc), 0)
+    flips, accdiff = [], []
+    for a in ALPHABETS:
+        f = ROOT / "results" / "gpu_runs" / "bf16check" / f"Qwen__Qwen3.5-9B-Base__{stem[a]}__logprob.csv"
+        if f.exists() and ("Qwen3.5-9B", a) in gruns:
+            b16, f32 = pd.read_csv(f).set_index("id"), gruns[("Qwen3.5-9B", a)]
+            f32 = f32.loc[b16.index]
+            flips.append(100 * (ok(b16) != ok(f32)).mean())
+            accdiff.append(abs(acc(b16) - acc(f32)))
+    if flips:
+        num("gpu@bf16@flips@min", min(flips))
+        num("gpu@bf16@flips@max", max(flips))
+        num("gpu@bf16@accdiff@max", max(accdiff))
+        # The text says the two precisions give the same accuracy to one decimal.
+        assert all(round(d, 6) < 0.05 for d in accdiff), "revise the text on the bfloat16 control"
+    # Tomaris.ai: overlap of its pretraining corpus with the benchmark, and its accuracy by source.
+    ov = ROOT / "results" / "gpu_runs" / "tomaris_overlap_v1.2.json"
+    if ov.exists() and rest:
+        seen = set(json.loads(ov.read_text(encoding="utf-8"))["loose_ids"])
+        for src, name in (("corpus", "own"), ("books", "books")):
+            ids = bench.index[bench.source == src]
+            num(f"tom@{name}@n", len(ids), 0)
+            num(f"tom@{name}@seen", sum(i in seen for i in ids), 0)
+            num(f"tom@{name}@pct", 100 * sum(i in seen for i in ids) / len(ids))
+        num("tom@all@pct", 100 * len(seen & set(bench.index)) / len(bench))
+        L = gruns[(rest[0]["key"], "Latin")].join(bench[["source"]])
+        num("tom@L@own", acc(L[L.source == "corpus"]))
+        num("tom@L@books", acc(L[L.source == "books"]))
+    # The appendix table.
+    lines = [r"\begin{table*}[t]", r"\centering\small", r"\setlength{\tabcolsep}{5pt}", r"\begin{tabular}{@{}lrlrrrrr@{}}", r"\toprule",
+             r" & & & & & & \multicolumn{2}{c}{Ref.: change} \\", r"\cmidrule(l){7-8}",
+             r"Model & Parameters & Precision & Latin & Cyr. & Ref. & both & gr. \\", r"\midrule"]
+    def row(m):
+        v = vals[m["key"]]
+        name = label(m) + (r"$^\dagger$" if m.get("post") else "")
+        prec = {"float32": "fp32", "bfloat16": "bf16"}[m["dtype"]]
+        return (f"{name} & {m['params']} & {prec} & {v['L']:.1f} & {v['C']:.1f} & {v['R']:.1f} & "
+                f"{sg(-v['both'])} & {sg(-v['gr'])} \\\\")
+    lines += [row(m) for m in sorted(held, key=lambda m: -vals[m["key"]]["L"])]
+    if rest:
+        lines += [r"\midrule", r"\multicolumn{8}{@{}l}{\textit{Not held out: the authors' company's model}} \\"] + [row(m) for m in rest]
+    lines += [r"\bottomrule", r"\end{tabular}",
+              r"\caption{Larger models, scored on GPUs: accuracy (\%) on all 2,400 pairs in current Latin, Cyrillic and reformed "
+              r"Latin, and the change in points from current to reformed Latin for pairs whose new letters fall in the edited word "
+              r"of \emph{both} members or of the \emph{gr}ammatical member only (as in Table~\ref{tab:reform}). fp32, bf16: 32-bit "
+              r"and bfloat16 precision. $^\dagger$: post-trained checkpoint, scored like the others. Tomaris.ai is not comparable "
+              r"with the other models (Appendix~\ref{app:large}).}", r"\label{tab:large}", r"\end{table*}"]
     return "\n".join(lines)
 
 
@@ -479,7 +603,7 @@ def length_all_table(runs):
 def models_table(runs):
     kind = {"logprob": "autoregressive", "pll": "masked"}
     scored = {k for k, _ in runs}
-    lines = [r"\begin{table*}[t]", r"\centering\small", r"\begin{tabular}{@{}lllrl@{}}", r"\toprule",
+    lines = [r"\begin{table*}[t]", r"\centering\small", r"\setlength{\tabcolsep}{3.5pt}", r"\begin{tabular}{@{}lllrl@{}}", r"\toprule",
              r"Model & Hugging Face identifier & Type & Parameters & Uzbek training text \\"]
     for group, models in groups(MODELS):
         models = [m for m in models if m["key"] in scored]
@@ -487,7 +611,8 @@ def models_table(runs):
             continue
         lines += [r"\midrule", rf"\multicolumn{{5}}{{@{{}}l}}{{\textit{{{group}}}}} \\"]
         for m in models:
-            lines.append(f"{label(m)} & \\texttt{{{tex(m['hf'])}}} & {kind[m['method']]} & {m['params']} & {TRAINED[m['trained']]} \\\\")
+            name = label(m) + (r"$^\dagger$" if m.get("post") else "")
+            lines.append(f"{name} & \\texttt{{{tex(m['hf'])}}} & {kind[m['method']]} & {m['params']} & {TRAINED[m['trained']]} \\\\")
     # Licences, as stated on the models' Hugging Face pages: the most common one, and the exceptions by name.
     lic = Counter(m["license"] for m in MODELS if m["key"] in scored)
     main_lic = lic.most_common(1)[0][0]
@@ -497,12 +622,14 @@ def models_table(runs):
             others[m["license"]].append(label(m))
     def names(xs):
         return xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1]
+    exceptions = [f"{names(v)} ({k})" for k, v in others.items()]
     licence_note = (f" Licences, as stated on the models' Hugging Face pages: {main_lic}"
-                    + "".join(f", except {names(v)} ({k})" for k, v in others.items()) + ".")
+                    + (", except " + "; ".join(exceptions) if exceptions else "") + ".")
     lines += [r"\bottomrule", r"\end{tabular}",
               r"\caption{The evaluated models. GF-L, GF-C: Goldfish models trained on Latin-script and Cyrillic-script Uzbek. Parameter counts are those given by the models' authors or on the Hugging Face Hub. \emph{Uzbek training "
               r"text}: script of the Uzbek text a model was trained on; multilingual models are trained on many languages in "
-              r"several scripts." + licence_note + "}", r"\label{tab:models}", r"\end{table*}"]
+              r"several scripts. The larger models were scored on GPUs (Appendix~\ref{app:large}); $^\dagger$: post-trained "
+              r"checkpoint, scored like the others." + licence_note + "}", r"\label{tab:models}", r"\end{table*}"]
     return "\n".join(lines)
 
 
@@ -760,6 +887,12 @@ def main():
     both = {k for k, a in runs if a == "Latin"} & {k for k, a in runs if a == "Cyrillic"}
     left_out = sorted({k for k, _ in runs} - both)
     runs = {key: df for key, df in runs.items() if key[0] in both}
+    # The larger models scored on GPUs have their own table and numbers; every other table and number is about
+    # the models we scored on CPU.
+    gpu_keys = {m["key"] for m in MODELS if m.get("setup") == "gpu"}
+    all_runs = runs
+    gpu_runs = {key: df for key, df in runs.items() if key[0] in gpu_keys}
+    runs = {key: df for key, df in runs.items() if key[0] not in gpu_keys}
     if left_out:
         print(f"left out until both the Latin and the Cyrillic run are complete: {', '.join(left_out)}")
     stats_file = ROOT / "results" / "tokenizer_stats.json"
@@ -798,12 +931,14 @@ def main():
                                r"tokens than the grammatical one under the model's own tokenizer. " + delta_note),
         "lengthall": length_all_table(runs),
         "reform": reform_table(runs, bench),
-        "models": models_table(runs),
+        "models": models_table(all_runs),
         "tokenizers": tokenizer_table(stats, runs),
         "accnorm": accnorm_table(runs),
         "pilot": pilot_table(),
     }
     rating_numbers()
+    if gpu_runs:
+        tables["large"] = gpu_block(gpu_runs, runs, bench)
     judg, ann = human_judgments()
     if judg is not None:
         human_numbers(judg, ann, runs, bench)

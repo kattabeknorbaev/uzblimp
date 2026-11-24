@@ -1,0 +1,54 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+loaded google/gemma-4-31B as Gemma4ForConditionalGeneration, bfloat16, on cuda
+gemma-4-31B | latn | logprob: 97.3% of 2400 pairs → results/json/google__gemma-4-31B__latn__logprob.json
+  anaphor_agreement      100.0
+  binding                 95.3
+  dative_allomorphy       94.7
+  ditransitive_dative     89.3
+  lexical_case            94.7
+  nominalization         100.0
+  npi_hech                99.3
+  numeral_no_plural       94.7
+  passives                99.3
+  person_agreement        98.7
+  possessive_agreement    98.0
+  postposition_case       98.7
+  quantifiers             99.3
+  relative_clauses        99.3
+  stem_alternation        96.7
+  suspended_affixation    98.7
+gemma-4-31B | cyrl | logprob: 98.1% of 2400 pairs → results/json/google__gemma-4-31B__cyrl__logprob.json
+  anaphor_agreement      100.0
+  binding                 96.7
+  dative_allomorphy       98.7
+  ditransitive_dative     91.3
+  lexical_case            96.0
+  nominalization         100.0
+  npi_hech                98.0
+  numeral_no_plural       98.0
+  passives                99.3
+  person_agreement       100.0
+  possessive_agreement    99.3
+  postposition_case       98.7
+  quantifiers            100.0
+  relative_clauses       100.0
+  stem_alternation        96.0
+  suspended_affixation    97.3
+gemma-4-31B | latn_reformed | logprob: 90.5% of 2400 pairs → results/json/google__gemma-4-31B__latn_reformed__logprob.json
+  anaphor_agreement       91.3
+  binding                 63.3
+  dative_allomorphy       93.3
+  ditransitive_dative     86.0
+  lexical_case            88.0
+  nominalization          92.0
+  npi_hech                92.0
+  numeral_no_plural       86.7
+  passives                98.0
+  person_agreement        96.0
+  possessive_agreement    96.7
+  postposition_case       87.3
+  quantifiers             96.7
+  relative_clauses        98.0
+  stem_alternation        87.3
+  suspended_affixation    96.0
+DONE google/gemma-4-31B in 288s

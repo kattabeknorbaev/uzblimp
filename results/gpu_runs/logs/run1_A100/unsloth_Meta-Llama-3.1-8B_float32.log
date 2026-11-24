@@ -1,0 +1,54 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+loaded unsloth/Meta-Llama-3.1-8B as LlamaForCausalLM, float32, on cuda
+Meta-Llama-3.1-8B | latn | logprob: 81.6% of 2400 pairs → results/json/unsloth__Meta-Llama-3.1-8B__latn__logprob.json
+  anaphor_agreement       78.0
+  binding                 71.3
+  dative_allomorphy       76.0
+  ditransitive_dative     67.3
+  lexical_case            75.3
+  nominalization          99.3
+  npi_hech                67.3
+  numeral_no_plural       81.3
+  passives                97.3
+  person_agreement        72.0
+  possessive_agreement    80.7
+  postposition_case       90.0
+  quantifiers             86.0
+  relative_clauses        96.7
+  stem_alternation        88.7
+  suspended_affixation    78.0
+Meta-Llama-3.1-8B | cyrl | logprob: 73.2% of 2400 pairs → results/json/unsloth__Meta-Llama-3.1-8B__cyrl__logprob.json
+  anaphor_agreement       72.0
+  binding                 35.3
+  dative_allomorphy       75.3
+  ditransitive_dative     63.3
+  lexical_case            73.3
+  nominalization          98.0
+  npi_hech                58.0
+  numeral_no_plural       77.3
+  passives                91.3
+  person_agreement        69.3
+  possessive_agreement    75.3
+  postposition_case       86.7
+  quantifiers             77.3
+  relative_clauses        90.0
+  stem_alternation        56.7
+  suspended_affixation    71.3
+Meta-Llama-3.1-8B | latn_reformed | logprob: 65.1% of 2400 pairs → results/json/unsloth__Meta-Llama-3.1-8B__latn_reformed__logprob.json
+  anaphor_agreement       57.3
+  binding                  6.0
+  dative_allomorphy       80.0
+  ditransitive_dative     64.7
+  lexical_case            37.3
+  nominalization          39.3
+  npi_hech                50.7
+  numeral_no_plural       77.3
+  passives                94.7
+  person_agreement        66.0
+  possessive_agreement    80.7
+  postposition_case       81.3
+  quantifiers             81.3
+  relative_clauses        85.3
+  stem_alternation        70.0
+  suspended_affixation    70.0
+DONE unsloth/Meta-Llama-3.1-8B in 448s

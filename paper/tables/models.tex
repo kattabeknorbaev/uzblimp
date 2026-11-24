@@ -1,5 +1,6 @@
 \begin{table*}[t]
 \centering\small
+\setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{@{}lllrl@{}}
 \toprule
 Model & Hugging Face identifier & Type & Parameters & Uzbek training text \\
@@ -30,8 +31,27 @@ XLM-R base & \texttt{FacebookAI/xlm-roberta-base} & masked & 279M & multilingual
 \multicolumn{5}{@{}l}{\textit{Multilingual LMs}} \\
 Qwen2.5-0.5B & \texttt{Qwen/Qwen2.5-0.5B} & autoregressive & 0.5B & multilingual \\
 Qwen2.5-1.5B & \texttt{Qwen/Qwen2.5-1.5B} & autoregressive & 1.5B & multilingual \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Larger multilingual LMs (GPU)}} \\
+Qwen3.5-0.8B & \texttt{Qwen/Qwen3.5-0.8B-Base} & autoregressive & 0.9B & multilingual \\
+Qwen3.5-2B & \texttt{Qwen/Qwen3.5-2B-Base} & autoregressive & 2.3B & multilingual \\
+Qwen3.5-4B & \texttt{Qwen/Qwen3.5-4B-Base} & autoregressive & 4.7B & multilingual \\
+Qwen3.5-9B & \texttt{Qwen/Qwen3.5-9B-Base} & autoregressive & 9.7B & multilingual \\
+Gemma 4 E4B & \texttt{google/gemma-4-E4B} & autoregressive & 8.0B & multilingual \\
+Llama 3.1 8B & \texttt{unsloth/Meta-Llama-3.1-8B} & autoregressive & 8.0B & multilingual \\
+Mistral Small 3.1 & \texttt{mistralai/Mistral-Small-3.1-24B-Base-2503} & autoregressive & 24.0B & multilingual \\
+Gemma 4 26B-A4B & \texttt{google/gemma-4-26B-A4B} & autoregressive & 25.8B & multilingual \\
+Gemma 4 31B & \texttt{google/gemma-4-31B} & autoregressive & 31.3B & multilingual \\
+Qwen3.5-27B$^\dagger$ & \texttt{Qwen/Qwen3.5-27B} & autoregressive & 27.8B & multilingual \\
+Qwen3.6-27B$^\dagger$ & \texttt{Qwen/Qwen3.6-27B} & autoregressive & 27.8B & multilingual \\
+Qwen3.8-27B$^\dagger$ & \texttt{Qwen/Qwen3.8-27B} & autoregressive & 27.8B & multilingual \\
+Qwen3.5-35B-A3B & \texttt{Qwen/Qwen3.5-35B-A3B-Base} & autoregressive & 36.0B & multilingual \\
+Qwen3.6-35B-A3B$^\dagger$ & \texttt{Qwen/Qwen3.6-35B-A3B} & autoregressive & 36.0B & multilingual \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Not held out (authors' company)}} \\
+Tomaris.ai$^\dagger$ & \texttt{tomaris/Tomaris.ai} & autoregressive & 27.1B & multilingual \\
 \bottomrule
 \end{tabular}
-\caption{The evaluated models. GF-L, GF-C: Goldfish models trained on Latin-script and Cyrillic-script Uzbek. Parameter counts are those given by the models' authors or on the Hugging Face Hub. \emph{Uzbek training text}: script of the Uzbek text a model was trained on; multilingual models are trained on many languages in several scripts. Licences, as stated on the models' Hugging Face pages: Apache 2.0, except BERTbek, UzBERT and XLM-R base (MIT).}
+\caption{The evaluated models. GF-L, GF-C: Goldfish models trained on Latin-script and Cyrillic-script Uzbek. Parameter counts are those given by the models' authors or on the Hugging Face Hub. \emph{Uzbek training text}: script of the Uzbek text a model was trained on; multilingual models are trained on many languages in several scripts. The larger models were scored on GPUs (Appendix~\ref{app:large}); $^\dagger$: post-trained checkpoint, scored like the others. Licences, as stated on the models' Hugging Face pages: Apache 2.0, except BERTbek, UzBERT and XLM-R base (MIT); Llama 3.1 8B (Llama 3.1 Community License); Tomaris.ai (none stated).}
 \label{tab:models}
 \end{table*}
