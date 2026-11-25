@@ -1,0 +1,3922 @@
+{
+ "wf_0352fd5a-688": [
+  {
+   "label": "haiku latn A1 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_6e3b8d84-34f": [
+  {
+   "label": "sonnet latn A1 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_467e47c5-f5c": [
+  {
+   "label": "opus latn A1 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_b63f3867-bff": [
+  {
+   "label": "fable latn A1 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_526c243c-d69": [
+  {
+   "label": "sonnet latn A15 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn B1 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn A2 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn A6 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn B8 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn A7 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn A12 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn B14 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn B3 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn A1 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn B9 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn A3 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn B11 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn A8 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn B6 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn B13 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn B15 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn B2 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn A16 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn A14 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn A10 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn A9 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn A5 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn B16 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn B12 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn B5 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn B4 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn A4 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn A13 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn B7 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn B10 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn A11 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_f0c8fcd8-126": [
+  {
+   "label": "fable latn A13 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn B12 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn A16 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn B4 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn A3 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn A9 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn B6 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn B11 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn B7 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn B3 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn B5 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn B2 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn B15 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn A6 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn B1 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn A5 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn B16 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn A8 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn A7 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn B14 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn A12 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn B13 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn B9 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn A10 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn A11 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn A4 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn B8 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn A1 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn A15 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn B10 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn A2 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn A14 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_6bab9e32-025": [
+  {
+   "label": "opus latn B13 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn A7 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn A15 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn A3 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn B1 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn B2 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn B7 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn A10 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn A5 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn B11 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn B12 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn B16 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn A16 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn B6 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn A9 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn B9 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn A1 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn A13 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn B14 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn B4 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn A4 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn A14 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn A8 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn B3 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn A6 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn B5 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn B15 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn B10 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn B8 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn A2 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn A12 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn A11 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_be466cc9-c93": [
+  {
+   "label": "sonnet cyrl A5 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl B5 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl A8 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl A3 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl B2 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl A2 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl A7 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl B4 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl B6 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl B1 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl A6 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl B7 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl B8 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl A4 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl B3 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl A1 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_aab96a3f-d8d": [
+  {
+   "label": "sonnet cyrl B16 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl B9 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl A10 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl B12 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl A15 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl A14 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl B13 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl A12 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl A13 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl B10 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl B11 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl A16 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl B14 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl A11 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl A9 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet cyrl B15 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_525ddcdf-325": [
+  {
+   "label": "fable cyrl B1 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl A1 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl B7 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl B8 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl A8 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl A7 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl A2 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl A6 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl B6 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl B5 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl B3 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl B2 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl A4 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl A5 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl B4 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl A3 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_134e1b32-33c": [
+  {
+   "label": "fable cyrl A10 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl B12 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl B15 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl B14 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl A16 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl B10 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl A13 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl A9 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl A15 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl B9 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl B11 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl A11 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl B13 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl A12 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl B16 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable cyrl A14 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_35a552dd-64a": [
+  {
+   "label": "sonnet latn_reformed B10 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed A9 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed A3 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed A6 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed A13 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed A1 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed B7 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed A7 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed B14 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed B4 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed A5 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed A12 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed A2 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed B1 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed A10 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed B2 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed A8 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed B5 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed A14 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed A15 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed B3 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed B9 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed A16 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed B6 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed B16 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed B13 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed B12 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed A4 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed A11 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed B8 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed B15 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "sonnet latn_reformed B11 #1",
+   "alias": "sonnet",
+   "served": [
+    "claude-sonnet-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_2b230a40-ef3": [
+  {
+   "label": "fable latn_reformed B14 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed A2 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed A11 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed A1 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed A6 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed A8 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed B3 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed A5 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed A9 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed A14 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed B9 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed B15 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed B5 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed B12 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed A13 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed B13 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed B10 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed B7 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed B8 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed A3 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed B2 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed B11 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed A16 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed B4 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed A10 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed B1 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed A12 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed A4 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed A7 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed B16 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed A15 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "fable latn_reformed B6 #1",
+   "alias": "fable",
+   "served": [
+    "claude-fable-5-2"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_212b0315-16a": [
+  {
+   "label": "opus latn_reformed A7 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed B15 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed B12 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed B8 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed A1 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed A4 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed B1 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed A15 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed B14 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed A9 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed B9 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed B4 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed A13 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed B2 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed B6 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed B13 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed B16 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed B11 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed A10 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed A2 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed A5 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed A16 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed A3 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed A8 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed A12 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed B10 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed A11 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed A14 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed B5 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed B7 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed A6 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus latn_reformed B3 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_f14fd7fb-074": [
+  {
+   "label": "opus cyrl A5 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl A1 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl A7 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl B4 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl A2 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl B7 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl A3 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl B1 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl B3 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl B5 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl B2 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl B6 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl A4 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl B8 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl A6 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl A8 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_8b49159f-ee8": [
+  {
+   "label": "opus cyrl A9 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl B12 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl A14 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl A13 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl A15 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl B14 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl B15 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl A16 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl A12 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl B11 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl A11 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl A10 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl B13 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl B10 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl B9 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "opus cyrl B16 #1",
+   "alias": "opus",
+   "served": [
+    "claude-opus-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_f1e5df4a-6ec": [
+  {
+   "label": "haiku latn A8 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn A14 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn A10 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn A5 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn A7 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn B5 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn B16 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn B8 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn A1 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn B13 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn A3 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn A15 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn B10 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn B7 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn B3 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn B9 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn A4 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn B15 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn A11 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn A12 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn A9 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn B1 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn B4 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn A2 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn B14 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn B2 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn A6 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn B12 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn A13 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn A16 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn B11 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn B6 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_aad2d669-c67": [
+  {
+   "label": "haiku cyrl A4 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl A2 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl B1 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl B6 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl A8 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl B2 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl B7 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl B8 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl B3 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl A6 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl A5 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl B4 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl B5 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl A1 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl A7 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl A3 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_2e2a6c34-1c7": [
+  {
+   "label": "haiku cyrl A14 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl A11 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl A10 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl B12 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl B16 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl A13 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl B15 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl A12 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl A16 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl B13 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl B10 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl B11 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl B9 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl B14 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl A15 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku cyrl A9 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ],
+ "wf_52c42aee-be1": [
+  {
+   "label": "haiku latn_reformed A13 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed B9 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed B5 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed B1 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed B6 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed B4 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed A11 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed B14 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed A8 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed B10 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed A5 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed A7 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed B15 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed B13 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed A16 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed B7 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed A6 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed A1 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed A2 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed B8 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed B3 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed A9 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed A3 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed A12 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed A15 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed B11 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed A4 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed A10 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed B12 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed A14 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed B2 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  },
+  {
+   "label": "haiku latn_reformed B16 #1",
+   "alias": "haiku",
+   "served": [
+    "claude-haiku-5-5"
+   ],
+   "tools": [
+    "StructuredOutput"
+   ]
+  }
+ ]
+}

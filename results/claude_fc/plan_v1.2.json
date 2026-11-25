@@ -1,0 +1,9641 @@
+{
+ "benchmark": "v1.2",
+ "seed": 2026,
+ "batch_size": 150,
+ "effort": "low",
+ "header": "You judge the grammaticality of Uzbek sentences.\n\nBelow are 150 numbered items. Each item has two Uzbek sentences, labelled 1 and 2. For each item: which of the two sentences is grammatically correct? Exactly one of them is.\n\nAnswer from your own knowledge of Uzbek and judge each item on its own. Apart from returning your answers, do not use any tools: do not read or search files, run code or search the web.\n\nReturn an answer for every item from 1 to 150, even when you are unsure: the item number and the number (1 or 2) of the grammatically correct sentence.",
+ "batches": [
+  [
+   {
+    "id": "possessive_agreement-1020",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2196",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1014",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2187",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1173",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1012",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1078",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1068",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1039",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2023",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1225",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1160",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2202",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1163",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2066",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1202",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2052",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2021",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1017",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2096",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1143",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1013",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2222",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2008",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2029",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2028",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1042",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2168",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2125",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2177",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2158",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2154",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1009",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-1041",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1155",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1158",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1059",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-1013",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1117",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1090",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1074",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2133",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1129",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1145",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1130",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2116",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1198",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2157",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1060",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1015",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1113",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1051",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2043",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2044",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1074",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1008",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1062",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1045",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1138",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2034",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1226",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-1008",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2044",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2003",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2024",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2146",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2081",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1183",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1191",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1163",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1234",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1107",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2028",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2047",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1004",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1175",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1042",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2189",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2070",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1059",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1199",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1027",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1212",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1196",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1048",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1105",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1006",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1209",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2006",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1175",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2128",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1143",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1249",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1095",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1109",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1038",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2097",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2089",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1149",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1062",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2106",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2150",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2208",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1110",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2224",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1091",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2004",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2153",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1087",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1243",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1061",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2055",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2151",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1113",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2071",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2103",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1058",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1183",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2089",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2153",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2151",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1038",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1134",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1070",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1248",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1248",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1031",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2090",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1064",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1081",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1158",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2182",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2010",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2003",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1076",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2084",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2073",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1069",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2018",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1004",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2100",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2043",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1176",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1040",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2070",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1205",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2026",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2093",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1065",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2199",
+    "first_in_A": "grammatical"
+   }
+  ],
+  [
+   {
+    "id": "npi_hech-1124",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1236",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2061",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-1030",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1011",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1031",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2026",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1206",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1140",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1088",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1194",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2027",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1244",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1175",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2169",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2095",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1095",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1157",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1078",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1007",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-1032",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2064",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1078",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1203",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1127",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1240",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1241",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1091",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1053",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2012",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2049",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2138",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2103",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1249",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2072",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1144",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1015",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1137",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1117",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2006",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1013",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1237",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1093",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1060",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1036",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2072",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1071",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1138",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1242",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2121",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1099",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2019",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1026",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1245",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1058",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1084",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1038",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2054",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2076",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2082",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2062",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1034",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1238",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1060",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1140",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2181",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1218",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1210",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1069",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2072",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1107",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2004",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1144",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1238",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2103",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2155",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1118",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2129",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1172",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1085",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1127",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1184",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2168",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1083",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2212",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1226",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2050",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1130",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1243",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2142",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1039",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2128",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2059",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-1010",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1010",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2083",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2094",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1126",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2145",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2055",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1017",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1080",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2152",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1158",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1218",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1230",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1017",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1065",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2079",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2024",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2122",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2144",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1162",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2101",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1042",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2008",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1232",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1136",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2039",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1124",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2142",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2063",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1105",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1052",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2204",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2060",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2077",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1149",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2146",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1029",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1106",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2159",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1174",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1014",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1073",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1177",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2172",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1213",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1036",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1204",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2033",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2047",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1116",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1054",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1104",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1001",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1019",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2058",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1049",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2078",
+    "first_in_A": "ungrammatical"
+   }
+  ],
+  [
+   {
+    "id": "suspended_affixation-1038",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1176",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1141",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1015",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2007",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1142",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2013",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2148",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2089",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1016",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1002",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2108",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1142",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1134",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2118",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1036",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2058",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1228",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1051",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1094",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1119",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2191",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1054",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1075",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2019",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2101",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2015",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1096",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2040",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-1031",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1179",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1171",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2068",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2206",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1078",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1245",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2074",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1198",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1210",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1023",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1081",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1125",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1222",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2057",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1093",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1076",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1098",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1202",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1010",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1018",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1191",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1084",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2023",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2072",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2060",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2012",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2183",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1214",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1190",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1025",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1047",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1004",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1050",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1085",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2022",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1243",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2166",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2027",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2073",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1047",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1066",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1044",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2075",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2147",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1178",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1126",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2084",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1086",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1028",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1013",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1147",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1228",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2088",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1220",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1195",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2115",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1212",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1057",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1058",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1073",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2086",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1238",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2081",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1117",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1047",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1019",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2134",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2059",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1188",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1174",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1137",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1093",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2044",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2014",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1222",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2047",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1178",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1083",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1074",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1029",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1025",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1159",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1229",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2160",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2118",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2023",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1028",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1187",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2056",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2032",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2169",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2002",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1093",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2020",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2106",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1196",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2221",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1101",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1013",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2139",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1153",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1097",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1176",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1108",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2158",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1004",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1128",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1159",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1171",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2120",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2199",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2090",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1227",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1050",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1063",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2102",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1055",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1099",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1098",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2120",
+    "first_in_A": "ungrammatical"
+   }
+  ],
+  [
+   {
+    "id": "numeral_no_plural-1177",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2162",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2062",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1040",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1042",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2056",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1068",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1198",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2086",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2011",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1026",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1023",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1096",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1139",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1145",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1104",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1239",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1250",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1093",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2011",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1176",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2046",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1121",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1019",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1107",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1192",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2084",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2003",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1041",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1193",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2023",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2097",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2073",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2108",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1245",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1063",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2108",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2009",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2011",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1080",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2099",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1143",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2046",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1104",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2062",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2048",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1012",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2134",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2034",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1114",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1031",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1222",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1167",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2131",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1110",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1160",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1126",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2042",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-1013",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1199",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1207",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2015",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1084",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2070",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2144",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2075",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2036",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2007",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2202",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2091",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2186",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1021",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1153",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1202",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2060",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2109",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2056",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1059",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2007",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1170",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2085",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2059",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1131",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2206",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1237",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1082",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2134",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2016",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1019",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1133",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2006",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1067",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2029",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2080",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2031",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2003",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2078",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2063",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2046",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1213",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1032",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1068",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1247",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1033",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2155",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2153",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1207",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2106",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-1012",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2009",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2053",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2102",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2023",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2119",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2040",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2078",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1097",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2036",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1076",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1153",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1068",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1030",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1080",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1036",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2010",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2097",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1141",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2038",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1099",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1148",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1049",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1156",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1042",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1184",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1132",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2087",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2039",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1046",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1059",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1117",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1043",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1044",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2096",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1097",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1223",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1135",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2109",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1051",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1037",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2083",
+    "first_in_A": "grammatical"
+   }
+  ],
+  [
+   {
+    "id": "possessive_agreement-1158",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1055",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2132",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1061",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2193",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1024",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2082",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1170",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2083",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2142",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2061",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1212",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-1009",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2113",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2201",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2169",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1235",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2130",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1018",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1044",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2016",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1011",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1033",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1211",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2037",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2192",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2024",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1154",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1208",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2035",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2029",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2060",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1205",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1232",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2075",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2034",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1028",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1052",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1172",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2062",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1160",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2076",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2055",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2178",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2090",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1115",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2114",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2060",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1235",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1017",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1110",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2172",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1113",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2018",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1195",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2006",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1031",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1034",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1128",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1037",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2041",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1114",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1014",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2013",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1035",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1003",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2017",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1138",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1103",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2017",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2020",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2084",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1226",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1056",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1051",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1139",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1050",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2065",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1063",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2134",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2008",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2162",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1022",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2035",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2074",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2150",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2127",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2088",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1200",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1106",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1218",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1048",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2171",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2113",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2122",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2209",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1002",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1128",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2068",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1233",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-1022",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2086",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1215",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2003",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2097",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2087",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2123",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2041",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2065",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1098",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2124",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2175",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1014",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2053",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2131",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1094",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1190",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1124",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1033",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2108",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1250",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1095",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1095",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1035",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2219",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1147",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2139",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1086",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2065",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-1012",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1225",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2020",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1203",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1169",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1038",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2148",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1003",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1187",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2085",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1198",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1037",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1155",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2045",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2027",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1004",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2126",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1004",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1226",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2050",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2106",
+    "first_in_A": "ungrammatical"
+   }
+  ],
+  [
+   {
+    "id": "numeral_no_plural-1153",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1097",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1138",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2080",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1192",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2012",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2022",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1050",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1201",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1098",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1071",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-1001",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1001",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2051",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2092",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2157",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1218",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2096",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1063",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2094",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2198",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1247",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1094",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-1055",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2060",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2133",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2136",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2093",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1005",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1085",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2140",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2017",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1098",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1032",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2042",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1232",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1064",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-1047",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2134",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1053",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1200",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1048",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1055",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1193",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2154",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-1053",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2013",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2147",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1044",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2081",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1008",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1188",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1030",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1116",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2064",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1113",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1236",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-1048",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1084",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2093",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1053",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1051",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1250",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2019",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2156",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1026",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1036",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1073",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1059",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1014",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1052",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1135",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1128",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2094",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1145",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1183",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1211",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1007",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2125",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2012",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2192",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1237",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1091",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1112",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1200",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2082",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1194",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1159",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1123",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2162",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1008",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2182",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1089",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1121",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1177",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-1016",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2207",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2130",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2012",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2116",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1151",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2098",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2040",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1140",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2172",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1030",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2052",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2086",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1139",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1072",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2015",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2034",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2092",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2203",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1196",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1122",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2174",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2164",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1090",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2139",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1096",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1052",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1142",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2030",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2073",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1057",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2112",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1176",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1199",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2160",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1132",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1136",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1025",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2173",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1201",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-1010",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1051",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2054",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2067",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1072",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1194",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2021",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1183",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1190",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1092",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2040",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2062",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2045",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1035",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1025",
+    "first_in_A": "ungrammatical"
+   }
+  ],
+  [
+   {
+    "id": "ditransitive_dative-1009",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2038",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1078",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2115",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2079",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2223",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2201",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1120",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2193",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2087",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2053",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1065",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2118",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2110",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1057",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2068",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2022",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1066",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2021",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2122",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1028",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1010",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1155",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1219",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2104",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1206",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1089",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2096",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1240",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1050",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2131",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2128",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1132",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1126",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2067",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1120",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1093",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2099",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1020",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1129",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1078",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1189",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2021",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2112",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2091",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1155",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2070",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1039",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1026",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1018",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1096",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2041",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2071",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1021",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1219",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2154",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1060",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1056",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1007",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1015",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2042",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-1046",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1221",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1152",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2012",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2043",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1169",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1220",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2059",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2141",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1104",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1057",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2071",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1090",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2091",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1224",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1236",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1172",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1132",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1002",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1105",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2117",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1146",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2081",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1147",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1108",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2077",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1041",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1066",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2159",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1023",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1200",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1066",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2016",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2152",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1022",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2135",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2063",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2137",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2135",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1146",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1193",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1115",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2131",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2030",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2113",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2009",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1052",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1091",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2103",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2086",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1113",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1026",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1171",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2112",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2167",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1221",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1130",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1066",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2185",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1080",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1241",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2065",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2078",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1173",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1029",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1125",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1102",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1177",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2005",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1019",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1234",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1145",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1022",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1064",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2010",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2061",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1015",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2041",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1066",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1175",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1024",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1092",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1173",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1032",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1021",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2025",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1236",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2162",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2018",
+    "first_in_A": "ungrammatical"
+   }
+  ],
+  [
+   {
+    "id": "relative_clauses-1036",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2121",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2037",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2093",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1023",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2102",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1214",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2090",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2030",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1108",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1085",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1068",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1067",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1086",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2041",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1072",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1090",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1033",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1156",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1045",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1002",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1027",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1003",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1152",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2104",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2125",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1209",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1145",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2171",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1020",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1217",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2043",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1054",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2109",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2048",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1221",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2117",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1094",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2059",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2105",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1049",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1244",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1144",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2036",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1112",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1210",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1189",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1123",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1115",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1083",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2040",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2092",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1178",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2114",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2193",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1139",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1246",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1244",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1021",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1046",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2094",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1063",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2153",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2001",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1085",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1003",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1222",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1047",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1103",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1047",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1080",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1100",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1048",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2021",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1158",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1208",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2114",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1041",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1011",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2049",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1149",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1246",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1085",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1247",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1068",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1082",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2067",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1059",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1025",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1003",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1165",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2023",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1205",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2062",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2150",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2060",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1051",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2044",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1035",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1088",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-1008",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1023",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1191",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1198",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1031",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1184",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1080",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2163",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1120",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2029",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1169",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2138",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1113",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2136",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2044",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2033",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1036",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2038",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1016",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2181",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1082",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1020",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1070",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1210",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1007",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2180",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1128",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2096",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1086",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2155",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1065",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1225",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1087",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1088",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2168",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1221",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1093",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1022",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1214",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1014",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1123",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1120",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1124",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2032",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2148",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1238",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2019",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1072",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1060",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2188",
+    "first_in_A": "grammatical"
+   }
+  ],
+  [
+   {
+    "id": "lexical_case-1022",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2225",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1197",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1081",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1088",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1067",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2167",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2018",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1023",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1187",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2154",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1237",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1071",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1223",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2072",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2115",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1078",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1166",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2146",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2119",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2091",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2063",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1230",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1167",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1114",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1134",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2056",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2196",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2156",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1070",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1123",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1009",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1017",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1240",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1070",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1141",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2186",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1178",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2209",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1120",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2165",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2001",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1024",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2018",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1122",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1056",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1133",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2004",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1157",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1179",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1079",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1075",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1201",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2074",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1192",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1069",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1016",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2033",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1001",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1240",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1123",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2124",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2061",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2081",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2114",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2099",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2118",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1139",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1209",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1127",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1230",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1197",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2144",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2191",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2029",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1070",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1014",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1028",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1185",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2189",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1034",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2082",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1002",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1187",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1138",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2024",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1045",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2064",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1231",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2164",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2051",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2161",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2061",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1040",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2227",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1173",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2109",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2207",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1010",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2145",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2080",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1025",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1086",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2051",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1005",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1086",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1049",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1151",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1156",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2108",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1010",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1003",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2082",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1118",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1043",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1242",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1099",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2031",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2080",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2065",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2077",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1051",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1227",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1036",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1022",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2071",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2080",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1241",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1171",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1009",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2015",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2190",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2020",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1090",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1034",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1083",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1003",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2069",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2094",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2122",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1247",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2058",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1081",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1225",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1236",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1058",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2115",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1087",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2118",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2121",
+    "first_in_A": "grammatical"
+   }
+  ],
+  [
+   {
+    "id": "stem_alternation-1179",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2020",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1106",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1151",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1216",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1095",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1153",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1097",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1162",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1169",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1010",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2147",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2019",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1169",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2004",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1141",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2045",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2132",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1072",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1113",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2200",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1035",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2147",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1073",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1027",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1069",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1229",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2071",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2133",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2129",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2114",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1101",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1140",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2039",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2058",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2116",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2085",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1157",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1006",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2181",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1202",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1194",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1128",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1227",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1154",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1058",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2116",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2220",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1185",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1219",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1075",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2153",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1060",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1127",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1068",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1049",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2129",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1139",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1100",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2089",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1100",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2126",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1008",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2140",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1175",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2029",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1039",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1175",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1003",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2106",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1164",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1206",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2165",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1196",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1219",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1189",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2007",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1070",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2199",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1249",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1023",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-1059",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2007",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1151",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1024",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1114",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2132",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2126",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2138",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2095",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2007",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1050",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2112",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2143",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2190",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2083",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2198",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1106",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1016",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1127",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2178",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2143",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2001",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1215",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1047",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1129",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1221",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2161",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1044",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2008",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1133",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1234",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1111",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1041",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2095",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2037",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2093",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2019",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1099",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2078",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2009",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1182",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2052",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2102",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2143",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1097",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2083",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1216",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1150",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2097",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2141",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-1027",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1069",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1081",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2164",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1179",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2058",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1245",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1190",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1119",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1233",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1188",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1017",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1108",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1170",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2092",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2047",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1184",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1052",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1194",
+    "first_in_A": "ungrammatical"
+   }
+  ],
+  [
+   {
+    "id": "passives-2057",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1208",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2050",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1024",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1142",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1043",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1167",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1059",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2007",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2111",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2087",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1092",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1100",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1080",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1068",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1242",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2062",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1179",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1155",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1032",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1222",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2183",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2001",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1035",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2157",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1064",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1014",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1112",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2089",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2098",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2094",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2013",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1058",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1048",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1227",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1022",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1173",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2110",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2040",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1182",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1133",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2066",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1159",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2103",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2096",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1028",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1093",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2085",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1169",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2036",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2154",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1100",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1080",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2074",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1095",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1007",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2212",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2049",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2109",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1192",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2113",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1050",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1241",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1041",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2005",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2014",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1181",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1176",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1110",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2036",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2148",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1054",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2130",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2135",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1180",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1089",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1243",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2002",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2052",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2107",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2076",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1030",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1087",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1037",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1150",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2106",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1055",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2099",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1241",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2079",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1086",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1134",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1046",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2137",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1020",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1028",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2125",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2132",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1155",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1073",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1117",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1170",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-1040",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1166",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1122",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-1018",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2028",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2126",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2216",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2085",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2112",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1108",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2178",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1172",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-1060",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2026",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2122",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1078",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1077",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2156",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1194",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1111",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1196",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1005",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1039",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1060",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1161",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1218",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2054",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2040",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1077",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1009",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2067",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1031",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1129",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1090",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2163",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2028",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1181",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1023",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2110",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1066",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1024",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2043",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1198",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2163",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2048",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2016",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1046",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1211",
+    "first_in_A": "grammatical"
+   }
+  ],
+  [
+   {
+    "id": "passives-1072",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1051",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2026",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1075",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1046",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1071",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2054",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2132",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1224",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2163",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1032",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2119",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2028",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1116",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2202",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2087",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1149",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1228",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1076",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2094",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1248",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2086",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1217",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1163",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1007",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1020",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2038",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2203",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1096",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2175",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2031",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2097",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2003",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2106",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1082",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1031",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1141",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1118",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1207",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1010",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2112",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2034",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1065",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1165",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2117",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1092",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2093",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1022",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1172",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2064",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1138",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1098",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2042",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1061",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1168",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1229",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1071",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2002",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1208",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2135",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2011",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1016",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1112",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2008",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2070",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1235",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1008",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1082",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2045",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1207",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1157",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1064",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2053",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2071",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2098",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2100",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1012",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2065",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1111",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1034",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2005",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1181",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2121",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1120",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2027",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1214",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1186",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1033",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2141",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1004",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1003",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1229",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2024",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1113",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-1037",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1223",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1186",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2034",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1056",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2025",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2213",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1095",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1037",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1063",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2104",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2039",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1207",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2166",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1173",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1041",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2047",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2140",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1062",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2079",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1168",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1075",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2035",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1195",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1013",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1136",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2114",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1074",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1134",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1009",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1214",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1061",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1244",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1076",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-1052",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2058",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1074",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1034",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2102",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1058",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1219",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1127",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1003",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1004",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1189",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2091",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1077",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1015",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2075",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2031",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1121",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2165",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1102",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2124",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1112",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2109",
+    "first_in_A": "ungrammatical"
+   }
+  ],
+  [
+   {
+    "id": "dative_allomorphy-1023",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2162",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1012",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1009",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1056",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1168",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2201",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1163",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1201",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2130",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1185",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-1056",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1045",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1197",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2011",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1080",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1132",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2118",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2119",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-1019",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1224",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1021",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1247",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2108",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1045",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1069",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2025",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2173",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1183",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2058",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1164",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2005",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1132",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1001",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1103",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2105",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2188",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2041",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1026",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1191",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1029",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1065",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1136",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1108",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2049",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2073",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1130",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2068",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1090",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1158",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1056",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1147",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1161",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1195",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1004",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2217",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1095",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1177",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-1014",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1100",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2068",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2016",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1178",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1166",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2033",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2127",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2061",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1060",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1097",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1159",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1039",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1242",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1161",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1091",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1122",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2018",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1204",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1072",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2107",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2030",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1005",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2129",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1114",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1182",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1153",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1091",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1205",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2039",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2177",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2038",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2074",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2049",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2037",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1178",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1094",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2111",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1015",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1232",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2053",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2125",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2138",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2090",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1220",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2066",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2067",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1193",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1072",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2115",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1094",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1084",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2136",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1225",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1093",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2218",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1189",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1006",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2100",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-1015",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2021",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2002",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1019",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2008",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1225",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1235",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1166",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1100",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1061",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2053",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2117",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2053",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2194",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1054",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1070",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1040",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1018",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1225",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1001",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2197",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2164",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1230",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1045",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1216",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1024",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1064",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2032",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1071",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2168",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1040",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2138",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1243",
+    "first_in_A": "ungrammatical"
+   }
+  ],
+  [
+   {
+    "id": "binding-2200",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1233",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1091",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1222",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2009",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1187",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1054",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1100",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1148",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1076",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1079",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2006",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2101",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2161",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2120",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1221",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1102",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1005",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2075",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2004",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1199",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1146",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1223",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2141",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2026",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2006",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2158",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1171",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1022",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1002",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2086",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1166",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1164",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2099",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1092",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2072",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1105",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1038",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1056",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1075",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1232",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2159",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1087",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1026",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2071",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2002",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-1011",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1041",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2085",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1176",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1005",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1090",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1006",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1125",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1060",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1079",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2104",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1033",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1133",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1247",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2030",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2017",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1003",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1010",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1162",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2156",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2139",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1165",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2036",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1095",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1037",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1180",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2028",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2138",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1079",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1014",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1130",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2111",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1043",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2100",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1129",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1106",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1144",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1057",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1144",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2123",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1217",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1024",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1116",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1039",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-1020",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1180",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2035",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2102",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1132",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2079",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1153",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1142",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2095",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1007",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2088",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2088",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2107",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1170",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1186",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2111",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2188",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2158",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1156",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1038",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1150",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1125",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2123",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2069",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1106",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1017",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1146",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2061",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2038",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1012",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2079",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1186",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2107",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1051",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2105",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2025",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2091",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1011",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2147",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2082",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2103",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2185",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1082",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2118",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1028",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2165",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2066",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1058",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2009",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1213",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1077",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2010",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1215",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2192",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2161",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2204",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2052",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2170",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1144",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2169",
+    "first_in_A": "grammatical"
+   }
+  ],
+  [
+   {
+    "id": "anaphor_agreement-2051",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2149",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1241",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1058",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-1042",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2046",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1213",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1193",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2018",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2117",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2143",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1111",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1131",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2100",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2014",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1240",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1062",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2115",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2126",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2092",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2217",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2072",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2001",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1109",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1077",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1167",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2213",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2166",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-1057",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2151",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2136",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1088",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1111",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2098",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1073",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2127",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2105",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1219",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2137",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2195",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1033",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2090",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1181",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2059",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1065",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1203",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1250",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2078",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2003",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2166",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2001",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2110",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-1019",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2176",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1126",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2081",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2034",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1088",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2024",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1087",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1095",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2056",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1148",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2127",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2111",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1248",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1007",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2141",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1027",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1081",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2108",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2148",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1099",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1001",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2160",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1028",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1199",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1086",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2197",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1157",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1084",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1123",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1014",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1098",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1210",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2006",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1188",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1008",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1009",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2035",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2040",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1034",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-1002",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1162",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1147",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2086",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1005",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1104",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1022",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2216",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1250",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1037",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1135",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1101",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2093",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1032",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1161",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1215",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1069",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1101",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1211",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1096",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2098",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1055",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1248",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1013",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1137",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2050",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2015",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1245",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1177",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1150",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1137",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1231",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1224",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2050",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2113",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1002",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2064",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2057",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1203",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1180",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2204",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2014",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-2113",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1068",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "lexical_case-1030",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1035",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1037",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2102",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1226",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1001",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "npi_hech-1110",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1027",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1182",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-2133",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1029",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1129",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2043",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2032",
+    "first_in_A": "ungrammatical"
+   }
+  ],
+  [
+   {
+    "id": "stem_alternation-1154",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2122",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1011",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2117",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1244",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2208",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1160",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1179",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1073",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2203",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1001",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2108",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2016",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "stem_alternation-1238",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-2087",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2017",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1247",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1191",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2083",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1131",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1099",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2010",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1015",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1017",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2205",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2061",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2048",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1204",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2019",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2009",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1027",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2098",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1008",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1026",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2152",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1131",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1218",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2152",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1117",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1213",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-1027",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1055",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2057",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1079",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1067",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2008",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2054",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2017",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1145",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1021",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1067",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1179",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1103",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1053",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2057",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1006",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1012",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1077",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1007",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1231",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "stem_alternation-1107",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2200",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2004",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2084",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2151",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1188",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-2059",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1178",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1026",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1156",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1107",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2002",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2083",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1063",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1150",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1101",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1230",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1037",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2179",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1188",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1063",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2164",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1031",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1016",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1144",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1029",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "lexical_case-1042",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "binding-2030",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1083",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2179",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1145",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1002",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1010",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1004",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2099",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2028",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1184",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1063",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1159",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1138",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1026",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2077",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "postposition_case-1220",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "dative_allomorphy-1068",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1086",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1078",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "quantifiers-2111",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1008",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1034",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "relative_clauses-1042",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "anaphor_agreement-2140",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2010",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2174",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1079",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "nominalization-2088",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2001",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1104",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1075",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-2051",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "passives-1062",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-1100",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "possessive_agreement-1239",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-1043",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1038",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "passives-1091",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "suspended_affixation-1008",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "relative_clauses-2038",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "npi_hech-1071",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "person_agreement-2174",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1152",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2211",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "numeral_no_plural-1063",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2063",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "nominalization-2121",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2090",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "ditransitive_dative-1066",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "anaphor_agreement-2228",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1028",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "numeral_no_plural-1046",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1161",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "possessive_agreement-1186",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1013",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "quantifiers-1004",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "dative_allomorphy-1082",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "suspended_affixation-1072",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "ditransitive_dative-2056",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1117",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "postposition_case-1122",
+    "first_in_A": "ungrammatical"
+   },
+   {
+    "id": "person_agreement-2144",
+    "first_in_A": "grammatical"
+   },
+   {
+    "id": "binding-2182",
+    "first_in_A": "grammatical"
+   }
+  ]
+ ]
+}

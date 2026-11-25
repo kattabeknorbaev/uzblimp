@@ -749,6 +749,144 @@ def pilot_table():
     return "\n".join(lines)
 
 
+CLAUDE = [("fable", "Fable 5.2", "claude-fable-5-2"), ("opus", "Opus 5.5", "claude-opus-5-5"),
+          ("sonnet", "Sonnet 5.5", "claude-sonnet-5-5"), ("haiku", "Haiku 5.5", "claude-haiku-5-5")]
+FC_ALPHABETS = [("latn", "Latin"), ("cyrl", "Cyrillic"), ("latn_reformed", "Reformed")]
+
+
+def claude_block(bench, judg):
+    """Forced choice with four Claude models on all pairs (scripts/claude_fc.py, results/claude_fc/): two appendix
+    tables and the numbers of the text. A pair's accuracy averages its two orders; it is consistent when both are
+    right. None if the runs are not complete."""
+    d = ROOT / "results" / "claude_fc"
+    runs = {}
+    for alias, _, _ in CLAUDE:
+        for a, A in FC_ALPHABETS:
+            f = d / f"{alias}_{a}.csv"
+            if not f.exists():
+                return None
+            df = pd.read_csv(f).set_index("id")
+            assert len(df) == len(bench) and df.accuracy.notna().all(), f"{f.name}: a pair lacks an answer in one order"
+            runs[(alias, A)] = df
+    # Every request was answered by the model named and used no tool except the one that returns the answers.
+    audit = json.loads((d / "audit.json").read_text(encoding="utf-8"))
+    served = {alias: s for alias, _, s in CLAUDE}
+    agents = [ag for wf in audit.values() for ag in wf]
+    for ag in agents:
+        assert ag["served"] == [served[ag["label"].split()[0]]], f"{ag['label']} was answered by {ag['served']}"
+        assert set(ag["tools"]) <= {"StructuredOutput"}, f"{ag['label']} used {ag['tools']}"
+    num("fc@audited", len(agents), 0)
+    raw = [r for f in sorted((d / "raw").glob("*.json")) for r in json.loads(f.read_text(encoding="utf-8"))["results"]]
+    requests, retried = len(raw), sum(r["attempts"] > 1 for r in raw)
+    assert requests == 2 * len(runs) * len(bench) // 150 and all(r["answers"] for r in raw)
+    assert retried == 0, "Appendix I says every request was answered at the first attempt: revise it"
+    num("fc@requests", requests, 0)
+    num("fc@retried", retried, 0)
+    num("fc@judgments", 2 * sum(len(df) for df in runs.values()), 0)
+
+    def pct(s):
+        return 100 * s.astype(float).mean() + 1e-9
+
+    cons = {k: df.consistent.astype(str).eq("True") for k, df in runs.items()}
+    num("fc@perrun", 2 * len(bench), 0)
+    # The four trial requests (batch 1, pass A, current Latin) repeat a request of the full runs: how many answers agree.
+    same = []
+    for alias, _, _ in CLAUDE:
+        trial = json.loads((d / "trial" / f"{alias}_latn_batch1A.json").read_text(encoding="utf-8"))["results"][0]
+        full = json.loads((d / "raw" / f"{alias}_latn.json").read_text(encoding="utf-8"))["results"]
+        full = next(r for r in full if r["pass"] == "A" and r["batch"] == trial["batch"] == 0)
+        same.append(sum(a == b for a, b in zip(trial["answers"], full["answers"])))
+        num(f"fc@{alias}@retest", same[-1], 0)
+    num("fc@retest@min", min(same), 0)
+    num("fc@retest@max", max(same), 0)
+    num("fc@retest@n", len(trial["answers"]), 0)
+    for (alias, A), df in runs.items():
+        num(f"fc@{alias}@{A}@wrong", int((~df.correct_gb.astype(str).eq("True")).sum() + (~df.correct_bg.astype(str).eq("True")).sum()), 0)
+        num(f"fc@{alias}@{A}@acc", pct(df.accuracy))
+        num(f"fc@{alias}@{A}@cons", pct(cons[(alias, A)]))
+        num(f"fc@{alias}@{A}@gb", pct(df.correct_gb.astype(str).eq("True")))
+        num(f"fc@{alias}@{A}@bg", pct(df.correct_bg.astype(str).eq("True")))
+    for _, A in FC_ALPHABETS:
+        vals = [100 * runs[(alias, A)].accuracy.mean() for alias, _, _ in CLAUDE]
+        num(f"fc@{A}@min", min(vals) + 1e-9)
+        num(f"fc@{A}@max", max(vals) + 1e-9)
+    drops = [100 * (runs[(alias, "Latin")].accuracy.mean() - runs[(alias, A)].accuracy.mean())
+             for alias, _, _ in CLAUDE for A in ("Cyrillic", "Reformed")]
+    num("fc@drop@max", max(max(drops), 0) + 1e-9)
+    # Appendix I says that Fable makes no error, Opus none outside reformed Latin, and that the repeated request of
+    # Fable, Opus and Sonnet gave the same answers throughout; stop if the data say otherwise.
+    wrong = {k: int((~df.correct_gb.astype(str).eq("True")).sum() + (~df.correct_bg.astype(str).eq("True")).sum())
+             for k, df in runs.items()}
+    assert all(wrong[("fable", A)] == 0 for _, A in FC_ALPHABETS) and wrong[("opus", "Latin")] == wrong[("opus", "Cyrillic")] == 0, \
+        "revise the text on Fable and Opus in Appendix I"
+    assert all(NUM[f"fc@{a}@retest"] == NUM["fc@retest@n"] for a in ("fable", "opus", "sonnet")), "revise the retest sentence"
+    # The text names the three phenomena with most of Haiku's errors in current Latin; stop if the data say otherwise.
+    h = runs[("haiku", "Latin")]
+    err = (2 - 2 * h.accuracy).groupby(h.phenomenon).sum().sort_values(ascending=False)
+    assert set(err.index[:3]) == {"dative_allomorphy", "passives", "stem_alternation"} and err.iloc[:3].sum() > err.sum() / 2, \
+        "revise the text on Haiku's errors in Appendix I"
+    num("fc@bias@max", max(abs(100 * (df.correct_gb.astype(str).eq("True").mean() - df.correct_bg.astype(str).eq("True").mean()))
+                           for df in runs.values()))
+    # Changes of alphabet, on the same pairs (a pair counts as right when both orders are), Holm over all comparisons.
+    tests = []
+    for alias, _, _ in CLAUDE:
+        for A in ("Cyrillic", "Reformed"):
+            diff, lo, hi, p, n, n10, n01 = paired(cons[(alias, "Latin")], cons[(alias, A)])
+            tests.append((alias, A, diff, p))
+            num(f"fc@{alias}@{A}@drop", 100 * (runs[(alias, "Latin")].accuracy.mean() - runs[(alias, A)].accuracy.mean()))
+    for (alias, A, diff, _), p in zip(tests, holm([t[3] for t in tests])):
+        NUM[f"fc@{alias}@{A}@p"] = pval(p)
+    for g, key in (("critical word: grammatical only", "gr"), ("critical word: both", "both")):
+        ids = bench.index[bench.reform_group == g]
+        for alias, _, _ in CLAUDE:
+            num(f"fc@{alias}@{key}@cur", pct(runs[(alias, "Latin")].accuracy.loc[ids]))
+            num(f"fc@{alias}@{key}@ref", pct(runs[(alias, "Reformed")].accuracy.loc[ids]))
+    if judg is not None:
+        for alias, _, _ in CLAUDE:
+            num(f"fc@{alias}@hum", pct(runs[(alias, "Latin")].accuracy.loc[judg.index]))
+
+    def cell(v):
+        return f"{v:.1f}"
+
+    lines = [r"\begin{table}[t]", r"\centering\small", r"\setlength{\tabcolsep}{4pt}", r"\begin{tabular}{@{}lrrrrrr@{}}",
+             r"\toprule",
+             r" & \multicolumn{2}{c}{Latin} & \multicolumn{2}{c}{Cyrillic} & \multicolumn{2}{c}{Reformed} \\",
+             r"\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(l){6-7}",
+             r"Model & Acc. & Cons. & Acc. & Cons. & Acc. & Cons. \\", r"\midrule"]
+    for alias, name, _ in CLAUDE:
+        cells = []
+        for _, A in FC_ALPHABETS:
+            cells += [cell(pct(runs[(alias, A)].accuracy)), cell(pct(cons[(alias, A)]))]
+        lines.append(f"{name} & " + " & ".join(cells) + r" \\")
+    lines += [r"\bottomrule", r"\end{tabular}",
+              rf"\caption{{Forced choice with four Claude models on all {len(bench):,} pairs".replace(",", "{,}") +
+              r", each shown in both orders (Appendix~\ref{app:claude}). \emph{Acc.}: accuracy (\%) over both orders; "
+              r"\emph{Cons.}: pairs answered correctly in both orders (\%). Claude models helped build and audit the "
+              r"benchmark, so these scores are not independent of it.}", r"\label{tab:claude}", r"\end{table}"]
+    claude = "\n".join(lines)
+
+    phen = sorted(bench.phenomenon.unique(), key=lambda ph: [p[0] for p in PHENOMENA].index(ph))
+    lines = [r"\begin{table*}[t]", r"\centering\small", r"\setlength{\tabcolsep}{3.5pt}",
+             r"\begin{tabular}{@{}l" + "rrrr" * 3 + r"@{}}", r"\toprule",
+             r" & \multicolumn{4}{c}{Current Latin} & \multicolumn{4}{c}{Cyrillic} & \multicolumn{4}{c}{Reformed Latin} \\",
+             r"\cmidrule(lr){2-5}\cmidrule(lr){6-9}\cmidrule(l){10-13}",
+             "Phenomenon & " + " & ".join(n.split()[0] for _, n, _ in CLAUDE * 3) + r" \\", r"\midrule"]
+    for ph in phen:
+        cells = []
+        for _, A in FC_ALPHABETS:
+            for alias, _, _ in CLAUDE:
+                v = pct(runs[(alias, A)].accuracy[runs[(alias, A)].phenomenon == ph])
+                cells.append((r"\cellcolor{gray!25}" if v < 50 else "") + cell(v))
+        lines.append(f"{NAME[ph]} & " + " & ".join(cells) + r" \\")
+    lines += [r"\midrule", "All & " + " & ".join(cell(pct(runs[(alias, A)].accuracy)) for _, A in FC_ALPHABETS
+                                                  for alias, _, _ in CLAUDE) + r" \\",
+              r"\bottomrule", r"\end{tabular}",
+              r"\caption{Forced choice with four Claude models (Fable 5.2, Opus 5.5, Sonnet 5.5, Haiku 5.5): accuracy (\%) "
+              r"per phenomenon over both orders of every pair. Cells below chance are shaded.}", r"\label{tab:claudephen}",
+              r"\end{table*}"]
+    return claude, "\n".join(lines)
+
+
 def misc_numbers(bench, runs, generated, reviewed, accepted):
     num("n@pairs", len(bench), 0)
     num("n@generated", sum(generated.values()), 0)
@@ -952,6 +1090,9 @@ def main():
     if gpu_runs:
         tables["large"] = gpu_block(gpu_runs, runs, bench)
     judg, ann = human_judgments()
+    fc = claude_block(bench, judg)
+    if fc:
+        tables["claude"], tables["claudephen"] = fc
     if judg is not None:
         human_numbers(judg, ann, runs, bench)
         main_models = [m for m in MODELS if m["key"] not in SMALL and m["trained"] != "multi"]

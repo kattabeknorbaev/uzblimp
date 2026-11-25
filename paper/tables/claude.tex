@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+ & \multicolumn{2}{c}{Latin} & \multicolumn{2}{c}{Cyrillic} & \multicolumn{2}{c}{Reformed} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(l){6-7}
+Model & Acc. & Cons. & Acc. & Cons. & Acc. & Cons. \\
+\midrule
+Fable 5.2 & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 \\
+Opus 5.5 & 100.0 & 100.0 & 100.0 & 100.0 & 99.9 & 99.9 \\
+Sonnet 5.5 & 99.0 & 98.0 & 99.2 & 98.5 & 98.6 & 97.3 \\
+Haiku 5.5 & 96.7 & 93.7 & 96.5 & 93.1 & 97.4 & 95.1 \\
+\bottomrule
+\end{tabular}
+\caption{Forced choice with four Claude models on all 2{,}400 pairs, each shown in both orders (Appendix~\ref{app:claude}). \emph{Acc.}: accuracy (\%) over both orders; \emph{Cons.}: pairs answered correctly in both orders (\%). Claude models helped build and audit the benchmark, so these scores are not independent of it.}
+\label{tab:claude}
+\end{table}

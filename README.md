@@ -124,7 +124,7 @@ python scripts/make_table.py
 
 Accuracy (%) on all 2,400 pairs. **logprob**: causal LM log-probability; **pll**: masked-LM pseudo-log-likelihood; **forced-choice**: chat model picks the sentence. GF-L / GF-C are the Goldfish models trained on Latin-script / Cyrillic-script Uzbek. Only models with no unknown tokens on the new letters are run on reformed Latin (`notes/decisions.md`, decision 8), and not models trained on Cyrillic only. Per phenomenon: [`results/per_phenomenon.md`](results/per_phenomenon.md); what changed since v1.1: [`results/eval_v1.2.md`](results/eval_v1.2.md).
 
-In short: the strongest monolingual models (TahrirchiBERT and the Goldfish models trained on 100 MB or more) score about 95–99% in the script they were trained on, Latin or Cyrillic alike, and every model trained on one script loses 5 to 48 points when the same sentences are written in the other script; there, and on the reformed spelling, their choices follow token counts and familiar spellings instead of grammar. UzRoBERTa, trained on both scripts, scores 93–96% on both. Small multilingual models know much less of this grammar (XLM-R 78% on Latin, 51% on Cyrillic), but the larger ones, scored on GPUs (`results/gpu_runs/`), know most of it in both scripts (Gemma 4 31B: 97.3% Latin, 98.1% Cyrillic) and still lose 6.8 to 16.5 points on reformed Latin. Tomaris.ai is the model of the authors' company; its pretraining corpus contains 99% of the grammatical sentences from our own corpus, so its scores are not held out (paper, Appendix H).
+In short: the strongest monolingual models (TahrirchiBERT and the Goldfish models trained on 100 MB or more) score about 95–99% in the script they were trained on, Latin or Cyrillic alike, and every model trained on one script loses 5 to 48 points when the same sentences are written in the other script; there, and on the reformed spelling, their choices follow token counts and familiar spellings instead of grammar. UzRoBERTa, trained on both scripts, scores 93–96% on both. Small multilingual models know much less of this grammar (XLM-R 78% on Latin, 51% on Cyrillic), but the larger ones, scored on GPUs (`results/gpu_runs/`), know most of it in both scripts (Gemma 4 31B: 97.3% Latin, 98.1% Cyrillic) and still lose 6.8 to 16.5 points on reformed Latin. Tomaris.ai is the model of the authors' company; its pretraining corpus contains 99% of the grammatical sentences from our own corpus, so its scores are not held out (paper, Appendix H). Prompted to choose, four Claude models get 96.5–100% in all three alphabets, reformed Latin included, but a Claude model helped audit the benchmark, so their scores are not independent (below).
 
 <!-- results:start -->
 | Model | Method | Current Latin | Cyrillic | Reformed Latin |
@@ -163,6 +163,23 @@ In short: the strongest monolingual models (TahrirchiBERT and the Goldfish model
 | Tomaris.ai (not held out) (`tomaris/Tomaris.ai`) | logprob | 98.7 | 92.6 | 92.8 |
 <!-- results:end -->
 
+### Claude models (forced choice)
+
+Four Claude models chose the grammatical sentence of every pair, shown in both orders, in each alphabet; they ran as
+Claude Code subagents in requests of 150 pairs ([`results/claude_fc/`](results/claude_fc/), paper Appendix I).
+Accuracy (%) over both orders, in parentheses the pairs answered correctly in both. Claude models helped build and
+audit the benchmark, so these scores are not independent of it, and a prompted choice is not comparable with the
+likelihood scores above. Seven chat models were also run on a 48-pair pilot (paper, Table 17).
+
+<!-- claude:start -->
+| Model | Current Latin | Cyrillic | Reformed Latin |
+|---|---:|---:|---:|
+| Claude Fable 5.2 | 100.0 (100.0) | 100.0 (100.0) | 100.0 (100.0) |
+| Claude Opus 5.5 | 100.0 (100.0) | 100.0 (100.0) | 99.9 (99.9) |
+| Claude Sonnet 5.5 | 99.0 (98.0) | 99.2 (98.5) | 98.6 (97.3) |
+| Claude Haiku 5.5 | 96.7 (93.7) | 96.5 (93.1) | 97.4 (95.1) |
+<!-- claude:end -->
+
 ## How the pairs were made and checked
 
 - **Sources.** 960 pairs come from Javohir Matniyozov's rule-based pairs over `tahrirchi/uz-books-v2` (`data/external/`, generator in `scripts/jm_generator/`) and 1,440 from Kattabek Norbaev's generator (`scripts/make_pairs.py`) over books (934), Uzbek Wikipedia (496) and legal codes (10).
@@ -185,7 +202,7 @@ In short: the strongest monolingual models (TahrirchiBERT and the Goldfish model
 | `handcheck/` | review sheets |
 | `human_study/` | sheets, instructions and keys of the human validation; released counts of the forced-choice study (individual sheets are private) |
 | `scripts/` | generators, validators, scoring and tables: `models.py` lists the evaluated models, `run_models.py` scores them, `paper_tables.py` and `paper_figures.py` build every table, number and figure of the paper |
-| `results/` | per-pair scores, `results/json/` summaries, `per_phenomenon.md` |
+| `results/` | per-pair scores, `results/json/` summaries, `per_phenomenon.md`; `gpu_runs/` (larger models), `claude_fc/` (Claude models, forced choice) |
 | `notes/` | design decisions, phenomena table, reading notes |
 | `paper/` | paper (ACL format): `main.tex`, generated `tables/` and `figures/`, compiled `uzblimp.pdf` |
 | `log.md` | research log: date – task – result – next step |
@@ -194,7 +211,7 @@ In short: the strongest monolingual models (TahrirchiBERT and the Goldfish model
 
 - **Converted alphabets.** The Cyrillic and reformed versions are converted from Latin, not written natively. Russian loanwords can't all be recovered by rule: those found in the benchmark are corrected from a table, and suffixed forms of loans ending in ь (медални, моделлари) are left as converted. The 2026 law gives an alphabet and no spelling rules, so only its four letter replacements are applied.
 - **Review.** Judgments come from one native speaker, checked with three others. The independent validation covers 320 pairs (13%) as forced choice, without acceptability ratings, and the answer key of that sample was in this public repository while the study ran.
-- **Models.** We scored models of up to 1.5 billion parameters on a CPU. The 14 larger ones were scored on rented GPUs by an AI agent on behalf of the second author, with the same scorer (a local change only loaded the weights; Llama 3.1 8B from an ungated copy), partly in bfloat16 and four of them post-trained checkpoints; we re-scored samples of the two smallest on CPU (`results/gpu_runs/CHECKS.md`). Chat models are covered only by a 48-pair pilot.
+- **Models.** We scored models of up to 1.5 billion parameters on a CPU. The 14 larger ones were scored on rented GPUs by an AI agent on behalf of the second author, with the same scorer (a local change only loaded the weights; Llama 3.1 8B from an ungated copy), partly in bfloat16 and four of them post-trained checkpoints; we re-scored samples of the two smallest on CPU (`results/gpu_runs/CHECKS.md`). Chat models are covered only by four Claude models, which are not independent of the benchmark (`results/claude_fc/`), and by a 48-pair pilot.
 - **Size.** With 150 pairs, the 95% interval of a per-phenomenon accuracy is at most ±8 points.
 
 ## License
