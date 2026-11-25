@@ -24,8 +24,11 @@ models in the paper.
   instructions for all three alphabets. Answers were returned as a list of (item, 1 or 2) through Claude Code's
   structured output; a request whose list was incomplete or repeated an item would have been sent again (none was).
 - **Settings.** Reasoning effort low for every model, as in the pilot; sampling settings cannot be set in Claude
-  Code. Each subagent also saw Claude Code's own system prompt and the harness's relay of the instruction that
-  started the run (the request to evaluate the models on all pairs); neither contains any pair or answer.
+  Code. Each subagent also saw Claude Code's own system prompt, which offers its tools, file access to this
+  repository (and so to the answer key) included; the harness's relay of the instruction that started the run (the
+  request to evaluate the models on all pairs); and a short note of the harness before the prompt, which it
+  indented line by line. None of these contains a pair or an answer, and the audit below shows that no request
+  used the tools.
 - **Audit.** `audit.json` lists, for every request including the four trial requests, the alias, the model named in
   the transcript and the tools it called. Every request was answered by the model named above and called no tool
   except the one that returns the structured answer.
@@ -41,7 +44,8 @@ models in the paper.
 
 ## Caveat
 
-Claude models helped build and audit the benchmark (paper, Section 3 and Ethics statement): an AI-assisted pass read
-the selected pairs and flagged ungrammatical members with a grammatical reading, and pairs whose error we confirmed
-were replaced. The benchmark is therefore partly filtered by a Claude model's judgments, and these scores are not
+Claude models helped build and audit the benchmark (paper, Section 4.2, paragraph "Audit", and the Ethics
+statement): both passes of the audit of the selected pairs (generator errors, such as ungrammatical members with a
+grammatical reading, and spelling and OCR errors in every grammatical sentence) and the audit of the Cyrillic
+conversion were run with Claude, and the errors we confirmed were corrected or their pairs replaced. The benchmark is therefore partly filtered by a Claude model's judgments, and these scores are not
 independent evidence of the models' knowledge of Uzbek or of the benchmark's validity.

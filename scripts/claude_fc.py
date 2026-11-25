@@ -218,8 +218,6 @@ def audit(dirs):
 def collect(res):
     plan = load_plan()
     model, alphabet = res["model"], res["alphabet"]
-    (OUT / "raw").mkdir(parents=True, exist_ok=True)
-    (OUT / "raw" / f"{model}_{alphabet}.json").write_text(json.dumps(res, indent=1), encoding="utf-8")
     d = bench(alphabet).set_index("id")
     got = {(r["pass"], r["batch"]): r for r in res["results"]}
     rows = []
@@ -247,7 +245,9 @@ def collect(res):
     df = df.set_index("id").loc[bench(alphabet).id].reset_index()  # benchmark order
     df = df[["id", "phenomenon", "good", "bad", "batch", "item", "answer_gb", "correct_gb", "attempts_gb", "answer_bg",
              "correct_bg", "attempts_bg", "accuracy", "consistent", "model", "alphabet", "effort"]]
-    OUT.mkdir(parents=True, exist_ok=True)
+    # Written only after every request has been checked, so that a rejected result changes nothing.
+    (OUT / "raw").mkdir(parents=True, exist_ok=True)
+    (OUT / "raw" / f"{model}_{alphabet}.json").write_text(json.dumps(res, indent=1), encoding="utf-8")
     f = OUT / f"{model}_{alphabet}.csv"
     df.to_csv(f, index=False, encoding="utf-8")
     print(f"{f.name}: {both.sum()} of {len(df)} pairs answered in both orders; accuracy {100 * df.accuracy.mean():.1f}, "

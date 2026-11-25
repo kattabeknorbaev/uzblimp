@@ -15,9 +15,11 @@ in the form of the current cycle: it changes from time to time.
 ## B. Scientific artifacts (used or created)
 
 - **B1 Citing the creators of artifacts used.** Yes: Sections 2 and 5, Table 8 (models with Hugging Face
-  identifiers), Appendix H (software and versions).
-- **B2 Licences.** Yes: *Ethics Statement* (data CC BY-SA 4.0, code MIT; evaluated models Apache 2.0 or MIT,
-  Table 8; UzBooks labelled MIT on its Hugging Face page; Wikipedia CC BY-SA). The books of our own corpus are copies publicly available on the
+  identifiers), Appendix J (software and versions; the GPU runs in Appendix H, the Claude runs in Appendix I).
+- **B2 Licences.** Yes: *Ethics Statement* (data CC BY-SA 4.0, code MIT; the open models scored by likelihood
+  Apache 2.0, MIT or Llama 3.1 Community, Tomaris.ai none, Table 8; the pilot's chat models and the Claude models
+  of Appendix I are proprietary and were used through the OpenRouter API and Claude Code under their providers'
+  terms; UzBooks labelled MIT on its Hugging Face page; Wikipedia CC BY-SA). The books of our own corpus are copies publicly available on the
   internet whose licence terms are not documented; the paper says so and offers removal on request.
 - **B3 Use consistent with intended use.** Yes: *Ethics Statement* (models and corpora used only to compute
   sentence scores for research; the benchmark is intended for research on language models).
@@ -31,14 +33,17 @@ in the form of the current cycle: it changes from time to time.
 
 ## C. Computational experiments
 
-- **C1 Parameters, compute budget, infrastructure.** Yes: Table 8 (parameters); Appendix H (CPU only, 32-bit
-  precision, time per run: minutes for a Goldfish run, ten minutes to three hours for a masked model).
+- **C1 Parameters, compute budget, infrastructure.** Yes: Table 8 (parameters); Appendix J (CPU only, 32-bit
+  precision, time per run: minutes for a Goldfish run, ten minutes to three hours for a masked model); Appendix H
+  (GPU runs of the larger models); Appendix I (Claude runs: Claude Code 2.1.332 subagents, 384 requests of 150
+  pairs).
 - **C2 Experimental setup and hyperparameters.** Yes: Section 5 (scoring by summed log-probability or
   pseudo-log-likelihood); no model was trained or fine-tuned, so there are no hyperparameters to search.
 - **C3 Descriptive statistics.** Yes: Section 5 (Wilson intervals, exact McNemar tests with Holm correction,
   bootstrap intervals). Scoring involves no sampling and no training, so there is one score per pair and model
-  (Section 5, Appendix H); say so in the form.
-- **C4 Existing packages.** Yes: Appendix H (Python 3.13, PyTorch 2.12.0, Transformers 5.3.0, minicons 0.3.39,
+  (Section 5, Appendix J); say so in the form. The Claude runs (Appendix I) are single runs whose sampling settings
+  cannot be set; a repeated request gave the same 150 answers for Fable, Opus and Sonnet and 145 for Haiku.
+- **C4 Existing packages.** Yes: Appendix J (Python 3.13, PyTorch 2.12.0, Transformers 5.3.0, minicons 0.3.39,
   TurkicNLP 0.4.0, pandas 3.0.3, matplotlib 3.11.2).
 
 ## D. Human annotators or participants
@@ -59,4 +64,5 @@ in the form of the current cycle: it changes from time to time.
 - **E1 Use of AI assistants.** Yes: *Ethics Statement*, second paragraph (candidate phenomena, code, review
   import, model evaluation, audits, human-study materials and transcription, glosses and drafting of the paper;
   the authors reviewed everything and take responsibility). The pilot with chat models (Appendix G) notes that
-  Claude models were used to build and audit the benchmark.
+  Claude models were used to build and audit the benchmark, and Appendix I, which evaluates four Claude models on
+  all pairs, states that their scores are therefore not independent of it.

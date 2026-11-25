@@ -18,7 +18,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).parent))
-from analysis import PHENOMENA, SLUGS, benchmark, changed_words, holm, paired, read_tsv, wilson  # noqa: E402
+from analysis import PHENOMENA, SLUGS, benchmark, changed_words, holm, mcnemar_exact, paired, read_tsv, wilson  # noqa: E402
 from models import ALPHABETS, MODELS, VERSION, load_runs  # noqa: E402
 from models import label as model_label  # noqa: E402
 
@@ -50,7 +50,7 @@ def num(key, value, digits=1):
     if not isinstance(value, str):
         value = f"{value:,.0f}" if digits == 0 else f"{value:.{digits}f}"
         if value.startswith("-"):
-            value = value[1:] if float(value.replace(",", "")) == 0 else "$-$" + value[1:]
+            value = value[1:] if float(value.replace(",", "")) == 0 else r"\ensuremath{-}" + value[1:]
     NUM[key] = value
 
 
@@ -725,15 +725,15 @@ def pilot_table():
     # The pilot ran on benchmark v1.1: count its pairs that v1.2 no longer contains unchanged.
     cur = pd.read_csv(ROOT / "data" / "benchmark" / "uzblimp.tsv", sep="\t", dtype=str)
     cur = set(zip(cur["id"], cur["grammatical"], cur["ungrammatical"]))
-    rows, gone = [], set()
-    for f in glob.glob(str(ROOT / "results" / "api_*_pilot3.csv")):
+    rows, pairs = [], set()
+    for f in sorted(glob.glob(str(ROOT / "results" / "api_*_pilot3.csv"))):
         d = pd.read_csv(f)
         key = Path(f).name[len("api_"):].split("_uzblimp")[0]
         rows.append((names.get(key, key), 100 * d.accuracy.mean(), 100 * d.consistent.astype(str).eq("True").mean(), len(d)))
-        gone.add(sum((i, g, b) not in cur for i, g, b in zip(d["id"], d["good"], d["bad"])))
-    assert len(gone) <= 1, "the pilot files should share the same pairs"
-    replaced = gone.pop() if gone else 0
-    rows.sort(key=lambda r: -r[1])
+        pairs.add(frozenset(zip(d["id"], d["good"], d["bad"])))
+    assert len(pairs) == 1, "the pilot files should exist and share the same pairs"
+    replaced = len(next(iter(pairs)) - cur)
+    rows.sort(key=lambda r: (-r[1], r[0]))
     lines = [r"\begin{table}[t]", r"\centering\small", r"\begin{tabular}{@{}lrr@{}}", r"\toprule",
              r"Model & Accuracy & Consistent \\", r"\midrule"]
     for name, a, c, n in rows:
@@ -745,7 +745,8 @@ def pilot_table():
               r"\caption{Forced-choice pilot with chat models on 48 pairs of benchmark v1.1 in current Latin (three per "
               rf"phenomenon; {replaced} of them were later replaced). Each pair "
               r"is shown in both orders; \emph{Accuracy} counts both orders, \emph{Consistent} the pairs answered correctly in "
-              r"both.}", r"\label{tab:pilot}", r"\end{table}"]
+              r"both. Claude models helped build and audit the benchmark, so the score of Claude Sonnet 5.5 is not "
+              r"independent of it.}", r"\label{tab:pilot}", r"\end{table}"]
     return "\n".join(lines)
 
 
@@ -772,10 +773,27 @@ def claude_block(bench, judg):
     audit = json.loads((d / "audit.json").read_text(encoding="utf-8"))
     served = {alias: s for alias, _, s in CLAUDE}
     agents = [ag for wf in audit.values() for ag in wf]
+    expected = Counter()
+    for f in sorted((d / "raw").glob("*.json")) + sorted((d / "trial").glob("*.json")):
+        res = json.loads(f.read_text(encoding="utf-8"))
+        for r in res["results"]:
+            for k in range(1, r["attempts"] + 1):
+                expected[f"{res['model']} {res['alphabet']} {r['pass']}{r['batch'] + 1} #{k}"] += 1
+    assert Counter(ag["label"] for ag in agents) == expected, \
+        "audit.json must cover exactly the requests of raw/ and trial/ (run claude_fc.py audit on their workflows)"
     for ag in agents:
         assert ag["served"] == [served[ag["label"].split()[0]]], f"{ag['label']} was answered by {ag['served']}"
         assert set(ag["tools"]) <= {"StructuredOutput"}, f"{ag['label']} used {ag['tools']}"
     num("fc@audited", len(agents), 0)
+    plan = json.loads((d / "plan_v1.2.json").read_text(encoding="utf-8"))
+    names = dict(FC_ALPHABETS)
+    for f in sorted((d / "raw").glob("*.json")):
+        res = json.loads(f.read_text(encoding="utf-8"))
+        df = runs[(res["model"], names[res["alphabet"]])]
+        for r in res["results"]:
+            for i, it in enumerate(plan["batches"][r["batch"]]):
+                order = "gb" if (it["first_in_A"] == "grammatical") == (r["pass"] == "A") else "bg"
+                assert int(r["answers"][i]) == int(df.at[it["id"], f"answer_{order}"]), f"{f.name}: raw/ and the CSV disagree"
     raw = [r for f in sorted((d / "raw").glob("*.json")) for r in json.loads(f.read_text(encoding="utf-8"))["results"]]
     requests, retried = len(raw), sum(r["attempts"] > 1 for r in raw)
     assert requests == 2 * len(runs) * len(bench) // 150 and all(r["answers"] for r in raw)
@@ -810,6 +828,9 @@ def claude_block(bench, judg):
         vals = [100 * runs[(alias, A)].accuracy.mean() for alias, _, _ in CLAUDE]
         num(f"fc@{A}@min", min(vals) + 1e-9)
         num(f"fc@{A}@max", max(vals) + 1e-9)
+    every = [100 * df.accuracy.mean() for df in runs.values()]
+    num("fc@all@min", min(every) + 1e-9)
+    num("fc@all@max", max(every) + 1e-9)
     drops = [100 * (runs[(alias, "Latin")].accuracy.mean() - runs[(alias, A)].accuracy.mean())
              for alias, _, _ in CLAUDE for A in ("Cyrillic", "Reformed")]
     num("fc@drop@max", max(max(drops), 0) + 1e-9)
@@ -827,14 +848,15 @@ def claude_block(bench, judg):
         "revise the text on Haiku's errors in Appendix I"
     num("fc@bias@max", max(abs(100 * (df.correct_gb.astype(str).eq("True").mean() - df.correct_bg.astype(str).eq("True").mean()))
                            for df in runs.values()))
-    # Changes of alphabet, on the same pairs (a pair counts as right when both orders are), Holm over all comparisons.
+    # Changes of alphabet on the same pairs: the drop in accuracy over both orders, with an exact sign test on the
+    # pairs whose accuracy falls or rises, Holm-adjusted over all comparisons.
     tests = []
     for alias, _, _ in CLAUDE:
         for A in ("Cyrillic", "Reformed"):
-            diff, lo, hi, p, n, n10, n01 = paired(cons[(alias, "Latin")], cons[(alias, A)])
-            tests.append((alias, A, diff, p))
-            num(f"fc@{alias}@{A}@drop", 100 * (runs[(alias, "Latin")].accuracy.mean() - runs[(alias, A)].accuracy.mean()))
-    for (alias, A, diff, _), p in zip(tests, holm([t[3] for t in tests])):
+            dd = runs[(alias, "Latin")].accuracy - runs[(alias, A)].accuracy
+            tests.append((alias, A, mcnemar_exact(int((dd > 0).sum()), int((dd < 0).sum()))))
+            num(f"fc@{alias}@{A}@drop", 100 * dd.mean())
+    for (alias, A, _), p in zip(tests, holm([t[2] for t in tests])):
         NUM[f"fc@{alias}@{A}@p"] = pval(p)
     for g, key in (("critical word: grammatical only", "gr"), ("critical word: both", "both")):
         ids = bench.index[bench.reform_group == g]
@@ -844,6 +866,7 @@ def claude_block(bench, judg):
     if judg is not None:
         for alias, _, _ in CLAUDE:
             num(f"fc@{alias}@hum", pct(runs[(alias, "Latin")].accuracy.loc[judg.index]))
+            num(f"fc@{alias}@hum@Cyrillic", pct(runs[(alias, "Cyrillic")].accuracy.loc[judg.index]))
 
     def cell(v):
         return f"{v:.1f}"
@@ -860,7 +883,7 @@ def claude_block(bench, judg):
         lines.append(f"{name} & " + " & ".join(cells) + r" \\")
     lines += [r"\bottomrule", r"\end{tabular}",
               rf"\caption{{Forced choice with four Claude models on all {len(bench):,} pairs".replace(",", "{,}") +
-              r", each shown in both orders (Appendix~\ref{app:claude}). \emph{Acc.}: accuracy (\%) over both orders; "
+              r" in current Latin, Cyrillic and reformed Latin, each pair shown in both orders (Appendix~\ref{app:claude}). \emph{Acc.}: accuracy (\%) over both orders; "
               r"\emph{Cons.}: pairs answered correctly in both orders (\%). Claude models helped build and audit the "
               r"benchmark, so these scores are not independent of it.}", r"\label{tab:claude}", r"\end{table}"]
     claude = "\n".join(lines)
@@ -871,18 +894,22 @@ def claude_block(bench, judg):
              r" & \multicolumn{4}{c}{Current Latin} & \multicolumn{4}{c}{Cyrillic} & \multicolumn{4}{c}{Reformed Latin} \\",
              r"\cmidrule(lr){2-5}\cmidrule(lr){6-9}\cmidrule(l){10-13}",
              "Phenomenon & " + " & ".join(n.split()[0] for _, n, _ in CLAUDE * 3) + r" \\", r"\midrule"]
+    shaded = False
     for ph in phen:
         cells = []
         for _, A in FC_ALPHABETS:
             for alias, _, _ in CLAUDE:
                 v = pct(runs[(alias, A)].accuracy[runs[(alias, A)].phenomenon == ph])
+                shaded |= v < 50
                 cells.append((r"\cellcolor{gray!25}" if v < 50 else "") + cell(v))
         lines.append(f"{NAME[ph]} & " + " & ".join(cells) + r" \\")
     lines += [r"\midrule", "All & " + " & ".join(cell(pct(runs[(alias, A)].accuracy)) for _, A in FC_ALPHABETS
                                                   for alias, _, _ in CLAUDE) + r" \\",
               r"\bottomrule", r"\end{tabular}",
               r"\caption{Forced choice with four Claude models (Fable 5.2, Opus 5.5, Sonnet 5.5, Haiku 5.5): accuracy (\%) "
-              r"per phenomenon over both orders of every pair. Cells below chance are shaded.}", r"\label{tab:claudephen}",
+              r"per phenomenon over both orders of every pair." + (" Cells below chance are shaded." if shaded else "") +
+              r" Claude models helped build and audit the benchmark, so these scores are not independent of it.}",
+              r"\label{tab:claudephen}",
               r"\end{table*}"]
     return claude, "\n".join(lines)
 
