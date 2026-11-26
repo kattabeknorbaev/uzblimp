@@ -1,7 +1,7 @@
 """Shared statistics and benchmark annotations for the report, the paper tables and the figures.
 
 Nothing here loads a model: everything is computed from data/benchmark/*.tsv and the per-pair result
-files (results/*.csv). Only pandas and numpy are needed.
+files (results/lm/<alphabet>/*.csv). Only pandas and numpy are needed.
 """
 import csv
 import difflib
@@ -59,7 +59,7 @@ def new_letter_side(good, bad):
 def benchmark():
     """One row per pair (index: pair id) with the Latin sentences and the annotations the analyses use."""
     b = pd.DataFrame(read_tsv(ROOT / "data/benchmark/uzblimp.tsv")).set_index("id")
-    # Pair ids from the uz-books collection are numbered from 2000 (scripts/import_v11.py).
+    # Pair ids from the uz-books collection are numbered from 2000 (archive/scripts/import_v11.py).
     b["source"] = ["books" if i.split("-")[-1].startswith("2") else "corpus" for i in b.index]
     b["words"] = b.grammatical.str.split().str.len()
     b["dbytes"] = [len(u.encode()) - len(g.encode()) for g, u in zip(b.grammatical, b.ungrammatical)]

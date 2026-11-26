@@ -14,7 +14,7 @@ license: CC-BY-SA-4.0
 abstract: >-
   2,400 Uzbek minimal pairs for 16 grammatical phenomena (150 each), built from attested corpus
   sentences by one controlled edit, in current Latin, Cyrillic and the reformed 2026 Latin alphabet,
-  with an evaluation of 17 language models and a forced-choice human validation.
+  with an evaluation of language models in each alphabet and a forced-choice human validation.
 keywords:
   - Uzbek
   - minimal pairs

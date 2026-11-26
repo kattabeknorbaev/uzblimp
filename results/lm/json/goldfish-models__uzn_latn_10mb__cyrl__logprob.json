@@ -1,0 +1,101 @@
+{
+  "benchmark": "UzBLiMP",
+  "version": "v1.2",
+  "model": "goldfish-models/uzn_latn_10mb",
+  "label": "GF-L 10MB",
+  "script": "cyrl",
+  "method": "logprob",
+  "n_pairs": 2400,
+  "accuracy": 55.8,
+  "accuracy_norm": 61.6,
+  "per_phenomenon": {
+    "anaphor_agreement": {
+      "n": 150,
+      "correct": 64,
+      "accuracy": 42.7
+    },
+    "binding": {
+      "n": 150,
+      "correct": 16,
+      "accuracy": 10.7
+    },
+    "dative_allomorphy": {
+      "n": 150,
+      "correct": 39,
+      "accuracy": 26.0
+    },
+    "ditransitive_dative": {
+      "n": 150,
+      "correct": 50,
+      "accuracy": 33.3
+    },
+    "lexical_case": {
+      "n": 150,
+      "correct": 94,
+      "accuracy": 62.7
+    },
+    "nominalization": {
+      "n": 150,
+      "correct": 142,
+      "accuracy": 94.7
+    },
+    "npi_hech": {
+      "n": 150,
+      "correct": 18,
+      "accuracy": 12.0
+    },
+    "numeral_no_plural": {
+      "n": 150,
+      "correct": 127,
+      "accuracy": 84.7
+    },
+    "passives": {
+      "n": 150,
+      "correct": 58,
+      "accuracy": 38.7
+    },
+    "person_agreement": {
+      "n": 150,
+      "correct": 76,
+      "accuracy": 50.7
+    },
+    "possessive_agreement": {
+      "n": 150,
+      "correct": 114,
+      "accuracy": 76.0
+    },
+    "postposition_case": {
+      "n": 150,
+      "correct": 146,
+      "accuracy": 97.3
+    },
+    "quantifiers": {
+      "n": 150,
+      "correct": 130,
+      "accuracy": 86.7
+    },
+    "relative_clauses": {
+      "n": 150,
+      "correct": 140,
+      "accuracy": 93.3
+    },
+    "stem_alternation": {
+      "n": 150,
+      "correct": 116,
+      "accuracy": 77.3
+    },
+    "suspended_affixation": {
+      "n": 150,
+      "correct": 9,
+      "accuracy": 6.0
+    }
+  },
+  "settings": {
+    "scorer": "scripts/score_pairs.py, minicons 0.3.39",
+    "dtype": "float32",
+    "device": "cpu",
+    "bos": true,
+    "per_pair": "results/lm/cyrl/uzn_latn_10mb.csv"
+  },
+  "date": "2026-11-21"
+}

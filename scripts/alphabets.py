@@ -31,7 +31,7 @@ _REFORMED = [
 ]
 
 
-# Fixes for TurkicNLP 0.4.0's Latin → Cyrillic (notes/turkicnlp.md):
+# Fixes for TurkicNLP 0.4.0's Latin → Cyrillic (archive/notes/turkicnlp.md):
 _ZW = "⁠"  # word joiner: splits a digraph for TurkicNLP, removed afterwards
 _C = "bcdfghjklmnpqrstvxzBCDFGHJKLMNPQRSTVXZ"
 # 1. "ts" is ц only in loans (politsiya, revolyutsiya, litsey, word-initial tsex);

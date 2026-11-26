@@ -7,13 +7,13 @@ when the grammatical sentence scores strictly higher than the ungrammatical one.
 Writes per-pair scores to <out-dir>/<model>_<dataset>.csv and appends one line
 to <out-dir>/summary.csv.
 
-With --explanations (grammar prompting, decision 19; causal LMs only) each sentence is
+With --explanations (grammar prompting, archive/notes/decisions.md, decision 19; causal LMs only) each sentence is
 scored after a short explanation: log P(sentence | explanation + separator). Condition
 "explanation" uses the explanation of the pair's own phenomenon, "control" the one of
 its control_phenomenon (an unrelated phenomenon), both from the explanations TSV.
 
 Example:
-    python scripts/score_pairs.py --data data/sanity.tsv --good-col good \
+    python scripts/score_pairs.py --data archive/data/sanity.tsv --good-col good \
         --bad-col bad --model goldfish-models/uzn_latn_100mb --group-col phenomenon
 """
 import argparse
@@ -65,13 +65,13 @@ def parse_args():
         "(scores equal minicons' to within about 3e-4 nats; several times faster on a CPU)",
     )
     p.add_argument("--explanations", help="TSV with phenomenon, control_phenomenon and explanation "
-                   "columns (data/explanations.tsv); scores each sentence after the explanation")
+                   "columns (archive/data/explanations.tsv); scores each sentence after the explanation")
     p.add_argument("--condition", choices=["explanation", "control"], default="explanation",
                    help="which explanation goes in front: the pair's own phenomenon or its control")
     p.add_argument("--explanation-col", default="explanation", help="column with the explanation text")
     p.add_argument("--separator", default="\n", help="text between explanation and sentence")
     p.add_argument("--limit", type=int, help="score only the first N pairs (quick tests)")
-    p.add_argument("--out-dir", default="results")
+    p.add_argument("--out-dir", default="results/lm")
     return p.parse_args()
 
 

@@ -1,13 +1,13 @@
 """Forced choice through OpenAI Codex (a ChatGPT subscription), with the requests of the Claude runs.
 
-The kit holds 96 question files: the 16 batches of 150 pairs of results/claude_fc/plan_v1.2.json in each
+The kit holds 96 question files: the 16 batches of 150 pairs of results/chat/claude/plan_v1.2.json in each
 alphabet (current Latin, Cyrillic, reformed Latin) and pass (A: the order of the plan, B: every pair reversed),
 each with the question of scripts/claude_fc.py less its sentence about tools (Codex needs them to read the
 question files and write its answers; the pasted prompt restricts them instead, see PROMPT). No file of the kit
 names a pair, a phenomenon or the correct member. Codex is opened in the kit's folder only, the prompt is pasted,
 and it writes answers/batch_XX.txt with one line "<item>: <1 or 2>" per item. `collect` turns the answer files
-into per-pair files in the format of the Claude runs (results/codex_fc/<alias>_<alphabet>.csv) and keeps the
-answer files (results/codex_fc/<alias>_answers/).
+into per-pair files in the format of the Claude runs (results/chat/codex/<alias>_<alphabet>.csv) and keeps
+the answer files (results/chat/codex/<alias>_answers/).
 
     python scripts/codex_fc.py kit <folder>                       # write the kit to hand to Codex
     python scripts/codex_fc.py collect <answers folder> --alias gpt --model "GPT 6.2 Sol" --effort light
@@ -23,7 +23,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).parent))
 from claude_fc import HEADER, N, ROOT, bench, items, load_plan  # noqa: E402
 
-OUT = ROOT / "results" / "codex_fc"
+OUT = ROOT / "results" / "chat" / "codex"
 ALPHABETS = ["latn", "cyrl", "latn_reformed"]
 BLOCKS = [(a, p) for a in ALPHABETS for p in ("A", "B")]  # batch 1-16 latn A, 17-32 latn B, 33-48 cyrl A, ...
 TOOLS = (" Apart from returning your answers, do not use any tools: do not read or search files, run code or search "

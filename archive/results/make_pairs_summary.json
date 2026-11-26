@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "corpus": "drive-download-20260601T072834Z-3-001.zip",
+    "limit_docs": null,
+    "pool_size": 5000,
+    "seed": 0,
+    "eligible": {
+      "dative_allomorphy": 17405,
+      "relative_clauses": 127015,
+      "stem_alternation": 70759,
+      "possessive_agreement": 36816,
+      "npi_hech": 10137,
+      "postposition_case": 8073,
+      "numeral_no_plural": 10470,
+      "lexical_case": 2377,
+      "ditransitive_dative": 3585,
+      "passives": 4957,
+      "quantifiers": 2803,
+      "nominalization": 6861,
+      "suspended_affixation": 324
+    },
+    "scan_seconds": 115
+  },
+  "min_count": 2,
+  "phenomena": {
+    "suspended_affixation": {
+      "pool": 324,
+      "tried": 324,
+      "generated": 202,
+      "reasons": {
+        "ok": 202,
+        "no parallel second verb with the same person": 87,
+        "not exactly one 1st/2nd-person past verb + va": 17,
+        "verb or -gan form not attested in corpus": 17,
+        "starts with a proper noun (TurkicNLP)": 1
+      }
+    },
+    "possessive_agreement": {
+      "pool": 5000,
+      "tried": 2224,
+      "generated": 250,
+      "reasons": {
+        "word after the pronoun has no matching possessive suffix": 906,
+        "balance: enough pairs with 'uning'": 462,
+        "swapped possessive form not attested in corpus": 386,
+        "ok": 250,
+        "starts with a proper noun (TurkicNLP)": 79,
+        "word after the pronoun is a function word": 44,
+        "not exactly one genitive pronoun + word": 41,
+        "balance: enough pairs with 'ularning'": 38,
+        "balance: enough pairs with 'mening'": 16,
+        "word after the pronoun is not a noun (TurkicNLP UPOS)": 2
+      }
+    },
+    "ditransitive_dative": {
+      "pool": 3585,
+      "tried": 985,
+      "generated": 100,
+      "reasons": {
+        "no accusative object + give/tell/show verb after the pronoun": 733,
+        "ok": 100,
+        "pronoun could be the object of a participle or verbal noun (sizni eshitganimni)": 65,
+        "dative pronoun is the complement of a postposition/adjective (unga qaramay)": 49,
+        "uni kitobini could read as colloquial 'his book' (-ni = -ning)": 17,
+        "starts with a proper noun (TurkicNLP)": 10,
+        "not exactly one dative pronoun": 10,
+        "sentence already in another pair file (e.g. JM's v2)": 1
+      }
+    },
+    "passives": {
+      "pool": 4957,
+      "tried": 185,
+      "generated": 100,
+      "reasons": {
+        "ok": 100,
+        "no passive verb in the clause after tomonidan": 54,
+        "starts with a proper noun (TurkicNLP)": 25,
+        "not exactly one tomonidan": 6
+      }
+    },
+    "relative_clauses": {
+      "pool": 5000,
+      "tried": 290,
+      "generated": 100,
+      "reasons": {
+        "not exactly one -gan participle + word": 114,
+        "ok": 100,
+        "word after the participle is not NOUN (TurkicNLP)": 59,
+        "starts with a proper noun (TurkicNLP)": 17
+      }
+    },
+    "quantifiers": {
+      "pool": 2803,
+      "tried": 146,
+      "generated": 100,
+      "reasons": {
+        "ok": 100,
+        "plural form not attested in corpus": 32,
+        "word after har bir is not NOUN (TurkicNLP)": 6,
+        "not exactly one har bir + word": 4,
+        "word already plural, or har birimiz": 2,
+        "starts with a proper noun (TurkicNLP)": 2
+      }
+    },
+    "nominalization": {
+      "pool": 5000,
+      "tried": 66,
+      "generated": 60,
+      "reasons": {
+        "ok": 60,
+        "not exactly one -ish verbal noun + modal": 6
+      }
+    }
+  }
+}

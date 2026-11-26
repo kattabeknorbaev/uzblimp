@@ -1,0 +1,101 @@
+{
+  "benchmark": "UzBLiMP",
+  "version": "v1.2",
+  "model": "Qwen/Qwen2.5-0.5B",
+  "label": "Qwen2.5-0.5B",
+  "script": "cyrl",
+  "method": "logprob",
+  "n_pairs": 2400,
+  "accuracy": 46.2,
+  "accuracy_norm": 49.3,
+  "per_phenomenon": {
+    "anaphor_agreement": {
+      "n": 150,
+      "correct": 58,
+      "accuracy": 38.7
+    },
+    "binding": {
+      "n": 150,
+      "correct": 2,
+      "accuracy": 1.3
+    },
+    "dative_allomorphy": {
+      "n": 150,
+      "correct": 102,
+      "accuracy": 68.0
+    },
+    "ditransitive_dative": {
+      "n": 150,
+      "correct": 36,
+      "accuracy": 24.0
+    },
+    "lexical_case": {
+      "n": 150,
+      "correct": 42,
+      "accuracy": 28.0
+    },
+    "nominalization": {
+      "n": 150,
+      "correct": 80,
+      "accuracy": 53.3
+    },
+    "npi_hech": {
+      "n": 150,
+      "correct": 6,
+      "accuracy": 4.0
+    },
+    "numeral_no_plural": {
+      "n": 150,
+      "correct": 142,
+      "accuracy": 94.7
+    },
+    "passives": {
+      "n": 150,
+      "correct": 30,
+      "accuracy": 20.0
+    },
+    "person_agreement": {
+      "n": 150,
+      "correct": 78,
+      "accuracy": 52.0
+    },
+    "possessive_agreement": {
+      "n": 150,
+      "correct": 107,
+      "accuracy": 71.3
+    },
+    "postposition_case": {
+      "n": 150,
+      "correct": 86,
+      "accuracy": 57.3
+    },
+    "quantifiers": {
+      "n": 150,
+      "correct": 146,
+      "accuracy": 97.3
+    },
+    "relative_clauses": {
+      "n": 150,
+      "correct": 81,
+      "accuracy": 54.0
+    },
+    "stem_alternation": {
+      "n": 150,
+      "correct": 83,
+      "accuracy": 55.3
+    },
+    "suspended_affixation": {
+      "n": 150,
+      "correct": 30,
+      "accuracy": 20.0
+    }
+  },
+  "settings": {
+    "scorer": "scripts/score_pairs.py, minicons 0.3.39",
+    "dtype": "float32",
+    "device": "cpu",
+    "bos": true,
+    "per_pair": "results/lm/cyrl/qwen2.5-0.5b.csv"
+  },
+  "date": "2026-11-21"
+}

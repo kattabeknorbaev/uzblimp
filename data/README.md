@@ -1,58 +1,102 @@
-# UzBLiMP data format
+# UzBLiMP data
 
-## Pair files
+The benchmark: 2,400 minimal pairs, 150 for each of 16 phenomena, in three alphabets. The grammatical sentence of
+each pair is a sentence found in a corpus; the ungrammatical one changes it with one controlled edit. The same
+`pair_id` names the same pair in all three alphabets.
 
-One minimal pair per row, tab-separated, UTF-8, with a header line. Names:
-- `pairs_v0.tsv`: seed pairs
-- `pairs_v1_<phenomenon>.tsv`: generated candidates (`scripts/make_pairs.py`)
-- `pairs_v2_<phenomenon>.tsv`: candidates from Javohir Matniyozov's rule-based generator over `tahrirchi/uz-books-v2` (`scripts/jm_generator/`, imported from `external/`); `postposition_order` and `vowel_glide` are not in the benchmark
+| Path | Contents |
+|---|---|
+| `jsonl/<config>/<paradigm>.jsonl` | the release files, one pair per line; `<config>` is `latn`, `cyrl` or `latn_reformed` |
+| `benchmark/uzblimp.tsv`, `uzblimp_cyrl.tsv`, `uzblimp_reformed.tsv` | the same pairs as TSV files, read by the scripts |
+| `benchmark/reserve.tsv` | 724 further accepted pairs that can replace pairs that fail a later check |
+| `benchmark/excluded.tsv` | the 143 pairs removed in the v1.2 audit, with the reason for each |
 
-Check every file with `python scripts/validate_pairs.py <file>`.
+## Fields
 
-### Required columns
+| Field | Meaning |
+|---|---|
+| `pair_id` | e.g. `stem_alternation-1042`, the same in all alphabets |
+| `paradigm`, `phenomenon`, `field` | phenomenon slug, readable name, and `morphology`, `syntax` or `semantics` |
+| `sentence_good`, `sentence_bad` | the pair |
+| `lexically_identical` | true when both sentences use the same words (false for every pair: each changes one word form) |
+| `script` | `latn`, `cyrl` or `latn_reformed` |
+| `source`, `source_id` | how the pair was made (`corpus-edit` for every pair) and where the grammatical sentence comes from |
+| `verified`, `verifier_id` | checked by a linguist, and by whom: false and null for every pair so far |
+| `reviewer` | native speaker who reviewed the pair (`KN`: Kattabek Norbaev) |
+| `converted_from` | `cyrl` and `latn_reformed` only: `latn` |
+| `reform_category` | `latn_reformed` only: the edited word changed, only other words changed, or nothing changed |
 
-| Column | Meaning | Allowed values |
+## Phenomena
+
+| Paradigm | Phenomenon | Field | What the grammatical sentence gets right |
+|---|---|---|---|
+| `anaphor_agreement` | Anaphor agreement | morphology | reflexive oʻz- agrees with the subject in person and number |
+| `binding` | Binding | syntax | a reflexive, not a pronoun, inside its binding domain |
+| `ditransitive_dative` | Ditransitive dative | syntax | the indirect object takes the dative, not a second accusative |
+| `lexical_case` | Lexical case | syntax | the verb assigns a lexical case to its object (qoʻrqmoq + ablative) |
+| `nominalization` | Nominalization | syntax | kerak, mumkin, lozim take the verbal noun in -(i)sh, not the participle -gan |
+| `npi_hech` | NPI licensing (hech + negation) | semantics | hech- words need a negated predicate |
+| `passives` | Passives | syntax | an agent phrase (tomonidan) needs a passive verb |
+| `person_agreement` | Subject agreement | morphology | the verb agrees in person and number with an overt pronoun subject |
+| `quantifiers` | Quantifiers (har bir + singular) | morphology | the noun after har bir stays singular |
+| `relative_clauses` | Relative clauses | syntax | a relative clause verb is a participle (-gan), not a finite verb |
+| `stem_alternation` | Stem alternation (q/k → gʻ/g) | morphology | stem-final q/k becomes gʻ/g before a vowel-initial suffix |
+| `suspended_affixation` | Suspended affixation | morphology | the first conjunct keeps its finite person and tense suffix |
+| `numeral_no_plural` | No plural after numerals | morphology | the noun after a numeral (+ta) stays singular |
+| `postposition_case` | Case after postpositions | syntax | a postposition governs a fixed case (-dan keyin, -dan beri) |
+| `possessive_agreement` | Possessive agreement | morphology | the possessive suffix agrees with the genitive possessor |
+| `dative_allomorphy` | Dative allomorphy (-ga/-qa/-ka) | morphology | the dative is -qa after q, -ka after k, -ga elsewhere |
+
+The first twelve share their category with TurBLiMP; the last four lie outside its inventory. The field follows
+BLiMP where BLiMP has the same contrast; the other assignments are ours.
+
+## Alphabets
+
+| Config | Alphabet | How it was made |
 |---|---|---|
-| `id` | Unique pair id: `<phenomenon>-<4 digits>`, e.g. `numeral_no_plural-0007` | unique within the dataset |
-| `phenomenon` | One of the 16 phenomenon slugs | see `scripts/schema.py` and `notes/decisions.md` |
-| `grammatical` | The grammatical sentence, current Latin, oʻ/gʻ with U+02BB | non-empty |
-| `ungrammatical` | The same sentence with **exactly one place** changed | non-empty |
-| `method` | How the pair was made | `corpus-edit`, `template`, `hand-written` |
-| `source_id` | Where the grammatical sentence comes from: corpus file + line/doc id, or e.g. `phenomena.md row 17` | empty for templates |
-| `status` | Review state | `unchecked`, `accepted`, `rejected`, `edited` |
-| `notes` | Free text: the breaking operation, doubts | may be empty |
+| `latn` | current Latin | the reviewed pairs |
+| `cyrl` | Cyrillic | converted from `latn` with TurkicNLP's transliterator, fixes for its errors, and a table of the Russian loanwords in the benchmark (функция, концерт, пальто) |
+| `latn_reformed` | reformed Latin (Law OʻRQ-1184 of 2026, in force from 22 April 2027) | converted from `latn` with the four letter replacements of the reform: oʻ→ö, gʻ→ğ, sh→ş, ch→ç |
 
-### Optional columns (written by the review tool)
+In current Latin, oʻ and gʻ are always written with U+02BB (ʻ); the glottal-stop sign (as in *maʼno*) is a
+different letter, U+02BC (ʼ). Mixed apostrophes would make a tokenizer split the same word in different ways.
 
-| Column | Meaning |
-|---|---|
-| `reviewer` | Initials of the native speaker who checked the pair (`KN` Kattabek Norbaev, `JM` Javohir Matniyozov) |
-| `reviewed_at` | ISO timestamp of the decision |
-| `reason` | Short reason for a rejection |
+## How the pairs were made and checked
 
-### Rules (checked by the validator)
+- Sources: 960 pairs come from Javohir Matniyozov's rule-based generator over the UzBooks collection
+  (`tahrirchi/uz-books-v2`), 1,440 from Kattabek Norbaev's generator over books, Uzbek Wikipedia and legal codes.
+- Review: of 3,800 candidate pairs, 3,729 were reviewed and 3,267 accepted. Every pair was judged by a native
+  speaker and checked with three other native speakers (for some phenomena with an AI assistant as a consistency
+  check); 150 accepted pairs per phenomenon were selected at random with a fixed seed.
+- Audit (v1.2): the selected pairs were screened again, with the help of an AI assistant, for generator errors and
+  for spelling and OCR errors in the source sentences; 120 pairs (5.0%) were replaced from the reserve. The
+  Cyrillic version was checked three times for Russian loanwords, and 72 word forms are respelled from a table
+  (`scripts/alphabets.py`).
+- Human validation: five native speakers who had not worked on the benchmark, one of them a linguist, chose the
+  grammatical sentence of 320 pairs (20 per phenomenon) in 99.2% of 1,600 judgments, and their majority agreed with
+  the benchmark on every pair (`results/human/`).
 
-- **One place only:** the two sentences differ in exactly one contiguous stretch of words. Changing one word, or inserting or deleting adjacent words (*hech qachon*), counts as one place.
-- **Word-order phenomena** (`ellipsis`, `scrambling`; dropped, not in the benchmark): both sentences use the same words in a different order.
-- **One script per sentence:** no Latin and Cyrillic letters mixed in one sentence.
-- **oʻ/gʻ use U+02BB (ʻ) only.** Other apostrophe variants after o/g are errors.
-- **Length:** 4–15 words preferred. Longer or shorter sentences are warnings, empty ones are errors.
-- **No duplicates:** no repeated ids or pairs, and no pair whose two sentences are identical. Reusing the same grammatical sentence gives a warning.
-- **Personal data:** phone numbers and e-mail addresses give a warning. Names of private people can't be detected automatically; the reviewer rejects those.
+The candidate pairs with their review decisions, the generators and the review sheets are kept in `archive/`.
 
-### `status` lifecycle
+## Limitations
 
-`unchecked` → the reviewer sets `accepted`, `rejected` (with a `reason`), or `edited`. `edited` means the reviewer changed a sentence, and the edited pair counts as accepted. Only `accepted` and `edited` pairs go into the benchmark.
+- The Cyrillic and reformed versions are converted from Latin, not written natively, and are not validated
+  separately. Russian loanwords that were not recognised may remain.
+- Every pair was reviewed by one native speaker and checked with three others; the independent validation covers
+  320 pairs (13%) as a forced choice, and its answer key was in this public repository while the study ran. No
+  linguist has checked the full benchmark.
+- With 150 pairs, the 95% interval of a per-phenomenon accuracy is at most ±8 points.
 
-## Other files
+## Authors
 
-| File | What it is |
-|---|---|
-| `benchmark/` | The benchmark: `uzblimp.tsv` (2,400 pairs in current Latin), `uzblimp_cyrl.tsv` and `uzblimp_reformed.tsv` (the same pairs in Cyrillic and reformed Latin), `reserve.tsv` (724 accepted pairs that can replace failing ones) and `excluded.tsv` (143 pairs removed in the v1.2 audit, with reasons) |
-| `external/` | Javohir Matniyozov's generated pair sets (`uzblimp_v11.json`, `uzblimp_v12.json`) |
-| `explanations.tsv` | Short grammar explanations per phenomenon, prepared for a later prompting experiment (`notes/grammar_prompting.md`) |
-| `sanity.tsv` | 3 hand-written test pairs (day 1) |
-| `multiblimp_uzb.tsv` | MultiBLiMP 1.0 Uzbek split (50 pairs), for comparison |
-| `pilot_3alphabets.tsv` | 13-pair three-alphabet pilot (day 2) |
-| `candidates/` | Corpus sentences found by `scripts/corpus_stats.py`. **Git-ignored; stays on this machine.** |
-| `jsonl/` | Release files, one per phenomenon and alphabet, written from `benchmark/` by `scripts/export_jsonl.py` and checked by `scripts/validate.py`; fields in the top-level README |
+Kattabek Norbaev (design, corpus generator, review of every pair, evaluation) and Javohir Matniyozov (rule-based
+generator and its pairs). Three native speakers checked the reviewed pairs, and five others took part in the human
+validation; none of them is named. AI assistants helped write code, import review decisions, run the evaluation,
+audit the selected pairs and the Cyrillic conversion, and draft the paper; the paper's Ethics statement gives the
+details.
+
+## Licence
+
+CC BY-SA 4.0 ([`LICENSE`](LICENSE)). Some sentences come from Uzbek Wikipedia (CC BY-SA), so the pairs keep its
+share-alike terms. Other sentences are short excerpts from published books, from copies publicly available on the
+internet; each pair's `source_id` names its source, and we remove any sentence on request (open an issue).

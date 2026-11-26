@@ -3,14 +3,14 @@
 Every request sends the prompt of scripts/claude_fc.py unchanged (150 numbered pairs, the same batches, both orders,
 the same question and instructions) as the user message, and asks for the answers in the same structure through
 the response_format of the API (a JSON schema). Temperature 0 and reasoning effort low, as in the API pilot
-(scripts/score_api.py); only providers that do not train on prompts and that support every parameter are used.
-Every response is cached in results/api_fc/responses/ (git-ignored), so a rerun never pays twice, and the run
-stops before the budget is spent.
+(archive/scripts/score_api.py); only providers that do not train on prompts and that support every parameter are
+used. Every response is cached in results/chat/openrouter/responses/ (git-ignored), so a rerun never pays twice,
+and the run stops before the budget is spent.
 
     python scripts/api_fc.py trial                 # one request per model: batch 1, pass A, current Latin
     python scripts/api_fc.py run --budget 10.5     # the requests of PLAN below
-    python scripts/api_fc.py collect               # per-pair files and cost.json in results/api_fc/
-    python scripts/api_fc.py readme                # the chat-model table of README.md
+    python scripts/api_fc.py collect               # per-pair files and cost.json in results/chat/openrouter/
+    python scripts/api_fc.py readme                # the chat-model table of results/README.md
 
 Each model is pinned to an endpoint that runs it in 8-bit or higher precision (PROVIDERS), and fallbacks are
 limited to such endpoints. The run of November 2026 asks every pair once, in the order of pass A of the Claude runs
@@ -35,7 +35,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import claude_fc as fc  # noqa: E402
 
 ROOT = fc.ROOT
-OUT = ROOT / "results" / "api_fc"
+OUT = ROOT / "results" / "chat" / "openrouter"
 CACHE = OUT / "responses"
 URL = "https://openrouter.ai/api/v1/chat/completions"
 MODELS = {"deepseek-v4-flash": "deepseek/deepseek-v4-flash-0731", "deepseek-v4-pro": "deepseek/deepseek-v4-pro-0813",
@@ -248,8 +248,8 @@ def run(budget, workers):
 
 
 def costs():
-    """What every request cost, from the saved responses (trial, cut-off and blocked ones included): results/api_fc/
-    cost.json, so that the record survives without the git-ignored responses."""
+    """What every request cost, from the saved responses (trial, cut-off and blocked ones included):
+    results/chat/openrouter/cost.json, so that the record survives without the git-ignored responses."""
     rec = {}
     for folder in ("responses", "truncated", "trial_responses"):
         for f in sorted((OUT / folder).glob("*.json")):
@@ -273,7 +273,7 @@ def costs():
 
 
 def collect():
-    """One row per pair and order asked (results/api_fc/<model>_<alphabet>.csv), in benchmark order."""
+    """One row per pair and order asked (results/chat/openrouter/<model>_<alphabet>.csv), in benchmark order."""
     import pandas as pd
     costs()
     plan = fc.load_plan()
@@ -312,7 +312,7 @@ NAMES = {"kimi-k3.1-pro": "Kimi K3.1 Pro", "glm-5.3": "GLM 5.3", "deepseek-v4-fl
 
 
 def readme():
-    """The table of README.md between <!-- chat:start --> and <!-- chat:end -->."""
+    """The table of results/README.md between <!-- chat:start --> and <!-- chat:end -->."""
     import pandas as pd
     start, end = "<!-- chat:start -->", "<!-- chat:end -->"
     n = len(fc.bench("latn"))
@@ -328,7 +328,7 @@ def readme():
             acc = f"{100 * df.correct.astype(str).eq('True').mean() + 1e-9:.1f}"
             cells.append(acc if len(df) == n else f"{acc} ({len(df):,} pairs)")
         lines.append(f"| {name} | " + " | ".join(cells) + " |")
-    f = ROOT / "README.md"
+    f = ROOT / "results" / "README.md"
     text = f.read_text(encoding="utf-8")
     head, rest = text.split(start, 1)
     _, tail = rest.split(end, 1)

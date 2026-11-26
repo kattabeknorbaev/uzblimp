@@ -1,0 +1,101 @@
+{
+  "benchmark": "UzBLiMP",
+  "version": "v1.2",
+  "model": "google/gemma-3-4b-pt",
+  "label": "Gemma 3 4B",
+  "script": "cyrl",
+  "method": "logprob",
+  "n_pairs": 2400,
+  "accuracy": 91.5,
+  "accuracy_norm": 88.1,
+  "per_phenomenon": {
+    "anaphor_agreement": {
+      "n": 150,
+      "correct": 147,
+      "accuracy": 98.0
+    },
+    "binding": {
+      "n": 150,
+      "correct": 123,
+      "accuracy": 82.0
+    },
+    "dative_allomorphy": {
+      "n": 150,
+      "correct": 141,
+      "accuracy": 94.0
+    },
+    "ditransitive_dative": {
+      "n": 150,
+      "correct": 106,
+      "accuracy": 70.7
+    },
+    "lexical_case": {
+      "n": 150,
+      "correct": 122,
+      "accuracy": 81.3
+    },
+    "nominalization": {
+      "n": 150,
+      "correct": 149,
+      "accuracy": 99.3
+    },
+    "npi_hech": {
+      "n": 150,
+      "correct": 141,
+      "accuracy": 94.0
+    },
+    "numeral_no_plural": {
+      "n": 150,
+      "correct": 125,
+      "accuracy": 83.3
+    },
+    "passives": {
+      "n": 150,
+      "correct": 147,
+      "accuracy": 98.0
+    },
+    "person_agreement": {
+      "n": 150,
+      "correct": 143,
+      "accuracy": 95.3
+    },
+    "possessive_agreement": {
+      "n": 150,
+      "correct": 138,
+      "accuracy": 92.0
+    },
+    "postposition_case": {
+      "n": 150,
+      "correct": 144,
+      "accuracy": 96.0
+    },
+    "quantifiers": {
+      "n": 150,
+      "correct": 146,
+      "accuracy": 97.3
+    },
+    "relative_clauses": {
+      "n": 150,
+      "correct": 148,
+      "accuracy": 98.7
+    },
+    "stem_alternation": {
+      "n": 150,
+      "correct": 145,
+      "accuracy": 96.7
+    },
+    "suspended_affixation": {
+      "n": 150,
+      "correct": 131,
+      "accuracy": 87.3
+    }
+  },
+  "settings": {
+    "scorer": "scripts/eval.py (logprob), run on GPUs; see results/lm/gpu_runs/README_run3.txt",
+    "dtype": "float32",
+    "device": "cuda",
+    "bos": true,
+    "per_pair": "results/lm/cyrl/gemma-3-4b-pt.csv"
+  },
+  "date": "2026-11-26"
+}

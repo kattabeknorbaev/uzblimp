@@ -1,9 +1,11 @@
 """The models evaluated on UzBLiMP: one registry for the runner, the report, the tables and the figures.
 
 Each entry gives the Hugging Face id, how the model is scored and what the paper says about it.
-Per-pair results of a run live in results/<last part of the id>_uzblimp_<version><suffix>.csv, where the
-suffix names the alphabet ("" current Latin, "_cyrl" Cyrillic, "_reformed" reformed Latin); the four
-models scored before this registry existed keep their file names (see LEGACY_STEMS).
+Per-pair results of a run on the current benchmark version live in results/lm/<alphabet>/<model>.csv, where
+<alphabet> is latn, cyrl or latn_reformed and <model> is the last part of the Hugging Face id in lower case.
+Results of earlier versions are kept in archive/results/ under their old names, <last part of the
+id>_uzblimp_<version><suffix>.csv with the suffix "" (current Latin), "_cyrl" or "_reformed" (see stem and
+LEGACY_STEMS).
 
     from models import MODELS, load_runs
     runs = load_runs()              # {(key, alphabet): DataFrame indexed by pair id}
@@ -30,15 +32,15 @@ RELEASE_SCRIPT = {"Latin": "latn", "Cyrillic": "cyrl", "Reformed": "latn_reforme
 # params     number of parameters, as given by the model's authors or card
 # size       Goldfish only: training-data size label
 # license    as given on the model's Hugging Face page (checked 2026-11-22 and 2026-11-24)
-# setup      "gpu" for the larger models scored on rented GPUs for the second author (results/gpu_runs/README.txt;
-#            imported by scripts/import_gpu_runs.py); all other models were scored on CPU in float32
+# setup      "gpu" for the larger models scored on rented GPUs for the second author (results/lm/gpu_runs/README.txt;
+#            imported by archive/scripts/import_gpu_runs.py); all other models were scored on CPU in float32
 # dtype      precision of a GPU run; post: True for post-trained (not base) checkpoints, scored like the others
 # held_out   False for Tomaris.ai, whose pretraining corpus contains most benchmark sentences of the authors' own
-#            corpus and which was made by the authors' company (results/gpu_runs/tomaris_overlap_v1.2.json)
+#            corpus and which was made by the authors' company (results/lm/gpu_runs/tomaris_overlap_v1.2.json)
 # device     "gpu" for the models of the CPU groups that were scored with run_models.py (the same scorer, float32)
-#            on a rented GPU in run 3 of the GPU runs (results/gpu_runs/README_run3.txt)
-# record     the README of the GPU run in results/gpu_runs/ (default README.txt, runs 1 and 2)
-# invalid    alphabets whose run is not reported, with the reason (the per-pair file is kept in results/gpu_runs/invalid)
+#            on a rented GPU in run 3 of the GPU runs (results/lm/gpu_runs/README_run3.txt)
+# record     the README of the GPU run in results/lm/gpu_runs/ (default README.txt, runs 1 and 2)
+# invalid    alphabets whose run is not reported, with the reason (the per-pair file is kept in results/lm/gpu_runs/invalid)
 MODELS = [
     # Monolingual causal LMs: the Goldfish data-size ladder in each script (Chang et al., 2024)
     dict(key="GF-L 5MB", hf="goldfish-models/uzn_latn_5mb", params="39M", method="logprob", group="Goldfish (Latin)", trained="latn", size="5MB", license="Apache 2.0"),
@@ -80,7 +82,7 @@ MODELS = [
     dict(key="Qwen3.8-27B", hf="Qwen/Qwen3.8-27B", params="27.8B", method="logprob", group="Larger multilingual LMs (GPU)", trained="multi", license="Apache 2.0", setup="gpu", dtype="bfloat16", post=True),
     dict(key="Qwen3.5-35B-A3B", hf="Qwen/Qwen3.5-35B-A3B-Base", params="36.0B", method="logprob", group="Larger multilingual LMs (GPU)", trained="multi", license="Apache 2.0", setup="gpu", dtype="bfloat16", post=False),
     dict(key="Qwen3.6-35B-A3B", hf="Qwen/Qwen3.6-35B-A3B", params="36.0B", method="logprob", group="Larger multilingual LMs (GPU)", trained="multi", license="Apache 2.0", setup="gpu", dtype="bfloat16", post=True),
-    # Scored on GPUs in run 3 (results/gpu_runs/README_run3.txt): further multilingual LMs, then fine-tunes of
+    # Scored on GPUs in run 3 (results/lm/gpu_runs/README_run3.txt): further multilingual LMs, then fine-tunes of
     # multilingual models for Uzbek or Kazakh. alloma 8B was fine-tuned from Llama-3.1-8B-Instruct (its model card).
     dict(key="Gemma 3 4B", hf="google/gemma-3-4b-pt", params="4.3B", method="logprob", group="Larger multilingual LMs (GPU)", trained="multi", license="Gemma Terms of Use", setup="gpu", dtype="float32", post=False, record="README_run3.txt"),
     dict(key="Gemma 3 12B", hf="google/gemma-3-12b-pt", params="12.2B", method="logprob", group="Larger multilingual LMs (GPU)", trained="multi", license="Gemma Terms of Use", setup="gpu", dtype="bfloat16", post=False, record="README_run3.txt"),
@@ -95,7 +97,7 @@ MODELS = [
     dict(key="Tomaris.ai", hf="tomaris/Tomaris.ai", params="27.1B", method="logprob", group="Not held out (authors' company)", trained="multi", license="none stated", setup="gpu", dtype="bfloat16", post=True, held_out=False),
 ]
 
-# File stems of the four runs made with score_pairs.py before the registry ({v} = version).
+# Old file stems of the runs made with score_pairs.py before the registry ({v} = version).
 LEGACY_STEMS = {
     ("Qwen/Qwen2.5-0.5B", "Latin"): "Qwen2.5-0.5B_uzblimp_{v}_bos",
     ("Qwen/Qwen2.5-0.5B", "Cyrillic"): "Qwen2.5-0.5B_uzblimp_{v}_cyrl_bos",
@@ -114,15 +116,20 @@ def label(model):
 
 
 def stem(model, alphabet, version):
-    """File stem (no folder, no .csv) of a run's per-pair results."""
+    """Old-style file stem (no folder, no .csv) of a run's per-pair results: the name of an earlier version's
+    file in archive/results/, and the dataset name of a run in the run log."""
     legacy = LEGACY_STEMS.get((model["hf"], alphabet))
     if legacy:
         return legacy.format(v=version)
     return f"{model['hf'].split('/')[-1]}_uzblimp_{version}{ALPHABETS[alphabet]}"
 
 
-def csv_path(model, alphabet, version):
-    return ROOT / "results" / f"{stem(model, alphabet, version)}.csv"
+def csv_path(model, alphabet, version=VERSION):
+    """Per-pair results of a run: results/lm/<alphabet>/<model>.csv for the current version, the archived
+    file for an earlier one."""
+    if version == VERSION:
+        return ROOT / "results" / "lm" / RELEASE_SCRIPT[alphabet] / f"{model['hf'].split('/')[-1].lower()}.csv"
+    return ROOT / "archive" / "results" / f"{stem(model, alphabet, version)}.csv"
 
 
 def load_runs(version=VERSION, keys=None, verbose=False):

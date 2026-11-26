@@ -1,4 +1,5 @@
-UzBLiMP data (this folder: the benchmark, its release files, the candidate pairs and the reserve)
+UzBLiMP data (this folder: the benchmark, its release files and the reserve; and the candidate pairs and generated
+pair sets kept in ../archive/data/)
 Copyright (c) 2026 Kattabek Norbaev and Javohir Matniyozov
 
 Licensed under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0).
@@ -7,10 +8,10 @@ Legal code: https://creativecommons.org/licenses/by-sa/4.0/legalcode
 
 Some sentences come from Uzbek Wikipedia, which is licensed under CC BY-SA; the pairs keep its share-alike
 terms. Other sentences are short excerpts from published books, from copies publicly available on the internet. Each pair's source_id names its source, and
-we remove any sentence on request (open an issue in the repository). The pairs in external/ were generated
+we remove any sentence on request (open an issue in the repository). The pairs in ../archive/data/external/ were generated
 by Javohir Matniyozov from the tahrirchi/uz-books-v2 collection (labelled MIT on its Hugging Face page).
 
-Exception: multiblimp_uzb.tsv is the Uzbek split of MultiBLiMP 1.0 (Jumelet et al.), included for comparison.
+Exception: ../archive/data/multiblimp_uzb.tsv is the Uzbek split of MultiBLiMP 1.0 (Jumelet et al.), included for comparison.
 It is not ours and stays under its own licence; see the MultiBLiMP release.
 
-The code in scripts/ is licensed under the MIT licence (../LICENSE).
+The code in ../scripts/ and ../archive/scripts/ is licensed under the MIT licence (../LICENSE).

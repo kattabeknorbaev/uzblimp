@@ -1,0 +1,101 @@
+{
+  "benchmark": "UzBLiMP",
+  "version": "v1.2",
+  "model": "tahrirchi/tahrirchi-bert-base",
+  "label": "tahrirchi-bert",
+  "script": "cyrl",
+  "method": "pll",
+  "n_pairs": 2400,
+  "accuracy": 76.8,
+  "accuracy_norm": 76.4,
+  "per_phenomenon": {
+    "anaphor_agreement": {
+      "n": 150,
+      "correct": 109,
+      "accuracy": 72.7
+    },
+    "binding": {
+      "n": 150,
+      "correct": 59,
+      "accuracy": 39.3
+    },
+    "dative_allomorphy": {
+      "n": 150,
+      "correct": 75,
+      "accuracy": 50.0
+    },
+    "ditransitive_dative": {
+      "n": 150,
+      "correct": 134,
+      "accuracy": 89.3
+    },
+    "lexical_case": {
+      "n": 150,
+      "correct": 124,
+      "accuracy": 82.7
+    },
+    "nominalization": {
+      "n": 150,
+      "correct": 147,
+      "accuracy": 98.0
+    },
+    "npi_hech": {
+      "n": 150,
+      "correct": 32,
+      "accuracy": 21.3
+    },
+    "numeral_no_plural": {
+      "n": 150,
+      "correct": 107,
+      "accuracy": 71.3
+    },
+    "passives": {
+      "n": 150,
+      "correct": 119,
+      "accuracy": 79.3
+    },
+    "person_agreement": {
+      "n": 150,
+      "correct": 125,
+      "accuracy": 83.3
+    },
+    "possessive_agreement": {
+      "n": 150,
+      "correct": 111,
+      "accuracy": 74.0
+    },
+    "postposition_case": {
+      "n": 150,
+      "correct": 150,
+      "accuracy": 100.0
+    },
+    "quantifiers": {
+      "n": 150,
+      "correct": 125,
+      "accuracy": 83.3
+    },
+    "relative_clauses": {
+      "n": 150,
+      "correct": 146,
+      "accuracy": 97.3
+    },
+    "stem_alternation": {
+      "n": 150,
+      "correct": 143,
+      "accuracy": 95.3
+    },
+    "suspended_affixation": {
+      "n": 150,
+      "correct": 137,
+      "accuracy": 91.3
+    }
+  },
+  "settings": {
+    "scorer": "scripts/score_pairs.py, minicons 0.3.39 --mlm (pseudo-log-likelihood)",
+    "dtype": "float32",
+    "device": "cpu",
+    "bos": true,
+    "per_pair": "results/lm/cyrl/tahrirchi-bert-base.csv"
+  },
+  "date": "2026-11-21"
+}

@@ -1,0 +1,101 @@
+{
+  "benchmark": "UzBLiMP",
+  "version": "v1.2",
+  "model": "FacebookAI/xlm-roberta-large",
+  "label": "XLM-R large",
+  "script": "cyrl",
+  "method": "pll",
+  "n_pairs": 2400,
+  "accuracy": 52.8,
+  "accuracy_norm": 53.1,
+  "per_phenomenon": {
+    "anaphor_agreement": {
+      "n": 150,
+      "correct": 48,
+      "accuracy": 32.0
+    },
+    "binding": {
+      "n": 150,
+      "correct": 3,
+      "accuracy": 2.0
+    },
+    "dative_allomorphy": {
+      "n": 150,
+      "correct": 94,
+      "accuracy": 62.7
+    },
+    "ditransitive_dative": {
+      "n": 150,
+      "correct": 67,
+      "accuracy": 44.7
+    },
+    "lexical_case": {
+      "n": 150,
+      "correct": 72,
+      "accuracy": 48.0
+    },
+    "nominalization": {
+      "n": 150,
+      "correct": 48,
+      "accuracy": 32.0
+    },
+    "npi_hech": {
+      "n": 150,
+      "correct": 45,
+      "accuracy": 30.0
+    },
+    "numeral_no_plural": {
+      "n": 150,
+      "correct": 124,
+      "accuracy": 82.7
+    },
+    "passives": {
+      "n": 150,
+      "correct": 40,
+      "accuracy": 26.7
+    },
+    "person_agreement": {
+      "n": 150,
+      "correct": 98,
+      "accuracy": 65.3
+    },
+    "possessive_agreement": {
+      "n": 150,
+      "correct": 105,
+      "accuracy": 70.0
+    },
+    "postposition_case": {
+      "n": 150,
+      "correct": 113,
+      "accuracy": 75.3
+    },
+    "quantifiers": {
+      "n": 150,
+      "correct": 129,
+      "accuracy": 86.0
+    },
+    "relative_clauses": {
+      "n": 150,
+      "correct": 104,
+      "accuracy": 69.3
+    },
+    "stem_alternation": {
+      "n": 150,
+      "correct": 85,
+      "accuracy": 56.7
+    },
+    "suspended_affixation": {
+      "n": 150,
+      "correct": 93,
+      "accuracy": 62.0
+    }
+  },
+  "settings": {
+    "scorer": "scripts/score_pairs.py (minicons) --mlm (pseudo-log-likelihood), run on a GPU; see results/lm/gpu_runs/README_run3.txt",
+    "dtype": "float32",
+    "device": "cuda",
+    "bos": true,
+    "per_pair": "results/lm/cyrl/xlm-roberta-large.csv"
+  },
+  "date": "2026-11-26"
+}

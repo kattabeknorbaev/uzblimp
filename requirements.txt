@@ -9,7 +9,7 @@ tqdm==4.70.1
 turkicnlp[transformers]==0.4.0
 # Added 2026-11-21 for the paper figures (scripts/paper_figures.py)
 matplotlib==3.11.2
-# Added 2026-11-22 for the workbooks of the human validation (scripts/make_human_study_xlsx.py)
+# Added 2026-11-22 for the workbooks of the human validation (archive/scripts/make_human_study_xlsx.py)
 openpyxl==3.1.5
-# Added 2026-11-26 for the forced-choice runs through OpenRouter (scripts/api_fc.py, scripts/score_api.py)
+# Added 2026-11-26 for the forced-choice runs through OpenRouter (scripts/api_fc.py, archive/scripts/score_api.py)
 requests==2.34.2

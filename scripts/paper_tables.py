@@ -182,7 +182,7 @@ def alphabets_table(ex):
 
 def review_counts():
     reviewed, accepted, reasons, generated = defaultdict(int), defaultdict(int), defaultdict(Counter), defaultdict(int)
-    for f in glob.glob(str(ROOT / "data" / "pairs_v[12]_*.tsv")):
+    for f in glob.glob(str(ROOT / "archive" / "data" / "pairs_v[12]_*.tsv")):
         for r in read_tsv(f):
             if r["phenomenon"] not in NAME:
                 continue
@@ -289,7 +289,7 @@ def gpu_length_profile(df):
 
 
 def gpu_block(gruns, cruns, bench):
-    """Numbers and the appendix table for the larger models scored on GPUs (results/gpu_runs/README.txt). Tomaris.ai,
+    """Numbers and the appendix table for the larger models scored on GPUs (results/lm/gpu_runs/README.txt). Tomaris.ai,
     which is not held out, is reported in its own row and kept out of every range and count. A run declared invalid
     in the registry (key "invalid") is shown as n/a and left out of the ranges that involve its alphabet."""
     def valid(m, a):
@@ -344,7 +344,7 @@ def gpu_block(gruns, cruns, bench):
     stem = {"Latin": "latn", "Cyrillic": "cyrl", "Reformed": "latn_reformed"}
     diffs, agree, total = [], 0, 0
     for a in ALPHABETS:
-        f = ROOT / "results" / "gpu_runs" / "check" / f"Qwen__Qwen2.5-1.5B__{stem[a]}__logprob.csv"
+        f = ROOT / "results" / "lm" / "gpu_runs" / "check" / f"Qwen__Qwen2.5-1.5B__{stem[a]}__logprob.csv"
         if f.exists() and ("Qwen2.5-1.5B", a) in cruns:
             g, c = pd.read_csv(f).set_index("id"), cruns[("Qwen2.5-1.5B", a)]
             c = c.loc[g.index]
@@ -355,7 +355,7 @@ def gpu_block(gruns, cruns, bench):
         num("gpu@check@maxdiff", max(diffs), 3)
         num("gpu@check@agree", agree, 0)
         num("gpu@check@n", total, 0)
-    rc = [pd.read_csv(f) for f in sorted((ROOT / "results" / "gpu_runs").glob("cpu_recheck_*.csv"))]
+    rc = [pd.read_csv(f) for f in sorted((ROOT / "results" / "lm" / "gpu_runs").glob("cpu_recheck_*.csv"))]
     if rc:
         r = pd.concat(rc)
         dd = pd.concat([(r.good_logprob_cpu - r.good_logprob_gpu).abs(), (r.bad_logprob_cpu - r.bad_logprob_gpu).abs()])
@@ -368,7 +368,7 @@ def gpu_block(gruns, cruns, bench):
         num("gpu@recheck@pairs@max", sizes[-1], 0)
     flips, accdiff = [], []
     for a in ALPHABETS:
-        f = ROOT / "results" / "gpu_runs" / "bf16check" / f"Qwen__Qwen3.5-9B-Base__{stem[a]}__logprob.csv"
+        f = ROOT / "results" / "lm" / "gpu_runs" / "bf16check" / f"Qwen__Qwen3.5-9B-Base__{stem[a]}__logprob.csv"
         if f.exists() and ("Qwen3.5-9B", a) in gruns:
             b16, f32 = pd.read_csv(f).set_index("id"), gruns[("Qwen3.5-9B", a)]
             f32 = f32.loc[b16.index]
@@ -382,13 +382,13 @@ def gpu_block(gruns, cruns, bench):
         assert all(round(d, 6) < 0.05 for d in accdiff), "revise the text on the bfloat16 control"
     # Run 3: the bfloat16 control of Aya Expanse 8B on current Latin, the repeat run of Qwen3.5-0.8B, and the ties of
     # the runs declared invalid (a tokenizer that deletes the letters of the alphabet).
-    aya = ROOT / "results" / "gpu_runs" / "bf16check" / "CohereLabs__aya-expanse-8b__latn__logprob.csv"
+    aya = ROOT / "results" / "lm" / "gpu_runs" / "bf16check" / "CohereLabs__aya-expanse-8b__latn__logprob.csv"
     if aya.exists() and ("Aya Expanse 8B", "Latin") in gruns:
         num("gpu@bf16@aya@bf16", acc(pd.read_csv(aya)))
         num("gpu@bf16@aya@fp32", acc(gruns[("Aya Expanse 8B", "Latin")]))
     agree, total = 0, 0
     for a in ALPHABETS:
-        f = ROOT / "results" / "gpu_runs" / "repro" / f"Qwen__Qwen3.5-0.8B-Base__{stem[a]}__logprob.csv"
+        f = ROOT / "results" / "lm" / "gpu_runs" / "repro" / f"Qwen__Qwen3.5-0.8B-Base__{stem[a]}__logprob.csv"
         if f.exists() and ("Qwen3.5-0.8B", a) in gruns:
             r = pd.read_csv(f).set_index("id")
             agree += int((ok(r) == ok(gruns[("Qwen3.5-0.8B", a)].loc[r.index])).sum())
@@ -398,11 +398,11 @@ def gpu_block(gruns, cruns, bench):
         num("gpu@repro@n", total, 0)
     for m in held:
         for a, why in m.get("invalid", {}).items():
-            f = ROOT / "results" / "gpu_runs" / "invalid" / f"{m['hf'].replace('/', '__')}__{stem[a]}__logprob.csv"
+            f = ROOT / "results" / "lm" / "gpu_runs" / "invalid" / f"{m['hf'].replace('/', '__')}__{stem[a]}__logprob.csv"
             d = pd.read_csv(f)
             num(f"gpu@invalid@{m['key']}@{a}@ties", int((d.good_logprob == d.bad_logprob).sum()), 0)
     # Tomaris.ai: overlap of its pretraining corpus with the benchmark, and its accuracy by source.
-    ov = ROOT / "results" / "gpu_runs" / "tomaris_overlap_v1.2.json"
+    ov = ROOT / "results" / "lm" / "gpu_runs" / "tomaris_overlap_v1.2.json"
     if ov.exists() and rest:
         seen = set(json.loads(ov.read_text(encoding="utf-8"))["loose_ids"])
         for src, name in (("corpus", "own"), ("books", "books")):
@@ -442,12 +442,12 @@ def gpu_block(gruns, cruns, bench):
 # --- human validation -------------------------------------------------------------------------------------
 
 def human_judgments():
-    """Released counts of the forced-choice validation (human_study/forced_choice_*.csv, written by
+    """Released counts of the forced-choice validation (results/human/forced_choice_*.csv, written by
     scripts/human_study_report.py from the private sheets): per pair and per annotator; None if not run."""
-    f = ROOT / "human_study" / "forced_choice_judgments.csv"
+    f = ROOT / "results" / "human" / "forced_choice_judgments.csv"
     if not f.exists():
         return None, None
-    return pd.read_csv(f).set_index("pair_id"), pd.read_csv(ROOT / "human_study" / "forced_choice_annotators.csv")
+    return pd.read_csv(f).set_index("pair_id"), pd.read_csv(ROOT / "results" / "human" / "forced_choice_annotators.csv")
 
 
 def human_rows(judg):
@@ -461,7 +461,7 @@ def human_rows(judg):
 
 def rating_numbers():
     """Size of the rating study (not yet run): pairs per list and per phenomenon, from its key."""
-    f = ROOT / "human_study" / "ratings_key.csv"
+    f = ROOT / "archive" / "human_study" / "ratings_key.csv"
     if f.exists():
         key = pd.read_csv(f)
         per_list = key.groupby("list").size()
@@ -760,7 +760,7 @@ def pilot_table():
     cur = pd.read_csv(ROOT / "data" / "benchmark" / "uzblimp.tsv", sep="\t", dtype=str)
     cur = set(zip(cur["id"], cur["grammatical"], cur["ungrammatical"]))
     rows, pairs = [], set()
-    for f in sorted(glob.glob(str(ROOT / "results" / "api_*_pilot3.csv"))):
+    for f in sorted(glob.glob(str(ROOT / "archive" / "results" / "api_*_pilot3.csv"))):
         d = pd.read_csv(f)
         key = Path(f).name[len("api_"):].split("_uzblimp")[0]
         rows.append((names.get(key, key), 100 * d.accuracy.mean(), 100 * d.consistent.astype(str).eq("True").mean(), len(d)))
@@ -789,7 +789,7 @@ CLAUDE = [("fable", "Fable 5.2", "claude-fable-5-2"), ("opus", "Opus 5.5", "clau
 FC_ALPHABETS = [("latn", "Latin"), ("cyrl", "Cyrillic"), ("latn_reformed", "Reformed")]
 
 
-CODEX = [("gpt", "GPT 6.2 Sol")]  # results/codex_fc/, scripts/codex_fc.py
+CODEX = [("gpt", "GPT 6.2 Sol")]  # results/chat/codex/, scripts/codex_fc.py
 
 
 def codex_runs(bench):
@@ -797,7 +797,7 @@ def codex_runs(bench):
     runs = {}
     for alias, _ in CODEX:
         for a, A in FC_ALPHABETS:
-            f = ROOT / "results" / "codex_fc" / f"{alias}_{a}.csv"
+            f = ROOT / "results" / "chat" / "codex" / f"{alias}_{a}.csv"
             if f.exists():
                 df = pd.read_csv(f).set_index("id")
                 assert len(df) == len(bench) and set(df.index) == set(bench.index), f"{f.name}: not every pair"
@@ -806,10 +806,10 @@ def codex_runs(bench):
 
 
 def claude_block(bench, judg):
-    """Forced choice with four Claude models on all pairs (scripts/claude_fc.py, results/claude_fc/): two appendix
+    """Forced choice with four Claude models on all pairs (scripts/claude_fc.py, results/chat/claude/): two appendix
     tables and the numbers of the text. A pair's accuracy averages its two orders; it is consistent when both are
     right. None if the runs are not complete."""
-    d = ROOT / "results" / "claude_fc"
+    d = ROOT / "results" / "chat" / "claude"
     runs = {}
     for alias, _, _ in CLAUDE:
         for a, A in FC_ALPHABETS:
@@ -931,7 +931,7 @@ def claude_block(bench, judg):
         for _, A in FC_ALPHABETS:
             cells += [cell(pct(runs[(alias, A)].accuracy)), cell(pct(cons[(alias, A)]))]
         lines.append(f"{name} & " + " & ".join(cells) + r" \\")
-    # GPT through Codex, on the same requests (results/codex_fc/): its own row, below the Claude models.
+    # GPT through Codex, on the same requests (results/chat/codex/): its own row, below the Claude models.
     cx = codex_runs(bench)
     cx_names = [name for alias, name in CODEX if all((alias, A) in cx for _, A in FC_ALPHABETS)]
     for alias, name in CODEX:
@@ -995,12 +995,12 @@ API_MODELS = [("kimi-k3.1-pro", "Kimi K3.1 Pro"), ("glm-5.3", "GLM 5.3"), ("deep
 
 
 def api_block(bench):
-    """Forced choice with chat models of other developers through OpenRouter (scripts/api_fc.py, results/api_fc/):
+    """Forced choice with chat models of other developers through OpenRouter (scripts/api_fc.py, results/chat/openrouter/):
     every pair asked at most once, in the order of pass A of the Claude runs. A request whose reasoning ran out of the
     token limit, or that was not sent because the budget was spent, leaves its 150 pairs out; the table gives the
     number of pairs wherever it is not the whole benchmark. None if there are no results."""
-    d = ROOT / "results" / "api_fc"
-    cdir = ROOT / "results" / "claude_fc"
+    d = ROOT / "results" / "chat" / "openrouter"
+    cdir = ROOT / "results" / "chat" / "claude"
     if not (d / "cost.json").exists():
         return None
     plan = json.loads((cdir / "plan_v1.2.json").read_text(encoding="utf-8"))
@@ -1028,7 +1028,7 @@ def api_block(bench):
     num("api@full@min", min(full) + 1e-9)
     num("api@full@max", max(full) + 1e-9)
     # Section 6.6: the six chat models that answered every pair (four Claude models, Kimi and GLM)
-    # and GPT through Codex (results/codex_fc/), which answered every pair in both orders.
+    # and GPT through Codex (results/chat/codex/), which answered every pair in both orders.
     cx = codex_runs(bench)
     cx_acc = [100 * df.accuracy.mean() for df in cx.values()]
     num("chat@min", min([min(full), float(NUM["fc@all@min"])] + cx_acc) + 1e-9)
@@ -1095,7 +1095,7 @@ def misc_numbers(bench, runs, generated, reviewed, accepted):
     # Pairs replaced since benchmark v1.1 (ids of a v1.1 result file), and the excluded pairs by the pass
     # that found them: the audit of generator errors and the screen for spelling errors in source sentences.
     excluded = read_tsv(ROOT / "data/benchmark/excluded.tsv")
-    v11 = set(pd.read_csv(ROOT / "results" / "uzn_latn_100mb_uzblimp_v1.1.csv").id)
+    v11 = set(pd.read_csv(ROOT / "archive" / "results" / "uzn_latn_100mb_uzblimp_v1.1.csv").id)
     replaced = len(v11 - set(bench.index))
     num("n@replaced", replaced, 0)
     num("pct@replaced", 100 * replaced / len(bench))
@@ -1236,7 +1236,7 @@ def main():
     runs = {key: df for key, df in runs.items() if key[0] not in gpu_keys}
     if left_out:
         print(f"left out until both the Latin and the Cyrillic run are complete: {', '.join(left_out)}")
-    stats_file = ROOT / "results" / "tokenizer_stats.json"
+    stats_file = ROOT / "results" / "lm" / "tokenizer_stats.json"
     stats = json.loads(stats_file.read_text(encoding="utf-8")) if stats_file.exists() else {}
     ex = read_examples(bench)
     generated, reviewed, accepted, reasons = review_counts()

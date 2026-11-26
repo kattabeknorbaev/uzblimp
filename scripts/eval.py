@@ -12,18 +12,19 @@ Two methods, kept apart in the `method` field of every result:
 - forced-choice: chat models without log-probabilities, through OpenRouter. Each pair is shown in both
   orders and the model answers 1 or 2; accuracy counts both orders, so always answering "1" scores 50%,
   and `consistent` is the share of pairs right in both orders. The prompt, answer parsing and cache
-  keys are those of score_api.py, so answers either script has cached are not paid for twice. The API
-  key is read from OPENROUTER_API_KEY (environment or .env) and never printed; requests ask for
-  providers that don't collect data.
+  keys are those of archive/scripts/score_api.py, so answers either script has cached are not paid for
+  twice. The API key is read from OPENROUTER_API_KEY (environment or .env) and never printed; requests
+  ask for providers that don't collect data.
 
-Writes results/json/<model>__<script>__<method>.json (accuracy overall and per phenomenon) and
-results/pairs/<model>__<script>__<method>.csv (one row per pair). make_table.py turns the JSON files
-into the README table.
+Writes results/lm/json/<model>__<script>__<method>.json (accuracy overall and per phenomenon) and
+results/lm/pairs/<model>__<script>__<method>.csv (one row per pair), with the name in lower case;
+forced-choice runs go to results/chat/json/ and results/chat/pairs/ instead. make_table.py turns the JSON
+files of results/lm/json/ into the table of results/README.md.
 
     python scripts/eval.py --model goldfish-models/uzn_latn_100mb --script latn
     python scripts/eval.py --model Qwen/Qwen2.5-0.5B --script cyrl --device cuda --dtype auto
     python scripts/eval.py --method forced-choice --model google/gemma-3-12b-it --script latn --per-phenomenon 3
-    python scripts/eval.py --models-file eval_models.txt --script latn
+    python scripts/eval.py --models-file archive/eval_models.txt --script latn
     python scripts/eval.py --selftest
 """
 import argparse
@@ -49,11 +50,11 @@ from schema import RELEASE_PHENOMENA, RELEASE_VERSION, SCRIPT_FILES
 ROOT = Path(__file__).resolve().parent.parent
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
 CACHE = ROOT / "data" / "cache" / "api"
-# Same text as score_api.py: keep them identical, or cached answers stop matching.
+# Same text as archive/scripts/score_api.py: keep them identical, or cached answers stop matching.
 SYSTEM = 'You judge the grammaticality of Uzbek sentences. Reply only with "Answer: 1" or "Answer: 2".'
 PROMPT = ("{note}Which of the following two Uzbek sentences is grammatically correct? Exactly one of them is.\n\n"
           '1. {s1}\n2. {s2}\n\nReply with "Answer: 1" or "Answer: 2".')
-# Dataset names score_api.py used for its cache files.
+# Dataset names archive/scripts/score_api.py used for its cache files.
 CACHE_DATASET = {"latn": "uzblimp_{v}", "cyrl": "uzblimp_{v}_cyrl", "latn_reformed": "uzblimp_{v}_reformed"}
 
 
@@ -94,11 +95,11 @@ def summarize(rows, model, script, method, settings, label=None):
 
 
 def stem(model, script, method):
-    return f"{model.replace('/', '__').replace(':', '_')}__{script}__{method}"
+    return f"{model.replace('/', '__').replace(':', '_')}__{script}__{method}".lower()
 
 
 def write_results(summary, rows, out_dir, pairs=True):
-    """results/json/<name>.json, plus results/pairs/<name>.csv unless the per-pair rows exist elsewhere."""
+    """<out_dir>/json/<name>.json, plus <out_dir>/pairs/<name>.csv unless the per-pair rows exist elsewhere."""
     name = stem(summary["model"], summary["script"], summary["method"])
     (out_dir / "json").mkdir(parents=True, exist_ok=True)
     (out_dir / "json" / f"{name}.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
@@ -110,7 +111,7 @@ def write_results(summary, rows, out_dir, pairs=True):
             w.writeheader()
             w.writerows(rows)
     print(f"{summary['label']} | {summary['script']} | {summary['method']}: {summary['accuracy']}% of "
-          f"{summary['n_pairs']} pairs → results/json/{name}.json")
+          f"{summary['n_pairs']} pairs → {out_dir / 'json' / f'{name}.json'}")
     for ph, s in summary["per_phenomenon"].items():
         print(f"  {ph:22} {s['accuracy']:5.1f}")
 
@@ -284,7 +285,7 @@ def run_forced_choice(pairs, model, script, args, caller=call_api, cache_root=CA
                      "bad": p["sentence_bad"], "answer_gb": ans["gb"], "answer_bg": ans["bg"],
                      "correct": (ok_gb + ok_bg) / 2, "consistent": ok_gb and ok_bg,
                      "invalid": (ans["gb"] is None) + (ans["bg"] is None)})
-    settings = {"scorer": "scripts/eval.py (prompt of scripts/score_api.py)", "api": "OpenRouter",
+    settings = {"scorer": "scripts/eval.py (prompt of archive/scripts/score_api.py)", "api": "OpenRouter",
                 "temperature": 0, "max_tokens": args.max_tokens, "reasoning": args.reasoning,
                 "per_phenomenon": args.per_phenomenon}
     return rows, settings
@@ -336,12 +337,12 @@ def selftest():
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--model", help="Hugging Face model id (logprob) or OpenRouter model id (forced-choice)")
-    p.add_argument("--models-file", help="run every model listed, e.g. eval_models.txt")
+    p.add_argument("--models-file", help="run every model listed, e.g. archive/eval_models.txt")
     p.add_argument("--method", choices=["logprob", "forced-choice"], default="logprob")
     p.add_argument("--label", help="name for the results table (default: the model id's last part)")
     p.add_argument("--script", choices=list(SCRIPT_FILES), default="latn", help="alphabet to evaluate")
     p.add_argument("--data", default=str(ROOT / "data" / "jsonl"))
-    p.add_argument("--out", default=str(ROOT / "results"))
+    p.add_argument("--out", help="output folder (default: results/lm for logprob, results/chat for forced-choice)")
     p.add_argument("--per-phenomenon", type=int, help="pilot: only N seeded random pairs per phenomenon")
     p.add_argument("--device", help="cpu, cuda, cuda:1 ... (default: cuda if available)")
     p.add_argument("--dtype", choices=["float32", "float16", "bfloat16", "auto"], default="float32",
@@ -370,7 +371,8 @@ def main():
             rows, settings = run_logprob(pairs, model, args)
         else:
             rows, settings = run_forced_choice(pairs, model, args.script, args)
-        write_results(summarize(rows, model, args.script, method, settings, label), rows, Path(args.out))
+        out = Path(args.out) if args.out else ROOT / "results" / ("lm" if method == "logprob" else "chat")
+        write_results(summarize(rows, model, args.script, method, settings, label), rows, out)
 
 
 if __name__ == "__main__":

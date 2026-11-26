@@ -1,0 +1,101 @@
+{
+  "benchmark": "UzBLiMP",
+  "version": "v1.2",
+  "model": "issai/Qwen3.5-9B-Base-Kazakh",
+  "label": "Qwen3.5-9B Kazakh",
+  "script": "cyrl",
+  "method": "logprob",
+  "n_pairs": 2400,
+  "accuracy": 88.0,
+  "accuracy_norm": 83.3,
+  "per_phenomenon": {
+    "anaphor_agreement": {
+      "n": 150,
+      "correct": 130,
+      "accuracy": 86.7
+    },
+    "binding": {
+      "n": 150,
+      "correct": 137,
+      "accuracy": 91.3
+    },
+    "dative_allomorphy": {
+      "n": 150,
+      "correct": 100,
+      "accuracy": 66.7
+    },
+    "ditransitive_dative": {
+      "n": 150,
+      "correct": 105,
+      "accuracy": 70.0
+    },
+    "lexical_case": {
+      "n": 150,
+      "correct": 124,
+      "accuracy": 82.7
+    },
+    "nominalization": {
+      "n": 150,
+      "correct": 150,
+      "accuracy": 100.0
+    },
+    "npi_hech": {
+      "n": 150,
+      "correct": 134,
+      "accuracy": 89.3
+    },
+    "numeral_no_plural": {
+      "n": 150,
+      "correct": 132,
+      "accuracy": 88.0
+    },
+    "passives": {
+      "n": 150,
+      "correct": 148,
+      "accuracy": 98.7
+    },
+    "person_agreement": {
+      "n": 150,
+      "correct": 142,
+      "accuracy": 94.7
+    },
+    "possessive_agreement": {
+      "n": 150,
+      "correct": 129,
+      "accuracy": 86.0
+    },
+    "postposition_case": {
+      "n": 150,
+      "correct": 122,
+      "accuracy": 81.3
+    },
+    "quantifiers": {
+      "n": 150,
+      "correct": 142,
+      "accuracy": 94.7
+    },
+    "relative_clauses": {
+      "n": 150,
+      "correct": 149,
+      "accuracy": 99.3
+    },
+    "stem_alternation": {
+      "n": 150,
+      "correct": 133,
+      "accuracy": 88.7
+    },
+    "suspended_affixation": {
+      "n": 150,
+      "correct": 135,
+      "accuracy": 90.0
+    }
+  },
+  "settings": {
+    "scorer": "scripts/eval.py (logprob), run on GPUs; see results/lm/gpu_runs/README_run3.txt",
+    "dtype": "float32",
+    "device": "cuda",
+    "bos": true,
+    "per_pair": "results/lm/cyrl/qwen3.5-9b-base-kazakh.csv"
+  },
+  "date": "2026-11-26"
+}
