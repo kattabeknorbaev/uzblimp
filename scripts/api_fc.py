@@ -25,7 +25,7 @@ import os
 import sys
 import threading
 import time
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import requests
@@ -47,8 +47,11 @@ PROVIDERS = {"deepseek-v4-flash": "deepinfra/fp8/flex", "deepseek-v4-pro": "deep
              "seed-2.1-turbo": "seed/fp8"}
 PRECISE = ["fp8", "bf16", "fp16", "fp32"]
 # What the run asks: (model, passes, batches); every model in all three alphabets.
-PLAN = [(alias, "A", range(16)) for alias in ("seed-2.1-turbo", "kimi-k3.1-pro", "glm-5.3", "deepseek-v4-flash",
-                                              "minimax-m3.1-flash")] + [("deepseek-v4-pro", "A", range(4))]
+PLAN = [(alias, "A", range(16)) for alias in ("kimi-k3.1-pro", "glm-5.3", "deepseek-v4-flash", "minimax-m3.1-flash")] \
+    + [("deepseek-v4-pro", "A", range(4))]
+# Seed 2.1 Turbo was in the first run of 26 November 2026 and was then stopped at the authors' request; most of its
+# responses ran out of the 32,000-token limit while reasoning. Its runs/ files keep what it answered.
+STOPPED = ["seed-2.1-turbo"]
 EFFORT = "low"
 MAX_TOKENS = 32000
 ATTEMPTS = 3
@@ -56,7 +59,22 @@ LOCK = threading.Lock()
 # Money spent on this evaluation so far (cached responses included, so the budget covers every run), the number of
 # requests in flight, and the most expensive request so far: a request is sent only if the budget still covers it
 # and every request in flight at that price.
-SPENT = {"usd": 0.0, "in_flight": 0, "max_cost": 0.10}
+SPENT = {"usd": 0.0, "reserved": 0.0, "max_cost": {}}
+FIRST_GUESS = 0.10  # reserve for a model whose cost per request is not known yet
+
+
+def reserve(alias, budget):
+    """Reserve the most this model has cost per request so far; wait while requests in flight could exceed the
+    budget, and give up only when even this request could not be paid."""
+    while True:
+        with LOCK:
+            est = SPENT["max_cost"].get(alias, FIRST_GUESS)
+            if SPENT["usd"] + est > budget:
+                return None
+            if SPENT["usd"] + SPENT["reserved"] + est <= budget:
+                SPENT["reserved"] += est
+                return est
+        time.sleep(5)
 
 
 def api_key():
@@ -112,10 +130,9 @@ def call(alias, alphabet, pass_, b, attempt, prompt, budget):
     if f.exists():
         rec = json.loads(f.read_text(encoding="utf-8"))
     else:
-        with LOCK:
-            if SPENT["usd"] + (SPENT["in_flight"] + 1) * SPENT["max_cost"] > budget:
-                return None, {"skipped": "budget"}
-            SPENT["in_flight"] += 1
+        est = reserve(alias, budget)
+        if est is None:
+            return None, {"skipped": "budget"}
         rec = {}
         for wait in (0, 10, 30, 60, 120, 240):
             time.sleep(wait)
@@ -140,13 +157,13 @@ def call(alias, alphabet, pass_, b, attempt, prompt, budget):
             CACHE.mkdir(parents=True, exist_ok=True)
             f.write_text(json.dumps(rec, ensure_ascii=False, indent=1), encoding="utf-8")
         with LOCK:
-            SPENT["in_flight"] -= 1
+            SPENT["reserved"] -= est
     data = rec.get("response") or {}
     usage = data.get("usage") or {}
     cost = float(usage.get("cost") or 0)
     with LOCK:
         SPENT["usd"] += cost
-        SPENT["max_cost"] = max(SPENT["max_cost"], cost)
+        SPENT["max_cost"][alias] = max(SPENT["max_cost"].get(alias, 0.0), cost)
     choice = (data.get("choices") or [{}])[0]
     content = (choice.get("message") or {}).get("content")
     return parse(content), {"usage": usage, "provider": data.get("provider"), "finish": choice.get("finish_reason"),
@@ -189,11 +206,18 @@ def trial(budget):
 
 def run(budget, workers):
     plan = fc.load_plan()
+    # The budget covers the whole evaluation: count what the stopped models already cost.
+    for f in CACHE.glob("*.json"):
+        if f.name.split("_")[0] in STOPPED:
+            rec = json.loads(f.read_text(encoding="utf-8"))
+            SPENT["usd"] += float(((rec.get("response") or {}).get("usage") or {}).get("cost") or 0)
+    print(f"already spent on stopped models: ${SPENT['usd']:.2f}", flush=True)
     jobs = [(alias, a, p, b) for alias, passes, batches in PLAN for a in fc.FILES for p in passes for b in batches]
     results = {}
     with ThreadPoolExecutor(workers) as ex:
-        futs = {j: ex.submit(run_one, *j, plan, budget) for j in jobs}
-        for n, (j, fut) in enumerate(futs.items(), 1):
+        futs = {ex.submit(run_one, *j, plan, budget): j for j in jobs}
+        for n, fut in enumerate(as_completed(futs), 1):
+            j = futs[fut]
             results[j] = fut.result()
             if n % 20 == 0 or n == len(jobs):
                 done = sum(1 for r in results.values() if r["answers"])
@@ -219,11 +243,12 @@ def collect():
         res = json.loads(f.read_text(encoding="utf-8"))
         missing = sum(not r["answers"] for r in res["results"])
         if missing:
-            print(f"{f.name}: {missing} requests without a valid answer; not collected")
-            continue
+            print(f"{f.name}: {missing} of {len(res['results'])} requests without a valid answer (left out)")
         d = fc.bench(res["alphabet"]).set_index("id")
         rows = []
         for r in res["results"]:
+            if not r["answers"]:
+                continue
             pairs = fc.items(plan, res["alphabet"], r["batch"])
             assert r["chars"] == len(fc.render(pairs, r["pass"])), f"{f.name}: the prompt differs from render()"
             for i, it in enumerate(plan["batches"][r["batch"]]):

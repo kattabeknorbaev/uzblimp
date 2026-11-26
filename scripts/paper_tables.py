@@ -915,34 +915,35 @@ def claude_block(bench, judg):
 
 
 API_MODELS = [("deepseek-v4-flash", "DeepSeek V4 Flash"), ("kimi-k3.1-pro", "Kimi K3.1 Pro"), ("glm-5.3", "GLM 5.3"),
-              ("seed-2.1-turbo", "Seed 2.1 Turbo"), ("minimax-m3.1-flash", "MiniMax M3.1 Flash")]
+              ("minimax-m3.1-flash", "MiniMax M3.1 Flash")]
+API_PARTIAL = [("deepseek-v4-pro", "DeepSeek V4 Pro"), ("seed-2.1-turbo", "Seed 2.1 Turbo")]
 
 
 def api_block(bench):
-    """Forced choice with five other chat models through OpenRouter (scripts/api_fc.py, results/api_fc/): every pair
-    asked once, in the order of pass A of the Claude runs, and DeepSeek V4 Pro on four batches per alphabet. The table
-    sets their accuracy beside that of the Claude models on the same requests. None if the runs are not complete."""
+    """Forced choice with chat models of other developers through OpenRouter (scripts/api_fc.py, results/api_fc/):
+    every pair asked once, in the order of pass A of the Claude runs. DeepSeek V4 Pro answered four batches per
+    alphabet by design and Seed 2.1 Turbo the few batches it completed before it was stopped; both are reported on the
+    pairs they answered. The table sets the accuracy of the Claude models on the same requests beside them. None if a
+    model of API_MODELS has not answered every pair."""
     d = ROOT / "results" / "api_fc"
     cdir = ROOT / "results" / "claude_fc"
     plan = json.loads((cdir / "plan_v1.2.json").read_text(encoding="utf-8"))
     first = {it["id"]: it["first_in_A"] == "grammatical" for b in plan["batches"] for it in b}
     runs, usage = {}, {}
-    for alias, _ in API_MODELS + [("deepseek-v4-pro", "")]:
+    for alias, _ in API_MODELS + API_PARTIAL:
         for a, A in FC_ALPHABETS:
             f = d / f"{alias}_{a}.csv"
             if not f.exists():
                 return None
             df = pd.read_csv(f).set_index("id")
-            # every pair asked once, in the order of pass A
             assert all((o == "gb") == first[i] for i, o in df.order.items()), f"{f.name}: not the order of pass A"
             runs[(alias, A)] = df
             res = json.loads((d / "runs" / f"{alias}_{a}.json").read_text(encoding="utf-8"))
-            usage[(alias, A)] = [r["usage"] for r in res["results"]]
+            usage[(alias, A)] = [r["usage"] for r in res["results"] if r.get("usage")]
     for alias, _ in API_MODELS:
         for _, A in FC_ALPHABETS:
-            assert len(runs[(alias, A)]) == len(bench), f"{alias} {A}: not every pair was asked"
-    sub = runs[("deepseek-v4-pro", "Latin")].index
-    assert all(set(runs[("deepseek-v4-pro", A)].index) == set(sub) for _, A in FC_ALPHABETS)
+            if len(runs[(alias, A)]) != len(bench):
+                return None
 
     def pct(s):
         return 100 * s.astype(str).eq("True").mean() + 1e-9
@@ -950,20 +951,23 @@ def api_block(bench):
     every = []
     for (alias, A), df in runs.items():
         num(f"api@{alias}@{A}@acc", pct(df.correct))
-        if alias != "deepseek-v4-pro":
+        num(f"api@{alias}@{A}@n", len(df), 0)
+        if alias in dict(API_MODELS):
             every.append(100 * df.correct.astype(str).eq("True").mean())
     num("api@all@min", min(every) + 1e-9)
     num("api@all@max", max(every) + 1e-9)
+    pro = {A: runs[("deepseek-v4-pro", A)].index for _, A in FC_ALPHABETS}
     for _, A in FC_ALPHABETS:
-        num(f"api@flash@sub@{A}", pct(runs[("deepseek-v4-flash", A)].correct.loc[runs[("deepseek-v4-pro", A)].index]))
-    num("api@sub@pairs", len(sub), 0)
+        num(f"api@flash@sub@{A}", pct(runs[("deepseek-v4-flash", A)].correct.loc[pro[A]]))
+    num("api@sub@pairs", len(pro["Latin"]), 0)
+    num("api@seed@pairs", sum(len(runs[("seed-2.1-turbo", A)]) for _, A in FC_ALPHABETS), 0)
     reqs = sum(len(u) for u in usage.values())
     num("api@requests", reqs, 0)
     num("api@cost", sum(float(x.get("cost") or 0) for u in usage.values() for x in u))
-    for alias, _ in API_MODELS + [("deepseek-v4-pro", "")]:
+    for alias, _ in API_MODELS + API_PARTIAL:
         rt = [((x.get("completion_tokens_details") or {}).get("reasoning_tokens") or 0) for _, A in FC_ALPHABETS
               for x in usage[(alias, A)]]
-        num(f"api@{alias}@reasoning", sum(rt) / len(rt), 0)
+        num(f"api@{alias}@reasoning", sum(rt) / len(rt) if rt else 0, 0)
     # The Claude models on the same requests: their answers in pass A.
     claude = {}
     for alias, name, _ in CLAUDE:
@@ -973,24 +977,31 @@ def api_block(bench):
             claude[(alias, A)] = 100 * pd.Series(ok).astype(str).eq("True").mean() + 1e-9
             num(f"fc@{alias}@{A}@passA", claude[(alias, A)])
 
-    lines = [r"\begin{table}[t]", r"\centering\small", r"\setlength{\tabcolsep}{4pt}", r"\begin{tabular}{@{}lrrrr@{}}",
-             r"\toprule", r"Model & Reasoning & Latin & Cyrillic & Reformed \\", r"\midrule"]
+    def cells(alias):
+        out = []
+        for _, A in FC_ALPHABETS:
+            df = runs[(alias, A)]
+            out.append(f"{pct(df.correct):.1f}" + ("" if len(df) == len(bench) else rf" ({len(df):,})".replace(",", "{,}")))
+        return out
+
+    lines = [r"\begin{table}[t]", r"\centering\small", r"\setlength{\tabcolsep}{3.5pt}", r"\begin{tabular}{@{}lrrrr@{}}",
+             r"\toprule", r"Model & Reas. & Latin & Cyrillic & Reformed \\", r"\midrule"]
     for alias, name in API_MODELS:
-        cells = [f"{pct(runs[(alias, A)].correct):.1f}" for _, A in FC_ALPHABETS]
-        lines.append(f"{name} & {NUM[f'api@{alias}@reasoning']} & " + " & ".join(cells) + r" \\")
-    cells = [f"{pct(runs[('deepseek-v4-pro', A)].correct):.1f}" for _, A in FC_ALPHABETS]
-    lines.append(r"\quad V4 Pro (subset) & " + NUM["api@deepseek-v4-pro@reasoning"] + " & " + " & ".join(cells) + r" \\")
-    cells = [f"{float(NUM[f'api@flash@sub@{A}']):.1f}" for _, A in FC_ALPHABETS]
-    lines.append(r"\quad V4 Flash (subset) & & " + " & ".join(cells) + r" \\")
+        lines.append(f"{name} & {NUM[f'api@{alias}@reasoning']} & " + " & ".join(cells(alias)) + r" \\")
+    lines.append(r"\midrule")
+    for alias, name in API_PARTIAL:
+        lines.append(f"{name} & {NUM[f'api@{alias}@reasoning']} & " + " & ".join(cells(alias)) + r" \\")
+    lines.append(r"\quad V4 Flash, same pairs & & " + " & ".join(f"{float(NUM[f'api@flash@sub@{A}']):.1f}" for _, A in FC_ALPHABETS) + r" \\")
     lines.append(r"\midrule")
     for alias, name, _ in CLAUDE:
         lines.append(f"Claude {name} & & " + " & ".join(f"{claude[(alias, A)]:.1f}" for _, A in FC_ALPHABETS) + r" \\")
     lines += [r"\bottomrule", r"\end{tabular}",
-              rf"\caption{{Forced choice through the OpenRouter API: accuracy (\%) on all {len(bench):,} pairs".replace(",", "{,}") +
-              r" in current Latin, Cyrillic and reformed Latin, each pair asked once in the order of the first pass of "
-              r"Table~\ref{tab:claude}. DeepSeek V4 Pro was asked " + NUM["api@sub@pairs"].replace(",", "{,}") +
-              r" pairs per alphabet, also shown for V4 Flash; \emph{Reasoning}: mean reasoning tokens per request of "
-              r"150 pairs. The Claude rows give the same requests from the runs of Table~\ref{tab:claude}.}",
+              rf"\caption{{Forced choice through the OpenRouter API: accuracy (\%) in current Latin, Cyrillic and reformed "
+              rf"Latin, each pair asked once in the order of the first pass of Table~\ref{{tab:claude}}, on all "
+              rf"{len(bench):,} pairs or, in parentheses, on the pairs a model answered. ".replace(",", "{,}") +
+              r"DeepSeek V4 Pro answered four batches per alphabet, also shown for V4 Flash; Seed 2.1 Turbo, stopped "
+              r"early, the batches it completed. \emph{Reas.}: mean reasoning tokens per request of 150 pairs. The "
+              r"Claude rows give the same requests from the runs of Table~\ref{tab:claude}.}",
               r"\label{tab:chat}", r"\end{table}"]
     return "\n".join(lines)
 
