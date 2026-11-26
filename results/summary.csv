@@ -220,3 +220,15 @@ timestamp,model,dataset,n_pairs,accuracy,bos,device,dtype,n_params_M,acc_norm,sc
 2026-11-21T07:50:04,Qwen/Qwen2.5-1.5B,uzblimp_v1.2_reformed,2400,0.4971,True,cpu,float32,1544.0,0.5517,causal,baseline,2400 pairs scored
 2026-11-21T08:08:23,tahrirchi/tahrirchi-bert-small,uzblimp_v1.2_cyrl,2400,0.5917,True,cpu,float32,90.0,0.6138,mlm-pll,baseline,2400 pairs scored
 2026-11-21T08:25:27,tahrirchi/tahrirchi-bert-small,uzblimp_v1.2_reformed,2400,0.8129,True,cpu,float32,90.0,0.8171,mlm-pll,baseline,2400 pairs scored
+2026-11-26T07:16:24,ai-forever/mGPT,uzblimp_v1.2,2400,0.9121,True,cuda,float32,1418.0,0.88,causal,baseline,2400 pairs scored
+2026-11-26T07:16:54,ai-forever/mGPT,uzblimp_v1.2_cyrl,2400,0.9558,True,cuda,float32,1418.0,0.8979,causal,baseline,2400 pairs scored
+2026-11-26T07:17:19,ai-forever/mGPT,uzblimp_v1.2_reformed,2400,0.7729,True,cuda,float32,1418.0,0.765,causal,baseline,2400 pairs scored
+2026-11-26T07:19:28,ai-forever/mGPT-1.3B-uzbek,uzblimp_v1.2,2400,0.9117,True,cuda,float32,1418.0,0.9092,causal,baseline,2400 pairs scored
+2026-11-26T07:19:57,ai-forever/mGPT-1.3B-uzbek,uzblimp_v1.2_cyrl,2400,0.6096,True,cuda,float32,1418.0,0.6767,causal,baseline,2400 pairs scored
+2026-11-26T07:20:21,ai-forever/mGPT-1.3B-uzbek,uzblimp_v1.2_reformed,2400,0.7567,True,cuda,float32,1418.0,0.7779,causal,baseline,2400 pairs scored
+2026-11-26T07:22:25,cis-lmu/glot500-base,uzblimp_v1.2,2400,0.7938,True,cuda,float32,395.0,0.8096,mlm-pll,baseline,2400 pairs scored
+2026-11-26T07:23:44,cis-lmu/glot500-base,uzblimp_v1.2_cyrl,2400,0.9371,True,cuda,float32,395.0,0.9292,mlm-pll,baseline,2400 pairs scored
+2026-11-26T07:25:05,cis-lmu/glot500-base,uzblimp_v1.2_reformed,2400,0.7762,True,cuda,float32,395.0,0.7812,mlm-pll,baseline,2400 pairs scored
+2026-11-26T07:27:18,FacebookAI/xlm-roberta-large,uzblimp_v1.2,2400,0.8404,True,cuda,float32,560.0,0.845,mlm-pll,baseline,2400 pairs scored
+2026-11-26T07:29:28,FacebookAI/xlm-roberta-large,uzblimp_v1.2_cyrl,2400,0.5283,True,cuda,float32,560.0,0.5308,mlm-pll,baseline,2400 pairs scored
+2026-11-26T07:31:14,FacebookAI/xlm-roberta-large,uzblimp_v1.2_reformed,2400,0.7446,True,cuda,float32,560.0,0.7421,mlm-pll,baseline,2400 pairs scored

@@ -35,6 +35,10 @@ RELEASE_SCRIPT = {"Latin": "latn", "Cyrillic": "cyrl", "Reformed": "latn_reforme
 # dtype      precision of a GPU run; post: True for post-trained (not base) checkpoints, scored like the others
 # held_out   False for Tomaris.ai, whose pretraining corpus contains most benchmark sentences of the authors' own
 #            corpus and which was made by the authors' company (results/gpu_runs/tomaris_overlap_v1.2.json)
+# device     "gpu" for the models of the CPU groups that were scored with run_models.py (the same scorer, float32)
+#            on a rented GPU in run 3 of the GPU runs (results/gpu_runs/README_run3.txt)
+# record     the README of the GPU run in results/gpu_runs/ (default README.txt, runs 1 and 2)
+# invalid    alphabets whose run is not reported, with the reason (the per-pair file is kept in results/gpu_runs/invalid)
 MODELS = [
     # Monolingual causal LMs: the Goldfish data-size ladder in each script (Chang et al., 2024)
     dict(key="GF-L 5MB", hf="goldfish-models/uzn_latn_5mb", params="39M", method="logprob", group="Goldfish (Latin)", trained="latn", size="5MB", license="Apache 2.0"),
@@ -54,13 +58,13 @@ MODELS = [
     # Multilingual masked LMs
     dict(key="mBERT", hf="google-bert/bert-base-multilingual-cased", params="179M", method="pll", group="Multilingual encoders", trained="multi", license="Apache 2.0"),
     dict(key="XLM-R base", hf="FacebookAI/xlm-roberta-base", params="279M", method="pll", group="Multilingual encoders", trained="multi", license="MIT"),
-    dict(key="Glot500", hf="cis-lmu/glot500-base", params="395M", method="pll", group="Multilingual encoders", trained="multi", license="Apache 2.0"),
-    dict(key="XLM-R large", hf="FacebookAI/xlm-roberta-large", params="561M", method="pll", group="Multilingual encoders", trained="multi", license="MIT"),
+    dict(key="Glot500", hf="cis-lmu/glot500-base", params="395M", method="pll", group="Multilingual encoders", trained="multi", license="Apache 2.0", device="gpu"),
+    dict(key="XLM-R large", hf="FacebookAI/xlm-roberta-large", params="561M", method="pll", group="Multilingual encoders", trained="multi", license="MIT", device="gpu"),
     # Multilingual causal LMs
     dict(key="Qwen2.5-0.5B", hf="Qwen/Qwen2.5-0.5B", params="0.5B", method="logprob", group="Multilingual LMs", trained="multi", license="Apache 2.0"),
     dict(key="Qwen2.5-1.5B", hf="Qwen/Qwen2.5-1.5B", params="1.5B", method="logprob", group="Multilingual LMs", trained="multi", license="Apache 2.0"),
-    dict(key="mGPT", hf="ai-forever/mGPT", params="1.3B", method="logprob", group="Multilingual LMs", trained="multi", license="Apache 2.0"),
-    dict(key="mGPT-Uzbek", hf="ai-forever/mGPT-1.3B-uzbek", params="1.3B", method="logprob", group="Multilingual LMs", trained="multi", license="MIT"),
+    dict(key="mGPT", hf="ai-forever/mGPT", params="1.3B", method="logprob", group="Multilingual LMs", trained="multi", license="Apache 2.0", device="gpu"),
+    dict(key="mGPT-Uzbek", hf="ai-forever/mGPT-1.3B-uzbek", params="1.3B", method="logprob", group="Multilingual LMs", trained="multi", license="MIT", device="gpu"),
     # Larger causal LMs, scored on GPUs (see setup above)
     dict(key="Qwen3.5-0.8B", hf="Qwen/Qwen3.5-0.8B-Base", params="0.9B", method="logprob", group="Larger multilingual LMs (GPU)", trained="multi", license="Apache 2.0", setup="gpu", dtype="float32", post=False),
     dict(key="Qwen3.5-2B", hf="Qwen/Qwen3.5-2B-Base", params="2.3B", method="logprob", group="Larger multilingual LMs (GPU)", trained="multi", license="Apache 2.0", setup="gpu", dtype="float32", post=False),
@@ -76,6 +80,17 @@ MODELS = [
     dict(key="Qwen3.8-27B", hf="Qwen/Qwen3.8-27B", params="27.8B", method="logprob", group="Larger multilingual LMs (GPU)", trained="multi", license="Apache 2.0", setup="gpu", dtype="bfloat16", post=True),
     dict(key="Qwen3.5-35B-A3B", hf="Qwen/Qwen3.5-35B-A3B-Base", params="36.0B", method="logprob", group="Larger multilingual LMs (GPU)", trained="multi", license="Apache 2.0", setup="gpu", dtype="bfloat16", post=False),
     dict(key="Qwen3.6-35B-A3B", hf="Qwen/Qwen3.6-35B-A3B", params="36.0B", method="logprob", group="Larger multilingual LMs (GPU)", trained="multi", license="Apache 2.0", setup="gpu", dtype="bfloat16", post=True),
+    # Scored on GPUs in run 3 (results/gpu_runs/README_run3.txt): further multilingual LMs, then fine-tunes of
+    # multilingual models for Uzbek or Kazakh. alloma 8B was fine-tuned from Llama-3.1-8B-Instruct (its model card).
+    dict(key="Gemma 3 4B", hf="google/gemma-3-4b-pt", params="4.3B", method="logprob", group="Larger multilingual LMs (GPU)", trained="multi", license="Gemma Terms of Use", setup="gpu", dtype="float32", post=False, record="README_run3.txt"),
+    dict(key="Gemma 3 12B", hf="google/gemma-3-12b-pt", params="12.2B", method="logprob", group="Larger multilingual LMs (GPU)", trained="multi", license="Gemma Terms of Use", setup="gpu", dtype="bfloat16", post=False, record="README_run3.txt"),
+    dict(key="Gemma 3 27B", hf="google/gemma-3-27b-pt", params="27.4B", method="logprob", group="Larger multilingual LMs (GPU)", trained="multi", license="Gemma Terms of Use", setup="gpu", dtype="bfloat16", post=False, record="README_run3.txt"),
+    dict(key="Aya Expanse 8B", hf="CohereLabs/aya-expanse-8b", params="8.0B", method="logprob", group="Larger multilingual LMs (GPU)", trained="multi", license="CC BY-NC 4.0", setup="gpu", dtype="float32", post=True, record="README_run3.txt"),
+    dict(key="alloma 8B", hf="uzlm/alloma-8B-Base", params="8.0B", method="logprob", group="Fine-tuned for Uzbek or Kazakh (GPU)", trained="multi", license="Llama 3.2 Community License", setup="gpu", dtype="float32", post=True, record="README_run3.txt",
+         invalid={"Cyrillic": "its tokenizer deletes Cyrillic letters, so 2,297 of the 2,400 Cyrillic pairs tie"}),
+    dict(key="Llama 3.1 8B Uz", hf="behbudiy/Llama-3.1-8B-Instruct-Uz", params="8.0B", method="logprob", group="Fine-tuned for Uzbek or Kazakh (GPU)", trained="multi", license="Llama 3.1 Community License", setup="gpu", dtype="float32", post=True, record="README_run3.txt"),
+    dict(key="NeuronAI-Uzbek", hf="NeuronUz/NeuronAI-Uzbek", params="4.1B", method="logprob", group="Fine-tuned for Uzbek or Kazakh (GPU)", trained="multi", license="Apache 2.0", setup="gpu", dtype="float32", post=True, record="README_run3.txt"),
+    dict(key="Qwen3.5-9B Kazakh", hf="issai/Qwen3.5-9B-Base-Kazakh", params="9.1B", method="logprob", group="Fine-tuned for Uzbek or Kazakh (GPU)", trained="multi", license="Apache 2.0", setup="gpu", dtype="float32", post=False, record="README_run3.txt"),
     # The authors' company's model: reported in the appendix only, as not held out (see held_out above)
     dict(key="Tomaris.ai", hf="tomaris/Tomaris.ai", params="27.1B", method="logprob", group="Not held out (authors' company)", trained="multi", license="none stated", setup="gpu", dtype="bfloat16", post=True, held_out=False),
 ]

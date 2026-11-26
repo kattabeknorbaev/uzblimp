@@ -1,0 +1,19 @@
+loaded CohereLabs/aya-expanse-8b as CohereForCausalLM, bfloat16, on cuda
+aya-expanse-8b | latn | logprob: 54.3% of 2400 pairs → results/json/CohereLabs__aya-expanse-8b__latn__logprob.json
+  anaphor_agreement       40.7
+  binding                  8.7
+  dative_allomorphy       62.0
+  ditransitive_dative     35.3
+  lexical_case            28.0
+  nominalization          84.0
+  npi_hech                22.7
+  numeral_no_plural       88.7
+  passives                45.3
+  person_agreement        66.7
+  possessive_agreement    72.0
+  postposition_case       53.3
+  quantifiers             89.3
+  relative_clauses        32.0
+  stem_alternation        58.7
+  suspended_affixation    82.0
+DONE CohereLabs/aya-expanse-8b in 163s

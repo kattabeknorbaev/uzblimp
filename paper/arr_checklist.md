@@ -17,9 +17,9 @@ in the form of the current cycle: it changes from time to time.
 - **B1 Citing the creators of artifacts used.** Yes: Sections 2 and 5, Table 8 (models with Hugging Face
   identifiers), Appendix J (software and versions; the GPU runs in Appendix H, the Claude runs in Appendix I).
 - **B2 Licences.** Yes: *Ethics Statement* (data CC BY-SA 4.0, code MIT; the open models scored by likelihood
-  Apache 2.0, MIT or Llama 3.1 Community, Tomaris.ai none, Table 8; the pilot's chat models and the Claude models
-  of Appendix I are proprietary and were used through the OpenRouter API and Claude Code under their providers'
-  terms; UzBooks labelled MIT on its Hugging Face page; Wikipedia CC BY-SA). The books of our own corpus are copies publicly available on the
+  Apache 2.0, MIT, Llama 3.1 or 3.2 Community, CC BY-NC 4.0 or Gemma Terms of Use, Tomaris.ai none, Table 8; the
+  pilot's chat models and the chat models of Appendix I are proprietary and were used through the OpenRouter API,
+  Claude Code and OpenAI Codex under their providers' terms; UzBooks labelled MIT on its Hugging Face page; Wikipedia CC BY-SA). The books of our own corpus are copies publicly available on the
   internet whose licence terms are not documented; the paper says so and offers removal on request.
 - **B3 Use consistent with intended use.** Yes: *Ethics Statement* (models and corpora used only to compute
   sentence scores for research; the benchmark is intended for research on language models).
@@ -36,7 +36,9 @@ in the form of the current cycle: it changes from time to time.
 - **C1 Parameters, compute budget, infrastructure.** Yes: Table 8 (parameters); Appendix J (CPU only, 32-bit
   precision, time per run: minutes for a Goldfish run, ten minutes to three hours for a masked model); Appendix H
   (GPU runs of the larger models); Appendix I (Claude runs: Claude Code 2.1.332 subagents, 384 requests of 150
-  pairs; other chat models through the OpenRouter API for about $10, `results/api_fc/cost.json`).
+  pairs; GPT 6.2 Sol through OpenAI Codex under a ChatGPT Plus subscription, 96 requests, `results/codex_fc/`; other
+  chat models through the OpenRouter API for about $10, `results/api_fc/cost.json`). Four registry models (mGPT,
+  mGPT-Uzbek, Glot500, XLM-R large) were scored with `scripts/run_models.py` on a GPU in float32 (Appendix J).
 - **C2 Experimental setup and hyperparameters.** Yes: Section 5 (scoring by summed log-probability or
   pseudo-log-likelihood); no model was trained or fine-tuned, so there are no hyperparameters to search.
 - **C3 Descriptive statistics.** Yes: Section 5 (Wilson intervals, exact McNemar tests with Holm correction,

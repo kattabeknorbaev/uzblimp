@@ -1,0 +1,101 @@
+{
+  "benchmark": "UzBLiMP",
+  "version": "v1.2",
+  "model": "CohereLabs/aya-expanse-8b",
+  "label": "Aya Expanse 8B",
+  "script": "latn_reformed",
+  "method": "logprob",
+  "n_pairs": 2400,
+  "accuracy": 54.3,
+  "accuracy_norm": 57.6,
+  "per_phenomenon": {
+    "anaphor_agreement": {
+      "n": 150,
+      "correct": 82,
+      "accuracy": 54.7
+    },
+    "binding": {
+      "n": 150,
+      "correct": 3,
+      "accuracy": 2.0
+    },
+    "dative_allomorphy": {
+      "n": 150,
+      "correct": 108,
+      "accuracy": 72.0
+    },
+    "ditransitive_dative": {
+      "n": 150,
+      "correct": 42,
+      "accuracy": 28.0
+    },
+    "lexical_case": {
+      "n": 150,
+      "correct": 44,
+      "accuracy": 29.3
+    },
+    "nominalization": {
+      "n": 150,
+      "correct": 88,
+      "accuracy": 58.7
+    },
+    "npi_hech": {
+      "n": 150,
+      "correct": 51,
+      "accuracy": 34.0
+    },
+    "numeral_no_plural": {
+      "n": 150,
+      "correct": 132,
+      "accuracy": 88.0
+    },
+    "passives": {
+      "n": 150,
+      "correct": 73,
+      "accuracy": 48.7
+    },
+    "person_agreement": {
+      "n": 150,
+      "correct": 92,
+      "accuracy": 61.3
+    },
+    "possessive_agreement": {
+      "n": 150,
+      "correct": 106,
+      "accuracy": 70.7
+    },
+    "postposition_case": {
+      "n": 150,
+      "correct": 84,
+      "accuracy": 56.0
+    },
+    "quantifiers": {
+      "n": 150,
+      "correct": 131,
+      "accuracy": 87.3
+    },
+    "relative_clauses": {
+      "n": 150,
+      "correct": 50,
+      "accuracy": 33.3
+    },
+    "stem_alternation": {
+      "n": 150,
+      "correct": 85,
+      "accuracy": 56.7
+    },
+    "suspended_affixation": {
+      "n": 150,
+      "correct": 132,
+      "accuracy": 88.0
+    }
+  },
+  "settings": {
+    "scorer": "scripts/eval.py (logprob), run on GPUs; see results/gpu_runs/README_run3.txt",
+    "dtype": "float32",
+    "device": "cuda",
+    "bos": true,
+    "per_pair": "results/aya-expanse-8b_uzblimp_v1.2_reformed.csv"
+  },
+  "date": "2026-11-26"
+}

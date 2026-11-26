@@ -1,0 +1,24 @@
+2026-11-26T07:14:48Z SMALL START
+2026-11-26T07:31:15Z SMALL END rc=0
+2026-11-26T07:31:15Z START Qwen/Qwen3.5-0.8B-Base float32
+2026-11-26T07:32:52Z END Qwen/Qwen3.5-0.8B-Base float32 rc=0 secs=97
+2026-11-26T07:32:52Z START behbudiy/Llama-3.1-8B-Instruct-Uz float32
+2026-11-26T07:37:14Z END behbudiy/Llama-3.1-8B-Instruct-Uz float32 rc=0 secs=262
+2026-11-26T07:37:14Z START uzlm/alloma-8B-Base float32
+2026-11-26T07:40:42Z END uzlm/alloma-8B-Base float32 rc=0 secs=208
+2026-11-26T07:40:42Z START NeuronUz/NeuronAI-Uzbek float32
+2026-11-26T07:43:24Z END NeuronUz/NeuronAI-Uzbek float32 rc=0 secs=162
+2026-11-26T07:43:24Z START CohereLabs/aya-expanse-8b float32
+2026-11-26T07:48:12Z END CohereLabs/aya-expanse-8b float32 rc=0 secs=288
+2026-11-26T07:48:12Z START issai/Qwen3.5-9B-Base-Kazakh float32
+2026-11-26T07:53:15Z END issai/Qwen3.5-9B-Base-Kazakh float32 rc=0 secs=303
+2026-11-26T07:53:15Z CAUSALDONE
+2026-11-26T07:53:15Z START google/gemma-3-4b-pt float32
+2026-11-26T07:55:46Z END google/gemma-3-4b-pt float32 rc=0 secs=151
+2026-11-26T07:55:46Z START google/gemma-3-12b-pt bfloat16
+2026-11-26T08:00:14Z END google/gemma-3-12b-pt bfloat16 rc=0 secs=268
+2026-11-26T08:00:14Z START google/gemma-3-27b-pt bfloat16
+2026-11-26T08:12:59Z END google/gemma-3-27b-pt bfloat16 rc=1 secs=765
+2026-11-26T08:12:59Z ALLDONE
+2026-11-26T08:13:52Z RETRY google/gemma-3-27b-pt bfloat16
+2026-11-26T08:27:39Z END retry 27b rc=0

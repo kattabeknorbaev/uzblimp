@@ -290,18 +290,23 @@ def gpu_length_profile(df):
 
 def gpu_block(gruns, cruns, bench):
     """Numbers and the appendix table for the larger models scored on GPUs (results/gpu_runs/README.txt). Tomaris.ai,
-    which is not held out, is reported in its own row and kept out of every range and count."""
-    gpu = [m for m in MODELS if m.get("setup") == "gpu" and all((m["key"], a) in gruns for a in ALPHABETS)]
+    which is not held out, is reported in its own row and kept out of every range and count. A run declared invalid
+    in the registry (key "invalid") is shown as n/a and left out of the ranges that involve its alphabet."""
+    def valid(m, a):
+        return a not in m.get("invalid", {})
+    gpu = [m for m in MODELS if m.get("setup") == "gpu" and all((m["key"], a) in gruns for a in ALPHABETS if valid(m, a))]
     held = [m for m in gpu if m.get("held_out", True)]
     rest = [m for m in gpu if not m.get("held_out", True)]
     both = bench.index[bench.reform_group == "critical word: both"]
     gr = bench.index[bench.reform_group == "critical word: grammatical only"]
     vals = {}
     for m in held + rest:
-        L, C, R = (gruns[(m["key"], a)] for a in ALPHABETS)
-        v = dict(L=acc(L), C=acc(C), R=acc(R), loss=acc(L) - acc(R),
+        L, C, R = (gruns.get((m["key"], a)) for a in ALPHABETS)
+        v = dict(L=acc(L), C=acc(C) if valid(m, "Cyrillic") else None, R=acc(R), loss=acc(L) - acc(R),
                  both=acc(L.loc[both]) - acc(R.loc[both]), gr=acc(L.loc[gr]) - acc(R.loc[gr]))
         for a, df in zip(ALPHABETS, (L, C, R)):
+            if not valid(m, a):
+                continue
             num(f"acc@{m['key']}@{a}", acc(df))
             for ph in SLUGS:
                 num(f"accph@{m['key']}@{a}@{ph}", acc(df[df.phenomenon == ph]))
@@ -315,17 +320,23 @@ def gpu_block(gruns, cruns, bench):
     params = [float(m["params"].rstrip("B")) for m in held]
     num("gpu@params@min", min(params))
     num("gpu@params@max", max(params), 0)
+    # The text says the reformed spelling costs every larger model points except the one near chance (Aya Expanse
+    # 8B), and gives the range of the loss over the others.
+    noloss = [m["key"] for m in held if vals[m["key"]]["loss"] <= 0]
+    assert noloss == ["Aya Expanse 8B"], f"revise the text on the reform loss of the larger models: {noloss}"
     for k in ("L", "C", "R", "loss", "both", "gr"):
-        num(f"gpu@{k}@min", min(v[k] for v in H))
-        num(f"gpu@{k}@max", max(v[k] for v in H))
-    num("gpu@cyrhigher", sum(v["C"] > v["L"] for v in H), 0)
+        xs = [v[k] for m, v in zip(held, H) if v[k] is not None and (k != "loss" or m["key"] not in noloss)]
+        num(f"gpu@{k}@min", min(xs))
+        num(f"gpu@{k}@max", max(xs))
+    num("gpu@n@C", sum(v["C"] is not None for v in H), 0)
+    num("gpu@cyrhigher", sum(v["C"] is not None and v["C"] > v["L"] for v in H), 0)
     num("n@models@all", len({k for k, _ in cruns}) + len(held), 0)
     # The text says that every larger model loses more where only the grammatical member has a new letter.
-    assert min(v["gr"] for v in H) > max(v["both"] for v in H), "revise the text on the reform asymmetry of the larger models"
+    assert all(v["gr"] > v["both"] for v in H), "revise the text on the reform asymmetry of the larger models"
     num("gpu@post", sum(bool(m.get("post")) for m in held), 0)
     num("gpu@bf16", sum(m["dtype"] == "bfloat16" for m in held), 0)
     # The length fallback across the GPU runs, measured as for the CPU runs.
-    prof = [gpu_length_profile(gruns[(m["key"], a)]) for m in held for a in ALPHABETS]
+    prof = [gpu_length_profile(gruns[(m["key"], a)]) for m in held for a in ALPHABETS if valid(m, a)]
     num("lencorr@gpu@rho", float(pd.Series([q[0] for q in prof]).rank().corr(pd.Series([q[1] for q in prof]).rank())), 2)
     num("lencorr@gpu@n", len(prof), 0)
     # Checks of the GPU run: its Qwen2.5-1.5B run against our CPU run (all pairs), our CPU re-scoring of samples,
@@ -369,6 +380,27 @@ def gpu_block(gruns, cruns, bench):
         num("gpu@bf16@accdiff@max", max(accdiff))
         # The text says the two precisions give the same accuracy to one decimal.
         assert all(round(d, 6) < 0.05 for d in accdiff), "revise the text on the bfloat16 control"
+    # Run 3: the bfloat16 control of Aya Expanse 8B on current Latin, the repeat run of Qwen3.5-0.8B, and the ties of
+    # the runs declared invalid (a tokenizer that deletes the letters of the alphabet).
+    aya = ROOT / "results" / "gpu_runs" / "bf16check" / "CohereLabs__aya-expanse-8b__latn__logprob.csv"
+    if aya.exists() and ("Aya Expanse 8B", "Latin") in gruns:
+        num("gpu@bf16@aya@bf16", acc(pd.read_csv(aya)))
+        num("gpu@bf16@aya@fp32", acc(gruns[("Aya Expanse 8B", "Latin")]))
+    agree, total = 0, 0
+    for a in ALPHABETS:
+        f = ROOT / "results" / "gpu_runs" / "repro" / f"Qwen__Qwen3.5-0.8B-Base__{stem[a]}__logprob.csv"
+        if f.exists() and ("Qwen3.5-0.8B", a) in gruns:
+            r = pd.read_csv(f).set_index("id")
+            agree += int((ok(r) == ok(gruns[("Qwen3.5-0.8B", a)].loc[r.index])).sum())
+            total += len(r)
+    if total:
+        num("gpu@repro@agree", agree, 0)
+        num("gpu@repro@n", total, 0)
+    for m in held:
+        for a, why in m.get("invalid", {}).items():
+            f = ROOT / "results" / "gpu_runs" / "invalid" / f"{m['hf'].replace('/', '__')}__{stem[a]}__logprob.csv"
+            d = pd.read_csv(f)
+            num(f"gpu@invalid@{m['key']}@{a}@ties", int((d.good_logprob == d.bad_logprob).sum()), 0)
     # Tomaris.ai: overlap of its pretraining corpus with the benchmark, and its accuracy by source.
     ov = ROOT / "results" / "gpu_runs" / "tomaris_overlap_v1.2.json"
     if ov.exists() and rest:
@@ -391,7 +423,8 @@ def gpu_block(gruns, cruns, bench):
         v = vals[m["key"]]
         name = label(m) + (r"$^\dagger$" if m.get("post") else "")
         prec = {"float32": "fp32", "bfloat16": "bf16"}[m["dtype"]]
-        return (f"{name} & {m['params']} & {prec} & {v['L']:.1f} & {v['C']:.1f} & {v['R']:.1f} & "
+        cyr = "n/a" if v["C"] is None else f"{v['C']:.1f}"
+        return (f"{name} & {m['params']} & {prec} & {v['L']:.1f} & {cyr} & {v['R']:.1f} & "
                 f"{sg(-v['both'])} & {sg(-v['gr'])} \\\\")
     lines += [row(m) for m in sorted(held, key=lambda m: -vals[m["key"]]["L"])]
     if rest:
@@ -400,7 +433,8 @@ def gpu_block(gruns, cruns, bench):
               r"\caption{Larger models, scored on GPUs: accuracy (\%) on all 2,400 pairs in current Latin, Cyrillic and reformed "
               r"Latin, and the change in points from current to reformed Latin for pairs whose new letters fall in the edited word "
               r"of \emph{both} members or of the \emph{gr}ammatical member only (as in Table~\ref{tab:reform}). fp32, bf16: 32-bit "
-              r"and bfloat16 precision. $^\dagger$: post-trained checkpoint, scored like the others. Tomaris.ai is not comparable "
+              r"and bfloat16 precision. $^\dagger$: post-trained checkpoint, scored like the others. n/a: not reported, as the tokenizer "
+              r"deletes Cyrillic letters (Appendix~\ref{app:large}). Tomaris.ai is not comparable "
               r"with the other models (Appendix~\ref{app:large}).}", r"\label{tab:large}", r"\end{table*}"]
     return "\n".join(lines)
 
@@ -755,6 +789,22 @@ CLAUDE = [("fable", "Fable 5.2", "claude-fable-5-2"), ("opus", "Opus 5.5", "clau
 FC_ALPHABETS = [("latn", "Latin"), ("cyrl", "Cyrillic"), ("latn_reformed", "Reformed")]
 
 
+CODEX = [("gpt", "GPT 6.2 Sol")]  # results/codex_fc/, scripts/codex_fc.py
+
+
+def codex_runs(bench):
+    """{(alias, alphabet): per-pair DataFrame} of the forced-choice runs through Codex, complete runs only."""
+    runs = {}
+    for alias, _ in CODEX:
+        for a, A in FC_ALPHABETS:
+            f = ROOT / "results" / "codex_fc" / f"{alias}_{a}.csv"
+            if f.exists():
+                df = pd.read_csv(f).set_index("id")
+                assert len(df) == len(bench) and set(df.index) == set(bench.index), f"{f.name}: not every pair"
+                runs[(alias, A)] = df
+    return runs
+
+
 def claude_block(bench, judg):
     """Forced choice with four Claude models on all pairs (scripts/claude_fc.py, results/claude_fc/): two appendix
     tables and the numbers of the text. A pair's accuracy averages its two orders; it is consistent when both are
@@ -881,11 +931,37 @@ def claude_block(bench, judg):
         for _, A in FC_ALPHABETS:
             cells += [cell(pct(runs[(alias, A)].accuracy)), cell(pct(cons[(alias, A)]))]
         lines.append(f"{name} & " + " & ".join(cells) + r" \\")
+    # GPT through Codex, on the same requests (results/codex_fc/): its own row, below the Claude models.
+    cx = codex_runs(bench)
+    cx_names = [name for alias, name in CODEX if all((alias, A) in cx for _, A in FC_ALPHABETS)]
+    for alias, name in CODEX:
+        if not all((alias, A) in cx for _, A in FC_ALPHABETS):
+            continue
+        wrong_all = 0
+        for _, A in FC_ALPHABETS:
+            df = cx[(alias, A)]
+            w = int((~df.correct_gb.astype(str).eq("True")).sum() + (~df.correct_bg.astype(str).eq("True")).sum())
+            wrong_all += w
+            num(f"fc@{alias}@{A}@acc", pct(df.accuracy))
+            num(f"fc@{alias}@{A}@cons", pct(df.consistent.astype(str).eq("True")))
+            num(f"fc@{alias}@{A}@wrong", w, 0)
+            num(f"fc@{alias}@{A}@gb", pct(df.correct_gb.astype(str).eq("True")))
+            num(f"fc@{alias}@{A}@bg", pct(df.correct_bg.astype(str).eq("True")))
+        n_all = 2 * len(bench) * len(FC_ALPHABETS)
+        num(f"fc@{alias}@all@right", n_all - wrong_all, 0)
+        num(f"fc@{alias}@all@n", n_all, 0)
+        num(f"fc@{alias}@all@acc", 100 * (n_all - wrong_all) / n_all + 1e-9)
+        cells = []
+        for _, A in FC_ALPHABETS:
+            cells += [cell(pct(cx[(alias, A)].accuracy)), cell(pct(cx[(alias, A)].consistent.astype(str).eq("True")))]
+        lines += [r"\midrule", f"{name}$^\\ddagger$ & " + " & ".join(cells) + r" \\"]
+    gpt_note = (r" $^\ddagger$: through Codex, which from the ninth of its 96 question files judged a view of each pair "
+                r"shortened by a helper it wrote to the differing words and a few words of context (Appendix~\ref{app:claude})." if cx_names else "")
     lines += [r"\bottomrule", r"\end{tabular}",
-              rf"\caption{{Forced choice with four Claude models on all {len(bench):,} pairs".replace(",", "{,}") +
+              rf"\caption{{Forced choice with four Claude models{' and ' + cx_names[0] if cx_names else ''} on all {len(bench):,} pairs".replace(",", "{,}") +
               r" in current Latin, Cyrillic and reformed Latin, each pair shown in both orders (Appendix~\ref{app:claude}). \emph{Acc.}: accuracy (\%) over both orders; "
               r"\emph{Cons.}: pairs answered correctly in both orders (\%). Claude models helped build and audit the "
-              r"benchmark, so these scores are not independent of it.}", r"\label{tab:claude}", r"\end{table}"]
+              r"benchmark, so their scores are not independent of it." + gpt_note + "}", r"\label{tab:claude}", r"\end{table}"]
     claude = "\n".join(lines)
 
     phen = sorted(bench.phenomenon.unique(), key=lambda ph: [p[0] for p in PHENOMENA].index(ph))
@@ -952,8 +1028,12 @@ def api_block(bench):
     num("api@full@min", min(full) + 1e-9)
     num("api@full@max", max(full) + 1e-9)
     # Section 6.6: the six chat models that answered every pair (four Claude models, Kimi and GLM)
-    num("chat@min", min(min(full), float(NUM["fc@all@min"])) + 1e-9)
-    num("chat@max", max(max(full), float(NUM["fc@all@max"])) + 1e-9)
+    # and GPT through Codex (results/codex_fc/), which answered every pair in both orders.
+    cx = codex_runs(bench)
+    cx_acc = [100 * df.accuracy.mean() for df in cx.values()]
+    num("chat@min", min([min(full), float(NUM["fc@all@min"])] + cx_acc) + 1e-9)
+    num("chat@max", max([max(full), float(NUM["fc@all@max"])] + cx_acc) + 1e-9)
+    num("chat@n", 4 + len(full) // len(FC_ALPHABETS) + len(cx) // len(FC_ALPHABETS), 0)
     complete = [name for alias, name in API_MODELS if all(len(runs.get((alias, A), [])) == len(bench) for _, A in FC_ALPHABETS)]
     assert complete == ["Kimi K3.1 Pro", "GLM 5.3"], "revise the text on the complete chat models in Appendix I"
     cost = json.loads((d / "cost.json").read_text(encoding="utf-8"))
@@ -1142,8 +1222,10 @@ def main():
     sys.stdout.reconfigure(encoding="utf-8")
     bench = benchmark()
     runs = load_runs(VERSION)
-    # The paper reports a model only when both its Latin and its Cyrillic run are complete.
-    both = {k for k, a in runs if a == "Latin"} & {k for k, a in runs if a == "Cyrillic"}
+    # The paper reports a model only when both its Latin and its Cyrillic run are complete (or the Cyrillic run is
+    # declared invalid in the registry, as for a tokenizer that deletes Cyrillic letters).
+    no_cyr = {m["key"] for m in MODELS if "Cyrillic" in m.get("invalid", {})}
+    both = {k for k, a in runs if a == "Latin"} & ({k for k, a in runs if a == "Cyrillic"} | no_cyr)
     left_out = sorted({k for k, _ in runs} - both)
     runs = {key: df for key, df in runs.items() if key[0] in both}
     # The larger models scored on GPUs have their own table and numbers; every other table and number is about

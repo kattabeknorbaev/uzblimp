@@ -1,0 +1,53 @@
+loaded NeuronUz/NeuronAI-Uzbek as Qwen3ForCausalLM, float32, on cuda
+NeuronAI-Uzbek | latn | logprob: 78.1% of 2400 pairs → results/json/NeuronUz__NeuronAI-Uzbek__latn__logprob.json
+  anaphor_agreement       68.7
+  binding                  0.0
+  dative_allomorphy       72.0
+  ditransitive_dative     76.0
+  lexical_case            79.3
+  nominalization          98.7
+  npi_hech                69.3
+  numeral_no_plural       88.0
+  passives                94.0
+  person_agreement        81.3
+  possessive_agreement    94.0
+  postposition_case       95.3
+  quantifiers             90.7
+  relative_clauses        96.0
+  stem_alternation        66.7
+  suspended_affixation    79.3
+NeuronAI-Uzbek | cyrl | logprob: 81.0% of 2400 pairs → results/json/NeuronUz__NeuronAI-Uzbek__cyrl__logprob.json
+  anaphor_agreement       70.0
+  binding                 62.7
+  dative_allomorphy       52.0
+  ditransitive_dative     64.7
+  lexical_case            70.7
+  nominalization         100.0
+  npi_hech                70.0
+  numeral_no_plural       92.0
+  passives                81.3
+  person_agreement        84.7
+  possessive_agreement    89.3
+  postposition_case       96.0
+  quantifiers             99.3
+  relative_clauses        96.0
+  stem_alternation        87.3
+  suspended_affixation    79.3
+NeuronAI-Uzbek | latn_reformed | logprob: 67.5% of 2400 pairs → results/json/NeuronUz__NeuronAI-Uzbek__latn_reformed__logprob.json
+  anaphor_agreement       62.7
+  binding                  4.7
+  dative_allomorphy       80.0
+  ditransitive_dative     67.3
+  lexical_case            30.0
+  nominalization          40.0
+  npi_hech                58.0
+  numeral_no_plural       83.3
+  passives                77.3
+  person_agreement        76.7
+  possessive_agreement    91.3
+  postposition_case       94.0
+  quantifiers             85.3
+  relative_clauses        86.7
+  stem_alternation        66.7
+  suspended_affixation    76.0
+DONE NeuronUz/NeuronAI-Uzbek in 161s

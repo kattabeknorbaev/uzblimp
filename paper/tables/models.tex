@@ -27,10 +27,14 @@ UzRoBERTa & \texttt{rifkat/uztext-3Gb-BPE-Roberta} & masked & 84M & both \\
 \multicolumn{5}{@{}l}{\textit{Multilingual encoders}} \\
 mBERT & \texttt{google-bert/bert-base-multilingual-cased} & masked & 179M & multilingual \\
 XLM-R base & \texttt{FacebookAI/xlm-roberta-base} & masked & 279M & multilingual \\
+Glot500 & \texttt{cis-lmu/glot500-base} & masked & 395M & multilingual \\
+XLM-R large & \texttt{FacebookAI/xlm-roberta-large} & masked & 561M & multilingual \\
 \midrule
 \multicolumn{5}{@{}l}{\textit{Multilingual LMs}} \\
 Qwen2.5-0.5B & \texttt{Qwen/Qwen2.5-0.5B} & autoregressive & 0.5B & multilingual \\
 Qwen2.5-1.5B & \texttt{Qwen/Qwen2.5-1.5B} & autoregressive & 1.5B & multilingual \\
+mGPT & \texttt{ai-forever/mGPT} & autoregressive & 1.3B & multilingual \\
+mGPT-Uzbek & \texttt{ai-forever/mGPT-1.3B-uzbek} & autoregressive & 1.3B & multilingual \\
 \midrule
 \multicolumn{5}{@{}l}{\textit{Larger multilingual LMs (GPU)}} \\
 Qwen3.5-0.8B & \texttt{Qwen/Qwen3.5-0.8B-Base} & autoregressive & 0.9B & multilingual \\
@@ -47,11 +51,21 @@ Qwen3.6-27B$^\dagger$ & \texttt{Qwen/Qwen3.6-27B} & autoregressive & 27.8B & mul
 Qwen3.8-27B$^\dagger$ & \texttt{Qwen/Qwen3.8-27B} & autoregressive & 27.8B & multilingual \\
 Qwen3.5-35B-A3B & \texttt{Qwen/Qwen3.5-35B-A3B-Base} & autoregressive & 36.0B & multilingual \\
 Qwen3.6-35B-A3B$^\dagger$ & \texttt{Qwen/Qwen3.6-35B-A3B} & autoregressive & 36.0B & multilingual \\
+Gemma 3 4B & \texttt{google/gemma-3-4b-pt} & autoregressive & 4.3B & multilingual \\
+Gemma 3 12B & \texttt{google/gemma-3-12b-pt} & autoregressive & 12.2B & multilingual \\
+Gemma 3 27B & \texttt{google/gemma-3-27b-pt} & autoregressive & 27.4B & multilingual \\
+Aya Expanse 8B$^\dagger$ & \texttt{CohereLabs/aya-expanse-8b} & autoregressive & 8.0B & multilingual \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Fine-tuned for Uzbek or Kazakh (GPU)}} \\
+alloma 8B$^\dagger$ & \texttt{uzlm/alloma-8B-Base} & autoregressive & 8.0B & multilingual \\
+Llama 3.1 8B Uz$^\dagger$ & \texttt{behbudiy/Llama-3.1-8B-Instruct-Uz} & autoregressive & 8.0B & multilingual \\
+NeuronAI-Uzbek$^\dagger$ & \texttt{NeuronUz/NeuronAI-Uzbek} & autoregressive & 4.1B & multilingual \\
+Qwen3.5-9B Kazakh & \texttt{issai/Qwen3.5-9B-Base-Kazakh} & autoregressive & 9.1B & multilingual \\
 \midrule
 \multicolumn{5}{@{}l}{\textit{Not held out (authors' company)}} \\
 Tomaris.ai$^\dagger$ & \texttt{tomaris/Tomaris.ai} & autoregressive & 27.1B & multilingual \\
 \bottomrule
 \end{tabular}
-\caption{The evaluated models. GF-L, GF-C: Goldfish models trained on Latin-script and Cyrillic-script Uzbek. Parameter counts are those given by the models' authors or on the Hugging Face Hub. \emph{Uzbek training text}: script of the Uzbek text a model was trained on; multilingual models are trained on many languages in several scripts. The larger models were scored on GPUs (Appendix~\ref{app:large}); $^\dagger$: post-trained checkpoint, scored like the others. Licences, as stated on the models' Hugging Face pages: Apache 2.0, except BERTbek, UzBERT and XLM-R base (MIT); Llama 3.1 8B (Llama 3.1 Community License); Tomaris.ai (none stated).}
+\caption{The evaluated models. GF-L, GF-C: Goldfish models trained on Latin-script and Cyrillic-script Uzbek. Parameter counts are those given by the models' authors or on the Hugging Face Hub. \emph{Uzbek training text}: script of the Uzbek text a model was trained on; multilingual models are trained on many languages in several scripts. The larger models were scored on GPUs (Appendix~\ref{app:large}); $^\dagger$: post-trained checkpoint, scored like the others. Licences, as stated on the models' Hugging Face pages: Apache 2.0, except BERTbek, UzBERT, XLM-R base, XLM-R large and mGPT-Uzbek (MIT); Llama 3.1 8B and Llama 3.1 8B Uz (Llama 3.1 Community License); Gemma 3 4B, Gemma 3 12B and Gemma 3 27B (Gemma Terms of Use); Aya Expanse 8B (CC BY-NC 4.0); alloma 8B (Llama 3.2 Community License); Tomaris.ai (none stated).}
 \label{tab:models}
 \end{table*}

@@ -1,0 +1,116 @@
+
+=== mGPT (ai-forever/mGPT, logprob) ===
+  Latin     unknown-token sentences   0.0%  tokens/sentence  27.70  tokens/word 3.17
+  Cyrillic  unknown-token sentences   0.0%  tokens/sentence  36.84  tokens/word 4.22
+  Reformed  unknown-token sentences   0.0%  tokens/sentence  26.21  tokens/word 3.00
+  mGPT | Latin: 1200/2400 pairs after 77s
+  mGPT | Latin: 2400/2400 pairs after 90s
+done mGPT | Latin: 2400 pairs scored in 90s, accuracy 91.2
+  mGPT | Cyrillic: 1200/2400 pairs after 15s
+  mGPT | Cyrillic: 2400/2400 pairs after 30s
+done mGPT | Cyrillic: 2400 pairs scored in 30s, accuracy 95.6
+  mGPT | Reformed: 1200/2400 pairs after 12s
+  mGPT | Reformed: 2400/2400 pairs after 25s
+done mGPT | Reformed: 2400 pairs scored in 25s, accuracy 77.3
+
+=== mGPT-Uzbek (ai-forever/mGPT-1.3B-uzbek, logprob) ===
+  Latin     unknown-token sentences   0.0%  tokens/sentence  27.70  tokens/word 3.17
+  Cyrillic  unknown-token sentences   0.0%  tokens/sentence  36.84  tokens/word 4.22
+  Reformed  unknown-token sentences   0.0%  tokens/sentence  26.21  tokens/word 3.00
+  mGPT-Uzbek | Latin: 1200/2400 pairs after 112s
+  mGPT-Uzbek | Latin: 2400/2400 pairs after 124s
+done mGPT-Uzbek | Latin: 2400 pairs scored in 124s, accuracy 91.2
+  mGPT-Uzbek | Cyrillic: 1200/2400 pairs after 14s
+  mGPT-Uzbek | Cyrillic: 2400/2400 pairs after 29s
+done mGPT-Uzbek | Cyrillic: 2400 pairs scored in 29s, accuracy 61.0
+  mGPT-Uzbek | Reformed: 1200/2400 pairs after 12s
+  mGPT-Uzbek | Reformed: 2400/2400 pairs after 24s
+done mGPT-Uzbek | Reformed: 2400 pairs scored in 24s, accuracy 75.7
+
+=== Glot500 (cis-lmu/glot500-base, pll) ===
+  Latin     unknown-token sentences   0.0%  tokens/sentence  19.25  tokens/word 2.21
+  Cyrillic  unknown-token sentences   0.0%  tokens/sentence  15.91  tokens/word 1.82
+  Reformed  unknown-token sentences   0.0%  tokens/sentence  18.91  tokens/word 2.17
+  Glot500 | Latin: 200/2400 pairs after 45s
+  Glot500 | Latin: 400/2400 pairs after 51s
+  Glot500 | Latin: 600/2400 pairs after 58s
+  Glot500 | Latin: 800/2400 pairs after 65s
+  Glot500 | Latin: 1000/2400 pairs after 72s
+  Glot500 | Latin: 1200/2400 pairs after 79s
+  Glot500 | Latin: 1400/2400 pairs after 85s
+  Glot500 | Latin: 1600/2400 pairs after 93s
+  Glot500 | Latin: 1800/2400 pairs after 100s
+  Glot500 | Latin: 2000/2400 pairs after 107s
+  Glot500 | Latin: 2200/2400 pairs after 113s
+  Glot500 | Latin: 2400/2400 pairs after 120s
+done Glot500 | Latin: 2400 pairs scored in 120s, accuracy 79.4
+  Glot500 | Cyrillic: 200/2400 pairs after 6s
+  Glot500 | Cyrillic: 400/2400 pairs after 13s
+  Glot500 | Cyrillic: 600/2400 pairs after 19s
+  Glot500 | Cyrillic: 800/2400 pairs after 26s
+  Glot500 | Cyrillic: 1000/2400 pairs after 33s
+  Glot500 | Cyrillic: 1200/2400 pairs after 39s
+  Glot500 | Cyrillic: 1400/2400 pairs after 46s
+  Glot500 | Cyrillic: 1600/2400 pairs after 53s
+  Glot500 | Cyrillic: 1800/2400 pairs after 59s
+  Glot500 | Cyrillic: 2000/2400 pairs after 66s
+  Glot500 | Cyrillic: 2200/2400 pairs after 72s
+  Glot500 | Cyrillic: 2400/2400 pairs after 79s
+done Glot500 | Cyrillic: 2400 pairs scored in 79s, accuracy 93.7
+  Glot500 | Reformed: 200/2400 pairs after 6s
+  Glot500 | Reformed: 400/2400 pairs after 13s
+  Glot500 | Reformed: 600/2400 pairs after 20s
+  Glot500 | Reformed: 800/2400 pairs after 26s
+  Glot500 | Reformed: 1000/2400 pairs after 33s
+  Glot500 | Reformed: 1200/2400 pairs after 40s
+  Glot500 | Reformed: 1400/2400 pairs after 47s
+  Glot500 | Reformed: 1600/2400 pairs after 54s
+  Glot500 | Reformed: 1800/2400 pairs after 61s
+  Glot500 | Reformed: 2000/2400 pairs after 68s
+  Glot500 | Reformed: 2200/2400 pairs after 75s
+  Glot500 | Reformed: 2400/2400 pairs after 82s
+done Glot500 | Reformed: 2400 pairs scored in 82s, accuracy 77.6
+
+=== XLM-R large (FacebookAI/xlm-roberta-large, pll) ===
+  Latin     unknown-token sentences   0.0%  tokens/sentence  20.33  tokens/word 2.33
+  Cyrillic  unknown-token sentences   0.0%  tokens/sentence  27.27  tokens/word 3.12
+  Reformed  unknown-token sentences   0.0%  tokens/sentence  20.04  tokens/word 2.29
+  XLM-R large | Latin: 200/2400 pairs after 29s
+  XLM-R large | Latin: 400/2400 pairs after 37s
+  XLM-R large | Latin: 600/2400 pairs after 46s
+  XLM-R large | Latin: 800/2400 pairs after 55s
+  XLM-R large | Latin: 1000/2400 pairs after 64s
+  XLM-R large | Latin: 1200/2400 pairs after 73s
+  XLM-R large | Latin: 1400/2400 pairs after 81s
+  XLM-R large | Latin: 1600/2400 pairs after 91s
+  XLM-R large | Latin: 1800/2400 pairs after 100s
+  XLM-R large | Latin: 2000/2400 pairs after 110s
+  XLM-R large | Latin: 2200/2400 pairs after 118s
+  XLM-R large | Latin: 2400/2400 pairs after 127s
+done XLM-R large | Latin: 2400 pairs scored in 127s, accuracy 84.0
+  XLM-R large | Cyrillic: 200/2400 pairs after 9s
+  XLM-R large | Cyrillic: 400/2400 pairs after 19s
+  XLM-R large | Cyrillic: 600/2400 pairs after 28s
+  XLM-R large | Cyrillic: 800/2400 pairs after 39s
+  XLM-R large | Cyrillic: 1000/2400 pairs after 50s
+  XLM-R large | Cyrillic: 1200/2400 pairs after 61s
+  XLM-R large | Cyrillic: 1400/2400 pairs after 71s
+  XLM-R large | Cyrillic: 1600/2400 pairs after 84s
+  XLM-R large | Cyrillic: 1800/2400 pairs after 98s
+  XLM-R large | Cyrillic: 2000/2400 pairs after 108s
+  XLM-R large | Cyrillic: 2200/2400 pairs after 119s
+  XLM-R large | Cyrillic: 2400/2400 pairs after 130s
+done XLM-R large | Cyrillic: 2400 pairs scored in 130s, accuracy 52.8
+  XLM-R large | Reformed: 200/2400 pairs after 8s
+  XLM-R large | Reformed: 400/2400 pairs after 16s
+  XLM-R large | Reformed: 600/2400 pairs after 25s
+  XLM-R large | Reformed: 800/2400 pairs after 34s
+  XLM-R large | Reformed: 1000/2400 pairs after 42s
+  XLM-R large | Reformed: 1200/2400 pairs after 52s
+  XLM-R large | Reformed: 1400/2400 pairs after 60s
+  XLM-R large | Reformed: 1600/2400 pairs after 70s
+  XLM-R large | Reformed: 1800/2400 pairs after 80s
+  XLM-R large | Reformed: 2000/2400 pairs after 88s
+  XLM-R large | Reformed: 2200/2400 pairs after 97s
+  XLM-R large | Reformed: 2400/2400 pairs after 106s
+done XLM-R large | Reformed: 2400 pairs scored in 106s, accuracy 74.5

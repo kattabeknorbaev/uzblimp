@@ -1,0 +1,6 @@
+Qwen/Qwen3.5-0.8B-Base float32 64 results_repro keep=no
+behbudiy/Llama-3.1-8B-Instruct-Uz float32 32 results keep=no
+uzlm/alloma-8B-Base float32 32 results keep=no
+NeuronUz/NeuronAI-Uzbek float32 32 results keep=no
+CohereLabs/aya-expanse-8b float32 32 results keep=no
+issai/Qwen3.5-9B-Base-Kazakh float32 32 results keep=no

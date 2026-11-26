@@ -454,5 +454,53 @@
       "tokens_per_sentence": 18.91,
       "tokens_per_word": 2.166
     }
+  },
+  "mGPT": {
+    "model": "ai-forever/mGPT",
+    "Latin": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 27.7,
+      "tokens_per_word": 3.173
+    },
+    "Cyrillic": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 36.84,
+      "tokens_per_word": 4.22
+    },
+    "Reformed": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 26.21,
+      "tokens_per_word": 3.002
+    }
+  },
+  "XLM-R large": {
+    "model": "FacebookAI/xlm-roberta-large",
+    "Latin": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 20.33,
+      "tokens_per_word": 2.329
+    },
+    "Cyrillic": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 27.27,
+      "tokens_per_word": 3.123
+    },
+    "Reformed": {
+      "sentences": 4800,
+      "unk_sentences": 0,
+      "unk_pct": 0.0,
+      "tokens_per_sentence": 20.04,
+      "tokens_per_word": 2.295
+    }
   }
 }

@@ -1,0 +1,54 @@
+loaded issai/Qwen3.5-9B-Base-Kazakh as Qwen3_5ForCausalLM, float32, on cuda
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+Qwen3.5-9B-Base-Kazakh | latn | logprob: 90.5% of 2400 pairs → results/json/issai__Qwen3.5-9B-Base-Kazakh__latn__logprob.json
+  anaphor_agreement       96.0
+  binding                 85.3
+  dative_allomorphy       86.0
+  ditransitive_dative     76.7
+  lexical_case            80.0
+  nominalization          99.3
+  npi_hech                79.3
+  numeral_no_plural       92.7
+  passives                97.3
+  person_agreement        91.3
+  possessive_agreement    90.7
+  postposition_case       94.7
+  quantifiers             97.3
+  relative_clauses        98.0
+  stem_alternation        91.3
+  suspended_affixation    91.3
+Qwen3.5-9B-Base-Kazakh | cyrl | logprob: 88.0% of 2400 pairs → results/json/issai__Qwen3.5-9B-Base-Kazakh__cyrl__logprob.json
+  anaphor_agreement       86.7
+  binding                 91.3
+  dative_allomorphy       66.7
+  ditransitive_dative     70.0
+  lexical_case            82.7
+  nominalization         100.0
+  npi_hech                89.3
+  numeral_no_plural       88.0
+  passives                98.7
+  person_agreement        94.7
+  possessive_agreement    86.0
+  postposition_case       81.3
+  quantifiers             94.7
+  relative_clauses        99.3
+  stem_alternation        88.7
+  suspended_affixation    90.0
+Qwen3.5-9B-Base-Kazakh | latn_reformed | logprob: 76.8% of 2400 pairs → results/json/issai__Qwen3.5-9B-Base-Kazakh__latn_reformed__logprob.json
+  anaphor_agreement       78.7
+  binding                 24.0
+  dative_allomorphy       81.3
+  ditransitive_dative     72.7
+  lexical_case            66.7
+  nominalization          42.7
+  npi_hech                68.7
+  numeral_no_plural       84.7
+  passives                95.3
+  person_agreement        88.0
+  possessive_agreement    88.0
+  postposition_case       90.0
+  quantifiers             93.3
+  relative_clauses        90.7
+  stem_alternation        78.7
+  suspended_affixation    84.7
+DONE issai/Qwen3.5-9B-Base-Kazakh in 302s

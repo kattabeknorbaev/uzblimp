@@ -1,0 +1,53 @@
+loaded google/gemma-3-4b-pt as Gemma3ForConditionalGeneration, float32, on cuda
+gemma-3-4b-pt | latn | logprob: 86.9% of 2400 pairs → results/json/google__gemma-3-4b-pt__latn__logprob.json
+  anaphor_agreement       92.7
+  binding                 80.0
+  dative_allomorphy       82.7
+  ditransitive_dative     70.0
+  lexical_case            74.0
+  nominalization         100.0
+  npi_hech                73.3
+  numeral_no_plural       88.0
+  passives                97.3
+  person_agreement        86.7
+  possessive_agreement    90.7
+  postposition_case       96.0
+  quantifiers             91.3
+  relative_clauses        97.3
+  stem_alternation        93.3
+  suspended_affixation    76.7
+gemma-3-4b-pt | cyrl | logprob: 91.5% of 2400 pairs → results/json/google__gemma-3-4b-pt__cyrl__logprob.json
+  anaphor_agreement       98.0
+  binding                 82.0
+  dative_allomorphy       94.0
+  ditransitive_dative     70.7
+  lexical_case            81.3
+  nominalization          99.3
+  npi_hech                94.0
+  numeral_no_plural       83.3
+  passives                98.0
+  person_agreement        95.3
+  possessive_agreement    92.0
+  postposition_case       96.0
+  quantifiers             97.3
+  relative_clauses        98.7
+  stem_alternation        96.7
+  suspended_affixation    87.3
+gemma-3-4b-pt | latn_reformed | logprob: 70.1% of 2400 pairs → results/json/google__gemma-3-4b-pt__latn_reformed__logprob.json
+  anaphor_agreement       70.7
+  binding                 16.0
+  dative_allomorphy       76.7
+  ditransitive_dative     66.7
+  lexical_case            43.3
+  nominalization          28.0
+  npi_hech                67.3
+  numeral_no_plural       83.3
+  passives                97.3
+  person_agreement        84.7
+  possessive_agreement    86.7
+  postposition_case       78.0
+  quantifiers             84.7
+  relative_clauses        88.0
+  stem_alternation        78.7
+  suspended_affixation    72.0
+DONE google/gemma-3-4b-pt in 150s

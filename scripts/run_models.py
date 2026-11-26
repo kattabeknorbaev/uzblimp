@@ -18,6 +18,7 @@ other pairs (results/eval_v1.1.md).
     python scripts/run_models.py --only "GF-L 5MB" "GF-C 5MB"     # these, in this order
     python scripts/run_models.py --carry-from v1.1                # reuse v1.1 scores of unchanged pairs
     python scripts/run_models.py --stats-only                     # tokenizer statistics, no scoring
+    python scripts/run_models.py --only mGPT --device cuda        # on a GPU (still float32)
 """
 import argparse
 import csv
@@ -95,7 +96,7 @@ def complete(path, rows):
     return have == {(r["id"], r["grammatical"], r["ungrammatical"]) for r in rows}
 
 
-def score(model, pairs, batch_size):
+def score(model, pairs, batch_size, device="cpu"):
     """Run score_pairs.py on a list of benchmark rows; returns (per-pair DataFrame, its summary row) or None."""
     with tempfile.TemporaryDirectory() as tmp:
         tsv = Path(tmp) / "pairs.tsv"
@@ -106,7 +107,7 @@ def score(model, pairs, batch_size):
         cmd = [sys.executable, str(ROOT / "scripts" / "score_pairs.py"), "--data", str(tsv),
                "--good-col", "grammatical", "--bad-col", "ungrammatical", "--model", model["hf"],
                "--group-col", "phenomenon", "--keep-cols", "id", "--dataset-name", "part",
-               "--batch-size", str(batch_size), "--device", "cpu", "--dtype", "float32", "--out-dir", tmp]
+               "--batch-size", str(batch_size), "--device", device, "--dtype", "float32", "--out-dir", tmp]
         cmd += ["--mlm", "--fast-pll"] if model["method"] == "pll" else ["--bos"]
         res = subprocess.run(cmd, capture_output=True, text=True)
         if res.returncode != 0:
@@ -116,7 +117,7 @@ def score(model, pairs, batch_size):
         return scored, pd.read_csv(Path(tmp) / "summary.csv").iloc[-1].to_dict()
 
 
-def run(model, alphabet, version, previous, batch_size):
+def run(model, alphabet, version, previous, batch_size, device="cpu"):
     """Bring one run up to date: reuse every pair whose two sentences are unchanged, score the others in
     chunks and save after each chunk, so that an interrupted run loses at most one chunk."""
     rows = read_pairs(alphabet)
@@ -141,7 +142,7 @@ def run(model, alphabet, version, previous, batch_size):
     chunk = 200 if model["method"] == "pll" else 1200
     t0, meta = time.time(), {}
     for start in range(0, len(todo), chunk):
-        result = score(model, todo[start:start + chunk], batch_size)
+        result = score(model, todo[start:start + chunk], batch_size, device)
         if result is None:
             return
         scored, meta = result
@@ -179,6 +180,7 @@ def main():
     p.add_argument("--force-reformed", action="store_true",
                    help="score reformed Latin even when the tokenizer produces unknown tokens there")
     p.add_argument("--batch-size", type=int, default=16)
+    p.add_argument("--device", default="cpu", help="device for score_pairs.py, e.g. cuda (always float32; default cpu)")
     args = p.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
 
@@ -210,7 +212,7 @@ def main():
                 continue
             if args.repair and not csv_path(model, alphabet, args.version).exists():
                 continue
-            run(model, alphabet, args.version, args.carry_from, args.batch_size)
+            run(model, alphabet, args.version, args.carry_from, args.batch_size, args.device)
 
 
 if __name__ == "__main__":

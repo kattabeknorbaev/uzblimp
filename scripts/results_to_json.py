@@ -36,8 +36,12 @@ def main():
             pairs = [{"pair_id": r["id"], "paradigm": r["phenomenon"], "correct": r["correct"] == "True",
                       "correct_norm": r["correct_norm"] == "True"} for r in rows]
             if model.get("setup") == "gpu":  # scored on GPUs for the second author (results/gpu_runs/README.txt)
-                settings = {"scorer": "scripts/eval.py (logprob), run on GPUs; see results/gpu_runs/README.txt",
+                settings = {"scorer": f"scripts/eval.py (logprob), run on GPUs; see results/gpu_runs/{model.get('record', 'README.txt')}",
                             "dtype": model["dtype"], "device": "cuda", "bos": True, "per_pair": f"results/{path.name}"}
+            elif model.get("device") == "gpu":  # run_models.py on a GPU, float32 (results/gpu_runs/README_run3.txt)
+                settings = {"scorer": "scripts/score_pairs.py (minicons)" + (" --mlm (pseudo-log-likelihood)" if method == "pll" else "")
+                            + ", run on a GPU; see results/gpu_runs/README_run3.txt",
+                            "dtype": "float32", "device": "cuda", "bos": True, "per_pair": f"results/{path.name}"}
             else:
                 settings = {"scorer": "scripts/score_pairs.py, minicons 0.3.39" + (" --mlm (pseudo-log-likelihood)" if method == "pll" else ""),
                             "dtype": "float32", "device": "cpu", "bos": True, "per_pair": f"results/{path.name}"}

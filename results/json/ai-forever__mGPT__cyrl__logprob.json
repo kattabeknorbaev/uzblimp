@@ -1,0 +1,101 @@
+{
+  "benchmark": "UzBLiMP",
+  "version": "v1.2",
+  "model": "ai-forever/mGPT",
+  "label": "mGPT",
+  "script": "cyrl",
+  "method": "logprob",
+  "n_pairs": 2400,
+  "accuracy": 95.6,
+  "accuracy_norm": 89.8,
+  "per_phenomenon": {
+    "anaphor_agreement": {
+      "n": 150,
+      "correct": 149,
+      "accuracy": 99.3
+    },
+    "binding": {
+      "n": 150,
+      "correct": 138,
+      "accuracy": 92.0
+    },
+    "dative_allomorphy": {
+      "n": 150,
+      "correct": 146,
+      "accuracy": 97.3
+    },
+    "ditransitive_dative": {
+      "n": 150,
+      "correct": 122,
+      "accuracy": 81.3
+    },
+    "lexical_case": {
+      "n": 150,
+      "correct": 143,
+      "accuracy": 95.3
+    },
+    "nominalization": {
+      "n": 150,
+      "correct": 150,
+      "accuracy": 100.0
+    },
+    "npi_hech": {
+      "n": 150,
+      "correct": 146,
+      "accuracy": 97.3
+    },
+    "numeral_no_plural": {
+      "n": 150,
+      "correct": 138,
+      "accuracy": 92.0
+    },
+    "passives": {
+      "n": 150,
+      "correct": 147,
+      "accuracy": 98.0
+    },
+    "person_agreement": {
+      "n": 150,
+      "correct": 132,
+      "accuracy": 88.0
+    },
+    "possessive_agreement": {
+      "n": 150,
+      "correct": 143,
+      "accuracy": 95.3
+    },
+    "postposition_case": {
+      "n": 150,
+      "correct": 149,
+      "accuracy": 99.3
+    },
+    "quantifiers": {
+      "n": 150,
+      "correct": 150,
+      "accuracy": 100.0
+    },
+    "relative_clauses": {
+      "n": 150,
+      "correct": 148,
+      "accuracy": 98.7
+    },
+    "stem_alternation": {
+      "n": 150,
+      "correct": 149,
+      "accuracy": 99.3
+    },
+    "suspended_affixation": {
+      "n": 150,
+      "correct": 144,
+      "accuracy": 96.0
+    }
+  },
+  "settings": {
+    "scorer": "scripts/score_pairs.py (minicons), run on a GPU; see results/gpu_runs/README_run3.txt",
+    "dtype": "float32",
+    "device": "cuda",
+    "bos": true,
+    "per_pair": "results/mGPT_uzblimp_v1.2_cyrl.csv"
+  },
+  "date": "2026-11-26"
+}

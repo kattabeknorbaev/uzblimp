@@ -6,9 +6,13 @@ run (README.txt, scripts/, run*/logs, run*/results/pairs/<org>__<model>__<alphab
 file against the benchmark, writes each registry model's runs in the format of scripts/run_models.py
 (results/<stem>.csv), and keeps the run's record in results/gpu_runs/: its README, logs and scripts, the
 float32-against-bfloat16 control of Qwen3.5-9B-Base, and its Qwen2.5-1.5B run, which the paper compares with
-our own CPU run of that model. Nothing from the folder is executed.
+our own CPU run of that model. A later run adds its models to those already imported; its README is kept
+under its own name (--readme), a run declared invalid in the registry (key "invalid") goes to
+results/gpu_runs/invalid/ instead of results/, and a repeat run of an imported model (run*/results_repro) to
+results/gpu_runs/repro/. Nothing from the folder is executed.
 
     python scripts/import_gpu_runs.py <folder>
+    python scripts/import_gpu_runs.py <folder of run 3> --readme README_run3.txt
 """
 import argparse
 import re
@@ -55,7 +59,9 @@ def convert(path, alphabet, hf, condition):
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("folder", help="folder of the GPU run (with README.txt and run*/)")
-    folder = Path(p.parse_args().folder)
+    p.add_argument("--readme", default="README.txt", help="name under which the run's README.txt is kept")
+    args = p.parse_args()
+    folder = Path(args.folder)
     by_hf = {m["hf"]: m for m in MODELS if m.get("setup") == "gpu"}
     done = set()
     for f in sorted(folder.glob("run*/results/pairs/*.csv")):
@@ -63,7 +69,13 @@ def main():
         hf, alphabet = f"{org}/{name}", ALPHA[script]
         if hf in by_hf:
             m = by_hf[hf]
-            convert(f, alphabet, hf, f"gpu {m['dtype']}").to_csv(csv_path(m, alphabet, VERSION), index_label="pair_id")
+            df = convert(f, alphabet, hf, f"gpu {m['dtype']}")
+            if alphabet in m.get("invalid", {}):
+                target = OUT / "invalid" / f.name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                df.to_csv(target, index_label="pair_id")
+            else:
+                df.to_csv(csv_path(m, alphabet, VERSION), index_label="pair_id")
             done.add((m["key"], alphabet))
         else:  # the validation run of a model the paper scores on CPU
             target = OUT / "check" / f.name
@@ -74,10 +86,17 @@ def main():
         target = OUT / "bf16check" / f.name
         target.parent.mkdir(parents=True, exist_ok=True)
         convert(f, ALPHA[script], f"{org}/{name}", "gpu bfloat16").to_csv(target, index_label="pair_id")
-    missing = {(m["key"], a) for m in by_hf.values() for a in ALPHA.values()} - done
+    for f in sorted(folder.glob("run*/results_repro/pairs/*.csv")):
+        org, name, script = PATTERN.match(f.name).groups()
+        target = OUT / "repro" / f.name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        convert(f, ALPHA[script], f"{org}/{name}", "gpu repeat").to_csv(target, index_label="pair_id")
+    # Every GPU model of the registry has its runs: from this folder or from an earlier import.
+    missing = {(m["key"], a) for m in by_hf.values() for a in ALPHA.values()
+               if a not in m.get("invalid", {}) and not csv_path(m, a, VERSION).exists()} - done
     assert not missing, f"no results for {sorted(missing)}"
     # The run's own record, kept as it was handed over.
-    shutil.copy2(folder / "README.txt", OUT / "README.txt")
+    shutil.copy2(folder / "README.txt", OUT / args.readme)
     for f in folder.glob("scripts/*"):
         (OUT / "scripts").mkdir(parents=True, exist_ok=True)
         shutil.copy2(f, OUT / "scripts" / f.name)

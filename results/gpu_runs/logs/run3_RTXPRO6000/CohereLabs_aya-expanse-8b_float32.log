@@ -1,0 +1,53 @@
+loaded CohereLabs/aya-expanse-8b as CohereForCausalLM, float32, on cuda
+aya-expanse-8b | latn | logprob: 54.0% of 2400 pairs → results/json/CohereLabs__aya-expanse-8b__latn__logprob.json
+  anaphor_agreement       42.0
+  binding                  8.0
+  dative_allomorphy       59.3
+  ditransitive_dative     33.3
+  lexical_case            26.7
+  nominalization          84.7
+  npi_hech                23.3
+  numeral_no_plural       89.3
+  passives                44.0
+  person_agreement        66.7
+  possessive_agreement    72.0
+  postposition_case       51.3
+  quantifiers             90.0
+  relative_clauses        31.3
+  stem_alternation        58.7
+  suspended_affixation    82.7
+aya-expanse-8b | cyrl | logprob: 55.1% of 2400 pairs → results/json/CohereLabs__aya-expanse-8b__cyrl__logprob.json
+  anaphor_agreement       46.7
+  binding                  2.0
+  dative_allomorphy       38.7
+  ditransitive_dative     44.7
+  lexical_case            46.7
+  nominalization          65.3
+  npi_hech                14.0
+  numeral_no_plural       81.3
+  passives                58.0
+  person_agreement        57.3
+  possessive_agreement    77.3
+  postposition_case       80.7
+  quantifiers             94.7
+  relative_clauses        70.0
+  stem_alternation        59.3
+  suspended_affixation    44.7
+aya-expanse-8b | latn_reformed | logprob: 54.3% of 2400 pairs → results/json/CohereLabs__aya-expanse-8b__latn_reformed__logprob.json
+  anaphor_agreement       54.7
+  binding                  2.0
+  dative_allomorphy       72.0
+  ditransitive_dative     28.0
+  lexical_case            29.3
+  nominalization          58.7
+  npi_hech                34.0
+  numeral_no_plural       88.0
+  passives                48.7
+  person_agreement        61.3
+  possessive_agreement    70.7
+  postposition_case       56.0
+  quantifiers             87.3
+  relative_clauses        33.3
+  stem_alternation        56.7
+  suspended_affixation    88.0
+DONE CohereLabs/aya-expanse-8b in 287s
