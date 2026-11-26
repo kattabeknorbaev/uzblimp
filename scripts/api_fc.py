@@ -9,7 +9,8 @@ stops before the budget is spent.
 
     python scripts/api_fc.py trial                 # one request per model: batch 1, pass A, current Latin
     python scripts/api_fc.py run --budget 10.5     # the requests of PLAN below
-    python scripts/api_fc.py collect               # per-pair files in results/api_fc/
+    python scripts/api_fc.py collect               # per-pair files and cost.json in results/api_fc/
+    python scripts/api_fc.py readme                # the chat-model table of README.md
 
 Each model is pinned to an endpoint that runs it in 8-bit or higher precision (PROVIDERS), and fallbacks are
 limited to such endpoints. The run of November 2026 asks every pair once, in the order of pass A of the Claude runs
@@ -246,9 +247,35 @@ def run(budget, workers):
         print("  missing:", j, results[j].get("error"))
 
 
+def costs():
+    """What every request cost, from the saved responses (trial, cut-off and blocked ones included): results/api_fc/
+    cost.json, so that the record survives without the git-ignored responses."""
+    rec = {}
+    for folder in ("responses", "truncated", "trial_responses"):
+        for f in sorted((OUT / folder).glob("*.json")):
+            r = json.loads(f.read_text(encoding="utf-8"))
+            alias = f.name.split("_")[0]
+            m = rec.setdefault(alias, {"requests": 0, "valid": 0, "blocked": 0, "usd": 0.0, "trial_usd": 0.0})
+            if "skipped" in r:
+                m["blocked"] += 1
+                continue
+            data = r.get("response") or {}
+            usd = float((data.get("usage") or {}).get("cost") or 0)
+            if folder == "trial_responses":
+                m["trial_usd"] += usd
+                continue
+            m["requests"] += 1
+            m["usd"] += usd
+            m["valid"] += bool(parse(((data.get("choices") or [{}])[0].get("message") or {}).get("content")))
+    total = sum(m["usd"] + m["trial_usd"] for m in rec.values())
+    (OUT / "cost.json").write_text(json.dumps({"models": rec, "total_usd": round(total, 4)}, indent=1), encoding="utf-8")
+    print(f"cost.json: ${total:.2f} in all (trial included)")
+
+
 def collect():
     """One row per pair and order asked (results/api_fc/<model>_<alphabet>.csv), in benchmark order."""
     import pandas as pd
+    costs()
     plan = fc.load_plan()
     for f in sorted((OUT / "runs").glob("*.json")):
         res = json.loads(f.read_text(encoding="utf-8"))
@@ -270,11 +297,43 @@ def collect():
                              "order": "gb" if good_first else "bg", "answer": ans, "correct": ans == (1 if good_first else 2),
                              "attempts": r["attempts"], "provider": r.get("provider"), "model": res["model"],
                              "model_id": res["model_id"], "alphabet": res["alphabet"], "effort": res["effort"]})
+        if not rows:
+            print(f"{f.name}: no valid answer at all; nothing collected")
+            continue
         df = pd.DataFrame(rows).set_index("id")
         df = df.loc[[i for i in fc.bench(res["alphabet"]).id if i in df.index]].reset_index()
         out = OUT / f"{res['model']}_{res['alphabet']}.csv"
         df.to_csv(out, index=False, encoding="utf-8")
         print(f"{out.name}: {len(df)} pairs, accuracy {100 * df.correct.mean():.1f}")
+
+
+NAMES = {"kimi-k3.1-pro": "Kimi K3.1 Pro", "glm-5.3": "GLM 5.3", "deepseek-v4-flash": "DeepSeek V4 Flash",
+         "minimax-m3.1-flash": "MiniMax M3.1 Flash", "seed-2.1-turbo": "Seed 2.1 Turbo"}
+
+
+def readme():
+    """The table of README.md between <!-- chat:start --> and <!-- chat:end -->."""
+    import pandas as pd
+    start, end = "<!-- chat:start -->", "<!-- chat:end -->"
+    n = len(fc.bench("latn"))
+    lines = ["| Model | Current Latin | Cyrillic | Reformed Latin |", "|---|---:|---:|---:|"]
+    for alias, name in NAMES.items():
+        cells = []
+        for a in fc.FILES:
+            f = OUT / f"{alias}_{a}.csv"
+            if not f.exists():
+                cells.append("—")
+                continue
+            df = pd.read_csv(f)
+            acc = f"{100 * df.correct.astype(str).eq('True').mean() + 1e-9:.1f}"
+            cells.append(acc if len(df) == n else f"{acc} ({len(df):,} pairs)")
+        lines.append(f"| {name} | " + " | ".join(cells) + " |")
+    f = ROOT / "README.md"
+    text = f.read_text(encoding="utf-8")
+    head, rest = text.split(start, 1)
+    _, tail = rest.split(end, 1)
+    f.write_text(head + start + "\n" + "\n".join(lines) + "\n" + end + tail, encoding="utf-8", newline="\n")
+    print("\n".join(lines))
 
 
 def main():
@@ -286,12 +345,15 @@ def main():
     r.add_argument("--budget", type=float, required=True, help="stop sending requests once this much (USD) is spent")
     r.add_argument("--workers", type=int, default=16)
     sub.add_parser("collect")
+    sub.add_parser("readme")
     args = p.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
     if args.cmd == "trial":
         trial(args.budget)
     elif args.cmd == "run":
         run(args.budget, args.workers)
+    elif args.cmd == "readme":
+        readme()
     else:
         collect()
 

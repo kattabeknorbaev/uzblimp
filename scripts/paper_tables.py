@@ -914,64 +914,57 @@ def claude_block(bench, judg):
     return claude, "\n".join(lines)
 
 
-API_MODELS = [("deepseek-v4-flash", "DeepSeek V4 Flash"), ("kimi-k3.1-pro", "Kimi K3.1 Pro"), ("glm-5.3", "GLM 5.3"),
-              ("minimax-m3.1-flash", "MiniMax M3.1 Flash")]
-API_PARTIAL = [("deepseek-v4-pro", "DeepSeek V4 Pro"), ("seed-2.1-turbo", "Seed 2.1 Turbo")]
+API_MODELS = [("kimi-k3.1-pro", "Kimi K3.1 Pro"), ("glm-5.3", "GLM 5.3"), ("deepseek-v4-flash", "DeepSeek V4 Flash"),
+              ("minimax-m3.1-flash", "MiniMax M3.1 Flash"), ("seed-2.1-turbo", "Seed 2.1 Turbo")]
 
 
 def api_block(bench):
     """Forced choice with chat models of other developers through OpenRouter (scripts/api_fc.py, results/api_fc/):
-    every pair asked once, in the order of pass A of the Claude runs. DeepSeek V4 Pro answered four batches per
-    alphabet by design and Seed 2.1 Turbo the few batches it completed before it was stopped; both are reported on the
-    pairs they answered. The table sets the accuracy of the Claude models on the same requests beside them. None if a
-    model of API_MODELS has not answered every pair."""
+    every pair asked at most once, in the order of pass A of the Claude runs. A request whose reasoning ran out of the
+    token limit, or that was not sent because the budget was spent, leaves its 150 pairs out; the table gives the
+    number of pairs wherever it is not the whole benchmark. None if there are no results."""
     d = ROOT / "results" / "api_fc"
     cdir = ROOT / "results" / "claude_fc"
+    if not (d / "cost.json").exists():
+        return None
     plan = json.loads((cdir / "plan_v1.2.json").read_text(encoding="utf-8"))
     first = {it["id"]: it["first_in_A"] == "grammatical" for b in plan["batches"] for it in b}
     runs, usage = {}, {}
-    for alias, _ in API_MODELS + API_PARTIAL:
+    for alias, _ in API_MODELS:
         for a, A in FC_ALPHABETS:
             f = d / f"{alias}_{a}.csv"
-            if not f.exists():
-                return None
-            df = pd.read_csv(f).set_index("id")
-            assert all((o == "gb") == first[i] for i, o in df.order.items()), f"{f.name}: not the order of pass A"
-            runs[(alias, A)] = df
             res = json.loads((d / "runs" / f"{alias}_{a}.json").read_text(encoding="utf-8"))
-            usage[(alias, A)] = [r["usage"] for r in res["results"] if r.get("usage")]
-    # Requests a model did not answer validly (its reasoning ran out of the token limit) leave their pairs out; the
-    # table gives the number of pairs wherever it is not the whole benchmark.
+            usage[(alias, A)] = [r["usage"] for r in res["results"] if r.get("answers")]
+            if f.exists():
+                df = pd.read_csv(f).set_index("id")
+                assert all((o == "gb") == first[i] for i, o in df.order.items()), f"{f.name}: not the order of pass A"
+                runs[(alias, A)] = df
 
     def pct(s):
         return 100 * s.astype(str).eq("True").mean() + 1e-9
 
-    every, full = [], []
+    full = []
     for (alias, A), df in runs.items():
         num(f"api@{alias}@{A}@acc", pct(df.correct))
         num(f"api@{alias}@{A}@n", len(df), 0)
-        if alias in dict(API_MODELS):
-            every.append(100 * df.correct.astype(str).eq("True").mean())
-            if len(df) == len(bench):
-                full.append(every[-1])
-    num("api@all@min", min(every) + 1e-9)
-    num("api@all@max", max(every) + 1e-9)
+        if len(df) == len(bench):
+            full.append(100 * df.correct.astype(str).eq("True").mean())
     num("api@full@min", min(full) + 1e-9)
     num("api@full@max", max(full) + 1e-9)
-    num("api@answered", sum(len(df) for df in runs.values()), 0)
-    pro = {A: runs[("deepseek-v4-pro", A)].index for _, A in FC_ALPHABETS}
-    for _, A in FC_ALPHABETS:
-        num(f"api@flash@sub@{A}", pct(runs[("deepseek-v4-flash", A)].correct.loc[pro[A]]))
-    num("api@sub@pairs", len(pro["Latin"]), 0)
-    num("api@seed@pairs", sum(len(runs[("seed-2.1-turbo", A)]) for _, A in FC_ALPHABETS), 0)
-    reqs = sum(len(u) for u in usage.values())
-    num("api@requests", reqs, 0)
-    num("api@cost", sum(float(x.get("cost") or 0) for u in usage.values() for x in u))
-    for alias, _ in API_MODELS + API_PARTIAL:
+    # Section 6.6: the six chat models that answered every pair (four Claude models, Kimi and GLM)
+    num("chat@min", min(min(full), float(NUM["fc@all@min"])) + 1e-9)
+    num("chat@max", max(max(full), float(NUM["fc@all@max"])) + 1e-9)
+    complete = [name for alias, name in API_MODELS if all(len(runs.get((alias, A), [])) == len(bench) for _, A in FC_ALPHABETS)]
+    assert complete == ["Kimi K3.1 Pro", "GLM 5.3"], "revise the text on the complete chat models in Appendix I"
+    cost = json.loads((d / "cost.json").read_text(encoding="utf-8"))
+    num("api@cost", cost["total_usd"])
+    num("api@requests", sum(m["requests"] for m in cost["models"].values()), 0)
+    num("api@valid", sum(m["valid"] for m in cost["models"].values()), 0)
+    for alias, _ in API_MODELS:
         rt = [((x.get("completion_tokens_details") or {}).get("reasoning_tokens") or 0) for _, A in FC_ALPHABETS
               for x in usage[(alias, A)]]
         num(f"api@{alias}@reasoning", sum(rt) / len(rt) if rt else 0, 0)
-    # The Claude models on the same requests: their answers in pass A.
+    # The Claude models on the same requests: their answers in pass A, on all pairs.
     claude = {}
     for alias, name, _ in CLAUDE:
         for a, A in FC_ALPHABETS:
@@ -980,32 +973,26 @@ def api_block(bench):
             claude[(alias, A)] = 100 * pd.Series(ok).astype(str).eq("True").mean() + 1e-9
             num(f"fc@{alias}@{A}@passA", claude[(alias, A)])
 
-    def cells(alias):
-        out = []
-        for _, A in FC_ALPHABETS:
-            df = runs[(alias, A)]
-            out.append(f"{pct(df.correct):.1f}" + ("" if len(df) == len(bench) else rf" ({len(df):,})".replace(",", "{,}")))
-        return out
+    def cell(alias, A):
+        df = runs.get((alias, A))
+        if df is None:
+            return "--"
+        return f"{pct(df.correct):.1f}" + ("" if len(df) == len(bench) else rf" ({len(df):,})".replace(",", "{,}"))
 
-    lines = [r"\begin{table}[t]", r"\centering\small", r"\setlength{\tabcolsep}{3.5pt}", r"\begin{tabular}{@{}lrrrr@{}}",
-             r"\toprule", r"Model & Reas. & Latin & Cyrillic & Reformed \\", r"\midrule"]
+    lines = [r"\begin{table*}[t]", r"\centering\small", r"\begin{tabular}{@{}lrrrr@{}}",
+             r"\toprule", r"Model & Reasoning tokens & Current Latin & Cyrillic & Reformed Latin \\", r"\midrule"]
     for alias, name in API_MODELS:
-        lines.append(f"{name} & {NUM[f'api@{alias}@reasoning']} & " + " & ".join(cells(alias)) + r" \\")
-    lines.append(r"\midrule")
-    for alias, name in API_PARTIAL:
-        lines.append(f"{name} & {NUM[f'api@{alias}@reasoning']} & " + " & ".join(cells(alias)) + r" \\")
-    lines.append(r"\quad V4 Flash, same pairs & & " + " & ".join(f"{float(NUM[f'api@flash@sub@{A}']):.1f}" for _, A in FC_ALPHABETS) + r" \\")
+        lines.append(f"{name} & {NUM[f'api@{alias}@reasoning']} & " + " & ".join(cell(alias, A) for _, A in FC_ALPHABETS) + r" \\")
     lines.append(r"\midrule")
     for alias, name, _ in CLAUDE:
         lines.append(f"Claude {name} & & " + " & ".join(f"{claude[(alias, A)]:.1f}" for _, A in FC_ALPHABETS) + r" \\")
     lines += [r"\bottomrule", r"\end{tabular}",
               rf"\caption{{Forced choice through the OpenRouter API: accuracy (\%) in current Latin, Cyrillic and reformed "
               rf"Latin, each pair asked once in the order of the first pass of Table~\ref{{tab:claude}}, on all "
-              rf"{len(bench):,} pairs or, in parentheses, on the pairs a model answered. ".replace(",", "{,}") +
-              r"DeepSeek V4 Pro answered four batches per alphabet, also shown for V4 Flash; Seed 2.1 Turbo, stopped "
-              r"early, the batches it completed. \emph{Reas.}: mean reasoning tokens per request of 150 pairs. The "
-              r"Claude rows give the same requests from the runs of Table~\ref{tab:claude}.}",
-              r"\label{tab:chat}", r"\end{table}"]
+              rf"{len(bench):,} pairs or, in parentheses, on the pairs of the requests a model answered within its token "
+              rf"limit and our budget; --: none. ".replace(",", "{,}") +
+              r"\emph{Reasoning tokens}: mean per answered request of 150 pairs. The Claude rows give the same "
+              r"requests from the runs of Table~\ref{tab:claude}, on all pairs.}", r"\label{tab:chat}", r"\end{table*}"]
     return "\n".join(lines)
 
 

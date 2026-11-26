@@ -10,144 +10,496 @@
    "batch": 0,
    "attempts": 1,
    "chars": 22545,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "212212212112221122212121121112121221111121221121122122212222121112212111112222112122121112212122122222221212122121121111212212222211121112212222112111",
+   "usage": {
+    "prompt_tokens": 9168,
+    "completion_tokens": 3260,
+    "total_tokens": 12428,
+    "cost": 0.012164976,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.012164976,
+     "upstream_inference_prompt_cost": 0.005710176,
+     "upstream_inference_completions_cost": 0.0064548
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1450,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
   },
   {
    "pass": "A",
    "batch": 1,
    "attempts": 1,
    "chars": 22205,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "222211112111121121222121211211122222212111221221211212212222112122111211122211122122222211122211122112222112111211211221222221211211212211211122111112",
+   "usage": {
+    "prompt_tokens": 9061,
+    "completion_tokens": 3815,
+    "total_tokens": 12876,
+    "cost": 0.013196466,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.013196466,
+     "upstream_inference_prompt_cost": 0.005642766,
+     "upstream_inference_completions_cost": 0.0075537
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 2006,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
   },
   {
    "pass": "A",
    "batch": 2,
    "attempts": 1,
    "chars": 21701,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "112122121222111111211221212111122111222211122111212111112111212212122122221211112122212222222211222122111222121121122122122112121222112121211211222112",
+   "usage": {
+    "prompt_tokens": 8897,
+    "completion_tokens": 3414,
+    "total_tokens": 12311,
+    "cost": 0.012299166,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.012299166,
+     "upstream_inference_prompt_cost": 0.005539446,
+     "upstream_inference_completions_cost": 0.00675972
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1604,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
   },
   {
    "pass": "A",
    "batch": 3,
    "attempts": 1,
    "chars": 24128,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "212212112221221112121211111122222212112222222212222111112121122121211112121212221221112112222212221121111121211112121121112211221212212112111221222221",
+   "usage": {
+    "prompt_tokens": 9763,
+    "completion_tokens": 3235,
+    "total_tokens": 12998,
+    "cost": 0.012490326,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.012490326,
+     "upstream_inference_prompt_cost": 0.006085026,
+     "upstream_inference_completions_cost": 0.0064053
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1426,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
   },
   {
    "pass": "A",
    "batch": 4,
    "attempts": 1,
    "chars": 22482,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "111111211121212211212212221111112211222121111112211222212221212222111221122111211221212112111122211222212112122212212222212122122221112212221112221112",
+   "usage": {
+    "prompt_tokens": 9128,
+    "completion_tokens": 3780,
+    "total_tokens": 12908,
+    "cost": 0.013169376,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.013169376,
+     "upstream_inference_prompt_cost": 0.005684976,
+     "upstream_inference_completions_cost": 0.0074844
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1971,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
   },
   {
    "pass": "A",
    "batch": 5,
-   "attempts": 1,
+   "attempts": 2,
    "chars": 23303,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "122212111211221112111111122211221121222112121112221212221121212122112211212222122122121121122221122222121222111111222121212121112222221112211121222212",
+   "usage": {
+    "prompt_tokens": 9478,
+    "completion_tokens": 3535,
+    "total_tokens": 13013,
+    "cost": 0.008111304,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 9472,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.008111304,
+     "upstream_inference_prompt_cost": 0.001112004,
+     "upstream_inference_completions_cost": 0.0069993
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1730,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
   },
   {
    "pass": "A",
    "batch": 6,
    "attempts": 1,
    "chars": 22732,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "111112212212111112112211122122212211221122211222212112212221111222122221212222212211112112212112211221222122122121212121121221212222221221221121212122",
+   "usage": {
+    "prompt_tokens": 9253,
+    "completion_tokens": 3469,
+    "total_tokens": 12722,
+    "cost": 0.012632346,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.012632346,
+     "upstream_inference_prompt_cost": 0.005763726,
+     "upstream_inference_completions_cost": 0.00686862
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1660,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
   },
   {
    "pass": "A",
    "batch": 7,
    "attempts": 1,
    "chars": 22269,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "121111222221211111221122211221222121121122221221221222221111212221112111112221222212121222122122212221222222122121112121211222112122122121111212212221",
+   "usage": {
+    "prompt_tokens": 9156,
+    "completion_tokens": 3808,
+    "total_tokens": 12964,
+    "cost": 0.013242456,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.013242456,
+     "upstream_inference_prompt_cost": 0.005702616,
+     "upstream_inference_completions_cost": 0.00753984
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1999,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
   },
   {
    "pass": "A",
    "batch": 8,
    "attempts": 1,
    "chars": 22767,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "221121111112112221122112222112222211112212112222221221222222211122122211221212112211222112212122112212111221112222211111221111211211122211221111211121",
+   "usage": {
+    "prompt_tokens": 9315,
+    "completion_tokens": 3690,
+    "total_tokens": 13005,
+    "cost": 0.013108986,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.013108986,
+     "upstream_inference_prompt_cost": 0.005802786,
+     "upstream_inference_completions_cost": 0.0073062
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1881,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
   },
   {
    "pass": "A",
    "batch": 9,
    "attempts": 1,
    "chars": 21704,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "222121222112212122221211212211221211222122122212121212221222221111112112212212211121222112222211111122212122212212111121212112122211112222112211211212",
+   "usage": {
+    "prompt_tokens": 8866,
+    "completion_tokens": 4036,
+    "total_tokens": 12902,
+    "cost": 0.013511196,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.013511196,
+     "upstream_inference_prompt_cost": 0.005519916,
+     "upstream_inference_completions_cost": 0.00799128
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 2227,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
   },
   {
    "pass": "A",
    "batch": 10,
    "attempts": 1,
    "chars": 22303,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "221211212112212221122111122222211112211222122211211211221211112221211112222221212111222122211121112222221122111112222122222211111212111122212212112111",
+   "usage": {
+    "prompt_tokens": 9059,
+    "completion_tokens": 3646,
+    "total_tokens": 12705,
+    "cost": 0.012860586,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.012860586,
+     "upstream_inference_prompt_cost": 0.005641506,
+     "upstream_inference_completions_cost": 0.00721908
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1837,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
   },
   {
    "pass": "A",
    "batch": 11,
    "attempts": 1,
    "chars": 22033,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "211222212112211121122221221222111121121111212212122112222122112112111211112221221212112212222122112222222121112111112112212112211122112221122122212222",
+   "usage": {
+    "prompt_tokens": 8973,
+    "completion_tokens": 3769,
+    "total_tokens": 12742,
+    "cost": 0.013049946,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.013049946,
+     "upstream_inference_prompt_cost": 0.005587326,
+     "upstream_inference_completions_cost": 0.00746262
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1960,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
   },
   {
    "pass": "A",
    "batch": 12,
    "attempts": 1,
    "chars": 22878,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "222222221121221211122122122112221222212221211221112111222211112211111222111222121122211121111222212121111112222222112211212211121212221211212211111112",
+   "usage": {
+    "prompt_tokens": 9304,
+    "completion_tokens": 3371,
+    "total_tokens": 12675,
+    "cost": 0.012470436,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.012470436,
+     "upstream_inference_prompt_cost": 0.005795856,
+     "upstream_inference_completions_cost": 0.00667458
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1562,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
   },
   {
    "pass": "A",
    "batch": 13,
    "attempts": 1,
    "chars": 22228,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "212112211122112111211212221221121221121121211111122222111221211221222211111111222122122221122122222222111111212211212121211122111122212112211121222211",
+   "usage": {
+    "prompt_tokens": 9017,
+    "completion_tokens": 3552,
+    "total_tokens": 12569,
+    "cost": 0.012648006,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.012648006,
+     "upstream_inference_prompt_cost": 0.005615046,
+     "upstream_inference_completions_cost": 0.00703296
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1743,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
   },
   {
    "pass": "A",
    "batch": 14,
    "attempts": 1,
    "chars": 22615,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "222211222112212221212122112211111111111211111111122212122111222221212111212121122211221212212121222122222122222211221112222222211211212121222211221122",
+   "usage": {
+    "prompt_tokens": 9198,
+    "completion_tokens": 3902,
+    "total_tokens": 13100,
+    "cost": 0.013455036,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.013455036,
+     "upstream_inference_prompt_cost": 0.005729076,
+     "upstream_inference_completions_cost": 0.00772596
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 2093,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
   },
   {
    "pass": "A",
    "batch": 15,
    "attempts": 1,
    "chars": 23280,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "112122112212222121122221222122111221212111221112222121211121121222221111211122221222122212121121212211221111222122111221121111212111112122221212122211",
+   "usage": {
+    "prompt_tokens": 9487,
+    "completion_tokens": 3471,
+    "total_tokens": 12958,
+    "cost": 0.012783726,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.012783726,
+     "upstream_inference_prompt_cost": 0.005911146,
+     "upstream_inference_completions_cost": 0.00687258
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1662,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
   }
  ]
 }

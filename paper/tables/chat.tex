@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Model & Reasoning tokens & Current Latin & Cyrillic & Reformed Latin \\
+\midrule
+Kimi K3.1 Pro & 5,624 & 99.2 & 99.0 & 99.1 \\
+GLM 5.3 & 2,233 & 95.8 & 95.9 & 95.5 \\
+DeepSeek V4 Flash & 13,147 & 99.2 & 98.9 (1{,}800) & 99.5 (600) \\
+MiniMax M3.1 Flash & 0 & 87.6 (1{,}950) & -- & -- \\
+Seed 2.1 Turbo & 24,716 & 100.0 (450) & 98.7 (150) & 100.0 (150) \\
+\midrule
+Claude Fable 5.2 & & 100.0 & 100.0 & 100.0 \\
+Claude Opus 5.5 & & 100.0 & 100.0 & 99.9 \\
+Claude Sonnet 5.5 & & 99.0 & 99.1 & 98.4 \\
+Claude Haiku 5.5 & & 96.5 & 97.1 & 97.8 \\
+\bottomrule
+\end{tabular}
+\caption{Forced choice through the OpenRouter API: accuracy (\%) in current Latin{,} Cyrillic and reformed Latin{,} each pair asked once in the order of the first pass of Table~\ref{tab:claude}{,} on all 2{,}400 pairs or{,} in parentheses{,} on the pairs of the requests a model answered within its token limit and our budget; --: none. \emph{Reasoning tokens}: mean per answered request of 150 pairs. The Claude rows give the same requests from the runs of Table~\ref{tab:claude}, on all pairs.}
+\label{tab:chat}
+\end{table*}

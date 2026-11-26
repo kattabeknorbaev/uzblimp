@@ -124,7 +124,7 @@ python scripts/make_table.py
 
 Accuracy (%) on all 2,400 pairs. **logprob**: causal LM log-probability; **pll**: masked-LM pseudo-log-likelihood; **forced-choice**: chat model picks the sentence. GF-L / GF-C are the Goldfish models trained on Latin-script / Cyrillic-script Uzbek. Only models with no unknown tokens on the new letters are run on reformed Latin (`notes/decisions.md`, decision 8), and not models trained on Cyrillic only. Per phenomenon: [`results/per_phenomenon.md`](results/per_phenomenon.md); what changed since v1.1: [`results/eval_v1.2.md`](results/eval_v1.2.md).
 
-In short: the strongest monolingual models (TahrirchiBERT and the Goldfish models trained on 100 MB or more) score about 95–99% in the script they were trained on, Latin or Cyrillic alike, and every model trained on one script loses 5 to 48 points when the same sentences are written in the other script; there, and on the reformed spelling, their choices follow token counts and familiar spellings instead of grammar. UzRoBERTa, trained on both scripts, scores 93–96% on both. Small multilingual models know much less of this grammar (XLM-R 78% on Latin, 51% on Cyrillic), but the larger ones, scored on GPUs (`results/gpu_runs/`), know most of it in both scripts (Gemma 4 31B: 97.3% Latin, 98.1% Cyrillic) and still lose 6.8 to 16.5 points on reformed Latin. Tomaris.ai is the model of the authors' company; its pretraining corpus contains 99% of the grammatical sentences from our own corpus, so its scores are not held out (paper, Appendix H). Prompted to choose, four Claude models get 96.5–100% in all three alphabets; a prompted choice is not comparable with these likelihood scores, and as a Claude model helped audit the benchmark, the Claude scores are not independent (below).
+In short: the strongest monolingual models (TahrirchiBERT and the Goldfish models trained on 100 MB or more) score about 95–99% in the script they were trained on, Latin or Cyrillic alike, and every model trained on one script loses 5 to 48 points when the same sentences are written in the other script; there, and on the reformed spelling, their choices follow token counts and familiar spellings instead of grammar. UzRoBERTa, trained on both scripts, scores 93–96% on both. Small multilingual models know much less of this grammar (XLM-R 78% on Latin, 51% on Cyrillic), but the larger ones, scored on GPUs (`results/gpu_runs/`), know most of it in both scripts (Gemma 4 31B: 97.3% Latin, 98.1% Cyrillic) and still lose 6.8 to 16.5 points on reformed Latin. Tomaris.ai is the model of the authors' company; its pretraining corpus contains 99% of the grammatical sentences from our own corpus, so its scores are not held out (paper, Appendix H). Prompted to choose, four Claude models get 96.5–100% in all three alphabets, and two chat models that had no part in building the benchmark, Kimi K3.1 Pro and GLM 5.3, 95.5–99.2%; a prompted choice is not comparable with these likelihood scores, and as a Claude model helped audit the benchmark, the Claude scores are not independent (below).
 
 <!-- results:start -->
 | Model | Method | Current Latin | Cyrillic | Reformed Latin |
@@ -179,6 +179,22 @@ likelihood scores above. Seven chat models were also run on a 48-pair pilot (pap
 | Claude Sonnet 5.5 | 99.0 (98.0) | 99.2 (98.5) | 98.6 (97.3) |
 | Claude Haiku 5.5 | 96.7 (93.7) | 96.5 (93.1) | 97.4 (95.1) |
 <!-- claude:end -->
+
+Chat models of other developers, which had no part in building the benchmark, answered the same requests through
+the OpenRouter API, each pair once in the order of the Claude runs' first pass ([`results/api_fc/`](results/api_fc/),
+paper Appendix I). With a budget of about $10 the run is incomplete: only Kimi and GLM answered every pair. DeepSeek
+V4 Flash and Seed 2.1 Turbo often reasoned until their token limit without answering (those pairs, perhaps the harder
+ones, are missing), Seed was stopped early, and MiniMax ran out of budget. Accuracy (%):
+
+<!-- chat:start -->
+| Model | Current Latin | Cyrillic | Reformed Latin |
+|---|---:|---:|---:|
+| Kimi K3.1 Pro | 99.2 | 99.0 | 99.1 |
+| GLM 5.3 | 95.8 | 95.9 | 95.5 |
+| DeepSeek V4 Flash | 99.2 | 98.9 (1,800 pairs) | 99.5 (600 pairs) |
+| MiniMax M3.1 Flash | 87.6 (1,950 pairs) | — | — |
+| Seed 2.1 Turbo | 100.0 (450 pairs) | 98.7 (150 pairs) | 100.0 (150 pairs) |
+<!-- chat:end -->
 
 ## How the pairs were made and checked
 

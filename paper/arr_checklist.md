@@ -36,7 +36,7 @@ in the form of the current cycle: it changes from time to time.
 - **C1 Parameters, compute budget, infrastructure.** Yes: Table 8 (parameters); Appendix J (CPU only, 32-bit
   precision, time per run: minutes for a Goldfish run, ten minutes to three hours for a masked model); Appendix H
   (GPU runs of the larger models); Appendix I (Claude runs: Claude Code 2.1.332 subagents, 384 requests of 150
-  pairs).
+  pairs; other chat models through the OpenRouter API for about $10, `results/api_fc/cost.json`).
 - **C2 Experimental setup and hyperparameters.** Yes: Section 5 (scoring by summed log-probability or
   pseudo-log-likelihood); no model was trained or fine-tuned, so there are no hyperparameters to search.
 - **C3 Descriptive statistics.** Yes: Section 5 (Wilson intervals, exact McNemar tests with Holm correction,

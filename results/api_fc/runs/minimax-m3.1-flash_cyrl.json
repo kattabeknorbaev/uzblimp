@@ -8,146 +8,322 @@
   {
    "pass": "A",
    "batch": 0,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22343,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": {
+    "message": "Key limit exceeded (total limit). Manage it using https://openrouter.ai/workspaces/default/keys/da8432e572d8efb670f53c78f2a3e770f1d733d3c01e99229b4f479115b2285d $10.00 of $10.00 used; does not reset.",
+    "code": 403,
+    "metadata": {
+     "limit_source": "openrouter_key_limit",
+     "remedy_hint": "Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.",
+     "scope": "key_limit",
+     "limit_usd": 10,
+     "spend_usd": 10.001429955,
+     "resets_at": null
+    }
+   }
   },
   {
    "pass": "A",
    "batch": 1,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22011,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": {
+    "message": "Key limit exceeded (total limit). Manage it using https://openrouter.ai/workspaces/default/keys/da8432e572d8efb670f53c78f2a3e770f1d733d3c01e99229b4f479115b2285d $10.00 of $10.00 used; does not reset.",
+    "code": 403,
+    "metadata": {
+     "limit_source": "openrouter_key_limit",
+     "remedy_hint": "Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.",
+     "scope": "key_limit",
+     "limit_usd": 10,
+     "spend_usd": 10.001429955,
+     "resets_at": null
+    }
+   }
   },
   {
    "pass": "A",
    "batch": 2,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 21533,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": {
+    "message": "Key limit exceeded (total limit). Manage it using https://openrouter.ai/workspaces/default/keys/da8432e572d8efb670f53c78f2a3e770f1d733d3c01e99229b4f479115b2285d $10.00 of $10.00 used; does not reset.",
+    "code": 403,
+    "metadata": {
+     "limit_source": "openrouter_key_limit",
+     "remedy_hint": "Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.",
+     "scope": "key_limit",
+     "limit_usd": 10,
+     "spend_usd": 10.001429955,
+     "resets_at": null
+    }
+   }
   },
   {
    "pass": "A",
    "batch": 3,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 23886,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": {
+    "message": "Key limit exceeded (total limit). Manage it using https://openrouter.ai/workspaces/default/keys/da8432e572d8efb670f53c78f2a3e770f1d733d3c01e99229b4f479115b2285d $10.00 of $10.00 used; does not reset.",
+    "code": 403,
+    "metadata": {
+     "limit_source": "openrouter_key_limit",
+     "remedy_hint": "Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.",
+     "scope": "key_limit",
+     "limit_usd": 10,
+     "spend_usd": 10.001429955,
+     "resets_at": null
+    }
+   }
   },
   {
    "pass": "A",
    "batch": 4,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22232,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": {
+    "message": "Key limit exceeded (total limit). Manage it using https://openrouter.ai/workspaces/default/keys/da8432e572d8efb670f53c78f2a3e770f1d733d3c01e99229b4f479115b2285d $10.00 of $10.00 used; does not reset.",
+    "code": 403,
+    "metadata": {
+     "limit_source": "openrouter_key_limit",
+     "remedy_hint": "Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.",
+     "scope": "key_limit",
+     "limit_usd": 10,
+     "spend_usd": 10.001429955,
+     "resets_at": null
+    }
+   }
   },
   {
    "pass": "A",
    "batch": 5,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 23105,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": {
+    "message": "Key limit exceeded (total limit). Manage it using https://openrouter.ai/workspaces/default/keys/da8432e572d8efb670f53c78f2a3e770f1d733d3c01e99229b4f479115b2285d $10.00 of $10.00 used; does not reset.",
+    "code": 403,
+    "metadata": {
+     "limit_source": "openrouter_key_limit",
+     "remedy_hint": "Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.",
+     "scope": "key_limit",
+     "limit_usd": 10,
+     "spend_usd": 10.001429955,
+     "resets_at": null
+    }
+   }
   },
   {
    "pass": "A",
    "batch": 6,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22516,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": {
+    "message": "Key limit exceeded (total limit). Manage it using https://openrouter.ai/workspaces/default/keys/da8432e572d8efb670f53c78f2a3e770f1d733d3c01e99229b4f479115b2285d $10.00 of $10.00 used; does not reset.",
+    "code": 403,
+    "metadata": {
+     "limit_source": "openrouter_key_limit",
+     "remedy_hint": "Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.",
+     "scope": "key_limit",
+     "limit_usd": 10,
+     "spend_usd": 10.001429955,
+     "resets_at": null
+    }
+   }
   },
   {
    "pass": "A",
    "batch": 7,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22083,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": {
+    "message": "Key limit exceeded (total limit). Manage it using https://openrouter.ai/workspaces/default/keys/da8432e572d8efb670f53c78f2a3e770f1d733d3c01e99229b4f479115b2285d $10.00 of $10.00 used; does not reset.",
+    "code": 403,
+    "metadata": {
+     "limit_source": "openrouter_key_limit",
+     "remedy_hint": "Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.",
+     "scope": "key_limit",
+     "limit_usd": 10,
+     "spend_usd": 10.001429955,
+     "resets_at": null
+    }
+   }
   },
   {
    "pass": "A",
    "batch": 8,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22540,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": {
+    "message": "Key limit exceeded (total limit). Manage it using https://openrouter.ai/workspaces/default/keys/da8432e572d8efb670f53c78f2a3e770f1d733d3c01e99229b4f479115b2285d $10.00 of $10.00 used; does not reset.",
+    "code": 403,
+    "metadata": {
+     "limit_source": "openrouter_key_limit",
+     "remedy_hint": "Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.",
+     "scope": "key_limit",
+     "limit_usd": 10,
+     "spend_usd": 10.001429955,
+     "resets_at": null
+    }
+   }
   },
   {
    "pass": "A",
    "batch": 9,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 21496,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": {
+    "message": "Key limit exceeded (total limit). Manage it using https://openrouter.ai/workspaces/default/keys/da8432e572d8efb670f53c78f2a3e770f1d733d3c01e99229b4f479115b2285d $10.00 of $10.00 used; does not reset.",
+    "code": 403,
+    "metadata": {
+     "limit_source": "openrouter_key_limit",
+     "remedy_hint": "Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.",
+     "scope": "key_limit",
+     "limit_usd": 10,
+     "spend_usd": 10.001429955,
+     "resets_at": null
+    }
+   }
   },
   {
    "pass": "A",
    "batch": 10,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22094,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": {
+    "message": "Key limit exceeded (total limit). Manage it using https://openrouter.ai/workspaces/default/keys/da8432e572d8efb670f53c78f2a3e770f1d733d3c01e99229b4f479115b2285d $10.00 of $10.00 used; does not reset.",
+    "code": 403,
+    "metadata": {
+     "limit_source": "openrouter_key_limit",
+     "remedy_hint": "Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.",
+     "scope": "key_limit",
+     "limit_usd": 10,
+     "spend_usd": 10.001429955,
+     "resets_at": null
+    }
+   }
   },
   {
    "pass": "A",
    "batch": 11,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 21864,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": {
+    "message": "Key limit exceeded (total limit). Manage it using https://openrouter.ai/workspaces/default/keys/da8432e572d8efb670f53c78f2a3e770f1d733d3c01e99229b4f479115b2285d $10.00 of $10.00 used; does not reset.",
+    "code": 403,
+    "metadata": {
+     "limit_source": "openrouter_key_limit",
+     "remedy_hint": "Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.",
+     "scope": "key_limit",
+     "limit_usd": 10,
+     "spend_usd": 10.001429955,
+     "resets_at": null
+    }
+   }
   },
   {
    "pass": "A",
    "batch": 12,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22636,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": {
+    "message": "Key limit exceeded (total limit). Manage it using https://openrouter.ai/workspaces/default/keys/da8432e572d8efb670f53c78f2a3e770f1d733d3c01e99229b4f479115b2285d $10.00 of $10.00 used; does not reset.",
+    "code": 403,
+    "metadata": {
+     "limit_source": "openrouter_key_limit",
+     "remedy_hint": "Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.",
+     "scope": "key_limit",
+     "limit_usd": 10,
+     "spend_usd": 10.001429955,
+     "resets_at": null
+    }
+   }
   },
   {
    "pass": "A",
    "batch": 13,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22046,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": {
+    "message": "Key limit exceeded (total limit). Manage it using https://openrouter.ai/workspaces/default/keys/da8432e572d8efb670f53c78f2a3e770f1d733d3c01e99229b4f479115b2285d $10.00 of $10.00 used; does not reset.",
+    "code": 403,
+    "metadata": {
+     "limit_source": "openrouter_key_limit",
+     "remedy_hint": "Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.",
+     "scope": "key_limit",
+     "limit_usd": 10,
+     "spend_usd": 10.001429955,
+     "resets_at": null
+    }
+   }
   },
   {
    "pass": "A",
    "batch": 14,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22389,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": {
+    "message": "Key limit exceeded (total limit). Manage it using https://openrouter.ai/workspaces/default/keys/da8432e572d8efb670f53c78f2a3e770f1d733d3c01e99229b4f479115b2285d $10.00 of $10.00 used; does not reset.",
+    "code": 403,
+    "metadata": {
+     "limit_source": "openrouter_key_limit",
+     "remedy_hint": "Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.",
+     "scope": "key_limit",
+     "limit_usd": 10,
+     "spend_usd": 10.001429955,
+     "resets_at": null
+    }
+   }
   },
   {
    "pass": "A",
    "batch": 15,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 23092,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": {
+    "message": "Key limit exceeded (total limit). Manage it using https://openrouter.ai/workspaces/default/keys/da8432e572d8efb670f53c78f2a3e770f1d733d3c01e99229b4f479115b2285d $10.00 of $10.00 used; does not reset.",
+    "code": 403,
+    "metadata": {
+     "limit_source": "openrouter_key_limit",
+     "remedy_hint": "Raise or remove this API key's usage limit at https://openrouter.ai/settings/keys, or use a key without a limit.",
+     "scope": "key_limit",
+     "limit_usd": 10,
+     "spend_usd": 10.001429955,
+     "resets_at": null
+    }
+   }
   }
  ]
 }

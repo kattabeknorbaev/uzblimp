@@ -1,0 +1,47 @@
+{
+ "models": {
+  "deepseek-v4-flash": {
+   "requests": 83,
+   "valid": 32,
+   "blocked": 27,
+   "usd": 0.9845740720000001,
+   "trial_usd": 0.0
+  },
+  "glm-5.3": {
+   "requests": 51,
+   "valid": 48,
+   "blocked": 0,
+   "usd": 0.8280605159999996,
+   "trial_usd": 0.0296594
+  },
+  "kimi-k3.1-pro": {
+   "requests": 50,
+   "valid": 48,
+   "blocked": 0,
+   "usd": 3.986599002000001,
+   "trial_usd": 0.0416168
+  },
+  "minimax-m3.1-flash": {
+   "requests": 13,
+   "valid": 13,
+   "blocked": 0,
+   "usd": 0.0302118,
+   "trial_usd": 0.001314225
+  },
+  "seed-2.1-turbo": {
+   "requests": 55,
+   "valid": 5,
+   "blocked": 89,
+   "usd": 3.9234795,
+   "trial_usd": 0.083449
+  },
+  "deepseek-v4-pro": {
+   "requests": 0,
+   "valid": 0,
+   "blocked": 0,
+   "usd": 0.0,
+   "trial_usd": 0.09645491
+  }
+ },
+ "total_usd": 10.0054
+}

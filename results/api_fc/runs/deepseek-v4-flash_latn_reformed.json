@@ -8,146 +8,278 @@
   {
    "pass": "A",
    "batch": 0,
-   "attempts": 1,
+   "attempts": 2,
    "chars": 22545,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "212212212112211122212121121112121222111121221121121122212222121112212111112222112112121112212122122222221212122121121111212212222211121112212222112111",
+   "usage": {
+    "prompt_tokens": 9578,
+    "completion_tokens": 13284,
+    "total_tokens": 22862,
+    "cost": 0.00380934,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 9472,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00380934,
+     "upstream_inference_prompt_cost": 0.00022266,
+     "upstream_inference_completions_cost": 0.00358668
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 12077,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "DeepInfra"
   },
   {
    "pass": "A",
    "batch": 1,
    "attempts": 1,
    "chars": 22205,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "222211112111121121222121211211122222212111221221211212212222112112121211222211112122222211222211122112222112111211111221222221211211212211211112111112",
+   "usage": {
+    "prompt_tokens": 9462,
+    "completion_tokens": 12578,
+    "total_tokens": 22040,
+    "cost": 0.00423036,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 256,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00423036,
+     "upstream_inference_prompt_cost": 0.0008343,
+     "upstream_inference_completions_cost": 0.00339606
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 11371,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "DeepInfra"
   },
   {
    "pass": "A",
    "batch": 2,
    "attempts": 1,
    "chars": 21701,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "112122121222111212111221222111122111222211122111112111112111212212122122221111122122212222222211222122111222121121122122122111121222112121211211222112",
+   "usage": {
+    "prompt_tokens": 9210,
+    "completion_tokens": 12702,
+    "total_tokens": 21912,
+    "cost": 0.00424116,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 256,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00424116,
+     "upstream_inference_prompt_cost": 0.00081162,
+     "upstream_inference_completions_cost": 0.00342954
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 11495,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "DeepInfra"
   },
   {
    "pass": "A",
    "batch": 3,
    "attempts": 1,
    "chars": 24128,
-   "answers": null,
-   "usage": null,
-   "error": "budget"
+   "answers": "212212112221221112121211111122222212112222222212222111112121122121211112121211221221112112222212221121111121211112121121112221221212212112111221222221",
+   "usage": {
+    "prompt_tokens": 10044,
+    "completion_tokens": 22773,
+    "total_tokens": 32817,
+    "cost": 0.0061149,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0061149,
+     "upstream_inference_prompt_cost": 0.00110484,
+     "upstream_inference_completions_cost": 0.00501006
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 21414,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Cohere"
   },
   {
    "pass": "A",
    "batch": 4,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22482,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {
+    "prompt_tokens": 9334,
+    "completion_tokens": 96000,
+    "total_tokens": 105334,
+    "cost": 0.02159378,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 9216,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.02159378,
+     "upstream_inference_prompt_cost": 0.00047378,
+     "upstream_inference_completions_cost": 0.02112
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 96000,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "error": "length"
   },
   {
    "pass": "A",
    "batch": 5,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 23303,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {
+    "prompt_tokens": 9820,
+    "completion_tokens": 96000,
+    "total_tokens": 105820,
+    "cost": 0.02161652,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 9728,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.02161652,
+     "upstream_inference_prompt_cost": 0.00049652,
+     "upstream_inference_completions_cost": 0.02112
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 96000,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "error": "length"
   },
   {
    "pass": "A",
    "batch": 6,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22732,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": null
   },
   {
    "pass": "A",
    "batch": 7,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22269,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": null
   },
   {
    "pass": "A",
    "batch": 8,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22767,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": null
   },
   {
    "pass": "A",
    "batch": 9,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 21704,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": null
   },
   {
    "pass": "A",
    "batch": 10,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22303,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": null
   },
   {
    "pass": "A",
    "batch": 11,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22033,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": null
   },
   {
    "pass": "A",
    "batch": 12,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22878,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": null
   },
   {
    "pass": "A",
    "batch": 13,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22228,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": null
   },
   {
    "pass": "A",
    "batch": 14,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 22615,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": null
   },
   {
    "pass": "A",
    "batch": 15,
-   "attempts": 1,
+   "attempts": 3,
    "chars": 23280,
    "answers": null,
-   "usage": null,
-   "error": "budget"
+   "usage": {},
+   "error": null
   }
  ]
 }
