@@ -215,7 +215,9 @@ def audit(dirs):
     f.write_text(json.dumps(rec, indent=1), encoding="utf-8")
 
 
-def collect(res):
+def collect(res, out=None):
+    """Per-pair file and raw answers of one model and alphabet, in `out` (default results/claude_fc)."""
+    out = OUT if out is None else Path(out)
     plan = load_plan()
     model, alphabet = res["model"], res["alphabet"]
     d = bench(alphabet).set_index("id")
@@ -246,9 +248,9 @@ def collect(res):
     df = df[["id", "phenomenon", "good", "bad", "batch", "item", "answer_gb", "correct_gb", "attempts_gb", "answer_bg",
              "correct_bg", "attempts_bg", "accuracy", "consistent", "model", "alphabet", "effort"]]
     # Written only after every request has been checked, so that a rejected result changes nothing.
-    (OUT / "raw").mkdir(parents=True, exist_ok=True)
-    (OUT / "raw" / f"{model}_{alphabet}.json").write_text(json.dumps(res, indent=1), encoding="utf-8")
-    f = OUT / f"{model}_{alphabet}.csv"
+    (out / "raw").mkdir(parents=True, exist_ok=True)
+    (out / "raw" / f"{model}_{alphabet}.json").write_text(json.dumps(res, indent=1), encoding="utf-8")
+    f = out / f"{model}_{alphabet}.csv"
     df.to_csv(f, index=False, encoding="utf-8")
     print(f"{f.name}: {both.sum()} of {len(df)} pairs answered in both orders; accuracy {100 * df.accuracy.mean():.1f}, "
           f"consistent {100 * df.consistent.dropna().astype(bool).mean():.1f}")
