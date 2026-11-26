@@ -7,7 +7,7 @@ for checking by hand whether case and negation are tagged reliably.
 Corpus sentences come from data/candidates/ (local only); the output contains
 corpus text, so don't commit it.
 
-    set TURKICNLP_MODELS_DIR=D:/turkicnlp_models
+    set TURKICNLP_MODELS_DIR=path/to/turkicnlp_models
     python scripts/morph_probe.py --take keyin_ablative:4 hech_negated_verb:3 numeral_ta_noun:3
     python scripts/morph_probe.py --sentences "Hech kim kelmadi." "Uchta kitob oldim."
 """

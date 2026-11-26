@@ -13,7 +13,7 @@ Every edit must pass:
 - TurkicNLP agrees on the changed morpheme (segmenter ABL/NEG; UPOS NOUN after numerals);
 - scripts/validate_pairs.py (one place, apostrophes, length, ...).
 
-    python scripts/make_pairs.py --corpus "D:/drive-download-20260601T072834Z-3-001.zip"
+    python scripts/make_pairs.py --corpus path/to/corpus.zip
 """
 import argparse
 import csv
@@ -681,7 +681,7 @@ def generate(ph, pool, ctx, n, seed, used=frozenset()):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--corpus", default="D:/drive-download-20260601T072834Z-3-001.zip")
+    p.add_argument("--corpus", required=True, help="the corpus zip (books/, legal/, wiki/)")
     p.add_argument("--phenomena", nargs="+", default=list(GENERATORS), choices=list(GENERATORS))
     p.add_argument("--n", type=int, default=250, help="pairs to write per phenomenon")
     p.add_argument("--pool", type=int, default=5000, help="sampled sentences per phenomenon")

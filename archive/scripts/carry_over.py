@@ -24,8 +24,8 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = {"Latin": "uzblimp.tsv", "Cyrillic": "uzblimp_cyrl.tsv", "Reformed": "uzblimp_reformed.tsv"}
 MODELS = {  # label: (model id, score_pairs flags, extra environment)
     "Goldfish-latn": ("goldfish-models/uzn_latn_100mb", [], {}),
-    "Goldfish-cyrl": ("goldfish-models/uzn_cyrl_100mb", [], {"HF_HUB_CACHE": "D:/hf_cache"}),
-    "tahrirchi-bert": ("tahrirchi/tahrirchi-bert-base", ["--mlm"], {"HF_HUB_CACHE": "D:/hf_cache"}),
+    "Goldfish-cyrl": ("goldfish-models/uzn_cyrl_100mb", [], {}),
+    "tahrirchi-bert": ("tahrirchi/tahrirchi-bert-base", ["--mlm"], {}),
     "Qwen2.5-0.5B": ("Qwen/Qwen2.5-0.5B", ["--bos"], {}),
 }
 

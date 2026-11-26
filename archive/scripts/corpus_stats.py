@@ -13,7 +13,7 @@ Sentence splitting and pattern matching are heuristic regexes, so counts are
 approximate; the saved examples are there to check precision by hand.
 No normalization is applied: text is matched and saved exactly as stored.
 
-    python scripts/corpus_stats.py --corpus "D:/drive-download-20260601T072834Z-3-001.zip"
+    python scripts/corpus_stats.py --corpus path/to/corpus.zip
     python scripts/corpus_stats.py --selftest
 """
 import argparse

@@ -6,8 +6,8 @@ Status: DRAFT, 2026-10-06. **Verified** = checked from the files themselves. **K
 
 | | |
 |---|---|
-| File (verified) | `D:/drive-download-20260601T072834Z-3-001.zip`, 201,309,643 bytes, SHA-256 `792e6076…` (full hash in `results/corpus_stats.json`) |
-| Older copy (verified) | `D:/drive-download-20260523T151337Z-3-001/uzbek_data/`. All 2,458 of its files are in the zip with identical sizes; the zip adds 533 books. |
+| File (verified) | `drive-download-20260601T072834Z-3-001.zip` (a local copy), 201,309,643 bytes, SHA-256 `792e6076…` (full hash in `results/corpus_stats.json`) |
+| Older copy (verified) | `drive-download-20260523T151337Z-3-001/uzbek_data/` (a local folder). All 2,458 of its files are in the zip with identical sizes; the zip adds 533 books. |
 | Not corpus (verified) | `legal/test1.pdf`, `legal/Uzbek AI Model Base Selection.pdf` (skipped); `chroma_db/`, `rag_pipeline.py`, `query_local.py` in the older folder (a RAG project) |
 | Origin of the Google Drive folder | **Kattabek** |
 

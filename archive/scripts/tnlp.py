@@ -2,12 +2,11 @@
 
 Uses only the parts that tested reliable for Uzbek: the MorphemeTokenizer's
 case/negation labels (ABL 6/7, NEG 5/5) and UPOS from the Glot500 analyser.
-Models load lazily from TURKICNLP_MODELS_DIR (default D:/turkicnlp_models).
+Models load lazily from TURKICNLP_MODELS_DIR (set it to the folder of the downloaded models).
 """
 import os
 from functools import lru_cache
 
-os.environ.setdefault("TURKICNLP_MODELS_DIR", "D:/turkicnlp_models")
 os.environ.setdefault("HF_HUB_OFFLINE", "1")
 
 import turkicnlp  # noqa: E402
