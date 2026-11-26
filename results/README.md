@@ -21,6 +21,24 @@ sentence (`good_logprob`, `bad_logprob`: log-probability for causal models, pseu
 and `correct`, true when the grammatical sentence scores higher; `correct_norm` makes the same comparison with each
 score divided by the sentence's length in UTF-8 bytes.
 
+## Strongest models
+
+Accuracy (%) of the strongest models on all 2,400 pairs. A pair is correct when the model gives the grammatical
+sentence the higher log-probability (pseudo-log-likelihood for TahrirchiBERT and UzRoBERTa).
+
+| Model | Trained on | Latin | Cyrillic | Reformed |
+|---|---|---:|---:|---:|
+| Gemma 4 31B | multilingual | 97.3 | 98.1 | 90.5 |
+| Gemma 4 26B-A4B | multilingual | 94.8 | 97.5 | 86.2 |
+| Gemma 3 27B | multilingual | 94.1 | 97.7 | 84.5 |
+| TahrirchiBERT | Uzbek, Latin script | 98.7 | 76.8 | 87.3 |
+| UzRoBERTa | Uzbek, both scripts | 93.4 | 96.4 | 78.0 |
+| Goldfish Latin (full) | Uzbek, Latin script | 96.7 | 91.7 | – |
+| Goldfish Cyrillic (full) | Uzbek, Cyrillic script | 49.5 | 97.3 | – |
+
+Goldfish models were not scored on reformed Latin, where their tokenizers produce unknown tokens. Native speakers
+chose the grammatical sentence in 99.2% of 1,600 judgments.
+
 ## Open models
 
 Accuracy (%). logprob: causal language models; pll: masked language models. Reformed Latin is scored only for

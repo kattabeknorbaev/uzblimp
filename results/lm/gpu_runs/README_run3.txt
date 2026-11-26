@@ -33,12 +33,12 @@ CohereLabs/aya-expanse-8b               float32   54.0  55.1  54.3
 
 Not reported: alloma-8B-Base on Cyrillic. Its tokenizer drops Cyrillic letters (e.g. a Cyrillic sentence
 encodes to the spaces and the full stop only), so 2,297 of the 2,400 Cyrillic pairs tie; the per-pair file
-is kept in results/gpu_runs/invalid/.
+is kept in results/lm/gpu_runs/invalid/.
 
 Checks
-- Reproduction: Qwen3.5-0.8B-Base scored again in this run (results/gpu_runs/repro/) gives 66.2 / 62.8 / 55.8
+- Reproduction: Qwen3.5-0.8B-Base scored again in this run (results/lm/gpu_runs/repro/) gives 66.2 / 62.8 / 55.8
   against 66.3 / 62.8 / 55.8 in run 1; 7,198 of the 7,200 judgments agree, log-probabilities within 0.1 nats.
-- Precision: Aya Expanse 8B in bfloat16 on current Latin (results/gpu_runs/bf16check/) gives 54.3 against
+- Precision: Aya Expanse 8B in bfloat16 on current Latin (results/lm/gpu_runs/bf16check/) gives 54.3 against
   54.0 in float32.
 - Aya Expanse 8B is near chance in all three alphabets, with some phenomena far below chance (binding 8.0% on
   Latin); this was not explained further.
