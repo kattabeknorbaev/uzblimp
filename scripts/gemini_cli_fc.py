@@ -13,10 +13,10 @@ end of each prompt.
     python scripts/gemini_cli_fc.py trial --model MODEL            # one request: batch 1, pass A, current Latin
     python scripts/gemini_cli_fc.py run --model MODEL              # pass A in all three alphabets (48 requests)
     python scripts/gemini_cli_fc.py run --model MODEL --passes AB  # both orders, as the Claude runs (96 requests)
-    python scripts/gemini_cli_fc.py collect                        # per-pair files in results/gemini_cli/
+    python scripts/gemini_cli_fc.py collect                        # per-pair files in results/chat/gemini_cli/
 
 MODEL is a model name the CLI accepts (inside `gemini`, the /model command lists them). Results go to
-results/gemini_cli/; commit and push that folder.
+results/chat/gemini_cli/; commit and push that folder.
 """
 import argparse
 import json
@@ -32,7 +32,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import claude_fc as fc  # noqa: E402
 
 ROOT = fc.ROOT
-OUT = ROOT / "results" / "gemini_cli"
+OUT = ROOT / "results" / "chat" / "gemini_cli"
 CACHE = OUT / "responses"
 ATTEMPTS = 2  # per batch; a quota error stops the run instead of using up attempts
 FORMAT_LINE = ('\n\nReply with JSON only, in this form, with all {n} items: '
@@ -202,7 +202,7 @@ def write_runs(model, alphabets, passes, batches, results):
 
 
 def collect():
-    """One row per answered pair and order (results/gemini_cli/<model>_<alphabet>.csv), in benchmark order."""
+    """One row per answered pair and order (results/chat/gemini_cli/<model>_<alphabet>.csv), in benchmark order."""
     import pandas as pd
     plan = fc.load_plan()
     for f in sorted((OUT / "runs").glob("*.json")):

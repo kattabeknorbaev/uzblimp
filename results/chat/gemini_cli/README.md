@@ -61,7 +61,7 @@ and model versions.
 
    ```
    python scripts/gemini_cli_fc.py collect
-   git add results/gemini_cli scripts
+   git add results/chat/gemini_cli scripts
    git commit -m "Gemini runs through the Gemini CLI"
    git push
    ```

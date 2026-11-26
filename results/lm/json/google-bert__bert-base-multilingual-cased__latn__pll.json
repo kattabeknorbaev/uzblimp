@@ -95,7 +95,7 @@
     "dtype": "float32",
     "device": "cpu",
     "bos": true,
-    "per_pair": "results/bert-base-multilingual-cased_uzblimp_v1.2.csv"
+    "per_pair": "results/lm/latn/bert-base-multilingual-cased.csv"
   },
   "date": "2026-11-21"
 }

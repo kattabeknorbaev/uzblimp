@@ -9,7 +9,7 @@ of the other models in the paper.
 ## Design
 
 - **The requests of the Claude runs.** `scripts/codex_fc.py kit` writes 96 question files: the 16 batches of 150
-  pairs of `results/claude_fc/plan_v1.2.json` in current Latin, Cyrillic and reformed Latin, each in pass A
+  pairs of `results/chat/claude/plan_v1.2.json` in current Latin, Cyrillic and reformed Latin, each in pass A
   (the order of the plan) and pass B (every pair reversed). Files 1-16 are current Latin A, 17-32 current Latin B,
   33-48 Cyrillic A, 49-64 Cyrillic B, 65-80 reformed Latin A, 81-96 reformed Latin B.
 - **Prompt.** Each file starts with the question of the Claude runs (`HEADER` in `scripts/claude_fc.py`) without
@@ -38,7 +38,7 @@ not to run code or scripts to decide the answers, although the helper chose no a
 
 ## Files
 
-- `gpt_<alphabet>.csv`: one row per pair, in benchmark order, in the format of `results/claude_fc/`: the answer
+- `gpt_<alphabet>.csv`: one row per pair, in benchmark order, in the format of `results/chat/claude/`: the answer
   and whether it is correct with the grammatical sentence first (`gb`) and second (`bg`), the answer file each
   came from, `accuracy` (mean of the two orders) and `consistent` (both orders correct).
 - `gpt_answers/`: the 96 answer files as Codex wrote them (`scripts/codex_fc.py collect` rebuilds the CSVs from them).

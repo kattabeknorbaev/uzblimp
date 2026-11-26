@@ -6,7 +6,7 @@ OPTIONAL_COLUMNS = ["reviewer", "reviewed_at", "reason"]
 METHODS = {"corpus-edit", "template", "hand-written"}
 STATUSES = {"unchecked", "accepted", "rejected", "edited"}
 
-# The 16 core phenomena (notes/decisions.md, revised 2026-10-15). Value: short description.
+# The 16 core phenomena (archive/notes/decisions.md, revised 2026-10-15). Value: short description.
 PHENOMENA = {
     "anaphor_agreement": "reflexive oʻz- agrees with the subject in person/number",
     "lexical_case": "verb assigns a lexical case to its object (qoʻrqmoq + ABL)",
@@ -40,7 +40,8 @@ ALL_PHENOMENA = {**PHENOMENA, **EXTRA_PHENOMENA, **DROPPED_PHENOMENA}
 # Phenomena whose pairs differ by word order: same words, different order.
 WORD_ORDER = {"ellipsis", "scrambling", "postposition_order"}
 
-# Release files (data/jsonl/<script>/<phenomenon>.jsonl, from export_jsonl.py, checked by validate.py).
+# Release files (data/jsonl/<script>/<phenomenon>.jsonl, written by archive/scripts/export_jsonl.py and checked by
+# archive/scripts/validate.py).
 # Readable name and BLiMP-style field of each core phenomenon. The field follows BLiMP where it has
 # the same contrast (agreement and irregular forms: morphology; argument structure: syntax; NPI
 # licensing: semantics); the other assignments are ours.

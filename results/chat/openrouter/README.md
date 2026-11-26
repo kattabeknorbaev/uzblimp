@@ -1,7 +1,7 @@
 # Forced choice with chat models of other developers (OpenRouter)
 
 Five chat models that had no part in building or auditing UzBLiMP answered the requests of the Claude runs
-(`results/claude_fc/`) through the OpenRouter API on 26 November 2026, with `scripts/api_fc.py`. Every request is
+(`results/chat/claude/`) through the OpenRouter API on 26 November 2026, with `scripts/api_fc.py`. Every request is
 the prompt of the Claude runs' first pass (pass A), unchanged: 150 numbered pairs, half of them with the grammatical
 sentence first. Each pair was therefore asked once, in one order; the second pass was not run, to stay within the
 budget. The scores are forced choices by prompting and are not comparable with the likelihood scores of the paper.

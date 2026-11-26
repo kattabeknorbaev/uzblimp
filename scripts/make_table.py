@@ -1,7 +1,7 @@
-"""Write the README results table from results/json/*.json (eval.py, results_to_json.py).
+"""Write the results table of results/README.md from results/lm/json/*.json (eval.py, results_to_json.py).
 
-Replaces the lines between <!-- results:start --> and <!-- results:end --> in README.md with one row
-per model and method and the accuracy (%) per alphabet, and writes results/per_phenomenon.md with
+Replaces the lines between <!-- results:start --> and <!-- results:end --> in results/README.md with one
+row per model and method and the accuracy (%) per alphabet, and writes results/lm/per_phenomenon.md with
 accuracy per phenomenon. Runs on fewer pairs than the full benchmark (pilots) show their n.
 
     python scripts/make_table.py
@@ -48,7 +48,7 @@ def main_table(results):
 
 def phenomenon_tables(results):
     runs = runs_by_model(results)
-    out = ["# Accuracy (%) per phenomenon", "", "Written by `scripts/make_table.py` from `results/json/`.", ""]
+    out = ["# Accuracy (%) per phenomenon", "", "Written by `scripts/make_table.py` from `results/lm/json/`.", ""]
     for script, name in SCRIPT_NAMES.items():
         cols = [(k, v[script]) for k, v in runs.items() if script in v]
         if not cols:
@@ -64,8 +64,8 @@ def phenomenon_tables(results):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--results", default=str(ROOT / "results" / "json"))
-    p.add_argument("--readme", default=str(ROOT / "README.md"))
+    p.add_argument("--results", default=str(ROOT / "results" / "lm" / "json"))
+    p.add_argument("--readme", default=str(ROOT / "results" / "README.md"))
     args = p.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
 
@@ -80,10 +80,11 @@ def main():
     head, rest = text.split(START, 1)
     _, tail = rest.split(END, 1)
     readme.write_text(head + START + "\n" + "\n".join(table) + "\n" + END + tail, encoding="utf-8", newline="\n")
-    per = ROOT / "results" / "per_phenomenon.md"
+    per = ROOT / "results" / "lm" / "per_phenomenon.md"
     per.write_text("\n".join(phenomenon_tables(results)), encoding="utf-8", newline="\n")
     print("\n".join(table))
-    print(f"\nUpdated {readme.name} and results/{per.name} ({len(results)} runs)")
+    print(f"\nUpdated {readme.relative_to(ROOT) if readme.is_relative_to(ROOT) else readme} and "
+          f"{per.relative_to(ROOT)} ({len(results)} runs)")
 
 
 if __name__ == "__main__":

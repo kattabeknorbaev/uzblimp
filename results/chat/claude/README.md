@@ -18,7 +18,7 @@ models in the paper.
   request mixes all 16 phenomena (`plan_v1.2.json`). All models, alphabets and orders use the same batches.
 - **Both orders.** Every pair was shown twice, in separate requests: in pass A, 75 pairs of each batch show the
   grammatical sentence first and 75 the ungrammatical one; pass B reverses every pair.
-- **Prompt.** The question of the API pilot (`scripts/score_api.py`), asked for 150 numbered items at once, with the
+- **Prompt.** The question of the API pilot (`archive/scripts/score_api.py`), asked for 150 numbered items at once, with the
   instruction to answer from knowledge of Uzbek and not to use tools (the text is `HEADER` in
   `scripts/claude_fc.py`, which also renders the items). No hint about the alphabet; the same English
   instructions for all three alphabets. Answers were returned as a list of (item, 1 or 2) through Claude Code's

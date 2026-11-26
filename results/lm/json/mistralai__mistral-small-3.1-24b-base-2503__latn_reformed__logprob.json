@@ -91,11 +91,11 @@
     }
   },
   "settings": {
-    "scorer": "scripts/eval.py (logprob), run on GPUs; see results/gpu_runs/README.txt",
+    "scorer": "scripts/eval.py (logprob), run on GPUs; see results/lm/gpu_runs/README.txt",
     "dtype": "bfloat16",
     "device": "cuda",
     "bos": true,
-    "per_pair": "results/Mistral-Small-3.1-24B-Base-2503_uzblimp_v1.2_reformed.csv"
+    "per_pair": "results/lm/latn_reformed/mistral-small-3.1-24b-base-2503.csv"
   },
   "date": "2026-11-24"
 }

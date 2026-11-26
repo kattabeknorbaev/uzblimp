@@ -95,7 +95,7 @@
     "dtype": "float32",
     "device": "cpu",
     "bos": true,
-    "per_pair": "results/tahrirchi-bert-small_uzblimp_v1.2_reformed.csv"
+    "per_pair": "results/lm/latn_reformed/tahrirchi-bert-small.csv"
   },
   "date": "2026-11-21"
 }

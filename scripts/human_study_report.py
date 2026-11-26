@@ -1,13 +1,13 @@
-"""Score the returned sheets of the human validation study and write results/human_study.md.
+"""Score the returned sheets of the human validation study and write results/human/summary.md.
 
-Put the filled-in sheets in human_study/responses/ (any alphabet; the item numbers are the same):
+Put the filled-in sheets in archive/human_study/responses/ (any alphabet; the item numbers are the same):
     fc_<annotator>.csv                 forced choice: columns item, answer (A or B) [, unsure]
     ratings<1|2>_<annotator>.csv       ratings: columns item, rating (1-7); the digit is the list
 
-The individual sheets stay private (human_study/responses/ is not in the repository): the consent text
+The individual sheets stay private (archive/human_study/responses/ is not in the repository): the consent text
 promises that answers are published only in aggregate. The forced-choice sheets are reduced to two released
-files, human_study/forced_choice_judgments.csv (per pair: annotators, how many chose the grammatical
-sentence, how many marked the pair as unsure, and how many of these chose the ungrammatical one) and human_study/forced_choice_annotators.csv (per annotator
+files, results/human/forced_choice_judgments.csv (per pair: annotators, how many chose the grammatical
+sentence, how many marked the pair as unsure, and how many of these chose the ungrammatical one) and results/human/forced_choice_annotators.csv (per annotator
 code: answered, correct, unsure), and every forced-choice statistic is computed from these, so the report
 can be reproduced without the sheets.
 
@@ -135,7 +135,7 @@ def forced_choice(folder, key_file, agg_dir, lines):
     key = {int(r["item"]): r for r in read_csv(key_file)}
     aggregate(folder, key, agg_dir)
     if not (agg_dir / JUDGMENTS).exists():
-        lines.append("No forced-choice sheets found (human_study/responses/fc_<annotator>.csv).\n")
+        lines.append("No forced-choice sheets found (archive/human_study/responses/fc_<annotator>.csv).\n")
         return
     judg = {int(r["item"]): {k: int(r[k]) for k in ("annotators", "correct", "unsure", "unsure_wrong")}
             for r in read_csv(agg_dir / JUDGMENTS)}
@@ -209,7 +209,7 @@ def ratings(folder, key_file, lines):
         m, s = statistics.fmean(raw.values()), statistics.pstdev(raw.values())
         z[f.stem] = {k: (v - m) / s for k, v in raw.items()}
     if not z:
-        lines.append("No rating sheets found (human_study/responses/ratings<1|2>_<participant>.csv).\n")
+        lines.append("No rating sheets found (archive/human_study/responses/ratings<1|2>_<participant>.csv).\n")
         return
     runs = model_runs()
     lines += ["## Ratings (1–7, z-scored per participant)\n", f"{len(z)} participants.\n",
@@ -246,9 +246,9 @@ def ratings(folder, key_file, lines):
 
 def selftest():
     """Simulated annotators on the real sheets: checks parsing and the statistics."""
-    study = ROOT / "human_study"
+    study = ROOT / "archive" / "human_study"
     if not (study / "forced_choice_key.csv").exists():
-        print("run scripts/make_human_study.py first")
+        print("run archive/scripts/make_human_study.py first")
         return 1
     rng = random.Random(0)
     fails = 0
@@ -299,8 +299,10 @@ def selftest():
 
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--study", default=str(ROOT / "human_study"))
-    p.add_argument("--out", default=str(ROOT / "results" / "human_study.md"))
+    p.add_argument("--study", default=str(ROOT / "archive" / "human_study"),
+                   help="materials and keys of the study, with the private sheets in responses/")
+    p.add_argument("--counts", default=str(ROOT / "results" / "human"), help="folder of the released counts")
+    p.add_argument("--out", default=str(ROOT / "results" / "human" / "summary.md"))
     p.add_argument("--selftest", action="store_true")
     args = p.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
@@ -309,8 +311,8 @@ def main():
     study = Path(args.study)
     lines = ["# Human validation of UzBLiMP\n",
              "Written by `scripts/human_study_report.py`. Forced choice: from the per-pair and per-annotator counts in "
-             f"`human_study/{JUDGMENTS}` and `human_study/{ANNOTATORS}` (the individual sheets are private).\n"]
-    forced_choice(study / "responses", study / "forced_choice_key.csv", study, lines)
+             f"`results/human/{JUDGMENTS}` and `results/human/{ANNOTATORS}` (the individual sheets are private).\n"]
+    forced_choice(study / "responses", study / "forced_choice_key.csv", Path(args.counts), lines)
     ratings(study / "responses", study / "ratings_key.csv", lines)
     Path(args.out).write_text("\n".join(lines), encoding="utf-8", newline="\n")
     print("\n".join(lines))

@@ -1,6 +1,6 @@
 # Human validation of UzBLiMP
 
-Written by `scripts/human_study_report.py`. Forced choice: from the per-pair and per-annotator counts in `human_study/forced_choice_judgments.csv` and `human_study/forced_choice_annotators.csv` (the individual sheets are private).
+Written by `scripts/human_study_report.py`. Forced choice: from the per-pair and per-annotator counts in `results/human/forced_choice_judgments.csv` and `results/human/forced_choice_annotators.csv` (the individual sheets are private).
 
 ## Forced choice
 
@@ -46,4 +46,4 @@ Pairs on which at least one annotator chose the ungrammatical sentence (item: pa
 
 Pairs to re-examine (the majority disagrees with the benchmark, or the vote is tied): none.
 
-No rating sheets found (human_study/responses/ratings<1|2>_<participant>.csv).
+No rating sheets found (archive/human_study/responses/ratings<1|2>_<participant>.csv).

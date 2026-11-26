@@ -4,18 +4,19 @@ Each model sees every pair of an alphabet twice, once in each order, in requests
 shuffled once with a fixed seed and cut into 16 batches, so every request mixes the phenomena; within a batch,
 half of the pairs show the grammatical sentence first in pass A, and pass B reverses every pair. All models,
 alphabets and passes use the same batches in the same positions. The prompt (HEADER and render below) repeats
-the question of the API pilot (scripts/score_api.py) for many pairs at once and gives no hint about the alphabet.
+the question of the API pilot (archive/scripts/score_api.py) for many pairs at once and gives no hint about
+the alphabet.
 
-    python scripts/claude_fc.py plan                      # results/claude_fc/plan_v1.2.json
+    python scripts/claude_fc.py plan                      # results/chat/claude/plan_v1.2.json
     python scripts/claude_fc.py workflow MODEL ALPHABET OUT.js [--batches 0,1] [--passes A]
-    python scripts/claude_fc.py collect OUTPUT [...]     # per-pair files in results/claude_fc/
+    python scripts/claude_fc.py collect OUTPUT [...]     # per-pair files in results/chat/claude/
     python scripts/claude_fc.py audit TRANSCRIPT_DIR [...]   # served model and tool use of every request
     python scripts/claude_fc.py summary
-    python scripts/claude_fc.py readme                    # the table of README.md
+    python scripts/claude_fc.py readme                    # the table of results/README.md
 
 MODEL is a Claude Code model alias (fable, opus, sonnet, haiku); ALPHABET is latn, cyrl or latn_reformed. The
 workflow script is run with Claude Code's Workflow tool; collect reads the workflow's return value from its output
-file (the raw answers are kept in results/claude_fc/raw/), and audit reads the transcripts of its subagents.
+file (the raw answers are kept in results/chat/claude/raw/), and audit reads the transcripts of its subagents.
 """
 import argparse
 import json
@@ -26,7 +27,7 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "results" / "claude_fc"
+OUT = ROOT / "results" / "chat" / "claude"
 PLAN = OUT / "plan_v1.2.json"
 FILES = {"latn": "uzblimp.tsv", "cyrl": "uzblimp_cyrl.tsv", "latn_reformed": "uzblimp_reformed.tsv"}
 MODELS = ["fable", "opus", "sonnet", "haiku"]
@@ -216,7 +217,7 @@ def audit(dirs):
 
 
 def collect(res, out=None):
-    """Per-pair file and raw answers of one model and alphabet, in `out` (default results/claude_fc)."""
+    """Per-pair file and raw answers of one model and alphabet, in `out` (default results/chat/claude)."""
     out = OUT if out is None else Path(out)
     plan = load_plan()
     model, alphabet = res["model"], res["alphabet"]
@@ -271,7 +272,7 @@ NAMES = {"fable": "Claude Fable 5.2", "opus": "Claude Opus 5.5", "sonnet": "Clau
 
 
 def readme():
-    """The table of README.md between <!-- claude:start --> and <!-- claude:end -->."""
+    """The table of results/README.md between <!-- claude:start --> and <!-- claude:end -->."""
     start, end = "<!-- claude:start -->", "<!-- claude:end -->"
     lines = ["| Model | Current Latin | Cyrillic | Reformed Latin |", "|---|---:|---:|---:|"]
     for m in MODELS:
@@ -281,7 +282,7 @@ def readme():
             assert df.accuracy.notna().all()
             cells.append(f"{100 * df.accuracy.mean() + 1e-9:.1f} ({100 * df.consistent.astype(bool).mean() + 1e-9:.1f})")
         lines.append(f"| {NAMES[m]} | " + " | ".join(cells) + " |")
-    f = ROOT / "README.md"
+    f = ROOT / "results" / "README.md"
     text = f.read_text(encoding="utf-8")
     head, rest = text.split(start, 1)
     _, tail = rest.split(end, 1)

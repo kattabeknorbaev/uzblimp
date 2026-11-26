@@ -1,6 +1,6 @@
 # Accuracy (%) per phenomenon
 
-Written by `scripts/make_table.py` from `results/json/`.
+Written by `scripts/make_table.py` from `results/lm/json/`.
 
 ## Current Latin
 
