@@ -1,57 +1,31 @@
----
-pretty_name: UzBLiMP
-language:
-- uz
-license: cc-by-sa-4.0
-task_categories:
-- text-classification
-task_ids:
-- acceptability-classification
-size_categories:
-- 1K<n<10K
-tags:
-- minimal-pairs
-- linguistic-acceptability
-- benchmark
-- uzbek
-configs:
-- config_name: latn
-  default: true
-  data_files:
-  - split: test
-    path: data/jsonl/latn/*.jsonl
-- config_name: cyrl
-  data_files:
-  - split: test
-    path: data/jsonl/cyrl/*.jsonl
-- config_name: latn_reformed
-  data_files:
-  - split: test
-    path: data/jsonl/latn_reformed/*.jsonl
----
-
 # UzBLiMP
 
-UzBLiMP is a benchmark of minimal pairs for Uzbek: two sentences that differ in one word, one grammatical and one
-not, to test whether a language model prefers the grammatical one.
+[Paper](paper/uzblimp.pdf) · [Data](data/) · [Results](results/README.md) · [Citation](#citation)
+
+A benchmark of 2,400 Uzbek minimal pairs for testing whether a language model prefers the grammatical sentence.
 
 2,400 pairs · 16 phenomena · 3 alphabets (current Latin, Cyrillic, reformed Latin) · validated by native speakers
 
 ## Example
 
-A `lexical_case` pair, "Only I am afraid of him": Faqat men **undan** qoʻrqaman. / Faqat men **uni** qoʻrqaman. The verb takes the ablative, not the accusative.
+Only I am afraid of him (`lexical_case`; the verb takes the ablative, not the accusative):
+
+```
+✓  Faqat men undan qoʻrqaman.
+✗  Faqat men uni qoʻrqaman.
+```
 
 ## Results
 
-Accuracy (%) of the strongest models on all 2,400 pairs.
+Accuracy (%) on all 2,400 pairs.
 
-| Model | Trained on | Latin | Cyrillic | Reformed |
-|---|---|---:|---:|---:|
-| Gemma 4 31B | multilingual | 97.3 | 98.1 | 90.5 |
-| TahrirchiBERT | Uzbek, Latin script | 98.7 | 76.8 | 87.3 |
-| Goldfish Latin (full) | Uzbek, Latin script | 96.7 | 91.7 | – |
+| Model | Latin | Cyrillic | Reformed |
+|---|---:|---:|---:|
+| Gemma 4 31B | 97.3 | 98.1 | 90.5 |
+| TahrirchiBERT | 98.7 | 76.8 | 87.3 |
+| Goldfish Latin (full) | 96.7 | 91.7 | – |
 
-Full tables, and the human score (99.2% of 1,600 judgments), are in [`results/`](results/README.md) and the paper ([`paper/uzblimp.pdf`](paper/uzblimp.pdf)).
+Humans: 99.2% of 1,600 judgments. Full tables in [results](results/README.md).
 
 ## Quickstart
 
@@ -65,7 +39,7 @@ This model scores 95.8%, as in the paper.
 
 ## Data
 
-One pair per line in `data/jsonl/<latn|cyrl|latn_reformed>/<paradigm>.jsonl`. Fields and construction: [`data/README.md`](data/README.md).
+One pair per line in `data/jsonl/<latn|cyrl|latn_reformed>/<paradigm>.jsonl`. Details in [data/README.md](data/README.md).
 
 ## Citation
 
