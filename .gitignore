@@ -6,7 +6,9 @@ venv/
 .env
 # Corpus excerpts stay on this machine (never pushed)
 data/candidates/
-# Generator caches (corpus lexicon, candidate pools, skip logs)
+# Generator caches (corpus lexicon, candidate pools, skip logs) and cached API answers of scripts/eval.py
 data/cache/
-# Individual answer sheets of the human validation: the consent text promises publication only in aggregate
+# Individual answer sheets of the human validation: the consent text promises publication only in aggregate.
+# They belong in archive/human_study/responses/; the old location stays ignored for copies made before the move.
+archive/human_study/responses/
 human_study/responses/
