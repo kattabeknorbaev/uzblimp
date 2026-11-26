@@ -54,6 +54,8 @@ PLAN = [(alias, "A", range(16)) for alias in ("kimi-k3.1-pro", "glm-5.3", "deeps
 STOPPED = ["seed-2.1-turbo"]
 EFFORT = "low"
 MAX_TOKENS = 32000
+# Models that reason past 32,000 tokens on many requests (DeepSeek in the run of 26 November 2026) get more room.
+MAX_TOKENS_FOR = {"deepseek-v4-flash": 96000, "deepseek-v4-pro": 64000}
 ATTEMPTS = 3
 LOCK = threading.Lock()
 # Money spent on this evaluation so far (cached responses included, so the budget covers every run), the number of
@@ -91,7 +93,7 @@ def api_key():
 
 def body(alias, prompt):
     return {"model": MODELS[alias], "messages": [{"role": "user", "content": prompt}], "temperature": 0,
-            "max_tokens": MAX_TOKENS, "reasoning": {"effort": EFFORT},
+            "max_tokens": MAX_TOKENS_FOR.get(alias, MAX_TOKENS), "reasoning": {"effort": EFFORT},
             "response_format": {"type": "json_schema",
                                 "json_schema": {"name": "answers", "strict": True, "schema": fc.SCHEMA}},
             "provider": {"order": [PROVIDERS[alias]], "allow_fallbacks": True, "quantizations": PRECISE,
@@ -173,6 +175,14 @@ def call(alias, alphabet, pass_, b, attempt, prompt, budget):
 def run_one(alias, alphabet, pass_, b, plan, budget):
     prompt = fc.render(fc.items(plan, alphabet, b), pass_)
     info = {}
+    # A valid answer saved from any earlier attempt is used before anything new is asked.
+    for attempt in range(1, ATTEMPTS + 1):
+        f = CACHE / f"{alias}_{alphabet}_{pass_}{b + 1}_try{attempt}.json"
+        if f.exists() and "skipped" not in json.loads(f.read_text(encoding="utf-8")):
+            ans, info = call(alias, alphabet, pass_, b, attempt, prompt, budget)
+            if ans:
+                return {"pass": pass_, "batch": b, "attempts": attempt, "chars": len(prompt), "answers": ans,
+                        "usage": info["usage"], "provider": info["provider"]}
     for attempt in range(1, ATTEMPTS + 1):
         ans, info = call(alias, alphabet, pass_, b, attempt, prompt, budget)
         if ans:
@@ -206,9 +216,10 @@ def trial(budget):
 
 def run(budget, workers):
     plan = fc.load_plan()
-    # The budget covers the whole evaluation: count what the stopped models already cost.
-    for f in CACHE.glob("*.json"):
-        if f.name.split("_")[0] in STOPPED:
+    # The budget covers the whole evaluation: count what the stopped models and the responses set aside as cut off
+    # (OUT/truncated: answers lost to the token limit) already cost.
+    for f in list(CACHE.glob("*.json")) + list((OUT / "truncated").glob("*.json")):
+        if f.name.split("_")[0] in STOPPED or f.parent.name == "truncated":
             rec = json.loads(f.read_text(encoding="utf-8"))
             SPENT["usd"] += float(((rec.get("response") or {}).get("usage") or {}).get("cost") or 0)
     print(f"already spent on stopped models: ${SPENT['usd']:.2f}", flush=True)
