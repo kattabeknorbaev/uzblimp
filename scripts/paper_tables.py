@@ -940,22 +940,25 @@ def api_block(bench):
             runs[(alias, A)] = df
             res = json.loads((d / "runs" / f"{alias}_{a}.json").read_text(encoding="utf-8"))
             usage[(alias, A)] = [r["usage"] for r in res["results"] if r.get("usage")]
-    for alias, _ in API_MODELS:
-        for _, A in FC_ALPHABETS:
-            if len(runs[(alias, A)]) != len(bench):
-                return None
+    # Requests a model did not answer validly (its reasoning ran out of the token limit) leave their pairs out; the
+    # table gives the number of pairs wherever it is not the whole benchmark.
 
     def pct(s):
         return 100 * s.astype(str).eq("True").mean() + 1e-9
 
-    every = []
+    every, full = [], []
     for (alias, A), df in runs.items():
         num(f"api@{alias}@{A}@acc", pct(df.correct))
         num(f"api@{alias}@{A}@n", len(df), 0)
         if alias in dict(API_MODELS):
             every.append(100 * df.correct.astype(str).eq("True").mean())
+            if len(df) == len(bench):
+                full.append(every[-1])
     num("api@all@min", min(every) + 1e-9)
     num("api@all@max", max(every) + 1e-9)
+    num("api@full@min", min(full) + 1e-9)
+    num("api@full@max", max(full) + 1e-9)
+    num("api@answered", sum(len(df) for df in runs.values()), 0)
     pro = {A: runs[("deepseek-v4-pro", A)].index for _, A in FC_ALPHABETS}
     for _, A in FC_ALPHABETS:
         num(f"api@flash@sub@{A}", pct(runs[("deepseek-v4-flash", A)].correct.loc[pro[A]]))
