@@ -1,0 +1,153 @@
+{
+ "model": "glm-5.3",
+ "model_id": "z-ai/glm-5.3",
+ "endpoint": "novita/fp8",
+ "alphabet": "latn_reformed",
+ "effort": "low",
+ "results": [
+  {
+   "pass": "A",
+   "batch": 0,
+   "attempts": 1,
+   "chars": 22545,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 1,
+   "attempts": 1,
+   "chars": 22205,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 2,
+   "attempts": 1,
+   "chars": 21701,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 3,
+   "attempts": 1,
+   "chars": 24128,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 4,
+   "attempts": 1,
+   "chars": 22482,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 5,
+   "attempts": 1,
+   "chars": 23303,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 6,
+   "attempts": 1,
+   "chars": 22732,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 7,
+   "attempts": 1,
+   "chars": 22269,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 8,
+   "attempts": 1,
+   "chars": 22767,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 9,
+   "attempts": 1,
+   "chars": 21704,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 10,
+   "attempts": 1,
+   "chars": 22303,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 11,
+   "attempts": 1,
+   "chars": 22033,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 12,
+   "attempts": 1,
+   "chars": 22878,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 13,
+   "attempts": 1,
+   "chars": 22228,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 14,
+   "attempts": 1,
+   "chars": 22615,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 15,
+   "attempts": 1,
+   "chars": 23280,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  }
+ ]
+}

@@ -1,0 +1,153 @@
+{
+ "model": "deepseek-v4-flash",
+ "model_id": "deepseek/deepseek-v4-flash-0731",
+ "endpoint": "deepinfra/fp8/flex",
+ "alphabet": "cyrl",
+ "effort": "low",
+ "results": [
+  {
+   "pass": "A",
+   "batch": 0,
+   "attempts": 1,
+   "chars": 22343,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 1,
+   "attempts": 1,
+   "chars": 22011,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 2,
+   "attempts": 1,
+   "chars": 21533,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 3,
+   "attempts": 1,
+   "chars": 23886,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 4,
+   "attempts": 1,
+   "chars": 22232,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 5,
+   "attempts": 1,
+   "chars": 23105,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 6,
+   "attempts": 1,
+   "chars": 22516,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 7,
+   "attempts": 1,
+   "chars": 22083,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 8,
+   "attempts": 1,
+   "chars": 22540,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 9,
+   "attempts": 1,
+   "chars": 21496,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 10,
+   "attempts": 1,
+   "chars": 22094,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 11,
+   "attempts": 1,
+   "chars": 21864,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 12,
+   "attempts": 1,
+   "chars": 22636,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 13,
+   "attempts": 1,
+   "chars": 22046,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 14,
+   "attempts": 1,
+   "chars": 22389,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 15,
+   "attempts": 1,
+   "chars": 23092,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  }
+ ]
+}

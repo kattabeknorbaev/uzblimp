@@ -1,0 +1,175 @@
+{
+ "model": "seed-2.1-turbo",
+ "model_id": "bytedance-seed/seed-2-1-turbo",
+ "endpoint": "seed/fp8",
+ "alphabet": "latn_reformed",
+ "effort": "low",
+ "results": [
+  {
+   "pass": "A",
+   "batch": 0,
+   "attempts": 1,
+   "chars": 22545,
+   "answers": "212212212112211122212121121112121222111121221121121122212222121112212111112222112112121112212122122222221212122121121111212212222211121111212222112111",
+   "usage": {
+    "prompt_tokens": 9541,
+    "completion_tokens": 20019,
+    "total_tokens": 29560,
+    "cost": 0.054818,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.054818,
+     "upstream_inference_prompt_cost": 0.0047705,
+     "upstream_inference_completions_cost": 0.0500475
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 18622,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Seed"
+  },
+  {
+   "pass": "A",
+   "batch": 1,
+   "attempts": 3,
+   "chars": 22205,
+   "answers": null,
+   "usage": {},
+   "error": null
+  },
+  {
+   "pass": "A",
+   "batch": 2,
+   "attempts": 3,
+   "chars": 21701,
+   "answers": null,
+   "usage": {},
+   "error": null
+  },
+  {
+   "pass": "A",
+   "batch": 3,
+   "attempts": 3,
+   "chars": 24128,
+   "answers": null,
+   "usage": {},
+   "error": null
+  },
+  {
+   "pass": "A",
+   "batch": 4,
+   "attempts": 3,
+   "chars": 22482,
+   "answers": null,
+   "usage": {},
+   "error": null
+  },
+  {
+   "pass": "A",
+   "batch": 5,
+   "attempts": 3,
+   "chars": 23303,
+   "answers": null,
+   "usage": {},
+   "error": null
+  },
+  {
+   "pass": "A",
+   "batch": 6,
+   "attempts": 3,
+   "chars": 22732,
+   "answers": null,
+   "usage": {},
+   "error": null
+  },
+  {
+   "pass": "A",
+   "batch": 7,
+   "attempts": 3,
+   "chars": 22269,
+   "answers": null,
+   "usage": {},
+   "error": null
+  },
+  {
+   "pass": "A",
+   "batch": 8,
+   "attempts": 3,
+   "chars": 22767,
+   "answers": null,
+   "usage": {},
+   "error": null
+  },
+  {
+   "pass": "A",
+   "batch": 9,
+   "attempts": 3,
+   "chars": 21704,
+   "answers": null,
+   "usage": {},
+   "error": null
+  },
+  {
+   "pass": "A",
+   "batch": 10,
+   "attempts": 3,
+   "chars": 22303,
+   "answers": null,
+   "usage": {},
+   "error": null
+  },
+  {
+   "pass": "A",
+   "batch": 11,
+   "attempts": 3,
+   "chars": 22033,
+   "answers": null,
+   "usage": {},
+   "error": null
+  },
+  {
+   "pass": "A",
+   "batch": 12,
+   "attempts": 3,
+   "chars": 22878,
+   "answers": null,
+   "usage": {},
+   "error": null
+  },
+  {
+   "pass": "A",
+   "batch": 13,
+   "attempts": 3,
+   "chars": 22228,
+   "answers": null,
+   "usage": {},
+   "error": null
+  },
+  {
+   "pass": "A",
+   "batch": 14,
+   "attempts": 3,
+   "chars": 22615,
+   "answers": null,
+   "usage": {},
+   "error": null
+  },
+  {
+   "pass": "A",
+   "batch": 15,
+   "attempts": 3,
+   "chars": 23280,
+   "answers": null,
+   "usage": {},
+   "error": null
+  }
+ ]
+}

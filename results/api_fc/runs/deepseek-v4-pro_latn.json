@@ -1,0 +1,45 @@
+{
+ "model": "deepseek-v4-pro",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "endpoint": "deepinfra/fp8/flex",
+ "alphabet": "latn",
+ "effort": "low",
+ "results": [
+  {
+   "pass": "A",
+   "batch": 0,
+   "attempts": 1,
+   "chars": 23463,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 1,
+   "attempts": 1,
+   "chars": 23131,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 2,
+   "attempts": 1,
+   "chars": 22559,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 3,
+   "attempts": 1,
+   "chars": 25016,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  }
+ ]
+}

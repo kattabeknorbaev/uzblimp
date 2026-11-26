@@ -1,0 +1,395 @@
+{
+ "model": "glm-5.3",
+ "model_id": "z-ai/glm-5.3",
+ "endpoint": "novita/fp8",
+ "alphabet": "cyrl",
+ "effort": "low",
+ "results": [
+  {
+   "pass": "A",
+   "batch": 0,
+   "attempts": 1,
+   "chars": 22343,
+   "answers": "212212212112221122212121121112121221111121221121122112212222121111222111112122112122121112212122122221221212122121121211212212222211121112212222112111",
+   "usage": {
+    "prompt_tokens": 11463,
+    "completion_tokens": 3314,
+    "total_tokens": 14777,
+    "cost": 0.013717746,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.013717746,
+     "upstream_inference_prompt_cost": 0.007156026,
+     "upstream_inference_completions_cost": 0.00656172
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1505,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
+  },
+  {
+   "pass": "A",
+   "batch": 1,
+   "attempts": 1,
+   "chars": 22011,
+   "answers": "222211112111121121222121111211122222212111221221211212211222112112121211222211122122222211222211122111221122111211111221222221221111212211211122111112",
+   "usage": {
+    "prompt_tokens": 11307,
+    "completion_tokens": 3713,
+    "total_tokens": 15020,
+    "cost": 0.014409486,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.014409486,
+     "upstream_inference_prompt_cost": 0.007057746,
+     "upstream_inference_completions_cost": 0.00735174
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1904,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
+  },
+  {
+   "pass": "A",
+   "batch": 2,
+   "attempts": 1,
+   "chars": 21533,
+   "answers": "112122121222111212211221222111122111222211122111112111112111212212122122211111122122212222222211222122111222121121122122122112121222112121211211222112",
+   "usage": {
+    "prompt_tokens": 11070,
+    "completion_tokens": 3432,
+    "total_tokens": 14502,
+    "cost": 0.013703796,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.013703796,
+     "upstream_inference_prompt_cost": 0.006908436,
+     "upstream_inference_completions_cost": 0.00679536
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1623,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
+  },
+  {
+   "pass": "A",
+   "batch": 3,
+   "attempts": 1,
+   "chars": 23886,
+   "answers": "212212112221221112121211111122222212112222222212222111112121122121211112121212221221112112222212221121111121211111121121112221221211212111111221222221",
+   "usage": {
+    "prompt_tokens": 12131,
+    "completion_tokens": 2958,
+    "total_tokens": 15089,
+    "cost": 0.013433706,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.013433706,
+     "upstream_inference_prompt_cost": 0.007576866,
+     "upstream_inference_completions_cost": 0.00585684
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1149,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
+  },
+  {
+   "pass": "A",
+   "batch": 4,
+   "attempts": 1,
+   "chars": 22232,
+   "answers": "111111211121212211212212221111112211222221111112211222222221212221111221122111211221212112111122221222212112122212212222212222122221222212221112221112",
+   "usage": {
+    "prompt_tokens": 11438,
+    "completion_tokens": 4664,
+    "total_tokens": 16102,
+    "cost": 0.016374996,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.016374996,
+     "upstream_inference_prompt_cost": 0.007140276,
+     "upstream_inference_completions_cost": 0.00923472
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 2855,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
+  },
+  {
+   "pass": "A",
+   "batch": 5,
+   "attempts": 1,
+   "chars": 23105,
+   "answers": "112212111211221112111111122211221121222112121112221212221121212122112211112122122221121121122221122222121222111111222121212121112222221112211121222212",
+   "usage": {
+    "prompt_tokens": 11863,
+    "completion_tokens": 3916,
+    "total_tokens": 15779,
+    "cost": 0.015161706,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.015161706,
+     "upstream_inference_prompt_cost": 0.007408026,
+     "upstream_inference_completions_cost": 0.00775368
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 2106,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
+  },
+  {
+   "pass": "A",
+   "batch": 6,
+   "attempts": 1,
+   "chars": 22516,
+   "answers": "111112212211111112112211122122211211121122211221112112212121111222122221212212212211112112211112211221222122122121211111121221212222221221221111212122",
+   "usage": {
+    "prompt_tokens": 11499,
+    "completion_tokens": 1968,
+    "total_tokens": 13467,
+    "cost": 0.011075346,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.011075346,
+     "upstream_inference_prompt_cost": 0.007178706,
+     "upstream_inference_completions_cost": 0.00389664
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 7,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
+  },
+  {
+   "pass": "A",
+   "batch": 7,
+   "attempts": 2,
+   "chars": 22083,
+   "answers": "121111222221211111221121211221222121121122221221221222221111212221112112112221222212121221122122212221222222121121112121111112112122122121111112212121",
+   "usage": {
+    "prompt_tokens": 11359,
+    "completion_tokens": 3688,
+    "total_tokens": 15047,
+    "cost": 0.008647146,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 11328,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.008647146,
+     "upstream_inference_prompt_cost": 0.001344906,
+     "upstream_inference_completions_cost": 0.00730224
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1879,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
+  },
+  {
+   "pass": "A",
+   "batch": 8,
+   "attempts": 1,
+   "chars": 22540,
+   "answers": "221121111112112221122122212212222211112212112222121221222222211122122211221212212211222112212122112212111221112222211111222111211211122211221111211221",
+   "usage": {
+    "prompt_tokens": 11583,
+    "completion_tokens": 4148,
+    "total_tokens": 15731,
+    "cost": 0.015444666,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.015444666,
+     "upstream_inference_prompt_cost": 0.007231626,
+     "upstream_inference_completions_cost": 0.00821304
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 2339,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
+  },
+  {
+   "pass": "A",
+   "batch": 9,
+   "attempts": 1,
+   "chars": 21496,
+   "answers": "122121221112212122121211212211222211222112112211121212221222221111212112212212211121122122222212111122212122212212111121112112122211112221111221211212",
+   "usage": {
+    "prompt_tokens": 11022,
+    "completion_tokens": 4205,
+    "total_tokens": 15227,
+    "cost": 0.015204096,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.015204096,
+     "upstream_inference_prompt_cost": 0.006878196,
+     "upstream_inference_completions_cost": 0.0083259
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 2396,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
+  },
+  {
+   "pass": "A",
+   "batch": 10,
+   "attempts": 1,
+   "chars": 22094,
+   "answers": "221211212112112221112111122222211112211222222111211211221211112221221212222221212111221122211121112222221122111112222122212111111212112122212212112111",
+   "usage": {
+    "prompt_tokens": 11242,
+    "completion_tokens": 21795,
+    "total_tokens": 33037,
+    "cost": 0.050170896,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 128,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.050170896,
+     "upstream_inference_prompt_cost": 0.007016796,
+     "upstream_inference_completions_cost": 0.0431541
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 19986,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "provider": "Novita"
+  },
+  {
+   "pass": "A",
+   "batch": 11,
+   "attempts": 1,
+   "chars": 21864,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 12,
+   "attempts": 1,
+   "chars": 22636,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 13,
+   "attempts": 1,
+   "chars": 22046,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 14,
+   "attempts": 1,
+   "chars": 22389,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  },
+  {
+   "pass": "A",
+   "batch": 15,
+   "attempts": 1,
+   "chars": 23092,
+   "answers": null,
+   "usage": null,
+   "error": "budget"
+  }
+ ]
+}
