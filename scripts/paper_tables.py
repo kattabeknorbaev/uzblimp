@@ -789,7 +789,7 @@ CLAUDE = [("fable", "Fable 5.2", "claude-fable-5-2"), ("opus", "Opus 5.5", "clau
 FC_ALPHABETS = [("latn", "Latin"), ("cyrl", "Cyrillic"), ("latn_reformed", "Reformed")]
 
 
-CODEX = [("gpt", "GPT 6.2 Sol")]  # results/chat/codex/, scripts/codex_fc.py
+CODEX = [("astra", "GPT 6.2 Astra"), ("gpt", "GPT 6.2 Sol")]  # results/chat/codex/, scripts/codex_fc.py
 
 
 def codex_runs(bench):
@@ -931,8 +931,9 @@ def claude_block(bench, judg):
         for _, A in FC_ALPHABETS:
             cells += [cell(pct(runs[(alias, A)].accuracy)), cell(pct(cons[(alias, A)]))]
         lines.append(f"{name} & " + " & ".join(cells) + r" \\")
-    # GPT through Codex, on the same requests (results/chat/codex/): its own row, below the Claude models.
+    # GPT through Codex, on the same requests (results/chat/codex/): their rows, below the Claude models.
     cx = codex_runs(bench)
+    cx_names_alias = [alias for alias, name in CODEX if all((alias, A) in cx for _, A in FC_ALPHABETS)]
     cx_names = [name for alias, name in CODEX if all((alias, A) in cx for _, A in FC_ALPHABETS)]
     for alias, name in CODEX:
         if not all((alias, A) in cx for _, A in FC_ALPHABETS):
@@ -954,14 +955,26 @@ def claude_block(bench, judg):
         cells = []
         for _, A in FC_ALPHABETS:
             cells += [cell(pct(cx[(alias, A)].accuracy)), cell(pct(cx[(alias, A)].consistent.astype(str).eq("True")))]
-        lines += [r"\midrule", f"{name}$^\\ddagger$ & " + " & ".join(cells) + r" \\"]
+        if alias == cx_names_alias[0]:
+            lines.append(r"\midrule")
+        mark = r"$^\ddagger$" if alias == "gpt" else ""
+        lines.append(f"{name}{mark} & " + " & ".join(cells) + r" \\")
+    if not cx_names:
+        cx_and = ""
+    elif len(cx_names) == 1:
+        cx_and = " and " + cx_names[0]
+    else:
+        cx_and = ", " + ", ".join(cx_names[:-1]) + " and " + cx_names[-1]
     gpt_note = (r" $^\ddagger$: through Codex, which from the ninth of its 96 question files judged a view of each pair "
-                r"shortened by a helper it wrote to the differing words and a few words of context (Appendix~\ref{app:claude})." if cx_names else "")
+                r"shortened by a helper it wrote to the differing words and a few words of context (Appendix~\ref{app:claude})."
+                if "GPT 6.2 Sol" in cx_names else "")
+    astra_note = (r" GPT did not, and GPT 6.2 Astra answers every pair correctly in both orders."
+                  if "GPT 6.2 Astra" in cx_names else "")
     lines += [r"\bottomrule", r"\end{tabular}",
-              rf"\caption{{Forced choice with four Claude models{' and ' + cx_names[0] if cx_names else ''} on all {len(bench):,} pairs".replace(",", "{,}") +
+              rf"\caption{{Forced choice with four Claude models{cx_and} on all " + f"{len(bench):,}".replace(",", "{,}") + r" pairs" +
               r" in current Latin, Cyrillic and reformed Latin, each pair shown in both orders (Appendix~\ref{app:claude}). \emph{Acc.}: accuracy (\%) over both orders; "
               r"\emph{Cons.}: pairs answered correctly in both orders (\%). Claude models helped build and audit the "
-              r"benchmark, so their scores are not independent of it." + gpt_note + "}", r"\label{tab:claude}", r"\end{table}"]
+              r"benchmark, so their scores are not independent of it." + astra_note + gpt_note + "}", r"\label{tab:claude}", r"\end{table}"]
     claude = "\n".join(lines)
 
     phen = sorted(bench.phenomenon.unique(), key=lambda ph: [p[0] for p in PHENOMENA].index(ph))
@@ -1028,7 +1041,7 @@ def api_block(bench):
     num("api@full@min", min(full) + 1e-9)
     num("api@full@max", max(full) + 1e-9)
     # Section 6.6: the six chat models that answered every pair (four Claude models, Kimi and GLM)
-    # and GPT through Codex (results/chat/codex/), which answered every pair in both orders.
+    # and the GPT models through Codex (results/chat/codex/), which answered every pair in both orders.
     cx = codex_runs(bench)
     cx_acc = [100 * df.accuracy.mean() for df in cx.values()]
     num("chat@min", min([min(full), float(NUM["fc@all@min"])] + cx_acc) + 1e-9)

@@ -11,7 +11,7 @@ these files with `python scripts/paper_tables.py` and `python scripts/paper_figu
 | `lm/tokenizer_stats.json` | unknown tokens, tokens per sentence and per word | `scripts/run_models.py` |
 | `lm/gpu_runs/` | records of the models scored on GPUs, and our checks (`CHECKS.md`) | the GPU runs |
 | `chat/claude/` | forced choice by four Claude models, every pair in both orders | `scripts/claude_fc.py` |
-| `chat/codex/` | forced choice by GPT 6.2 Sol through OpenAI Codex, every pair in both orders | `scripts/codex_fc.py` |
+| `chat/codex/` | forced choice by GPT 6.2 Sol and GPT 6.2 Astra through OpenAI Codex, every pair in both orders | `scripts/codex_fc.py` |
 | `chat/openrouter/` | forced choice by chat models of other developers | `scripts/api_fc.py` |
 | `chat/gemini_cli/` | how to run Gemini through the Gemini CLI (no results yet) | `scripts/gemini_cli_fc.py` |
 | `human/` | human validation: summary and the released counts | `scripts/human_study_report.py` |
@@ -114,8 +114,9 @@ correctly in both.
 
 GPT 6.2 Sol answered the same requests in both orders through OpenAI Codex: 99.8 (99.6) in current Latin, 99.9 (99.9)
 in Cyrillic and 99.9 (99.9) in reformed Latin. From its ninth request on, Codex judged each pair through a helper it
-wrote that cut the two sentences down to the words that differ and a few words around them
-([`chat/codex/`](chat/codex/README.md)).
+wrote that cut the two sentences down to the words that differ and a few words around them. GPT 6.2 Astra answered
+the same requests with an added instruction to read each pair in full and did not use shortening helpers: 100.0 (100.0)
+in all three alphabets ([`chat/codex/`](chat/codex/README.md)).
 
 Chat models of other developers answered the same requests through OpenRouter, each pair once. Only Kimi and GLM
 answered every pair: DeepSeek V4 Flash and Seed 2.1 Turbo often reasoned until their token limit without answering
