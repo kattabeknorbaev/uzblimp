@@ -30,52 +30,42 @@ configs:
     path: data/jsonl/latn_reformed/*.jsonl
 ---
 
-# UzBLiMP
+<h1 align="center">UzBLiMP</h1>
 
-[Paper](paper/uzblimp.pdf) · [Data](data/) · [Results](results/README.md) · [Citation](#citation)
+<p align="center"><b>Does your language model know Uzbek grammar?</b><br>
+2,400 minimal pairs · 16 phenomena · 3 alphabets · checked by native speakers</p>
 
-A benchmark of 2,400 Uzbek minimal pairs for testing whether a language model prefers the grammatical sentence.
+<p align="center">
+  <a href="paper/uzblimp.pdf">Paper</a> ·
+  <a href="data/">Data</a> ·
+  <a href="results/README.md">Results</a> ·
+  <a href="#citation">Citation</a>
+</p>
 
-2,400 pairs · 16 phenomena · 3 alphabets (current Latin, Cyrillic, reformed Latin) · validated by native speakers
-
-## Example
-
-Only I am afraid of him (`lexical_case`; the verb takes the ablative, not the accusative):
+Each pair is a grammatical Uzbek sentence and a copy with one word made wrong. A model passes the pair if it gives the grammatical one the higher probability. Every pair comes in current Latin, Cyrillic and the new reformed Latin.
 
 ```
-✓  Faqat men undan qoʻrqaman.
-✗  Faqat men uni qoʻrqaman.
+✓  Faqat men undan qoʻrqaman.     "Only I am afraid of him."
+✗  Faqat men uni qoʻrqaman.       (lexical_case: this verb takes the ablative)
 ```
 
-## Results
+<p align="center"><img src="assets/results.svg" width="720" alt="Accuracy of the strongest open models in the three alphabets"></p>
 
-Accuracy (%) on all 2,400 pairs.
-
-| Model | Latin | Cyrillic | Reformed |
-|---|---:|---:|---:|
-| Gemma 4 31B | 97.3 | 98.1 | 90.5 |
-| TahrirchiBERT | 98.7 | 76.8 | 87.3 |
-| Goldfish Latin (full) | 96.7 | 91.7 | – |
-
-Humans: 99.2% of 1,600 judgments. Full tables in [results](results/README.md).
+Strongest open models, accuracy (%) on all 2,400 pairs. Native speakers chose the grammatical sentence in 99.2% of 1,600 judgments. Asked to pick the grammatical sentence, Claude Fable 5.2 and GPT 6.2 Astra score 100% in all three alphabets (Claude helped build the benchmark, so its score is not independent). More in [results](results/README.md).
 
 ## Quickstart
 
-```bash
+```
 pip install -r requirements.txt
 python -c "import pandas as pd; print(pd.read_json('data/jsonl/latn/lexical_case.jsonl', lines=True).head())"
-python scripts/eval.py --model goldfish-models/uzn_latn_100mb --script latn --out my_results
+python scripts/eval.py --model goldfish-models/uzn_latn_100mb --script latn --out my_results  # 95.8%
 ```
 
-This model scores 95.8%, as in the paper.
-
-## Data
-
-One pair per line in `data/jsonl/<latn|cyrl|latn_reformed>/<paradigm>.jsonl`. Details in [data/README.md](data/README.md).
+Data: one pair per line in `data/jsonl/<latn|cyrl|latn_reformed>/<paradigm>.jsonl` ([format](data/README.md)).
 
 ## Citation
 
-```bibtex
+```
 @misc{uzblimp2026,
   title  = {{UzBLiMP}: A Benchmark of Linguistic Minimal Pairs for {U}zbek in Three Alphabets},
   author = {Norbaev, Kattabek and Matniyozov, Javohir},
