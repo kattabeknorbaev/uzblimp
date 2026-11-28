@@ -14,6 +14,8 @@ these files with `python scripts/paper_tables.py` and `python scripts/paper_figu
 | `chat/codex/` | forced choice by GPT 6.2 Sol and GPT 6.2 Astra through OpenAI Codex, every pair in both orders | `scripts/codex_fc.py` |
 | `chat/openrouter/` | forced choice by chat models of other developers | `scripts/api_fc.py` |
 | `chat/gemini_cli/` | how to run Gemini through the Gemini CLI (no results yet) | `scripts/gemini_cli_fc.py` |
+| `chat/antigravity/` | how to run Gemini in Google Antigravity, by hand (no results yet) | `scripts/antigravity_fc.py` |
+| `chat/gemini_app/` | how to run Gemini in the Gemini app, by hand (no results yet) | `scripts/gemini_app_fc.py` |
 | `human/` | human validation: summary and the released counts | `scripts/human_study_report.py` |
 
 Each per-pair file of `lm/` has one row per pair: the pair (`id`, `phenomenon`, `good`, `bad`), the score of each
